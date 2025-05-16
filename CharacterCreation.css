@@ -66,9 +66,12 @@ img.selected {
 
 #characterContainer {
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 90vw;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
 }
+
 
 #characterContainer img {
     position: absolute;
