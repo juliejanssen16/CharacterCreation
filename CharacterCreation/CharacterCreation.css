@@ -1,0 +1,82 @@
+#bodyBaseImage{
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+#controls {
+    margin-bottom: 20px;
+}
+
+.button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #fa72b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #c9508d;
+}
+
+#categoryContainer {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.category {
+    display: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    gap: 10px;
+}
+
+.category img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.category img:hover {
+    transform: scale(1.1);
+}
+
+img.selected {
+    border: 3px solid #fa72b4;
+    border-radius: 5px;
+}
+
+#characterContainer {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#characterContainer img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+
