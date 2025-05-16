@@ -1,4 +1,4 @@
-#bodyBaseImage{
+#bodyBaseImage {
     height: 100%;
     width: 100%;
 }
@@ -8,23 +8,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 5vw;
     background-color: #f0f0f0;
+    box-sizing: border-box;
 }
 
 #controls {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .button {
     margin: 5px;
-    padding: 10px 20px;
+    padding: 1em 1.5em;
     background-color: #fa72b4;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    min-width: 120px;
+    font-size: 1rem;
 }
 
 .button:hover {
@@ -48,8 +55,9 @@ body {
 }
 
 .category img {
-    width: 100px;
-    height: 100px;
+    width: 20vw;
+    max-width: 100px;
+    height: auto;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.2s;
@@ -66,13 +74,11 @@ img.selected {
 
 #characterContainer {
     position: relative;
-    width: 100vw;
-    max-width: 90vh;
+    width: 100%;
+    max-width: 90vmin;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
 }
-
-
 
 #characterContainer img {
     position: absolute;
@@ -83,4 +89,31 @@ img.selected {
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 
+    #controls {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    #categoryContainer {
+        max-width: 100%;
+    }
+
+    .category {
+        padding: 5px;
+    }
+
+    .category img {
+        width: 24vw;
+    }
+}
