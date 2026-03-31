@@ -1,1224 +1,789 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <title>JourHelp — Friendly Guide to Understanding Autism</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <meta
-      name="description"
-      content="JourHelp offers a gentle, pastel-themed guide to understanding autism, self-care, and community resources."
-    />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JourHelp</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239b6dff'/%3E%3Cstop offset='100%25' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23g)'/%3E%3Cpath fill='white' d='M50 75 C50 75 25 58 25 40 C25 30 33 23 42 26 C46 27 49 30 50 33 C51 30 54 27 58 26 C67 23 75 30 75 40 C75 58 50 75 50 75Z'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#9b6dff;--pink:#f472b6;--teal:#34d399;--amber:#fbbf24;
+  --purple-l:rgba(155,109,255,.12);--pink-l:rgba(244,114,182,.12);
+  --card:#fff;--text:#3b2d5e;--text2:#6b5a8a;--text3:#a394c0;
+  --border:rgba(155,109,255,.15);--shadow:rgba(155,109,255,.1);
+  --r:16px;--r-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(135deg,#f0e6ff 0%,#fce4f0 45%,#e8f4ff 100%);min-height:100vh;font-family:'Nunito',sans-serif;color:var(--text);font-size:15px;line-height:1.6}
 
-    <style>
-      :root {
-        --bg: #fff6fb;
-        --panel: rgba(255, 255, 255, 0.9);
-        --panel-strong: rgba(255, 255, 255, 0.98);
-        --text: #2c1f2f;
-        --muted: rgba(44, 31, 47, 0.7);
-        --pink: #ffd7ea;
-        --pink-strong: #ffc1de;
-        --rose: #f7b3c8;
-        --lilac: #e8d6ff;
-        --mint: #c8f6e6;
-        --blue: #d7f0ff;
-        --orange: #ffe2c2;
-        --purple: #e4dcff;
-        --accent: #f283b6;
-        --accent-2: #d58bd9;
+/* ── LAYOUT ── */
+.app{display:flex;flex-direction:column;min-height:100vh}
 
-        --shadow-sm: 0 10px 24px rgba(92, 52, 76, 0.12);
-        --shadow-md: 0 20px 48px rgba(92, 52, 76, 0.14);
-        --border: rgba(92, 52, 76, 0.14);
+/* TOP NAV */
+.topnav{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.brand-icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.brand-name{font-size:1.2rem;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.topnav-spacer{flex:1}
+.topic-tabs{display:flex;gap:.4rem;flex-wrap:wrap}
+.topic-tab{padding:.4rem 1rem;border-radius:50px;border:1.5px solid var(--border);background:rgba(255,255,255,.7);font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .2s}
+.topic-tab.active{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-color:transparent;box-shadow:0 3px 12px rgba(155,109,255,.3)}
+.lang-toggle{display:flex;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:50px;padding:2px;gap:2px}
+.lang-btn{padding:4px 12px;border-radius:50px;border:none;font-family:'Nunito',sans-serif;font-size:.76rem;font-weight:800;cursor:pointer;transition:all .25s;background:transparent;color:var(--text2)}
+.lang-btn.active{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;box-shadow:0 2px 8px rgba(155,109,255,.3)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:.3rem;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:var(--text2);border-radius:2px;display:block;transition:all .3s}
 
-        --r-lg: 28px;
-        --r-md: 18px;
-        --r-sm: 14px;
+/* MAIN AREA */
+.content-area{display:flex;flex:1;max-width:1160px;margin:0 auto;width:100%;padding:1.5rem 1.5rem 3rem}
 
-        --max: 1120px;
-        --pad: clamp(16px, 3vw, 28px);
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;position:sticky;top:5rem;align-self:flex-start;max-height:calc(100vh - 6rem);overflow-y:auto;padding-right:6px;margin-right:1.5rem}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:rgba(155,109,255,.3);border-radius:3px}
+.nav-label{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin:1rem 0 .35rem .5rem}
+.nav-label:first-child{margin-top:0}
+.nav-link{display:flex;align-items:center;gap:.45rem;padding:.38rem .7rem;border-radius:var(--r-sm);font-size:.8rem;font-weight:600;color:var(--text2);text-decoration:none;margin-bottom:1px;transition:all .2s;cursor:pointer;border:1px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-link:hover,.nav-link.act{background:#fff;border-color:var(--border);color:var(--purple);box-shadow:0 2px 10px var(--shadow)}
+.nav-sub{font-size:.76rem;padding:.32rem .7rem .32rem 1rem}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:98;backdrop-filter:blur(2px)}
 
-        --ease: cubic-bezier(0.2, 0.9, 0.2, 1);
-        --dur: 520ms;
+/* MAIN */
+.main{flex:1;min-width:0}
 
-        --font:
-          "OpenDyslexic", "OpenDyslexic3", ui-sans-serif, system-ui,
-          -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
-          "Segoe UI Emoji";
-      }
+/* PAGES */
+.page{display:none}.page.active{display:block}
 
-      * {
-        box-sizing: border-box;
-      }
+/* HERO */
+.hero{background:#fff;border-radius:20px;padding:2.25rem 2rem;margin-bottom:1.25rem;box-shadow:0 4px 24px var(--shadow);border:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(155,109,255,.1),transparent 70%);pointer-events:none}
+.hero-emoji{font-size:2.2rem;margin-bottom:.65rem;display:block}
+.hero-tag{display:inline-block;background:linear-gradient(135deg,rgba(155,109,255,.12),rgba(244,114,182,.12));color:var(--purple);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:3px 12px;border-radius:50px;margin-bottom:.65rem;border:1px solid rgba(155,109,255,.2)}
+.hero h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:.65rem}
+.grad{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:.92rem;color:var(--text2);line-height:1.75;max-width:560px}
+.hero-btns{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.1rem}
+.btn-p{padding:.55rem 1.3rem;border-radius:50px;border:none;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(155,109,255,.3);transition:all .2s}
+.btn-p:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(155,109,255,.4)}
+.btn-o{padding:.55rem 1.3rem;border-radius:50px;border:2px solid var(--purple);background:transparent;color:var(--purple);font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s}
+.btn-o:hover{background:var(--purple-l)}
 
-      html {
-        scroll-behavior: auto;
-      }
+/* SECTIONS */
+.section{background:#fff;border-radius:var(--r);padding:1.6rem;margin-bottom:1.1rem;box-shadow:0 2px 14px var(--shadow);border:1px solid var(--border)}
+.sec-hd{display:flex;align-items:center;gap:.65rem;margin-bottom:1rem}
+.sec-em{font-size:1.4rem;flex-shrink:0}
+.section h2{font-size:1.2rem;font-weight:800;color:var(--text)}
+.section p{font-size:.87rem;color:var(--text2);line-height:1.85;margin-bottom:.7rem}
+.section p:last-child{margin-bottom:0}
+.div{height:2px;background:linear-gradient(90deg,rgba(155,109,255,.15),rgba(244,114,182,.1),transparent);border-radius:2px;margin:0 0 1rem}
 
-      body {
-        margin: 0;
-        font-family: var(--font);
-        color: var(--text);
-        background:
-          radial-gradient(
-            1000px 520px at 12% 6%,
-            rgba(255, 209, 231, 0.9),
-            transparent 55%
-          ),
-          radial-gradient(
-            900px 520px at 92% 10%,
-            rgba(248, 197, 218, 0.8),
-            transparent 52%
-          ),
-          radial-gradient(
-            820px 520px at 50% 98%,
-            rgba(232, 214, 255, 0.55),
-            transparent 55%
-          ),
-          var(--bg);
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.9rem;margin-top:.75rem}
+.card{background:linear-gradient(145deg,#faf8ff,#fff0f8);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;box-shadow:0 2px 10px var(--shadow);transition:transform .2s,box-shadow .2s;cursor:pointer}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(155,109,255,.18)}
+.card-em{font-size:1.3rem;margin-bottom:.45rem;display:block}
+.card-title{font-weight:800;font-size:.84rem;color:var(--text);margin-bottom:.3rem}
+.card-body{font-size:.76rem;color:var(--text2);line-height:1.55}
+.card-more{font-size:.7rem;color:var(--purple);margin-top:.45rem;font-weight:800}
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      a:focus-visible,
-      button:focus-visible {
-        outline: 3px solid rgba(242, 131, 182, 0.65);
-        outline-offset: 3px;
-        border-radius: 12px;
-      }
+/* PILLS */
+.pill-wrap{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+.pill{padding:4px 12px;border-radius:50px;font-size:.74rem;font-weight:700;border:1.5px solid}
+.po{background:#fdf2f8;border-color:rgba(244,114,182,.35);color:#be185d}
+.pc{background:#f5f3ff;border-color:rgba(139,92,246,.3);color:#6d28d9}
+.pp{background:#ecfdf5;border-color:rgba(52,211,153,.35);color:#065f46}
+.pb{background:#fffbeb;border-color:rgba(251,191,36,.35);color:#92400e}
+.sub-lbl{font-size:.72rem;color:var(--text3);margin:1rem 0 .3rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
 
-      .wrap {
-        width: min(var(--max), calc(100% - (var(--pad) * 2)));
-        margin-inline: auto;
-      }
+/* TREAT/TIP */
+.treat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem;margin-top:.75rem}
+.treat-card{background:linear-gradient(145deg,#faf8ff,#fff0f8);border:1px solid var(--border);border-radius:var(--r-sm);padding:.9rem}
+.treat-title{font-size:.8rem;font-weight:800;color:var(--purple);margin-bottom:.3rem}
+.treat-body{font-size:.76rem;color:var(--text2);line-height:1.6}
+.tip-list{list-style:none;margin-top:.65rem}
+.tip-list li{display:flex;gap:.65rem;align-items:flex-start;padding:.5rem 0;border-bottom:1px solid rgba(155,109,255,.1);font-size:.83rem;color:var(--text2);line-height:1.65}
+.tip-list li:last-child{border-bottom:none}
+.tip-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;font-size:.68rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 246, 251, 0.92),
-          rgba(255, 246, 251, 0.62)
-        );
-        border-bottom: 1px solid var(--border);
-      }
+/* FAQ */
+.faq-item{border-bottom:1px solid rgba(155,109,255,.1);padding:.65rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:.86rem;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none}
+.faq-q:hover{color:var(--purple)}
+.faq-arr{font-size:.85rem;color:var(--purple);transition:transform .25s;flex-shrink:0}
+.faq-a{font-size:.82rem;color:var(--text2);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s}
+.faq-item.open .faq-a{max-height:300px;padding-top:.45rem}
+.faq-item.open .faq-arr{transform:rotate(180deg)}
 
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 0;
-        gap: 18px;
-      }
+/* STORIES */
+.story-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.9rem;margin-top:.75rem}
+.story-card{background:linear-gradient(145deg,#faf8ff,#fff5fb);border:1px solid var(--border);border-radius:var(--r);padding:1.3rem;position:relative}
+.story-bq{font-size:2.5rem;line-height:1;color:rgba(155,109,255,.18);font-weight:900;position:absolute;top:.4rem;left:.9rem}
+.story-text{font-size:.81rem;color:var(--text2);line-height:1.75;padding-top:1.3rem;font-style:italic}
+.story-name{font-size:.74rem;font-weight:800;color:var(--purple);margin-top:.65rem}
+.story-tag{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 9px;border-radius:50px;background:var(--purple-l);color:var(--purple);border:1px solid rgba(155,109,255,.2);margin-top:.2rem}
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-      }
+/* CRISIS */
+.crisis-box{background:linear-gradient(135deg,#fff5fb,#f5f0ff);border:2px solid rgba(244,114,182,.25);border-radius:var(--r);padding:1.6rem 1.75rem;margin-bottom:1.1rem;box-shadow:0 4px 18px rgba(244,114,182,.1)}
+.crisis-title{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:.25rem}
+.crisis-sub{font-size:.82rem;color:var(--text2);margin-bottom:.9rem}
+.hotline-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.65rem}
+.hotline{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:.8rem .9rem;box-shadow:0 2px 8px var(--shadow)}
+.hl-country{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:.18rem}
+.hl-name{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.1rem}
+.hl-num{font-size:.95rem;font-weight:800;color:var(--purple)}
+.hl-note{font-size:.68rem;color:var(--text3);margin-top:.08rem;font-weight:600}
 
-      .brandLogo {
-        height: 70px;
-        width: 170px;
-        display: block;
-        object-fit: contain;
-      }
+/* BACK BTN */
+.back-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem 1rem;background:#fff;border:1.5px solid var(--border);border-radius:50px;font-size:.78rem;font-weight:700;color:var(--text2);cursor:pointer;margin-bottom:1.1rem;box-shadow:0 2px 8px var(--shadow);transition:all .2s}
+.back-btn:hover{color:var(--purple);border-color:rgba(155,109,255,.3)}
 
-      .navlinks {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        align-items: center;
-      }
+/* TYPE DETAIL */
+.type-hero{background:#fff;border-radius:var(--r);padding:1.9rem;margin-bottom:1.1rem;box-shadow:0 4px 18px var(--shadow);border:1px solid var(--border)}
+.type-badge{display:inline-block;background:linear-gradient(135deg,rgba(155,109,255,.12),rgba(244,114,182,.12));color:var(--purple);font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:3px 11px;border-radius:50px;margin-bottom:.65rem;border:1px solid rgba(155,109,255,.2)}
+.type-hero h1{font-size:clamp(1.4rem,3.5vw,1.85rem);font-weight:900;color:var(--text);margin-bottom:.55rem}
+.type-hero p{font-size:.88rem;color:var(--text2);line-height:1.8}
+.detail-section{background:#fff;border-radius:var(--r);padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 12px var(--shadow);border:1px solid var(--border)}
+.detail-section h3{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.8rem;display:flex;align-items:center;gap:.45rem}
+.detail-section h3::before{content:'';width:4px;height:15px;border-radius:4px;background:linear-gradient(var(--purple),var(--pink));display:inline-block;flex-shrink:0}
+.detail-section p{font-size:.85rem;color:var(--text2);line-height:1.85;margin-bottom:.65rem}
+.detail-section p:last-child{margin-bottom:0}
+.example-box{background:linear-gradient(145deg,#faf8ff,#fff0f8);border-left:3px solid var(--purple);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:.9rem 1.1rem;margin:.65rem 0;font-size:.83rem;color:var(--text2);line-height:1.8;font-style:italic}
+.example-name{font-size:.72rem;font-weight:800;color:var(--purple);margin-top:.45rem;font-style:normal}
+.thought-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.65rem;margin-top:.65rem}
+.thought-card{background:#fdf2f8;border:1px solid rgba(244,114,182,.2);border-radius:var(--r-sm);padding:.85rem;font-size:.8rem;color:var(--text2);line-height:1.6}
+.thought-card::before{content:'"';font-size:1.6rem;color:rgba(244,114,182,.3);display:block;margin-bottom:.15rem;line-height:1;font-weight:900}
+.trigger-list{list-style:none;margin-top:.5rem}
+.trigger-list li{padding:.35rem 0;border-bottom:1px solid rgba(155,109,255,.07);font-size:.83rem;color:var(--text2);display:flex;gap:.55rem;align-items:flex-start}
+.trigger-list li:last-child{border-bottom:none}
+.trigger-list li::before{content:'✦';color:var(--purple);flex-shrink:0;margin-top:2px;font-size:.65rem}
+.coping-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.65rem;margin-top:.65rem}
+.coping-card{background:linear-gradient(145deg,#f5f3ff,#fdf2f8);border:1px solid rgba(155,109,255,.18);border-radius:var(--r-sm);padding:.9rem}
+.coping-num{font-size:.65rem;font-weight:800;color:var(--purple);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.07em}
+.coping-title{font-size:.82rem;font-weight:800;color:var(--text);margin-bottom:.25rem}
+.coping-body{font-size:.76rem;color:var(--text2);line-height:1.6}
 
-      .chip {
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid var(--border);
-        box-shadow: 0 8px 20px rgba(92, 52, 76, 0.08);
-        transition:
-          transform var(--dur) var(--ease),
-          background var(--dur) var(--ease);
-        font-weight: 650;
-        color: rgba(44, 31, 47, 0.82);
-        display: inline-flex;
-        gap: 10px;
-        align-items: center;
-        white-space: nowrap;
-      }
-      .chip:hover {
-        transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.92);
-      }
-      .chip[data-active="true"] {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 209, 231, 0.95),
-          rgba(232, 214, 255, 0.85)
-        );
-        border-color: rgba(92, 52, 76, 0.2);
-      }
+/* QUIZ */
+.quiz-opt{padding:5px 14px;border-radius:50px;border:1.5px solid rgba(155,109,255,.22);background:rgba(255,255,255,.8);font-family:'Nunito',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .2s}
+.quiz-opt:hover{border-color:var(--purple);color:var(--purple)}
+.quiz-opt.sel{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border-color:transparent;box-shadow:0 3px 10px rgba(155,109,255,.3)}
 
-      .chip .icon {
-        display: inline-grid;
-        place-items: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.85);
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        font-size: 14px;
-      }
+/* RESOURCES */
+.res-card{background:linear-gradient(145deg,#faf8ff,#fff0f8);border:1px solid var(--border);border-radius:var(--r-sm);padding:.9rem}
+.res-name{font-size:.84rem;font-weight:800;color:var(--text);margin-bottom:.1rem}
+.res-author{font-size:.72rem;color:var(--purple);margin-bottom:.35rem;font-weight:700}
+.res-desc{font-size:.77rem;color:var(--text2);line-height:1.6}
 
-      main {
-        padding: 32px 0 70px;
-      }
+/* FOOTER */
+.footer{text-align:center;padding:1.5rem;font-size:.76rem;color:var(--text3);font-weight:600;border-top:1px solid var(--border);background:rgba(255,255,255,.5)}
+.footer a{color:var(--purple);text-decoration:none;font-weight:700}
+.footer a:hover{text-decoration:underline}
 
-      section {
-        margin-top: 36px;
-      }
+/* ORBS */
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;animation:fl 9s ease-in-out infinite}
+.orb1{width:400px;height:400px;top:-130px;right:-100px;background:radial-gradient(circle,rgba(155,109,255,.06),transparent 70%)}
+.orb2{width:300px;height:300px;bottom:5%;left:-100px;background:radial-gradient(circle,rgba(244,114,182,.05),transparent 70%);animation-delay:4s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
-      .hero-panel {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 218, 237, 0.85),
-          rgba(232, 214, 255, 0.75)
-        );
-        border-radius: 32px;
-        padding: clamp(28px, 4vw, 48px);
-        text-align: center;
-        box-shadow: var(--shadow-md);
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        position: relative;
-        overflow: hidden;
-      }
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .sidebar{display:none;position:fixed;top:0;left:0;height:100vh;max-height:100vh;z-index:99;background:linear-gradient(160deg,#f0e6ff,#fce4f0);padding:5rem 1.2rem 2rem;margin:0;width:240px;box-shadow:4px 0 24px rgba(155,109,255,.15)}
+  .sidebar.open{display:block}
+  .sidebar-overlay.open{display:block}
+  .hamburger{display:flex}
+  .content-area{padding:1.2rem 1rem 2rem}
+}
+@media(max-width:600px){
+  .topnav{padding:.6rem 1rem;gap:.6rem}
+  .topic-tab{font-size:.72rem;padding:.35rem .75rem}
+  .brand-name{font-size:1rem}
+  .hero{padding:1.5rem 1.2rem}
+  .section{padding:1.2rem}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .treat-row{grid-template-columns:1fr 1fr}
+  .hotline-grid{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}
+  .thought-grid{grid-template-columns:1fr 1fr}
+  .coping-grid{grid-template-columns:1fr 1fr}
+  .type-hero{padding:1.3rem}
+  .detail-section{padding:1.2rem}
+}
+@media(max-width:400px){
+  .treat-row,.hotline-grid,.thought-grid,.coping-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div><div class="orb orb2"></div>
 
-      .hero-icon {
-        width: 68px;
-        height: 68px;
-        border-radius: 22px;
-        margin: 0 auto 18px;
-        background: rgba(255, 255, 255, 0.85);
-        display: grid;
-        place-items: center;
-        color: var(--accent);
-        font-size: 30px;
-        box-shadow: var(--shadow-sm);
-      }
+<div class="app">
 
-      h1 {
-        margin: 0 0 12px;
-        font-size: clamp(32px, 4vw, 52px);
-        letter-spacing: -0.03em;
-      }
+<!-- TOP NAV -->
+<nav class="topnav">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="brand" href="#">
+    <div class="brand-icon">💗</div>
+    <span class="brand-name">JourHelp</span>
+  </a>
+  <div class="topnav-spacer"></div>
+  <div class="topic-tabs">
+    <button class="topic-tab active" onclick="setTopic('ocd',this)" data-en="OCD" data-nl="OCS">OCD</button>
+    <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('nl')">NL</button>
+  </div>
+</nav>
 
-      h2 {
-        margin: 0;
-        font-size: clamp(22px, 2.4vw, 30px);
-        letter-spacing: -0.02em;
-      }
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-      h3 {
-        margin: 0 0 10px;
-        font-size: 18px;
-        letter-spacing: -0.01em;
-      }
+<!-- CONTENT AREA -->
+<div class="content-area">
 
-      .lead {
-        margin: 0 auto 24px;
-        font-size: clamp(16px, 1.6vw, 19px);
-        color: var(--muted);
-        line-height: 1.6;
-        max-width: 64ch;
-      }
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div id="sidebar-main-links"></div>
+    <div style="margin-top:1.4rem" class="nav-label" id="sidebar-types-label">OCD Types</div>
+    <div id="sidebar-types"></div>
+  </aside>
 
-      .hero-actions {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
+  <!-- MAIN -->
+  <main class="main" id="main-content">
 
-      .btn {
-        padding: 12px 18px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.86);
-        box-shadow: var(--shadow-sm);
-        cursor: pointer;
-        font-weight: 700;
-        transition:
-          transform var(--dur) var(--ease),
-          box-shadow var(--dur) var(--ease);
-        display: inline-flex;
-        gap: 8px;
-        align-items: center;
-      }
-      .btn:hover {
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-md);
-      }
-      .btn.primary {
-        background: linear-gradient(
-          135deg,
-          rgba(247, 179, 200, 0.95),
-          rgba(232, 214, 255, 0.85)
-        );
-      }
+    <!-- OCD HOME -->
+    <div class="page active" id="page-ocd-home">
+      <div class="hero">
+        <span class="hero-emoji">💗</span>
+        <div class="hero-tag" data-en="Awareness Wiki" data-nl="Bewustzijnswiki">Awareness Wiki</div>
+        <h1><span class="grad">OCD</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
+        <p data-en="A compassionate, informative guide to Obsessive-Compulsive Disorder — covering all types, symptoms, treatments, stories, and coping strategies. You are not alone." data-nl="Een begripvolle gids over OCS — alle soorten, symptomen, behandelingen, verhalen en strategieën. Je bent niet alleen.">A compassionate, informative guide to Obsessive-Compulsive Disorder — covering all types, symptoms, treatments, stories, and coping strategies. You are not alone.</p>
+        <div class="hero-btns">
+          <button class="btn-p" onclick="scrollSec('ocd-sec-types')" data-en="Explore Types →" data-nl="Bekijk Soorten →">Explore Types →</button>
+          <button class="btn-o" onclick="showPage('ocd-quiz',null)" data-en="Take the Quiz" data-nl="Doe de Quiz">Take the Quiz</button>
+        </div>
+      </div>
 
-      .section-head {
-        text-align: center;
-        margin-bottom: 22px;
-      }
+      <div class="section" id="ocd-sec-what">
+        <div class="sec-hd"><span class="sec-em">🧠</span><h2 data-en="What is OCD?" data-nl="Wat is OCD?">What is OCD?</h2></div>
+        <div class="div"></div>
+        <p data-en="Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by recurring, unwanted thoughts (obsessions) and repetitive behaviors (compulsions) a person feels driven to perform to reduce anxiety." data-nl="OCS is een psychische aandoening gekenmerkt door terugkerende ongewenste gedachten (obsessies) en dwanghandelingen die iemand gedreven voelt uit te voeren om angst te verminderen.">Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by recurring, unwanted thoughts (obsessions) and repetitive behaviors (compulsions) a person feels driven to perform to reduce anxiety.</p>
+        <p data-en="OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement." data-nl="OCS treft 2–3% van de wereldbevolking. Met de juiste behandeling — voornamelijk ERV-therapie — zien de meeste mensen significante verbetering.">OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement.</p>
+        <p data-en="OCD is not about being 'a little obsessive.' It is a serious condition. The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values." data-nl="OCS gaat niet over 'een beetje perfectionistisch zijn'. De gedachten zijn ongewenst, verontrustend en ego-dystoon — ze voelen volledig in strijd met de echte waarden van de persoon.">OCD is not about being 'a little obsessive.' It is a serious condition. The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values.</p>
+      </div>
 
-      .section-sub {
-        margin: 8px auto 0;
-        color: var(--muted);
-        max-width: 70ch;
-        line-height: 1.6;
-      }
+      <div class="section" id="ocd-sec-types">
+        <div class="sec-hd"><span class="sec-em">📋</span><h2 data-en="Types of OCD" data-nl="Soorten OCD">Types of OCD</h2></div>
+        <div class="div"></div>
+        <p data-en="Click any card to read the full in-depth guide." data-nl="Klik op een kaart om de volledige gids te lezen.">Click any card to read the full in-depth guide.</p>
+        <div class="card-grid" id="ocd-types-grid"></div>
+      </div>
 
-      .grid-4 {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 18px;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-      .grid-2 {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-      }
+      <div class="section" id="ocd-sec-symptoms">
+        <div class="sec-hd"><span class="sec-em">🔍</span><h2 data-en="Symptoms" data-nl="Symptomen">Symptoms</h2></div>
+        <div class="div"></div>
+        <p data-en="OCD symptoms fall into obsessions and compulsions. Most people experience both." data-nl="OCS-symptomen vallen in obsessies en dwanghandelingen. De meeste mensen ervaren beide.">OCD symptoms fall into obsessions and compulsions. Most people experience both.</p>
+        <div class="sub-lbl" data-en="Obsessions" data-nl="Obsessies">Obsessions</div><div class="pill-wrap" id="ocd-pills-obs"></div>
+        <div class="sub-lbl" data-en="Compulsions" data-nl="Dwanghandelingen">Compulsions</div><div class="pill-wrap" id="ocd-pills-comp"></div>
+        <div class="sub-lbl" data-en="Physical & Emotional" data-nl="Fysiek & Emotioneel">Physical & Emotional</div><div class="pill-wrap" id="ocd-pills-phy"></div>
+      </div>
 
-      @media (max-width: 980px) {
-        .grid-4,
-        .grid-3,
-        .grid-2 {
-          grid-template-columns: 1fr;
-        }
+      <div class="section" id="ocd-sec-treatment">
+        <div class="sec-hd"><span class="sec-em">✅</span><h2 data-en="Treatment Options" data-nl="Behandelingsopties">Treatment Options</h2></div>
+        <div class="div"></div>
+        <p data-en="OCD is highly treatable. Most people respond well to ERP therapy and/or medication." data-nl="OCS is goed behandelbaar. De meeste mensen reageren goed op ERV-therapie en/of medicatie.">OCD is highly treatable. Most people respond well to ERP therapy and/or medication.</p>
+        <div class="treat-row" id="ocd-treat-row"></div>
+      </div>
 
-        .nav {
-          flex-direction: column;
-          align-items: flex-start;
-        }
+      <div class="section" id="ocd-sec-tips">
+        <div class="sec-hd"><span class="sec-em">💡</span><h2 data-en="Tips & Coping" data-nl="Tips & Omgaan">Tips & Coping</h2></div>
+        <div class="div"></div>
+        <ul class="tip-list" id="ocd-tip-list"></ul>
+      </div>
 
-        .navlinks {
-          width: 100%;
-          justify-content: flex-start;
-          overflow-x: auto;
-          padding-bottom: 6px;
-        }
-      }
+      <div class="section" id="ocd-sec-stories">
+        <div class="sec-hd"><span class="sec-em">💬</span><h2 data-en="Personal Stories" data-nl="Persoonlijke Verhalen">Personal Stories</h2></div>
+        <div class="div"></div>
+        <p data-en="Real experiences from people living with OCD. Names changed for privacy." data-nl="Echte ervaringen. Namen gewijzigd voor privacy.">Real experiences from people living with OCD. Names changed for privacy.</p>
+        <div class="story-grid" id="ocd-story-grid"></div>
+      </div>
 
-      .card {
-        background: var(--panel);
-        border-radius: var(--r-lg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-sm);
-        padding: 20px;
-        position: relative;
-        overflow: hidden;
-      }
+      <div class="section" id="ocd-sec-faq">
+        <div class="sec-hd"><span class="sec-em">❓</span><h2>FAQ</h2></div>
+        <div class="div"></div>
+        <div id="ocd-faq-list"></div>
+      </div>
 
-      .card-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 16px;
-        display: grid;
-        place-items: center;
-        font-size: 20px;
-        margin-bottom: 14px;
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        background: rgba(255, 255, 255, 0.9);
-      }
+      <div class="crisis-box" id="ocd-sec-crisis">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem">
+          <span style="font-size:1.3rem">🆘</span>
+          <div class="crisis-title" data-en="Need help right now?" data-nl="Heb je nu hulp nodig?">Need help right now?</div>
+        </div>
+        <div class="crisis-sub" data-en="If you are in crisis or struggling, please reach out. You deserve support. 💗" data-nl="Als je het moeilijk hebt, neem dan contact op. Je verdient steun. 💗">If you are in crisis or struggling, please reach out. You deserve support. 💗</div>
+        <div class="hotline-grid" id="ocd-hotline-grid"></div>
+      </div>
+    </div><!-- end ocd home -->
 
-      .card .muted {
-        color: var(--muted);
-        line-height: 1.55;
-        margin: 0 0 16px;
-      }
+    <!-- OCD QUIZ -->
+    <div class="page" id="page-ocd-quiz">
+      <div class="back-btn" onclick="showPage('ocd-home',null)">← <span data-en="Back" data-nl="Terug">Back</span></div>
+      <div class="hero" style="margin-bottom:1.1rem">
+        <span class="hero-emoji">📝</span>
+        <div class="hero-tag" data-en="Self-Assessment" data-nl="Zelfbeoordeling">Self-Assessment</div>
+        <h1><span class="grad" data-en="Could this be OCD?" data-nl="Zou dit OCS kunnen zijn?">Could this be OCD?</span></h1>
+        <p data-en="A reflection tool — not a clinical diagnosis. Always speak to a professional." data-nl="Een reflectiemiddel — geen klinische diagnose. Spreek altijd met een professional.">A reflection tool — not a clinical diagnosis. Always speak to a professional.</p>
+      </div>
+      <div class="section" id="ocd-quiz-container"></div>
+      <div class="section" id="ocd-quiz-result" style="display:none"></div>
+    </div>
 
-      .card-link {
-        font-weight: 700;
-        color: var(--accent);
-        display: inline-flex;
-        gap: 6px;
-        align-items: center;
-      }
+    <!-- OCD RESOURCES -->
+    <div class="page" id="page-ocd-resources">
+      <div class="back-btn" onclick="showPage('ocd-home',null)">← <span data-en="Back" data-nl="Terug">Back</span></div>
+      <div class="hero" style="margin-bottom:1.1rem">
+        <span class="hero-emoji">📚</span>
+        <div class="hero-tag" data-en="Resources" data-nl="Bronnen">Resources</div>
+        <h1><span class="grad" data-en="Further Reading & Help" data-nl="Verder Lezen & Hulp">Further Reading & Help</span></h1>
+        <p data-en="Books, websites, apps, and organisations for OCD." data-nl="Boeken, websites, apps en organisaties voor OCS.">Books, websites, apps, and organisations for OCD.</p>
+      </div>
+      <div id="ocd-resources-content"></div>
+    </div>
 
-      .split-banner {
-        display: grid;
-        gap: 18px;
-      }
+    <!-- OCD TYPE DETAIL -->
+    <div class="page" id="page-ocd-type">
+      <div class="back-btn" onclick="showPage('ocd-home',null)">← <span data-en="Back to OCD overview" data-nl="Terug naar OCS-overzicht">Back to OCD overview</span></div>
+      <div id="ocd-type-detail"></div>
+    </div>
 
-      .callout {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 218, 237, 0.82),
-          rgba(232, 214, 255, 0.78)
-        );
-        border-radius: 32px;
-        padding: clamp(26px, 4vw, 42px);
-        text-align: center;
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        box-shadow: var(--shadow-md);
-      }
+    <!-- AUTISM HOME -->
+    <div class="page" id="page-autism-home">
+      <div class="hero">
+        <span class="hero-emoji">🌟</span>
+        <div class="hero-tag" data-en="Awareness Wiki" data-nl="Bewustzijnswiki">Awareness Wiki</div>
+        <h1><span class="grad" data-en="Autism" data-nl="Autisme">Autism</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
+        <p data-en="A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences." data-nl="Een vriendelijke, begripvolle gids voor het begrijpen van autisme — over kenmerken, sterke punten, sensorische behoeften, diagnose, ondersteuning en echte ervaringen.">A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences.</p>
+        <div class="hero-btns">
+          <button class="btn-p" onclick="scrollSec('aut-sec-what')" data-en="Start Learning →" data-nl="Begin te Leren →">Start Learning →</button>
+          <button class="btn-o" onclick="showPage('autism-quiz',null)" data-en="Take the Quiz" data-nl="Doe de Quiz">Take the Quiz</button>
+        </div>
+      </div>
 
-      .callout h3 {
-        font-size: clamp(24px, 3vw, 32px);
-        margin-bottom: 10px;
-      }
+      <div class="section" id="aut-sec-what">
+        <div class="sec-hd"><span class="sec-em">🌟</span><h2 data-en="What is Autism?" data-nl="Wat is Autisme?">What is Autism?</h2></div>
+        <div class="div"></div>
+        <p data-en="Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that affects how people perceive, process, and interact with the world. It is called a 'spectrum' because it presents differently in every person." data-nl="Autismespectrumstoornis (ASS) is een neurobiologisch verschil dat van invloed is op hoe mensen de wereld waarnemen, verwerken en ermee omgaan. Het wordt een 'spectrum' genoemd omdat het bij elke persoon anders presenteert.">Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that affects how people perceive, process, and interact with the world. It is called a 'spectrum' because it presents differently in every person.</p>
+        <p data-en="Autism is not a disease or something to be 'fixed.' It is a natural variation in human neurology. Autistic people may experience the world more intensely, process information differently, and have unique strengths alongside challenges." data-nl="Autisme is geen ziekte en hoeft niet 'gerepareerd' te worden. Het is een natuurlijke variatie in menselijke neurologie. Autistische mensen ervaren de wereld mogelijk intenser, verwerken informatie anders en hebben unieke sterke punten naast uitdagingen.">Autism is not a disease or something to be 'fixed.' It is a natural variation in human neurology. Autistic people may experience the world more intensely, process information differently, and have unique strengths alongside challenges.</p>
+        <p data-en="About 1 in 36 children is diagnosed with autism. Many people are diagnosed in adulthood — especially women and people who have learned to mask their traits. Early or late, a diagnosis can be life-changing and clarifying." data-nl="Ongeveer 1 op 36 kinderen krijgt de diagnose autisme. Veel mensen krijgen pas op volwassen leeftijd een diagnose — vooral vrouwen en mensen die geleerd hebben hun kenmerken te maskeren. Een diagnose, vroeg of laat, kan levensveranderend en verhelderend zijn.">About 1 in 36 children is diagnosed with autism. Many people are diagnosed in adulthood — especially women and people who have learned to mask their traits. Early or late, a diagnosis can be life-changing and clarifying.</p>
+      </div>
 
-      .accordion {
-        display: grid;
-        gap: 16px;
-      }
+      <div class="section" id="aut-sec-chars">
+        <div class="sec-hd"><span class="sec-em">🧩</span><h2 data-en="Characteristics" data-nl="Kenmerken">Characteristics</h2></div>
+        <div class="div"></div>
+        <p data-en="Autism presents differently in every person, but some common characteristics include differences in social communication, sensory processing, and patterns of interest and routine." data-nl="Autisme presenteert bij elke persoon anders, maar veelvoorkomende kenmerken zijn onder meer verschillen in sociale communicatie, sensorische verwerking en patronen van interesse en routine.">Autism presents differently in every person, but some common characteristics include differences in social communication, sensory processing, and patterns of interest and routine.</p>
+        <div class="sub-lbl" data-en="Social & Communication" data-nl="Sociaal & Communicatie">Social & Communication</div>
+        <div class="pill-wrap" id="aut-pills-social"></div>
+        <div class="sub-lbl" data-en="Sensory" data-nl="Sensorisch">Sensory</div>
+        <div class="pill-wrap" id="aut-pills-sensory"></div>
+        <div class="sub-lbl" data-en="Interests & Routines" data-nl="Interesses & Routines">Interests & Routines</div>
+        <div class="pill-wrap" id="aut-pills-interests"></div>
+        <div class="sub-lbl" data-en="Strengths" data-nl="Sterke Punten">Strengths</div>
+        <div class="pill-wrap" id="aut-pills-strengths"></div>
+      </div>
 
-      details.accordion-item {
-        background: var(--panel-strong);
-        border-radius: var(--r-lg);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow-sm);
-        padding: 0;
-        overflow: hidden;
-      }
+      <div class="section" id="aut-sec-sensory">
+        <div class="sec-hd"><span class="sec-em">🎧</span><h2 data-en="Sensory Processing" data-nl="Sensorische Verwerking">Sensory Processing</h2></div>
+        <div class="div"></div>
+        <p data-en="Many autistic people experience sensory input differently — either hypersensitive (over-responsive) or hyposensitive (under-responsive) to various stimuli. This is not a choice; it is a neurological difference." data-nl="Veel autistische mensen ervaren sensorische input anders — ofwel hypersensitief (overgevoelig) of hyposensitief (ondergevoelig) voor verschillende stimuli. Dit is geen keuze; het is een neurologisch verschil.">Many autistic people experience sensory input differently — either hypersensitive (over-responsive) or hyposensitive (under-responsive) to various stimuli. This is not a choice; it is a neurological difference.</p>
+        <div class="sub-lbl" data-en="Common sensitivities" data-nl="Veelvoorkomende gevoeligheden">Common sensitivities</div>
+        <div class="pill-wrap" id="aut-pills-sens-types"></div>
+        <p style="margin-top:.9rem" data-en="Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously." data-nl="Sensorische overbelasting treedt op wanneer het brein meer input ontvangt dan het kan verwerken, wat leidt tot overweldiging, shutdown of meltdown. Het creëren van sensorisch-vriendelijke omgevingen helpt enorm.">Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously.</p>
+      </div>
 
-      details.accordion-item summary {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 18px 22px;
-        cursor: pointer;
-      }
+      <div class="section" id="aut-sec-diagnosis">
+        <div class="sec-hd"><span class="sec-em">📋</span><h2 data-en="Diagnosis" data-nl="Diagnose">Diagnosis</h2></div>
+        <div class="div"></div>
+        <p data-en="Autism can be diagnosed at any age. Early diagnosis in childhood allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late' and can be profoundly clarifying." data-nl="Autisme kan op elke leeftijd worden gediagnosticeerd. Vroege diagnose in de kindertijd maakt eerder ondersteuning mogelijk, maar veel mensen — met name vrouwen, meisjes en mensen die maskeren — krijgen een diagnose tijdens de adolescentie of op volwassen leeftijd. Een late diagnose is nooit 'te laat' en kan enorm verhelderend zijn.">Autism can be diagnosed at any age. Early diagnosis in childhood allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late' and can be profoundly clarifying.</p>
+        <p data-en="Diagnosis typically involves a detailed assessment by a psychologist or psychiatrist, including observation, questionnaires, and interviews. Many people report that getting a diagnosis helped them understand themselves and access appropriate support." data-nl="Diagnose omvat doorgaans een uitgebreide beoordeling door een psycholoog of psychiater, inclusief observatie, vragenlijsten en interviews. Veel mensen geven aan dat het krijgen van een diagnose hen hielp zichzelf beter te begrijpen en de juiste ondersteuning te vinden.">Diagnosis typically involves a detailed assessment by a psychologist or psychiatrist, including observation, questionnaires, and interviews. Many people report that getting a diagnosis helped them understand themselves and access appropriate support.</p>
+        <p data-en="Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression. It also means many people are underdiagnosed or misdiagnosed." data-nl="Masking — het verbergen of onderdrukken van autistische kenmerken om aan neurotypische verwachtingen te voldoen — komt vooral voor bij vrouwen en meisjes. Het is uitputtend en kan leiden tot burn-out, angst en depressie. Het betekent ook dat veel mensen te weinig of verkeerd worden gediagnosticeerd.">Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression. It also means many people are underdiagnosed or misdiagnosed.</p>
+      </div>
 
-      details.accordion-item summary::-webkit-details-marker {
-        display: none;
-      }
+      <div class="section" id="aut-sec-support">
+        <div class="sec-hd"><span class="sec-em">🤝</span><h2 data-en="Support & Accommodations" data-nl="Ondersteuning & Aanpassingen">Support & Accommodations</h2></div>
+        <div class="div"></div>
+        <p data-en="The best support for autistic people starts with listening, accepting, and asking what they need — not assuming. Support looks different for each person." data-nl="De beste ondersteuning voor autistische mensen begint met luisteren, accepteren en vragen wat ze nodig hebben — niet aannemen. Ondersteuning ziet er voor elke persoon anders uit.">The best support for autistic people starts with listening, accepting, and asking what they need — not assuming. Support looks different for each person.</p>
+        <div class="treat-row" id="aut-support-row"></div>
+      </div>
 
-      .accordion-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        display: grid;
-        place-items: center;
-        font-size: 18px;
-      }
+      <div class="section" id="aut-sec-tips">
+        <div class="sec-hd"><span class="sec-em">💡</span><h2 data-en="Self-Care & Coping Tips" data-nl="Zelfzorg & Copingtips">Self-Care & Coping Tips</h2></div>
+        <div class="div"></div>
+        <ul class="tip-list" id="aut-tip-list"></ul>
+      </div>
 
-      .accordion-title {
-        flex: 1;
-        font-weight: 700;
-      }
+      <div class="section" id="aut-sec-stories">
+        <div class="sec-hd"><span class="sec-em">💬</span><h2 data-en="Personal Stories" data-nl="Persoonlijke Verhalen">Personal Stories</h2></div>
+        <div class="div"></div>
+        <p data-en="Real experiences from autistic people. Names changed for privacy." data-nl="Echte ervaringen van autistische mensen. Namen gewijzigd voor privacy.">Real experiences from autistic people. Names changed for privacy.</p>
+        <div class="story-grid" id="aut-story-grid"></div>
+      </div>
 
-      .accordion-chevron {
-        font-size: 18px;
-        color: rgba(44, 31, 47, 0.6);
-        transition: transform var(--dur) var(--ease);
-      }
+      <div class="section" id="aut-sec-faq">
+        <div class="sec-hd"><span class="sec-em">❓</span><h2>FAQ</h2></div>
+        <div class="div"></div>
+        <div id="aut-faq-list"></div>
+      </div>
+    </div><!-- end autism home -->
 
-      details[open] .accordion-chevron {
-        transform: rotate(180deg);
-      }
+    <!-- AUTISM QUIZ -->
+    <div class="page" id="page-autism-quiz">
+      <div class="back-btn" onclick="showPage('autism-home',null)">← <span data-en="Back" data-nl="Terug">Back</span></div>
+      <div class="hero" style="margin-bottom:1.1rem">
+        <span class="hero-emoji">🌟</span>
+        <div class="hero-tag" data-en="Self-Reflection" data-nl="Zelfreflectie">Self-Reflection</div>
+        <h1><span class="grad" data-en="Could I be autistic?" data-nl="Ben ik misschien autistisch?">Could I be autistic?</span></h1>
+        <p data-en="A reflection tool to help you explore. Not a diagnosis — always consult a professional." data-nl="Een reflectiemiddel. Geen diagnose — raadpleeg altijd een professional.">A reflection tool to help you explore. Not a diagnosis — always consult a professional.</p>
+      </div>
+      <div class="section" id="aut-quiz-container"></div>
+      <div class="section" id="aut-quiz-result" style="display:none"></div>
+    </div>
 
-      .accordion-body {
-        padding: 0 22px 18px 82px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
+    <!-- AUTISM RESOURCES -->
+    <div class="page" id="page-autism-resources">
+      <div class="back-btn" onclick="showPage('autism-home',null)">← <span data-en="Back" data-nl="Terug">Back</span></div>
+      <div class="hero" style="margin-bottom:1.1rem">
+        <span class="hero-emoji">📚</span>
+        <div class="hero-tag" data-en="Resources" data-nl="Bronnen">Resources</div>
+        <h1><span class="grad" data-en="Autism Resources" data-nl="Autisme Bronnen">Autism Resources</span></h1>
+        <p data-en="Books, websites, apps, and communities for autistic people and their loved ones." data-nl="Boeken, websites, apps en gemeenschappen voor autistische mensen en hun naasten.">Books, websites, apps, and communities for autistic people and their loved ones.</p>
+      </div>
+      <div id="aut-resources-content"></div>
+    </div>
 
-      .list {
-        margin: 10px 0 0;
-        padding-left: 20px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
+  </main>
+</div><!-- end content-area -->
 
-      .list li {
-        margin: 8px 0;
-      }
+<!-- FOOTER -->
+<footer class="footer">
+  <p data-en="Made with 💗 by <a href='https://juliejanssen.nl' target='_blank'>Julie Janssen</a> — founder & owner of JourHelp · <a href='mailto:jourhelp@icloud.com'>jourhelp@icloud.com</a>" data-nl="Gemaakt met 💗 door <a href='https://juliejanssen.nl' target='_blank'>Julie Janssen</a> — oprichter & eigenaar van JourHelp · <a href='mailto:jourhelp@icloud.com'>jourhelp@icloud.com</a>">Made with 💗 by <a href="https://juliejanssen.nl" target="_blank">Julie Janssen</a> — founder & owner of JourHelp · <a href="mailto:jourhelp@icloud.com">jourhelp@icloud.com</a></p>
+</footer>
 
-      footer {
-        margin-top: 40px;
-        padding: 24px 0 16px;
-        color: rgba(44, 31, 47, 0.7);
-      }
+</div><!-- end app -->
 
-      .foot {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        border-top: 1px solid var(--border);
-        padding-top: 18px;
-      }
+<script>
+// ── STATE ────────────────────────────────────────────────────
+let lang='en', topic='ocd';
+let ocdQuizAnswers=[], autQuizAnswers=[];
 
-      .floating-chat {
-        position: fixed;
-        right: 28px;
-        bottom: 28px;
-        width: 58px;
-        height: 58px;
-        border-radius: 999px;
-        background: linear-gradient(
-          135deg,
-          rgba(248, 131, 182, 0.95),
-          rgba(212, 141, 216, 0.9)
-        );
-        box-shadow: 0 14px 30px rgba(92, 52, 76, 0.2);
-        display: grid;
-        place-items: center;
-        color: white;
-        font-size: 22px;
-        border: none;
-        cursor: pointer;
-      }
+// ── NAV / PAGES ──────────────────────────────────────────────
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function showPage(id,navEl){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);
+  if(pg)pg.classList.add('active');
+  window.scrollTo(0,0);
+  if(window.innerWidth<=900)document.getElementById('sidebar').classList.remove('open'),document.getElementById('overlay').classList.remove('open');
+  if(navEl){document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('act'));navEl.classList.add('act');}
+}
+function scrollSec(id){setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}),50)}
 
-      .soft-line {
-        height: 3px;
-        width: 32px;
-        border-radius: 999px;
-        background: linear-gradient(
-          90deg,
-          rgba(242, 131, 182, 0.9),
-          rgba(232, 214, 255, 0.9)
-        );
-        margin: 0 auto 12px;
-      }
-
-      .note-card {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        background: rgba(255, 239, 247, 0.9);
-        border-radius: var(--r-lg);
-        padding: 18px 22px;
-        border: 1px solid rgba(247, 179, 200, 0.5);
-        box-shadow: var(--shadow-sm);
-      }
-
-      .note-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 16px;
-        display: grid;
-        place-items: center;
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid rgba(92, 52, 76, 0.12);
-        font-size: 20px;
-      }
-
-      .note-card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .resource-link {
-        font-weight: 700;
-        color: var(--accent);
-        display: inline-flex;
-        gap: 6px;
-        align-items: center;
-      }
-#gameLinks{
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+function setTopic(t,btn){
+  topic=t;
+  document.querySelectorAll('.topic-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  showPage(t+'-home',null);
+  buildSidebar();
 }
 
-    </style>
-  </head>
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute('data-'+l);
+    if(v!==null)el.innerHTML=v;
+  });
+  buildSidebar();
+  renderOCDHome();renderAutismHome();
+  renderOCDQuiz();renderAutQuiz();
+  renderOCDResources();renderAutResources();
+}
 
-  <body>
-    <header>
-      <div class="wrap nav" aria-label="Primary navigation">
-        <div class="brand">
-          <img
-            class="brandLogo"
-            src="YourHelpLogoLong-removebg-preview.png"
-            alt="JourHelp"
-          />
-        </div>
+function buildSidebar(){
+  const isOCD=topic==='ocd';
+  const mainLinks=isOCD?[
+    {page:'ocd-home',emoji:'🏠',en:'Home',nl:'Home'},
+    {page:'ocd-home',emoji:'🧠',en:'What is OCD?',nl:'Wat is OCD?',sec:'ocd-sec-what'},
+    {page:'ocd-home',emoji:'📋',en:'Types of OCD',nl:'Soorten OCD',sec:'ocd-sec-types'},
+    {page:'ocd-home',emoji:'🔍',en:'Symptoms',nl:'Symptomen',sec:'ocd-sec-symptoms'},
+    {page:'ocd-home',emoji:'✅',en:'Treatment',nl:'Behandeling',sec:'ocd-sec-treatment'},
+    {page:'ocd-home',emoji:'💡',en:'Tips & Coping',nl:'Tips & Omgaan',sec:'ocd-sec-tips'},
+    {page:'ocd-home',emoji:'💬',en:'Stories',nl:'Verhalen',sec:'ocd-sec-stories'},
+    {page:'ocd-home',emoji:'❓',en:'FAQ',nl:'FAQ',sec:'ocd-sec-faq'},
+    {page:'ocd-home',emoji:'🆘',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
+    {page:'ocd-quiz',emoji:'📝',en:'Self-Assessment',nl:'Zelfbeoordeling'},
+    {page:'ocd-resources',emoji:'📚',en:'Resources',nl:'Bronnen'}
+  ]:[
+    {page:'autism-home',emoji:'🏠',en:'Home',nl:'Home'},
+    {page:'autism-home',emoji:'🌟',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
+    {page:'autism-home',emoji:'🧩',en:'Characteristics',nl:'Kenmerken',sec:'aut-sec-chars'},
+    {page:'autism-home',emoji:'🎧',en:'Sensory Processing',nl:'Sensorische Verwerking',sec:'aut-sec-sensory'},
+    {page:'autism-home',emoji:'📋',en:'Diagnosis',nl:'Diagnose',sec:'aut-sec-diagnosis'},
+    {page:'autism-home',emoji:'🤝',en:'Support',nl:'Ondersteuning',sec:'aut-sec-support'},
+    {page:'autism-home',emoji:'💡',en:'Self-Care Tips',nl:'Zelfzorgtips',sec:'aut-sec-tips'},
+    {page:'autism-home',emoji:'💬',en:'Stories',nl:'Verhalen',sec:'aut-sec-stories'},
+    {page:'autism-home',emoji:'❓',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
+    {page:'autism-quiz',emoji:'📝',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
+    {page:'autism-resources',emoji:'📚',en:'Resources',nl:'Bronnen'}
+  ];
+  document.getElementById('sidebar-main-links').innerHTML=mainLinks.map(l=>`
+    <a class="nav-link" onclick="showPage('${l.page}',this);${l.sec?`scrollSec('${l.sec}');`:''}">${l.emoji} ${lang==='nl'?l.nl:l.en}</a>`).join('');
+  if(isOCD){
+    document.getElementById('sidebar-types-label').textContent=lang==='nl'?'OCS Soorten':'OCD Types';
+    document.getElementById('sidebar-types-label').style.display='block';
+    document.getElementById('sidebar-types').innerHTML=OCD_TYPES[lang].map(t=>
+      `<a class="nav-link nav-sub" onclick="openOCDType('${t.id}')">${t.emoji} ${t.title}</a>`).join('');
+  }else{
+    document.getElementById('sidebar-types-label').style.display='none';
+    document.getElementById('sidebar-types').innerHTML='';
+  }
+}
 
-        <nav class="navlinks">
-          <a class="chip" href="#home">
-            <span class="icon">🏠</span> Home
-          </a>
-          <a class="chip" href="#learn">
-            <span class="icon">📖</span> Learn
-          </a>
-          <a class="chip" href="#resources">
-            <span class="icon">✨</span> Resources
-          </a>
-          <a class="chip" href="#self-care">
-            <span class="icon">💗</span> Self-Care
-          </a>
-          <a class="chip" href="#faq">
-            <span class="icon">❓</span> FAQ
-          </a>
-        </nav>
-      </div>
-    </header>
+// ── OCD DATA ──────────────────────────────────────────────────
+const OCD_TYPES={
+  en:[
+    {id:"contamination",emoji:"🧼",title:"Contamination OCD",short:"Fear of germs, dirt, or spreading illness.",overview:"Contamination OCD is driven by overwhelming fear of being contaminated by germs, chemicals, bodily fluids, dirt, or illness — and of potentially spreading that contamination to loved ones. The anxiety is not about cleanliness preference; it is driven by a catastrophic sense of danger and responsibility.",detail:"The compulsions typically center on washing, cleaning, and avoidance. A person might wash their hands 50–100 times a day until the skin breaks and bleeds, yet still not feel 'clean enough.' They may avoid touching doorknobs, public surfaces, or even other people.\n\nCrucially, the fear is not always about becoming sick oneself. Many people with contamination OCD are primarily terrified of accidentally harming others — spreading illness to an elderly parent, a newborn, or a vulnerable friend.",examples:[{name:"Emma, 26",text:"Every morning I spent two hours in the shower. I had a specific order — if I lost track, I had to start over. My hands were raw and cracked. I knew logically it was irrational, but the fear felt like a physical alarm I couldn't turn off."},{name:"Tariq, 34",text:"My contamination OCD was about spreading illness to my mother, who had cancer. I refused to visit her for months. I'd spend hours mentally retracing my steps — did I touch something contaminated?"},{name:"Lily, 20",text:"I stopped eating out entirely. If I had the thought 'what if this is contaminated?' while cooking, I'd throw the whole meal away and start again. I lost 8kg in six months."}],thoughts:["What if my hands are still dirty even after washing?","What if I make someone sick and it's my fault?","What if the feeling of being clean never comes back?","What if I just touched something contaminated?"],triggers:["Public restrooms or transport","Touching shared objects","Being near someone who is ill","Hospitals","Cooking for others"],coping:[{num:"01",title:"ERP — the core treatment",body:"Gradually expose yourself to contamination fears without washing. The anxiety peaks and subsides — teaching your brain the danger isn't real."},{num:"02",title:"Delay the ritual",body:"Wait 5 minutes before washing. Gradually increase the delay. This weakens the compulsion-relief loop."},{num:"03",title:"Challenge the catastrophe",body:"What is the realistic probability of harm? OCD inflates risk to 100% — reality is almost never that."},{num:"04",title:"Stop reassurance-seeking",body:"Avoid Googling symptoms or asking others if something is contaminated. Reassurance feeds OCD short-term."},{num:"05",title:"Self-compassion",body:"You are not dirty or dangerous. OCD has convinced you of a lie. Treat yourself with gentleness."}]},
+    {id:"harm",emoji:"🛡️",title:"Harm OCD",short:"Intrusive fears of accidentally or intentionally hurting others.",overview:"Harm OCD involves persistent, unwanted intrusive thoughts about harming oneself or other people. These thoughts are ego-dystonic — completely at odds with the person's actual character. People with harm OCD are often extraordinarily gentle, caring people who are horrified by their own thoughts.",detail:"Intrusive thoughts might involve images of stabbing someone, pushing a person, or losing control. The person does not want these things — the horror and guilt they feel defines OCD. Compulsions include avoiding knives, staying away from certain people, mentally reviewing past actions, confessing, and seeking reassurance.\n\nShame around harm OCD means people suffer in silence for years. This silence delays treatment significantly.",examples:[{name:"Daniel, 29",text:"I stopped cooking because of the knives. Every time I held one, I'd get a vivid image of hurting my partner. I started hiding all the sharp objects in our house. My partner had no idea for over a year."},{name:"Priya, 24",text:"After my baby was born I had constant intrusive thoughts about dropping her or worse. I barely held her for the first two months. I now know this is a very common form of postpartum OCD."},{name:"Sam, 32",text:"I'd mentally replay every conversation to check I hadn't said anything hurtful. I'd call friends to ask if I'd been 'weird' or 'mean' lately. The relief lasted about ten minutes before the doubt started again."}],thoughts:["What if I lose control and hurt someone?","What if I actually want to do this and I'm hiding it from myself?","What if I'm secretly dangerous?","What if I hurt someone and can't remember?"],triggers:["Being near sharp objects or heights","Holding or being close to infants","Driving","Being alone with a vulnerable person","Feeling even mildly angry"],coping:[{num:"01",title:"Understand intrusive thoughts",body:"Intrusive thoughts are universal. OCD latches onto the thoughts that feel most horrifying. Having them means nothing about your character."},{num:"02",title:"Stop avoidance",body:"Avoiding knives or people worsens OCD. Gradual re-exposure teaches your brain the feared outcome won't happen."},{num:"03",title:"Don't confess or seek reassurance",body:"Confessing temporarily relieves guilt but reinforces the OCD cycle."},{num:"04",title:"Name it",body:"'I'm noticing my OCD is sending me a harm thought.' You are not the thought."},{num:"05",title:"Work with an OCD specialist",body:"Harm OCD responds very well to ERP. Don't try to manage this alone."}]},
+    {id:"pureo",emoji:"🌀",title:"Pure O",short:"Primarily intrusive thoughts with hidden mental compulsions.",overview:"'Pure O' is OCD that appears to involve only obsessions with no visible compulsions. In reality, Pure O almost always involves mental (covert) compulsions — internal rituals performed entirely in the mind. Because they're invisible, Pure O is frequently misdiagnosed or dismissed. Average time to diagnosis: 14–17 years.",detail:"Mental compulsions include: mentally reviewing situations to check for danger, mentally reassuring oneself, internally praying or counting, analyzing intrusive thoughts to determine their meaning, and neutralizing thoughts by replacing them with 'good' ones.\n\nPure O themes are often the most stigmatized — fears about one's sexuality, about being a predator, about one's relationship, about harming others. Because the content feels so shameful, people suffer in silence for years.",examples:[{name:"Zoe, 22",text:"I had no visible rituals. But inside my head I was replaying every social interaction of the day. I was mentally checking: am I a good person? I didn't think I had OCD because I wasn't washing my hands."},{name:"Ben, 27",text:"My Pure O centered on intrusive thoughts about my sexual identity. I wasn't confused — I had no real doubt. But OCD kept demanding I check. My therapist explained this is textbook SOCD."},{name:"Mei, 30",text:"Every time a dark thought came I'd mentally say a 'counter-thought' to neutralize it. Nobody could see it but it took up hours of every day."}],thoughts:["What if my thoughts mean I'm secretly a bad person?","What if I can't trust my own mind?","What if analyzing this thought reveals something terrible about me?","What if these thoughts never stop?"],triggers:["Quiet moments","Reading or hearing about OCD themes","Strong emotions","Ambiguous social situations","Being alone"],coping:[{num:"01",title:"Identify mental compulsions",body:"Notice when you mentally review, reassure yourself, or neutralize. These are compulsions — they need to stop."},{num:"02",title:"Sit with uncertainty",body:"OCD demands certainty. Recovery means tolerating 'I don't know' without checking."},{num:"03",title:"Don't analyze the thought",body:"Analyzing an intrusive thought feeds OCD. The thought means nothing. Disengage rather than investigate."},{num:"04",title:"Defusion (ACT)",body:"'I'm having the thought that I'm a bad person' — rather than 'I am a bad person.'"},{num:"05",title:"Find an OCD specialist",body:"Pure O is widely misunderstood. Find someone trained specifically in ERP for Pure O."}]},
+    {id:"checking",emoji:"🔒",title:"Checking OCD",short:"Compulsive need to verify safety repeatedly.",overview:"Checking OCD is a relentless need to verify that something bad hasn't happened or won't happen. The person checks locks, appliances, emails, the stove, their body, or past memories — driven by inflated responsibility and inability to trust their own perception.",detail:"Checking OCD is cruel because checking never resolves the doubt. Each check provides a moment of relief, followed by a new 'but what if?' requiring another check.\n\nChecking can also be mental — replaying memories to verify nothing bad happened. 'Did I run over someone? Let me mentally replay the whole route.' This memory-checking is just as compulsive as physical checking.",examples:[{name:"Hana, 31",text:"Every night before bed I had to check every window, every door, every appliance — in a specific order. If interrupted, I started over. Some nights it took two hours. I was late to work almost every day."},{name:"Leo, 25",text:"My checking was about emails. I'd re-read an email 30 times, send it, then read it in my Sent folder another 20 times. One email could take 2 hours."},{name:"Anya, 38",text:"I'd check my body for symptoms several times a day. The fear that I'd miss something deadly was overwhelming. I'd convince myself I was fine, then ten minutes later: but what if I missed a spot?"}],thoughts:["What if I left the stove on and the house burns down?","What if I said something hurtful in that email?","What if I drove over someone and didn't notice?","What if the lock isn't actually closed?"],triggers:["Leaving the house","Sending emails or messages","Driving","Completing a task with possible consequences","Being 'the responsible one'"],coping:[{num:"01",title:"One check maximum",body:"Allow one check per situation — then commit to leaving. ERP involves reducing even this one check over time."},{num:"02",title:"Delay the check",body:"When the urge hits, wait 10 minutes. Notice the anxiety peaks and then reduces."},{num:"03",title:"Challenge your responsibility",body:"OCD inflates your sense of responsibility. Would you tell a friend to check again? Probably not."},{num:"04",title:"Resist mental replay",body:"Don't mentally retrace your route or replay your actions. This is a mental compulsion."},{num:"05",title:"Trust your perception",body:"Your senses are reliable. The 'doubt' is OCD, not evidence something went wrong."}]},
+    {id:"symmetry",emoji:"⚖️",title:"Symmetry & Order OCD",short:"Need for things to feel perfectly arranged or 'just right'.",overview:"Symmetry and order OCD goes far beyond tidiness. People with this subtype experience intense distress when objects aren't arranged 'just right' — a feeling of profound wrongness that can only be resolved by fixing, arranging, or repeating until a feeling of completeness arrives.",detail:"The key feature is the 'just right' feeling — a subjective sense that something is complete or balanced. Unlike contamination OCD, there may be no specific feared consequence. The person may not be able to explain why it must be done — only that it must.\n\nThis can also involve body symmetry: touching one arm requires touching the other in exactly the same way.",examples:[{name:"Finn, 23",text:"I couldn't enter a room without tapping the doorframe twice on each side. If it didn't feel balanced, I had to tap again. I failed exams not because I didn't know the material but because I spent an hour on the first page."},{name:"Chloe, 28",text:"My OCD was about symmetry in my body. If I brushed my left arm against something, I had to brush my right arm in exactly the same way."},{name:"Ravi, 35",text:"Everything on my desk had to be perfectly parallel. Even when it looked perfect, it sometimes didn't feel right — and I'd have to start over. The feeling of 'rightness' kept moving."}],thoughts:["That's not quite right — I need to fix it.","If I don't get this completeness feeling, something bad will happen.","I just need it to feel balanced — then I can move on.","What if the 'right' feeling never comes?"],triggers:["Asymmetrical objects or arrangements","Interruptions during a ritual","Body movements on one side only","Visual imbalance"],coping:[{num:"01",title:"Resist the 'just right' ritual",body:"Stopping before the 'right' feeling comes is the core ERP intervention. Tolerating incompleteness is the goal."},{num:"02",title:"Deliberately create asymmetry",body:"Intentionally leave something 'off' and resist fixing it."},{num:"03",title:"Recognize the moving goalpost",body:"The 'right' feeling is produced by OCD — it cannot be permanently satisfied."},{num:"04",title:"Label the feeling",body:"'I am experiencing the not-just-right feeling. This is OCD, not a real problem.'"},{num:"05",title:"Set timers",body:"When the timer ends, stop — regardless of whether it 'feels right.'"}]},
+    {id:"scrupulosity",emoji:"🙏",title:"Scrupulosity OCD",short:"Intense fear of sinning or moral failure.",overview:"Scrupulosity OCD is characterized by overwhelming doubt about whether one has sinned, acted immorally, or failed God or one's moral code. It can affect people of any faith — or none. OCD latches onto what the person holds most sacred.",detail:"Religious scrupulosity involves compulsive prayer, confession, or ritual to undo perceived sins. The person may fear they blasphemed in a thought or secretly harbor condemned beliefs.\n\nMoral scrupulosity affects people without strong religious belief too — obsessing over whether one has been dishonest, unfair, or harmful.",examples:[{name:"Naomi, 26",text:"I'd pray the same prayer 40 or 50 times because it didn't feel sincere enough. If I had a blasphemous thought during prayer, I'd start over completely. Church became torture. I loved God — OCD weaponized that love against me."},{name:"Aaron, 33",text:"I'm not religious, but my scrupulosity was about being a good person. I'd lie awake replaying conversations. If I'd said something slightly inaccurate, I'd feel compelled to text the person to correct it — even at midnight."},{name:"Fatima, 29",text:"My OCD convinced me intrusive thoughts during prayer invalidated my worship entirely. When I finally told my imam, he told me such thoughts are recognized in Islamic scholarship — they are not the person's fault."}],thoughts:["What if that thought was blasphemy?","What if God knows I didn't mean that prayer?","What if I'm actually a bad person beneath my values?","What if I committed a sin I can't undo?"],triggers:["Places of worship","Prayer or religious rituals","Moral decisions","Reading about ethics or religion"],coping:[{num:"01",title:"Separate OCD from faith",body:"OCD hijacks what you value. Your faith is not the cause — OCD is the intruder."},{num:"02",title:"Resist re-praying or confessing",body:"One prayer, one confession — then move on."},{num:"03",title:"Consult clergy AND a therapist",body:"Many religious leaders understand OCD. Combine spiritual guidance with OCD-specialist therapy."},{num:"04",title:"Tolerate moral uncertainty",body:"OCD demands certainty that you are good. Recovery means accepting: I'm doing my best."},{num:"05",title:"Challenge the OCD logic",body:"Would a truly immoral person be this distressed about being good? The distress is evidence of your values."}]},
+    {id:"rocd",emoji:"💑",title:"Relationship OCD (ROCD)",short:"Constant doubt about one's partner or relationship.",overview:"ROCD involves persistent, intrusive doubts about one's romantic relationship or partner. The person may love their partner deeply yet be plagued by thoughts questioning whether the love is 'real,' whether the partner is 'right,' or whether they are truly committed.",detail:"ROCD manifests in two ways: partner-focused (obsessing over the partner's perceived flaws) and relationship-focused (questioning the nature of one's own feelings). Compulsions involve mentally comparing, testing feelings, seeking reassurance, researching 'real love,' and avoiding intimacy.\n\nROCD is particularly insidious because the culture of 'following your heart' makes these doubts seem legitimate.",examples:[{name:"Clara, 27",text:"I'd been with my partner for three years and I loved him. But suddenly I was consumed by the thought: 'Do I love him enough?' The more I tried to feel love, the less I could access it. I almost ended a wonderful relationship."},{name:"Jordan, 30",text:"My ROCD focused on my partner's appearance. I'd notice someone attractive and then spiral. I'd spend hours comparing and analyzing — never acting on anything, but the mental torment was constant."},{name:"Mia, 25",text:"I tested my feelings constantly. I'd Google 'how do you know you love someone' obsessively. Each bit of reassurance lasted about 20 minutes before the doubt returned."}],thoughts:["What if I don't really love them?","What if they're not 'the one'?","What if the fact that I'm questioning means it's not right?","What if I'm settling and I'll regret it?"],triggers:["Seeing attractive people","Arguments with partner","Hearing about breakups or divorce","Moments of emotional distance"],coping:[{num:"01",title:"Stop testing feelings",body:"Mentally checking whether you feel love is a compulsion. Stop testing."},{num:"02",title:"Stop reassurance-seeking",body:"Asking your partner if you're right for each other feeds ROCD."},{num:"03",title:"Recognize the OCD pattern",body:"Real relationship doubt is steady and situational. ROCD doubt is intrusive and spikes after temporary relief."},{num:"04",title:"Don't make major decisions mid-OCD",body:"Do not end relationships or make major changes during an OCD spike."},{num:"05",title:"ERP for ROCD",body:"Exposure involves tolerating 'I don't know if this is right' and staying present in the relationship anyway."}]},
+    {id:"health",emoji:"🏥",title:"Health Anxiety OCD",short:"Obsessive fear of having a serious illness.",overview:"Health Anxiety OCD involves persistent, intrusive fears of having a serious or life-threatening illness, driven by the OCD cycle of obsession, compulsion, and temporary relief — followed by escalating doubt.",detail:"Compulsions center on checking: examining the body, Googling symptoms, visiting the doctor excessively, seeking reassurance, and mentally replaying medical information. Each compulsion temporarily reduces anxiety but trains the brain to treat the body as a danger zone.\n\nPeople often shift from one feared illness to another — once reassured about one disease, OCD migrates to a new one.",examples:[{name:"Sophie, 32",text:"I'd find a new symptom every week. A headache meant a brain tumor. Googling everything always made it worse. My GP eventually said, gently, that I needed to talk to a mental health professional."},{name:"David, 40",text:"My fear was ALS. Every twitch and I was convinced it was the beginning of the end. I got three neurology referrals in one year. Each gave me about a week of relief."},{name:"Yuki, 28",text:"I avoided doctors entirely because I was too scared of what they might find. But the mental checking never stopped. The OCD grew unchecked for years."}],thoughts:["What if this headache is a tumor?","What if the doctor missed something?","What if I have a disease developing right now?","What if I die and leave my family?"],triggers:["Physical sensations (normal body noises, twitches)","Reading about illness","Seeing medical content","Someone close getting ill"],coping:[{num:"01",title:"Stop Googling symptoms",body:"Every search leads to worst-case results. Commit to not searching — a core ERP rule."},{num:"02",title:"Limit doctor visits",body:"Agree on appropriate check-up frequency with your GP. Excessive visits maintain OCD."},{num:"03",title:"Body scan awareness",body:"Notice when you are mentally 'scanning' your body. This is a compulsion. Redirect."},{num:"04",title:"Distinguish OCD doubt from real concern",body:"Real symptoms are consistent. OCD symptoms shift and spike after reassurance."},{num:"05",title:"ERP with a specialist",body:"Exposure might involve sitting with a physical sensation without checking. A specialist designs this safely."}]},
+    {id:"pocd",emoji:"🔐",title:"POCD",short:"Distressing intrusive thoughts related to children.",overview:"POCD involves deeply distressing, unwanted intrusive thoughts related to children. The person is horrified by them — they have no desire to act on them. This is the defining feature: the thought is ego-dystonic, entirely unwanted, and causes enormous shame and distress.",detail:"POCD is one of the most stigmatized and least discussed OCD subtypes. People are terrified to tell anyone — including therapists — for fear of being labeled dangerous.\n\nIt is vital to understand: people with POCD are not predators. Research shows that the distress, guilt, and horror felt by someone with POCD is fundamentally incompatible with the psychology of someone who poses a genuine risk.",examples:[{name:"Alex, 28",text:"I was babysitting my nephew and had a sudden, horrifying intrusive thought. I refused to be alone with any child for two years. I've now been in therapy for 18 months and I understand the thought was OCD — and my horror at the thought was exactly what OCD targets in good people."},{name:"Grace, 33",text:"I taught primary school and the thoughts started during a lesson. OCD took my career. An OCD specialist explained that the fact that I was devastated — not aroused — was the clearest sign that this was OCD."},{name:"Tom, 31",text:"I tested myself obsessively to 'check' whether I was attracted to children. Every test increased my anxiety. That's the OCD pattern. Treatment meant stopping the checking — the hardest thing I've ever done."}],thoughts:["What if I want to do this?","What if the fact that I'm checking means I do?","What if I'm a monster and don't know it?","What if I can't trust myself around children?"],triggers:["Being near children","News about abuse","Feeling warmth or affection toward a child","Environments with children"],coping:[{num:"01",title:"Find an OCD specialist — urgently",body:"POCD requires specialist ERP. Do not try to manage this alone. Trained therapists treat this safely and without judgment."},{num:"02",title:"Stop the checking",body:"Mentally checking whether you are attracted to children is a compulsion. Stop."},{num:"03",title:"Stop avoidance",body:"Avoiding children entirely maintains OCD. Gradual, therapist-guided reintroduction is part of recovery."},{num:"04",title:"Understand the research",body:"The profile of someone with POCD is completely different from someone who poses a genuine risk."},{num:"05",title:"You are not your thoughts",body:"The most caring, moral people have the most distressing intrusive thoughts — because OCD targets what you value most."}]},
+    {id:"socd",emoji:"🌈",title:"Sexual Orientation OCD",short:"Intrusive doubts about one's own sexuality.",overview:"SO-OCD involves persistent, intrusive doubts about one's sexual orientation — in someone who does not have genuine uncertainty about their sexuality. It can affect both straight and LGBTQ+ people, and is driven by OCD latching onto identity as a source of anxiety.",detail:"The key distinction from genuine sexual exploration is the nature of the doubt. In SO-OCD, the doubt is intrusive, distressing, and accompanied by compulsive checking — not genuine curiosity.\n\nCompulsions include: mentally reviewing past attractions, monitoring one's response to certain content, seeking reassurance, and avoiding people they fear being attracted to.",examples:[{name:"Chris, 26",text:"I'm straight, in a relationship with a woman I love. Then OCD started asking: 'Are you sure?' I began mentally reviewing every interaction with men. My therapist explained this was SO-OCD — the doubt was not genuine confusion."},{name:"Jade, 29",text:"I'm a lesbian and my SO-OCD told me I wasn't 'really' gay. The idea was distressing not because being straight is bad, but because it felt like losing my identity."},{name:"Marcus, 34",text:"I became hypervigilant about my own reactions to everyone around me. I was never uncertain about my actual orientation — but OCD kept insisting I check again."}],thoughts:["What if I'm gay and haven't admitted it to myself?","What if the fact that I'm thinking about this means something?","What if I'm with the wrong person?","What if I check one more time and get certainty?"],triggers:["Seeing attractive people of a certain gender","LGBTQ+ content or conversations","Close same-gender friendships","Discussions about sexuality"],coping:[{num:"01",title:"Stop checking and testing",body:"Analyzing your responses, reviewing memories — these are compulsions. Every check increases uncertainty."},{num:"02",title:"Tolerate the uncertainty",body:"OCD demands a definitive answer. Recovery means accepting: I don't need certainty to live my life."},{num:"03",title:"Don't avoid",body:"Avoiding people or situations that trigger the doubt maintains OCD."},{num:"04",title:"Notice the OCD pattern",body:"Genuine identity exploration is curious and gradual. SO-OCD is intrusive and spikes with compulsions."},{num:"05",title:"Find an LGBTQ+-affirming OCD therapist",body:"The goal of treatment is to break the compulsion cycle, not to confirm your orientation."}]},
+    {id:"existential",emoji:"🌌",title:"Existential OCD",short:"Obsessive focus on unanswerable philosophical questions.",overview:"Existential OCD involves intrusive, obsessive focus on philosophical questions — 'What is the meaning of life?', 'Do I exist?', 'Is consciousness real?', 'What happens after death?' The distinguishing feature is not intellectual curiosity but anxiety-driven compulsive searching for answers that cannot be found.",detail:"For most people, unanswerable questions are interesting puzzles. For someone with existential OCD, these questions trigger intense anxiety and the compulsion to resolve them — right now, completely, with certainty.\n\nExistential OCD is hard to identify because the content seems intellectually legitimate. People are often told they are 'just overthinkers.'",examples:[{name:"Ellie, 24",text:"I got stuck on 'what's the point of anything?' — not in a depressive way, but in a panicked, frantic way. I'd research philosophy for 6 hours trying to find the answer. Nothing satisfied me. It was like being trapped in a loop with no exit."},{name:"Omar, 31",text:"My existential OCD was about consciousness. 'How do I know I'm real?' I'd need people around me constantly. Being alone was unbearable."},{name:"Isla, 27",text:"I became obsessed with death — specifically 'what happens after.' I read every religion, every philosophy. Each gave me relief for an hour. Then OCD poked a hole in the answer and I'd spiral again."}],thoughts:["What is the meaning of my life?","What if nothing matters?","What if I'm not real?","What if I never find peace with this?"],triggers:["Quiet or still moments","Discussions about death or meaning","Meditation or introspection","Reading philosophy or religion","Waking up at night"],coping:[{num:"01",title:"Accept that answers don't exist",body:"Recovery means practicing: I can live without this answer."},{num:"02",title:"Stop researching",body:"Googling philosophy or meaning is a compulsion. Set firm limits."},{num:"03",title:"Engage with life, not the question",body:"Existential OCD retreats when you are absorbed in activity. Exercise, connection, creative work."},{num:"04",title:"ACT is especially helpful",body:"Acceptance and Commitment Therapy teaches values-based living without requiring answers."},{num:"05",title:"Defuse from the thought",body:"'I'm noticing my OCD is asking me what the meaning of life is again.' You don't need to answer."}]},
+    {id:"sensorimotor",emoji:"🫁",title:"Sensorimotor OCD",short:"Hyper-awareness of automatic body functions.",overview:"Sensorimotor OCD involves hyper-awareness of automatic bodily processes that are normally unconscious — breathing, blinking, swallowing, the heartbeat, eye focus. The person cannot stop noticing the sensation and fears this awareness will never go away.",detail:"The classic entry point is reading about the phenomenon: 'now that you think about it, you're aware of your breathing.' For most people this fades within moments. For someone with sensorimotor OCD, the awareness becomes locked.\n\nCompulsions include constantly monitoring the sensation, performing the bodily function manually, seeking reassurance, and researching whether the awareness will last.",examples:[{name:"Nina, 23",text:"I became aware of my swallowing after reading about it online. Within a week I couldn't stop. I was consciously swallowing every 30 seconds. Eating became a nightmare."},{name:"James, 35",text:"Mine was breathing. I became aware of it and suddenly couldn't breathe 'automatically' anymore. At night I was afraid that if I fell asleep, I'd forget to breathe."},{name:"Priya, 29",text:"I became hyper-aware of my blinking and eye focus. I couldn't watch TV, read, or drive without consciously managing my eyes. It took 6 months before a therapist recognized it as sensorimotor OCD."}],thoughts:["What if I never breathe automatically again?","What if I forget to swallow?","What if this feeling never goes away?","What if my body can't work on its own?"],triggers:["Reading or hearing about bodily awareness","Illness","Anxiety","Meditation or mindfulness","Being told 'just don't think about it'"],coping:[{num:"01",title:"Stop monitoring",body:"Every time you check if you're still aware, you refocus attention on the sensation. Redirect elsewhere — repeatedly."},{num:"02",title:"Engage your attention fully elsewhere",body:"Immersive activity — conversation, exercise, creative work — is the most effective way to restore automaticity."},{num:"03",title:"Accept that awareness doesn't mean danger",body:"Being aware of breathing doesn't mean you'll stop breathing. The awareness is uncomfortable, not dangerous."},{num:"04",title:"Stop manual control",body:"Consciously breathing, swallowing, or blinking is a compulsion. The more you control it, the more OCD says it needs controlling."},{num:"05",title:"Specialist treatment",body:"Sensorimotor OCD responds well to ERP — tolerating the awareness without checking or controlling."}]}
+  ],
+  nl:[
+    {id:"contamination",emoji:"🧼",title:"Besmettings-OCS",short:"Angst voor kiemen, vuil of het verspreiden van ziekte.",overview:"Besmettings-OCS wordt gedreven door overweldigende angst om besmet te raken of besmetting te verspreiden naar dierbaren. De angst is niet over netheid — het is een catastrofaal gevoel van gevaar en verantwoordelijkheid.",detail:"De dwanghandelingen richten zich op wassen, reinigen en vermijden. Iemand kan 50–100 keer per dag handen wassen tot de huid barst en bloedt.\n\nVeel mensen met besmettings-OCS zijn voornamelijk bang om anderen te schaden — een zieke ouder, een pasgeborene, of een kwetsbare vriend besmet te maken.",examples:[{name:"Emma, 26",text:"Elke ochtend bracht ik twee uur door in de douche. Ik had een specifieke volgorde — als ik de draad kwijtraakte, moest ik opnieuw beginnen. Mijn handen waren rauw en gebarsten."},{name:"Tariq, 34",text:"Mijn besmettings-OCS ging over het verspreiden van ziekte naar mijn moeder die kanker had. Ik weigerde haar maandenlang te bezoeken."},{name:"Lily, 20",text:"Als ik tijdens het koken de gedachte had 'wat als dit besmet is?', gooide ik de hele maaltijd weg. Ik verloor 8kg in zes maanden."}],thoughts:["Wat als mijn handen nog vuil zijn na het wassen?","Wat als ik iemand ziek maak en het mijn schuld is?","Wat als het schone gevoel nooit meer terugkomt?","Wat als ik zojuist iets besmets heb aangeraakt?"],triggers:["Openbare toiletten of transport","Gedeelde objecten aanraken","In de buurt van iemand die ziek is","Ziekenhuizen","Koken voor anderen"],coping:[{num:"01",title:"ERV — de kernbehandeling",body:"Stel jezelf bloot aan besmettingsangsten zonder te wassen. De angst piekt en neemt af."},{num:"02",title:"Stel het ritueel uit",body:"Wacht 5 minuten voor je wast. Verhoog de vertraging geleidelijk."},{num:"03",title:"Daag de catastrofe uit",body:"Wat is de realistische kans op schade? OCS vergroot risico tot 100% — de realiteit is bijna nooit zo."},{num:"04",title:"Stop geruststelling zoeken",body:"Vermijd het googelen van symptomen of vragen aan anderen of iets besmet is."},{num:"05",title:"Zelfcompassie",body:"Je bent niet vuil of gevaarlijk. OCS heeft je een leugen wijsgemaakt."}]},
+    {id:"harm",emoji:"🛡️",title:"Beschadigings-OCS",short:"Opdringerige angsten voor het schaden van anderen.",overview:"Beschadigings-OCS omvat aanhoudende, ongewenste opdringerige gedachten over het schaden van zichzelf of anderen. Deze gedachten zijn ego-dystoon — volledig in strijd met het werkelijke karakter van de persoon.",detail:"Opdringerige gedachten kunnen beelden bevatten van het steken van iemand of de controle verliezen. De persoon wil dit niet — de verschrikking en schuld definieert OCS.\n\nSchaamte rond beschadigings-OCS betekent dat mensen jarenlang in stilte lijden.",examples:[{name:"Daniel, 29",text:"Ik stopte met koken vanwege de messen. Elke keer dat ik er een vasthield, kreeg ik een levendig beeld van het schaden van mijn partner."},{name:"Priya, 24",text:"Na de geboorte van mijn baby had ik voortdurend opdringerige gedachten. Ik hield haar de eerste twee maanden nauwelijks vast."},{name:"Sam, 32",text:"Ik herhaalde elke conversatie mentaal om te controleren of ik niets kwetsends had gezegd. De opluchting duurde ongeveer tien minuten."}],thoughts:["Wat als ik de controle verlies en iemand pijn doe?","Wat als ik dit eigenlijk wil en het voor mezelf verberg?","Wat als ik stiekem gevaarlijk ben?","Wat als ik iemand heb gekwetst en het me niet herinner?"],triggers:["In de buurt van scherpe voorwerpen","Vasthouden van baby's","Autorijden","Alleen zijn met kwetsbare personen","Zelfs licht boos voelen"],coping:[{num:"01",title:"Begrijp opdringerige gedachten",body:"Opdringerige gedachten zijn universeel. Ze zeggen niets over je karakter."},{num:"02",title:"Stop vermijding",body:"Messen of mensen vermijden verergert OCS. Geleidelijke herblootstelling helpt."},{num:"03",title:"Beken niet of zoek geen geruststelling",body:"Bekennen verlicht schuld tijdelijk maar versterkt de OCS-cyclus."},{num:"04",title:"Benoem het",body:"'Ik merk dat mijn OCS me een beschadigingsgedachte stuurt.' Jij bent niet de gedachte."},{num:"05",title:"Werk met een OCS-specialist",body:"Beschadigings-OCS reageert zeer goed op ERV. Probeer dit niet alleen."}]},
+    {id:"pureo",emoji:"🌀",title:"Pure O (Puur Obsessioneel)",short:"Voornamelijk opdringerige gedachten met verborgen mentale dwanghandelingen.",overview:"Pure O is OCS dat alleen obsessies lijkt te bevatten zonder zichtbare dwanghandelingen. In werkelijkheid omvat het bijna altijd mentale (verborgen) dwanghandelingen. De gemiddelde tijd tot diagnose is 14–17 jaar.",detail:"Mentale dwanghandelingen zijn: een situatie mentaal herhalen, zichzelf intern geruststellen, intern bidden of tellen, de opdringerige gedachte analyseren.\n\nPure O thema's zijn vaak het meest gestigmatiseerd. Omdat de inhoud zo beschamend aanvoelt, lijden mensen jarenlang in stilte.",examples:[{name:"Zoe, 22",text:"Ik had geen rituelen die iemand kon zien. Maar in mijn hoofd herhaalde ik elke sociale interactie. Ik dacht niet dat ik OCS had omdat ik mijn handen niet waste."},{name:"Ben, 27",text:"Mijn Pure O draaide om opdringerige gedachten over mijn seksuele identiteit. Ik had geen echte twijfel — maar OCS bleef eisen dat ik controleerde."},{name:"Mei, 30",text:"Elke keer dat er een donkere gedachte opkwam, zei ik mentaal een 'tegengedachte'. Niemand kon het zien maar het nam uren van elke dag in beslag."}],thoughts:["Wat als mijn gedachten betekenen dat ik stiekem een slecht persoon ben?","Wat als ik mijn eigen geest niet kan vertrouwen?","Wat als het analyseren van deze gedachte iets vreselijks onthult?","Wat als deze gedachten nooit stoppen?"],triggers:["Stille momenten","Lezen of horen over OCS-thema's","Sterke emoties","Ambigue sociale situaties","Alleen zijn"],coping:[{num:"01",title:"Identificeer mentale dwanghandelingen",body:"Merk op wanneer je mentaal herhaalt, geruststelt of neutraliseert. Dit zijn dwanghandelingen."},{num:"02",title:"Zit met onzekerheid",body:"OCS vraagt om zekerheid. Herstel betekent verdragen: 'ik weet het niet'."},{num:"03",title:"Analyseer de gedachte niet",body:"Een opdringerige gedachte analyseren voert OCS. Loskoppelen in plaats van onderzoeken."},{num:"04",title:"Defusie (ACT)",body:"'Ik heb de gedachte dat ik een slecht persoon ben' — in plaats van 'Ik ben een slecht persoon'."},{num:"05",title:"Vind een OCS-specialist",body:"Pure O wordt veel verkeerd begrepen. Vind iemand getraind in ERV voor Pure O."}]},
+    {id:"checking",emoji:"🔒",title:"Controleer-OCS",short:"Dwangmatige behoefte om de veiligheid herhaaldelijk te verifiëren.",overview:"Controleer-OCS is een meedogenloze behoefte om te verifiëren dat er niets slechts is gebeurd. De persoon controleert sloten, apparaten, e-mails, het fornuis of herinneringen.",detail:"Controleer-OCS is wreed omdat controleren de twijfel nooit oplost. Elke controle biedt opluchting gevolgd door een nieuwe 'maar wat als?'.\n\nControle kan ook mentaal zijn — herinneringen herhalen om te verifiëren dat er niets slechts is gebeurd.",examples:[{name:"Hana, 31",text:"Elke avond voor het slapengaan moest ik elk raam, elke deur, elk apparaat controleren in een specifieke volgorde. Sommige nachten kostte het twee uur."},{name:"Leo, 25",text:"Mijn controle ging over e-mails. Ik zou een e-mail schrijven, hem 30 keer herlezen, versturen, dan nog 20 keer in mijn Verzonden-map lezen. Eén e-mail kon twee uur duren."},{name:"Anya, 38",text:"Ik controleerde mijn lichaam meerdere keren per dag op klachten. Ik wist dat controleren het erger maakte — maar ik kon het niet stoppen."}],thoughts:["Wat als ik het fornuis aan heb gelaten?","Wat als ik iets kwetsends heb geschreven?","Wat als ik over iemand heen ben gereden?","Wat als het slot eigenlijk niet gesloten is?"],triggers:["Het huis verlaten","E-mails of berichten verzenden","Autorijden","Een taak afronden met mogelijke gevolgen","De 'verantwoordelijke persoon' zijn"],coping:[{num:"01",title:"Maximaal één controle",body:"Sta jezelf één controle toe — commit daarna aan vertrekken."},{num:"02",title:"Stel de controle uit",body:"Wacht 10 minuten. Merk op dat de angst piekt en dan afneemt."},{num:"03",title:"Daag je verantwoordelijkheidsgevoel uit",body:"OCS vergroot je gevoel van verantwoordelijkheid. Zou je een vriend vragen opnieuw te controleren? Nee."},{num:"04",title:"Weerstaan mentale herhaling",body:"Herleef je route niet mentaal. Dit is een mentale dwanghandeling."},{num:"05",title:"Vertrouw je waarneming",body:"Je zintuigen zijn betrouwbaar. De 'twijfel' is OCS — geen bewijs dat er iets mis is gegaan."}]},
+    {id:"symmetry",emoji:"⚖️",title:"Symmetrie & Orde OCS",short:"Behoefte aan perfecte ordening of 'precies goed' voelen.",overview:"Symmetrie en orde OCS gaat veel verder dan netheid. Mensen met dit subtype ervaren intense nood wanneer objecten niet 'precies goed' zijn gerangschikt.",detail:"Het kernkenmerk is het 'precies goed'-gevoel. Er hoeft geen specifiek gevreesd gevolg te zijn — alleen dat het gedaan moet worden.\n\nDit kan ook lichaamsymmetrie omvatten: het aanraken van één arm vereist het aanraken van de andere op exact dezelfde manier.",examples:[{name:"Finn, 23",text:"Ik kon geen kamer binnengaan zonder de deurpost twee keer aan elke kant te tikken. Als het niet evenwichtig aanvoelde, moest ik opnieuw tikken."},{name:"Chloe, 28",text:"Mijn OCS ging over symmetrie in mijn lichaam. Als ik mijn linkerarm ergens tegen streek, moest ik mijn rechterarm op precies dezelfde manier strijken."},{name:"Ravi, 35",text:"Alles op mijn bureau moest perfect evenwijdig zijn. Zelfs als het er perfect uitzag, voelde het soms niet goed — en ik moest opnieuw beginnen."}],thoughts:["Dat klopt niet helemaal — ik moet het oplossen.","Als ik dit gevoel van compleetheid niet krijg, zal er iets ergs gebeuren.","Ik moet het gewoon evenwichtig laten aanvoelen.","Wat als het 'goede' gevoel nooit komt?"],triggers:["Asymmetrische objecten","Onderbrekingen tijdens een ritueel","Lichaamsbewegingen aan één kant","Visueel onevenwicht"],coping:[{num:"01",title:"Weerstaan het 'precies goed'-ritueel",body:"Een ritueel stoppen vóór het 'goede' gevoel komt is de kern-ERV-interventie."},{num:"02",title:"Maak bewust asymmetrie",body:"Laat als blootstellingsoefening bewust iets 'niet goed' en weerstaan het oplossen."},{num:"03",title:"Herken de verschuivende doelpaal",body:"Het 'goede' gevoel kan niet permanent worden bevredigd."},{num:"04",title:"Benoem het gevoel",body:"'Ik ervaar het niet-precies-goed-gevoel. Dit is OCS, geen echt probleem.'"},{num:"05",title:"Begrens tijd voor taken",body:"Als de timer afloopt, stop — ongeacht of het 'goed' aanvoelt."}]},
+    {id:"scrupulosity",emoji:"🙏",title:"Scrupulositeit OCS",short:"Intense angst voor zonde of moreel falen.",overview:"Scrupulositeit OCS wordt gekenmerkt door overweldigende twijfel over of men gezondigd heeft of God of de eigen morele code heeft gefaald. Het kan bij mensen van elk geloof voorkomen — of geen geloof.",detail:"Religieuze scrupulositeit omvat dwangmatig bidden of biechten om vermeende zonden ongedaan te maken.\n\nMorele scrupulositeit treft ook mensen zonder sterk religieus geloof — obsessief focussen op of men oneerlijk of schadelijk is geweest.",examples:[{name:"Naomi, 26",text:"Ik bad hetzelfde gebed 40 of 50 keer omdat het niet oprecht genoeg aanvoelde. Als ik een godslasterlijke gedachte had tijdens het bidden, begon ik helemaal opnieuw. Kerk werd een kwelling."},{name:"Aaron, 33",text:"Ik ben niet religieus, maar mijn scrupulositeit ging over een goed persoon zijn. Als ik iets enigszins onnauwkeurigs had gezegd, voelde ik me gedwongen om het te corrigeren — zelfs om middernacht."},{name:"Fatima, 29",text:"Mijn OCS overtuigde me dat opdringerige gedachten tijdens het gebed mijn aanbidding volledig ongeldig maakten. Mijn imam vertelde me dat dit in islamitische wetenschap wordt erkend."}],thoughts:["Wat als die gedachte godslastering was?","Wat als God weet dat ik het gebed niet echt meende?","Wat als ik stiekem een slecht persoon ben?","Wat als ik een zonde heb begaan die ik niet ongedaan kan maken?"],triggers:["Gebedsplaatsen","Gebed of religieuze rituelen","Morele beslissingen","Lezen over ethiek of religie"],coping:[{num:"01",title:"Scheid OCS van geloof",body:"OCS kaapt wat je waardeert. Je geloof is niet de oorzaak — OCS is de indringer."},{num:"02",title:"Weerstaan hergebed of biechten",body:"Één gebed, één biecht — en dan doorgaan."},{num:"03",title:"Raadpleeg geestelijken EN een therapeut",body:"Combineer spirituele begeleiding met OCS-specialistische therapie."},{num:"04",title:"Verdraag morele onzekerheid",body:"OCS eist zekerheid dat je goed bent. Herstel betekent accepteren: ik doe mijn best."},{num:"05",title:"Daag de OCS-logica uit",body:"Zou een werkelijk immoreel persoon zo verontrust zijn over goed zijn? De verontrusting is bewijs van je waarden."}]},
+    {id:"rocd",emoji:"💑",title:"Relatie-OCS (ROCS)",short:"Voortdurende twijfel over de partner of relatie.",overview:"ROCS omvat aanhoudende, opdringerige twijfels over de romantische relatie of partner. De persoon kan diep van zijn/haar partner houden, maar wordt geplaagd door twijfels over of de liefde 'echt' is.",detail:"ROCS manifesteert zich op twee manieren: partnergericht (obsessief focussen op vermeende gebreken) en relatiegericht (het in twijfel trekken van de eigen gevoelens).\n\nROCS is bijzonder verraderlijk omdat de cultuur van 'je hart volgen' deze twijfels legitiem laat lijken.",examples:[{name:"Clara, 27",text:"Ik was drie jaar samen met mijn partner en ik hield van hem. Maar plotseling was ik verslonden door de gedachte: 'Houd ik genoeg van hem?' Ik stond op het punt een geweldige relatie te beëindigen."},{name:"Jordan, 30",text:"Mijn ROCS richtte zich op het uiterlijk van mijn partner. Ik merkte iemand aantrekkelijk op en spiraleerde dan. Ik bracht uren door met vergelijken en analyseren."},{name:"Mia, 25",text:"Ik testte mijn gevoelens voortdurend. Elk beetje geruststelling duurde ongeveer 20 minuten voordat de twijfel terugkwam."}],thoughts:["Wat als ik niet echt van ze houd?","Wat als zij/hij niet 'de ware' is?","Wat als het feit dat ik twijfel betekent dat het niet goed is?","Wat als ik spijt zal krijgen?"],triggers:["Aantrekkelijke mensen zien","Ruzies met partner","Horen over scheiding","Momenten van emotionele afstand"],coping:[{num:"01",title:"Stop met gevoelens testen",body:"Mentaal 'controleren' of je liefde voelt is een dwanghandeling."},{num:"02",title:"Stop geruststelling zoeken",body:"Vragen aan je partner of jullie goed bij elkaar passen voedt ROCS."},{num:"03",title:"Herken het OCS-patroon",body:"Echte relatietwijfel is gestaag. ROCS-twijfel piekt na tijdelijke opluchting."},{num:"04",title:"Neem geen grote beslissingen tijdens OCS",body:"Beëindig relaties niet tijdens een actieve OCS-piek."},{num:"05",title:"ERV voor ROCS",body:"Blootstelling omvat het verdragen van twijfel zonder te controleren."}]},
+    {id:"health",emoji:"🏥",title:"Gezondheidsangst OCS",short:"Obsessieve angst voor het hebben van een ernstige ziekte.",overview:"Gezondheidsangst OCS omvat aanhoudende, opdringerige angsten voor het hebben van een ernstige ziekte, aangedreven door de OCS-cyclus.",detail:"Dwanghandelingen richten zich op controleren: het lichaam onderzoeken, googelen op symptomen, overmatig de dokter bezoeken.\n\nMensen verschuiven vaak van de ene gevreesde ziekte naar de andere — zodra ze geruststelling krijgen, migreert OCS naar een nieuwe ziekte.",examples:[{name:"Sophie, 32",text:"Elke week vond ik een nieuw symptoom. Een hoofdpijn betekende een hersentumor. Googelen maakte het altijd erger. Mijn huisarts zei vriendelijk dat ik een GGZ-professional moest raadplegen."},{name:"David, 40",text:"Mijn angst was ALS. Elke spiertrekking en ik was ervan overtuigd dat het het begin van het einde was. Ik liet me in één jaar drie keer doorverwijzen naar de neurologie."},{name:"Yuki, 28",text:"Ik vermeed artsen volledig uit angst voor wat ze zouden vinden. Maar het mentale controleren stopte nooit."}],thoughts:["Wat als deze hoofdpijn een tumor is?","Wat als de dokter iets heeft gemist?","Wat als ik nu een ziekte heb die zich ontwikkelt?","Wat als ik sterf en mijn familie achterlaat?"],triggers:["Lichamelijke gewaarwordingen","Lezen over ziekte","Medische inhoud op tv","Iemand dicht bij je die ziek wordt"],coping:[{num:"01",title:"Stop met googelen op symptomen",body:"Elke zoekopdracht leidt tot worst-case-resultaten. Verbied jezelf te zoeken."},{num:"02",title:"Begrens doktersbezoeken",body:"Overmatige bezoeken houden OCS in stand."},{num:"03",title:"Lichaamsscan-bewustzijn",body:"Merk op wanneer je je lichaam 'scant'. Dit is een mentale dwanghandeling."},{num:"04",title:"Onderscheid OCS-twijfel van echte zorg",body:"OCS-symptomen verschuiven en pieken na geruststelling. Echte symptomen zijn consistent."},{num:"05",title:"ERV met een specialist",body:"Blootstelling kan inhouden dat je met een gewaarwording zit zonder te controleren."}]},
+    {id:"pocd",emoji:"🔐",title:"POCS",short:"Verontrustende opdringerige gedachten gerelateerd aan kinderen.",overview:"POCS omvat diep verontrustende, ongewenste opdringerige gedachten gerelateerd aan kinderen. De persoon is er diep door ontdaan — ze hebben geen verlangen om ernaar te handelen.",detail:"POCS is een van de meest gestigmatiseerde en minst besproken OCS-subtypes.\n\nHet is van vitaal belang te begrijpen: mensen met POCS zijn geen daders. Onderzoek toont aan dat de nood en verschrikking van iemand met POCS fundamenteel onverenigbaar is met de psychologie van iemand die een echt risico vormt.",examples:[{name:"Alex, 28",text:"Ik paste op mijn neefje en had een plotselinge, verschrikkelijke opdringerige gedachte. Ik weigerde twee jaar lang alleen met een kind te zijn. Ik weet nu dat mijn verschrikking over de gedachte precies is wat OCS richt op goede mensen."},{name:"Grace, 33",text:"Ik gaf les op de basisschool en de opdringerige gedachten begonnen tijdens een les. OCS nam mijn carrière weg. Een OCS-specialist legde uit dat het feit dat ik kapotgemaakt was het duidelijkste teken was dat dit OCS was."},{name:"Tom, 31",text:"Ik testte mezelf obsessief. Elke test verhoogde mijn angst in plaats van het op te lossen. Behandeling betekende stoppen met controleren — het moeilijkste wat ik ooit heb gedaan."}],thoughts:["Wat als ik dit wil?","Wat als het feit dat ik controleer betekent dat ik het doe?","Wat als ik een monster ben en het niet weet?","Wat als ik mezelf niet kan vertrouwen in de buurt van kinderen?"],triggers:["In de buurt van kinderen zijn","Nieuws over misbruik","Warmte of genegenheid voelen voor een kind","Omgevingen met kinderen"],coping:[{num:"01",title:"Vind dringend een OCS-specialist",body:"POCS vereist specialist-ERV. Probeer dit niet alleen te beheren."},{num:"02",title:"Stop het controleren",body:"Mentaal controleren maakt OCS erger en lost de twijfel nooit op."},{num:"03",title:"Stop vermijding",body:"Kinderen volledig vermijden handhaaft OCS. Geleidelijke herblootstelling maakt deel uit van herstel."},{num:"04",title:"Begrijp het onderzoek",body:"Je nood is bewijs van je karakter, niet van een risico."},{num:"05",title:"Jij bent niet je gedachten",body:"OCS richt op wat je het meest waardeert. Je verschrikking is je goedheid."}]},
+    {id:"socd",emoji:"🌈",title:"Seksuele Oriëntatie OCS",short:"Opdringerige twijfels over de eigen geaardheid.",overview:"SO-OCS omvat aanhoudende, opdringerige twijfels over iemands seksuele oriëntatie bij iemand die geen echte onzekerheid heeft. Het kan zowel hetero- als LGBTQ+-mensen treffen.",detail:"Het onderscheid met echte seksuele verkenning is de aard van de twijfel. Bij SO-OCS is de twijfel opdringend, verontrustend en vergezeld van dwangmatig controleren.\n\nDwanghandelingen zijn: vroegere attracties mentaal herhalen, bepaalde inhoud bekijken en de eigen reactie monitoren, geruststelling zoeken.",examples:[{name:"Chris, 26",text:"Ik ben hetero, in een relatie met een vrouw van wie ik houd. Toen begon OCS te vragen: 'Weet je het zeker?' Mijn therapeut legde uit dat dit SO-OCS was — de twijfel was geen echte verwarring."},{name:"Jade, 29",text:"Ik ben lesbisch en mijn SO-OCS vertelde me dat ik niet 'echt' gay was. Het idee was voor mij verontrustend — niet omdat hetero zijn slecht zou zijn, maar omdat het aanvoelde als het verliezen van mijn identiteit."},{name:"Marcus, 34",text:"Ik werd hyperwaakzaam over mijn eigen reacties op iedereen om me heen. Ik was nooit onzeker over mijn werkelijke oriëntatie — maar OCS bleef eisen dat ik controleerde."}],thoughts:["Wat als ik gay ben en het mezelf niet heb toegegeven?","Wat als het feit dat ik hierover nadenk iets betekent?","Wat als ik bij de verkeerde persoon ben?","Wat als ik één keer meer controleer en eindelijk zekerheid krijg?"],triggers:["Aantrekkelijke mensen zien","LGBTQ+-inhoud of gesprekken","Hechte vriendschappen","Gesprekken over seksualiteit"],coping:[{num:"01",title:"Stop controleren en testen",body:"Reacties analyseren, herinneringen herhalen — dit zijn dwanghandelingen. Elke controle vergroot onzekerheid."},{num:"02",title:"Verdraag de onzekerheid",body:"OCS eist een definitief antwoord. Herstel betekent accepteren: ik heb geen zekerheid nodig."},{num:"03",title:"Vermijd niet",body:"Mensen of situaties vermijden handhaaft OCS."},{num:"04",title:"Merk het OCS-patroon op",body:"Echte identiteitsverkenning is nieuwsgierig en geleidelijk. SO-OCS is opdringend en verontrustend."},{num:"05",title:"Vind een LGBTQ+-bevestigende OCS-therapeut",body:"Het doel is het doorbreken van de dwangcyclus, niet het bevestigen van je oriëntatie."}]},
+    {id:"existential",emoji:"🌌",title:"Existentiële OCS",short:"Obsessieve focus op onbeantwoordbare filosofische vragen.",overview:"Existentiële OCS omvat opdringerige, obsessieve focus op filosofische vragen — 'Wat is de zin van het leven?', 'Besta ik echt?'. Het onderscheidende kenmerk is angstgedreven dwangmatig zoeken naar antwoorden die niet kunnen worden gevonden.",detail:"Voor de meeste mensen zijn onbeantwoordbare vragen interessante puzzels. Voor iemand met existentiële OCS triggeren ze intense angst en de dwang om ze op te lossen — nu, volledig, met zekerheid.\n\nExistentiële OCS is moeilijk te herkennen omdat de inhoud intellectueel legitiem lijkt.",examples:[{name:"Ellie, 24",text:"Ik raakte vast op 'wat is het punt van alles?' — niet depressief, maar paniekerig en wanhopig. Ik onderzocht filosofie 6 uur achter elkaar. Niets bevredigde me."},{name:"Omar, 31",text:"Mijn existentiële OCS ging over bewustzijn. Ik had de hele tijd mensen om me heen nodig als geruststelling dat de werkelijkheid echt was. Alleen zijn was ondraaglijk."},{name:"Isla, 27",text:"Ik werd geobsedeerd door de dood — specifiek 'wat er na komt.' Ik las elke religie, elke filosofie. Elk gaf me een uur opluchting. Dan prikte OCS een gat in het antwoord."}],thoughts:["Wat is de zin van mijn leven?","Wat als niets er toe doet?","Wat als ik niet echt ben?","Wat als ik hier nooit vrede mee krijg?"],triggers:["Stille of rustige momenten","Gesprekken over dood of betekenis","Meditatie of introspectie","Filosofie of religie lezen","'s Nachts wakker worden"],coping:[{num:"01",title:"Accepteer dat antwoorden niet bestaan",body:"Herstel betekent oefenen: ik kan leven zonder dit antwoord."},{num:"02",title:"Stop met onderzoeken",body:"Filosofie googelen is een dwanghandeling. Stel vaste limieten aan onderzoekstijd."},{num:"03",title:"Leef het leven in plaats van de vraag",body:"Lichaamsbeweging, verbinding, creatief werk zijn het tegengif."},{num:"04",title:"ACT is bijzonder nuttig",body:"Acceptance en Commitment Therapie leert waarden-gebaseerd leven zonder antwoorden."},{num:"05",title:"Loskoppelen van de gedachte",body:"'Ik merk dat mijn OCS me opnieuw vraagt wat de zin van het leven is.' Je hoeft niet te antwoorden."}]},
+    {id:"sensorimotor",emoji:"🫁",title:"Sensorimotor OCS",short:"Hyperawareness van automatische lichaamsfuncties.",overview:"Sensorimotor OCS omvat hyperawareness van automatische lichaamsprocessen die normaal onbewust zijn — ademhalen, knipperen, slikken, de hartslag. De persoon kan niet stoppen met het opmerken van de gewaarwording en is bang dat dit bewustzijn nooit meer weggaat.",detail:"Het klassieke startpunt is lezen over het fenomeen: 'nu je erover nadenkt, ben je je bewust van je ademhaling.' Voor de meeste mensen vervaagt dit snel. Voor iemand met sensorimotor OCS wordt het bewustzijn vergrendeld.\n\nDwanghandelingen zijn: de gewaarwording constant monitoren, de lichaamsfunctie handmatig uitvoeren, geruststelling zoeken.",examples:[{name:"Nina, 23",text:"Ik werd me bewust van mijn slikken na er online over te hebben gelezen. Binnen een week kon ik niet meer stoppen. Eten werd een nachtmerrie."},{name:"James, 35",text:"Bij mij was het ademhalen. Ik werd me ervan bewust en kon plotseling niet meer 'automatisch' ademhalen. 's Nachts was ik bang dat ik zou vergeten te ademen."},{name:"Priya, 29",text:"Ik werd hypergeattend op mijn knipogen en oogfocus. Het duurde 6 maanden voordat een therapeut het herkende als sensorimotor OCS."}],thoughts:["Wat als ik nooit meer automatisch adem?","Wat als ik vergeet te slikken?","Wat als dit gevoel nooit weggaat?","Wat als mijn lichaam niet op zichzelf kan werken?"],triggers:["Lezen of horen over lichamelijk bewustzijn","Ziekte","Angst","Meditatie of mindfulness","'Denk er gewoon niet aan'"],coping:[{num:"01",title:"Stop monitoren",body:"Elke keer dat je controleert of je nog steeds bewust bent, richt je de aandacht opnieuw op de gewaarwording."},{num:"02",title:"Bezig houd je aandacht volledig elders",body:"Meeslepende activiteit is de meest effectieve manier om automaticiteit te herstellen."},{num:"03",title:"Accepteer dat bewustzijn geen gevaar betekent",body:"Het bewustzijn is ongemakkelijk, niet gevaarlijk."},{num:"04",title:"Stop handmatige controle",body:"Bewust ademhalen of slikken is een dwanghandeling."},{num:"05",title:"Specialistische behandeling",body:"Sensorimotor OCS reageert goed op ERV — tolereren van het bewustzijn zonder controleren."}]}
+  ]
+};
 
-    <main id="content" class="wrap">
-      <section id="home">
-        <div class="hero-panel">
-          <div class="hero-icon">💗</div>
-          <p class="soft-line" aria-hidden="true"></p>
-          <h1>Your Friendly Guide to Understanding Autism</h1>
-          <p class="lead">
-            A safe, supportive space to learn, connect, and find resources.
-            We're here to help you on your journey with understanding and
-            compassion.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#learn">Start Learning →</a>
-            <a class="btn" href="#resources">View Resources</a>
-          </div>
-        </div>
+const OCD_DATA={
+  en:{
+    obs:["Fear of contamination","Intrusive violent thoughts","Doubt & uncertainty","Fear of sinning","Unwanted sexual thoughts","Need for symmetry","Fear of losing control","Forbidden thoughts"],
+    comp:["Handwashing","Checking & rechecking","Counting rituals","Mental reviewing","Seeking reassurance","Arranging objects","Praying excessively","Avoiding triggers"],
+    phy:["Anxiety & panic","Exhaustion","Concentration issues","Depression","Social withdrawal","Shame & guilt"],
+    treat:[{t:"CBT / ERP",b:"Exposure and Response Prevention — the gold standard. Gradually face fears without performing compulsions."},{t:"Medication (SSRIs)",b:"Fluoxetine or sertraline reduce symptom intensity significantly."},{t:"ACT",b:"Acceptance and Commitment Therapy helps you live alongside intrusive thoughts without being controlled by them."},{t:"Support groups",b:"Peer support from others who truly understand OCD. Reduces isolation and shame."}],
+    tips:["Resist compulsions — delaying or reducing rituals weakens the OCD cycle over time.","Name the OCD: say 'That's my OCD talking' — not 'That's true'. Creating distance helps.","Don't seek reassurance — it temporarily relieves anxiety but feeds the cycle long-term.","Practice mindfulness — observe intrusive thoughts without engaging or fighting them.","Educate your loved ones — OCD is often misunderstood; sharing knowledge reduces shame.","Be patient with yourself — recovery is not linear. Small steps count.","Work with a therapist trained in OCD — generalist therapy is often insufficient.","Track your triggers in a journal — awareness is the first step to change."],
+    stories:[{name:"Sophie, 24",tag:"Contamination OCD",text:"I spent 3 hours every morning washing my hands until they bled. Therapy showed me the OCD was lying to me — and slowly I got my mornings back."},{name:"James, 31",tag:"Harm OCD",text:"I was terrified to hold my newborn daughter because of intrusive thoughts. Learning that these thoughts are OCD — not me — changed everything."},{name:"Lena, 19",tag:"Pure O",text:"I had no visible rituals. Getting a diagnosis was like finally having a name for the monster."},{name:"Marcus, 28",tag:"Scrupulosity OCD",text:"I prayed for 4 hours a day out of fear I'd sinned. ERP helped me separate my faith from the OCD that had hijacked it."},{name:"Aisha, 22",tag:"Relationship OCD",text:"I loved my partner deeply but couldn't stop questioning everything. My therapist helped me see that doubt is OCD's favourite weapon."},{name:"Noah, 35",tag:"Existential OCD",text:"For years I was stuck on 'what if none of this is real?' ACT taught me I don't need to solve the unsolvable — I just need to live."}],
+    faq:[{q:"Is OCD just about being clean or organized?",a:"No. While contamination OCD is common, OCD covers a wide range of themes. The 'clean freak' stereotype is a harmful oversimplification."},{q:"Can OCD go away on its own?",a:"Rarely. OCD typically requires treatment — specifically ERP therapy and/or medication. Without help, symptoms often worsen."},{q:"Are intrusive thoughts dangerous?",a:"No. Intrusive thoughts are involuntary and do not reflect your character or intentions. Everyone has them — OCD makes them feel unbearable."},{q:"Is OCD hereditary?",a:"There is a genetic component. If a close family member has OCD, your risk is somewhat higher — but genetics alone don't determine it."},{q:"Can children have OCD?",a:"Yes. OCD often begins in childhood or adolescence. Early diagnosis and treatment are very effective."},{q:"Is medication necessary?",a:"Not always. ERP alone helps many people significantly. SSRIs can boost results for moderate to severe OCD."},{q:"What's the difference between OCD and OCPD?",a:"OCD involves unwanted intrusive thoughts and distressing compulsions. OCPD is a personality style with perfectionism — the person often sees it as positive."},{q:"How long does treatment take?",a:"Most people see improvement within 12–20 ERP sessions. Full recovery varies."}]
+  },
+  nl:{
+    obs:["Angst voor besmetting","Opdringerige gedachten","Twijfel & onzekerheid","Angst om te zondigen","Ongewenste gedachten","Behoefte aan symmetrie","Controle verliezen","Verboden gedachten"],
+    comp:["Handenwassen","Controleren & hercontroleren","Telrituelen","Mentaal herhalen","Geruststelling zoeken","Objecten ordenen","Overmatig bidden","Triggers vermijden"],
+    phy:["Angst & paniek","Uitputting","Concentratieproblemen","Depressie","Sociale terugtrekking","Schaamte & schuld"],
+    treat:[{t:"CGT / ERV",b:"Exposure en Responspreventie — de gouden standaard. Geleidelijk angsten aangaan zonder dwanghandelingen."},{t:"Medicatie (SSRI's)",b:"Fluoxetine of sertraline verminderen de symptoomintensiteit aanzienlijk."},{t:"ACT",b:"Acceptance en Commitment Therapie helpt je naast opdringerige gedachten te leven."},{t:"Steungroepen",b:"Lotgenotencontact van mensen die OCS echt begrijpen. Vermindert isolatie en schaamte."}],
+    tips:["Weerstaan dwanghandelingen — het uitstellen of verminderen van rituelen verzwakt het OCS-patroon.","Benoem de OCS: zeg 'Dat is mijn OCS' — niet 'Dat is waar'.","Zoek geen geruststelling — het verlicht angst tijdelijk maar voedt de cyclus.","Oefen mindfulness — observeer opdringerige gedachten zonder ermee te worstelen.","Informeer je naasten — OCS wordt vaak verkeerd begrepen.","Wees geduldig met jezelf — herstel is niet lineair. Kleine stappen tellen.","Werk met een OCS-specialist — algemene therapie is vaak onvoldoende.","Houd een dagboek bij van triggers — bewustzijn is de eerste stap."],
+    stories:[{name:"Sophie, 24",tag:"Besmettings-OCS",text:"Elke ochtend waste ik mijn handen urenlang tot ze bloedden. Therapie liet me zien dat de OCS loog — en langzaam kreeg ik mijn ochtenden terug."},{name:"James, 31",tag:"Beschadigings-OCS",text:"Ik was bang om mijn pasgeboren dochter vast te houden. Leren dat dit OCS is — niet ik — veranderde alles."},{name:"Lena, 19",tag:"Pure O",text:"Niemand kon mijn rituelen zien. Een diagnose krijgen voelde als eindelijk een naam voor het monster."},{name:"Marcus, 28",tag:"Scrupulositeit OCS",text:"Ik bad vier uur per dag uit angst te hebben gezondigd. ERV hielp me mijn geloof te scheiden van de OCS die het had gekaapt."},{name:"Aisha, 22",tag:"Relatie-OCS",text:"Ik hield diep van mijn partner maar kon niet stoppen met twijfelen. Mijn therapeut hielp me inzien dat twijfel het lievelingswapen van OCS is."},{name:"Noah, 35",tag:"Existentiële OCS",text:"Jarenlang zat ik vast op 'wat als niets echt is?' ACT leerde me dat ik het onoplosbare niet hoef op te lossen."}],
+    faq:[{q:"Is OCS alleen maar over schoon zijn of ordenen?",a:"Nee. OCS omvat een breed scala aan thema's. Het 'schoonheidsstereotype' is een schadelijke oversimplificatie."},{q:"Kan OCS vanzelf overgaan?",a:"Zelden. OCS vereist doorgaans behandeling. Zonder hulp verergeren symptomen vaak."},{q:"Zijn opdringerige gedachten gevaarlijk?",a:"Nee. Opdringerige gedachten zijn onvrijwillig en weerspiegelen niet je karakter. OCS maakt ze ondraaglijk voelen."},{q:"Is OCS erfelijk?",a:"Er is een genetische component, maar genetica alleen bepaalt het niet."},{q:"Kunnen kinderen OCS hebben?",a:"Ja. OCS begint vaak in de kindertijd of adolescentie. Vroege behandeling is zeer effectief."},{q:"Is medicatie noodzakelijk?",a:"Niet altijd. ERV alleen helpt veel mensen. SSRI's kunnen resultaten verbeteren bij matige tot ernstige OCS."},{q:"Wat is het verschil tussen OCS en OCPS?",a:"OCS omvat ongewenste opdringerige gedachten en verontrustende dwanghandelingen. OCPS is een persoonlijkheidsstijl met perfectionisme."},{q:"Hoe lang duurt de behandeling?",a:"De meeste mensen zien verbetering binnen 12–20 ERV-sessies. Volledig herstel varieert."}]
+  }
+};
 
-        <section>
-          <div class="section-head">
-            <h2>How Can We Help You?</h2>
-            <p class="section-sub">
-              Explore our resources designed with care for individuals,
-              families, and caregivers.
-            </p>
-          </div>
-          <div class="grid-4">
-            <article class="card">
-              <div class="card-icon" style="background: #ffe5f0">📘</div>
-              <h3>Learn About Autism</h3>
-              <p class="muted">
-                Understand autism spectrum in a friendly, accessible way with
-                clear explanations.
-              </p>
-              <a class="card-link" href="#learn">Explore →</a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #e9ddff">✨</div>
-              <h3>Helpful Resources</h3>
-              <p class="muted">
-                Discover support groups, services, and tools designed for the
-                autism community.
-              </p>
-              <a class="card-link" href="#resources">Explore →</a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #d9f6ec">💚</div>
-              <h3>Self-Care Tips</h3>
-              <p class="muted">
-                Find calming techniques, sensory strategies, and wellness
-                practices.
-              </p>
-              <a class="card-link" href="#self-care">Explore →</a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #e4dcff">❔</div>
-              <h3>FAQ</h3>
-              <p class="muted">
-                Get answers to common questions about autism and support
-                options.
-              </p>
-              <a class="card-link" href="#faq">Explore →</a>
-            </article>
-          </div>
-        </section>
+const hotlines=[
+  {ce:"Netherlands",cn:"Nederland",name:"113 Zelfmoordpreventie",num:"113 / 0800-0113",ne:"Free, 24/7",nn:"Gratis, 24/7"},
+  {ce:"Netherlands",cn:"Nederland",name:"OCD-Net / NVvP",num:"+31 88 007 5000",ne:"OCD specialist referral",nn:"OCS-specialistreferral"},
+  {ce:"Belgium",cn:"België",name:"CPZ Zelfmoordpreventie",num:"0800 32 123",ne:"Free, 24/7",nn:"Gratis, 24/7"},
+  {ce:"Belgium",cn:"België",name:"Télé-Accueil",num:"0800 58 181",ne:"French-speaking support",nn:"Franstalige ondersteuning"},
+  {ce:"UK",cn:"VK",name:"OCD-UK Helpline",num:"0333 212 7890",ne:"Mon–Fri 9am–5pm",nn:"Ma–Vr 9:00–17:00"},
+  {ce:"UK",cn:"VK",name:"Samaritans",num:"116 123",ne:"Free, 24/7",nn:"Gratis, 24/7"},
+  {ce:"USA",cn:"VS",name:"IOCDF Helpline",num:"(617) 973-5801",ne:"OCD Foundation",nn:"OCD Foundation"},
+  {ce:"USA",cn:"VS",name:"988 Crisis Line",num:"988",ne:"Call or text, 24/7",nn:"Bel of sms, 24/7"}
+];
 
-        <section class="split-banner">
-          <div class="callout">
-            <div class="hero-icon" style="width: 60px; height: 60px">
-              ❤️
-            </div>
-            <h3>You're Not Alone</h3>
-            <p class="lead" style="margin-bottom: 18px">
-              Whether you're autistic, a parent, caregiver, or simply want to
-              learn more, JourHelp is here to support you with understanding and
-              kindness.
-            </p>
-            <a class="btn" href="#self-care">Explore Self-Care →</a>
-          </div>
-        </section>
-      </section>
+// ── AUTISM DATA ───────────────────────────────────────────────
+const AUT_DATA={
+  en:{
+    social:["Preferring direct, literal communication","Processing social cues differently","Needing extra time to process conversations","Expressing emotions in unique ways","Difficulty with unwritten social rules","Preferring fewer, deeper friendships"],
+    sensory:["Hypersensitivity to sound, light, or touch","Hyposensitivity (seeking sensory input)","Sensory overwhelm in busy environments","Specific textures, smells, or tastes being distressing","Need for sensory-friendly environments"],
+    interests:["Deep, passionate focus on specific topics","Comfort in predictable routines","Distress when routines are disrupted","Strong attention to detail and patterns","Stimming (self-regulatory repeated movements or sounds)"],
+    strengths:["Exceptional attention to detail","Deep focus and concentration","Honesty and directness","Strong logical thinking","Loyalty and dedication","Pattern recognition","Excellent long-term memory","Unique creative perspectives"],
+    sensTypes:["Sound (loud noises, background noise)","Light (bright or fluorescent lighting)","Touch (certain textures, clothing tags)","Smell (strong perfumes, food smells)","Taste (food textures, strong flavours)","Proprioception (body position awareness)"],
+    support:[{t:"Listen first",b:"Ask autistic people what they need — don't assume. Every person's autism is different."},{t:"Reduce sensory demands",b:"Offer quiet spaces, headphones, and predictable environments where possible."},{t:"Clear communication",b:"Use direct, literal language. Avoid sarcasm, ambiguous hints, or unspoken expectations."},{t:"Respect routines",b:"Give advance notice of changes. Unexpected disruptions can cause significant distress."},{t:"Celebrate differences",b:"Autism is not a deficit. Autistic strengths are real and valuable — not despite autism, but alongside it."},{t:"Accommodations at work/school",b:"Written instructions, flexible deadlines, quiet workspaces, and breaks reduce overwhelm significantly."}],
+    tips:["Give yourself permission to stim — it is self-regulation, not 'weird' behaviour.","Identify your sensory triggers and create a sensory toolkit (headphones, sunglasses, fidget tools).","Make routines your ally — structure reduces decision fatigue and anxiety.","Understand your masking — it is exhausting and unsustainable. Allow yourself to unmask in safe spaces.","Communicate your needs clearly — you are allowed to ask for accommodations.","Burnout is real and serious — rest, reduce demands, and seek support before it peaks.","Connect with other autistic people — shared understanding is deeply validating.","A late diagnosis is never 'too late' — it is always a gift of understanding."],
+    stories:[{name:"Sara, 28",text:"I was diagnosed at 26. My whole life suddenly made sense — the exhaustion, the overwhelm, the way I could focus on certain things for hours but couldn't tolerate small talk for five minutes. My diagnosis wasn't a loss. It was a relief."},{name:"Tom, 34",text:"I masked for 30 years. I was good at it — everyone said so. But I burned out completely at 32. Learning about autism and finally letting myself be autistic has been the most healing thing I've ever done."},{name:"Nadia, 22",text:"The sensory stuff was the hardest for me to explain. A sound that nobody else seemed to notice could make me feel physically sick. Getting noise-cancelling headphones changed my life more than any therapy."},{name:"Leo, 19",text:"People always thought my interests were 'obsessive.' Now I know they're called special interests and they're one of my greatest joys. I've built a career around one. I don't want to be cured. I want to be understood."},{name:"Anya, 31",text:"Meltdowns were the most shameful part for me. I thought I was emotionally broken. Learning they're a neurological response to overwhelm — not a personality flaw — changed how I see myself entirely."},{name:"Kai, 25",text:"I was told I couldn't be autistic because I could make eye contact. The stereotypes almost cost me years of understanding. Autism in women and non-binary people looks very different — please keep learning."}],
+    faq:[{q:"Can you tell if someone is autistic just by looking at them?",a:"No. Autism is an internal neurological difference. Many autistic people — especially women and those who mask — appear completely 'neurotypical' on the outside. You cannot identify autism by appearance."},{q:"Is autism caused by vaccines?",a:"No. This claim has been thoroughly and repeatedly debunked. Autism is caused by a combination of genetic and neurobiological factors — not vaccines, parenting, or diet."},{q:"Can autistic people have romantic relationships?",a:"Absolutely. Autistic people are fully capable of love, intimacy, and deep relationships. Relationships may look different — communication styles may vary — but autistic people form meaningful, lasting connections."},{q:"What is masking?",a:"Masking is when autistic people hide or suppress their autistic traits to fit in with neurotypical expectations. It is exhausting, unsustainable, and can lead to burnout, anxiety, and depression. Many autistic people mask for years before diagnosis."},{q:"What is a meltdown?",a:"A meltdown is an involuntary response to neurological overwhelm — not a tantrum or a choice. It happens when the brain receives more sensory or emotional input than it can process. Meltdowns require patience, reduced stimulation, and space to recover."},{q:"What is autistic burnout?",a:"Autistic burnout is a state of chronic exhaustion, reduced function, and increased difficulty with daily tasks — usually caused by prolonged masking, sensory demands, or social strain. It is different from general burnout and can take months to recover from."},{q:"Is autism more common in males?",a:"Autism is diagnosed more often in males, but research increasingly shows this is partly because autism in females and non-binary people presents differently and is often missed, masked, or misdiagnosed as anxiety or depression."},{q:"Should I use 'autistic person' or 'person with autism'?",a:"Many autistic people prefer identity-first language ('autistic person') as they see autism as a core part of their identity — not something separate from them. Always ask the individual their preference. Both are used in the community."},{q:"What are special interests?",a:"Special interests are areas of intense, deep focus that many autistic people have. They are a genuine source of joy, identity, and often expertise. They are not 'obsessions' in the clinical sense — they are a feature, not a flaw."},{q:"Can autistic people live independently?",a:"Many autistic people live fully independently. Some need varying levels of support. Support needs exist on a spectrum and can change over time. The goal is always to support quality of life and autonomy — not to impose neurotypical standards."}]
+  },
+  nl:{
+    social:["Directe, letterlijke communicatie prefereren","Sociale signalen anders verwerken","Extra tijd nodig voor het verwerken van gesprekken","Emoties op unieke manieren uitdrukken","Moeite met ongeschreven sociale regels","Voorkeur voor minder, diepere vriendschappen"],
+    sensory:["Hypersensitiviteit voor geluid, licht of aanraking","Hyposensitiviteit (sensorische input zoeken)","Sensorische overbelasting in drukke omgevingen","Specifieke texturen, geuren of smaken die verontrustend zijn","Behoefte aan sensorisch-vriendelijke omgevingen"],
+    interests:["Diepe, gepassioneerde focus op specifieke onderwerpen","Comfort in voorspelbare routines","Stress bij verstoringen van routines","Sterke aandacht voor detail en patronen","Stimmen (zelfregulerend herhaaldelijk bewegen of klanken maken)"],
+    strengths:["Uitzonderlijke aandacht voor detail","Diepe focus en concentratie","Eerlijkheid en directheid","Sterk logisch denken","Loyaliteit en toewijding","Patroonherkenning","Uitstekend langetermijngeheugen","Unieke creatieve perspectieven"],
+    sensTypes:["Geluid (luide geluiden, achtergrondgeluid)","Licht (felle of tl-verlichting)","Aanraking (bepaalde texturen, labels in kleding)","Geur (sterke parfums, voedselgeuren)","Smaak (voedseltexturen, sterke smaken)","Proprioceptie (bewustzijn van lichaamshouding)"],
+    support:[{t:"Luister eerst",b:"Vraag autistische mensen wat ze nodig hebben — veronderstel niets. Elk persoon met autisme is anders."},{t:"Verminder sensorische eisen",b:"Bied stille ruimtes, koptelefoons en voorspelbare omgevingen aan waar mogelijk."},{t:"Duidelijke communicatie",b:"Gebruik directe, letterlijke taal. Vermijd sarcasme, ambigue hints of onuitgesproken verwachtingen."},{t:"Respecteer routines",b:"Geef van tevoren melding van veranderingen. Onverwachte verstoringen kunnen aanzienlijk leed veroorzaken."},{t:"Vier verschillen",b:"Autisme is geen tekort. Autistische sterke punten zijn reëel en waardevol."},{t:"Aanpassingen op werk/school",b:"Schriftelijke instructies, flexibele deadlines, stille werkruimten en pauzes verminderen overweldiging aanzienlijk."}],
+    tips:["Geef jezelf toestemming om te stimmen — het is zelfregulatie, geen 'raar' gedrag.","Identificeer je sensorische triggers en maak een sensorisch gereedschapskistje (koptelefoon, zonnebril, fidget tools).","Maak routines je bondgenoot — structuur vermindert beslissingsvermoeidheid en angst.","Begrijp je masking — het is uitputtend en onhoudbaar. Laat jezelf ontmaskeren op veilige plekken.","Communiceer je behoeften duidelijk — je mag om aanpassingen vragen.","Burn-out is reëel en ernstig — rust, verminder eisen en zoek steun voordat het een piek bereikt.","Maak contact met andere autistische mensen — gedeeld begrip is diep bevestigend.","Een late diagnose is nooit 'te laat' — het is altijd een geschenk van begrip."],
+    stories:[{name:"Sara, 28",text:"Ik kreeg op 26-jarige leeftijd een diagnose. Mijn hele leven had plotseling zin — de uitputting, de overweldiging, de manier waarop ik me uren op bepaalde dingen kon concentreren maar geen vijf minuten smalltalk kon verdragen. Mijn diagnose was geen verlies. Het was een opluchting."},{name:"Tom, 34",text:"Ik maskeerde 30 jaar. Op mijn 32e raakte ik volledig opgebrand. Leren over autisme en mezelf eindelijk autistisch laten zijn is het meest helende wat ik ooit heb gedaan."},{name:"Nadia, 22",text:"De sensorische dingen waren voor mij het moeilijkst uit te leggen. Een geluid dat niemand anders leek te horen kon me fysiek ziek maken. Noise-cancelling koptelefoons veranderden mijn leven meer dan welke therapie dan ook."},{name:"Leo, 19",text:"Mensen vonden mijn interesses altijd 'obsessief'. Nu weet ik dat het speciale interesses zijn en een van mijn grootste vreugdebronnen. Ik wil niet genezen worden. Ik wil begrepen worden."},{name:"Anya, 31",text:"Leren dat meltdowns een neurologische reactie op overweldiging zijn — geen karakterfout — veranderde hoe ik mezelf volledig zie."},{name:"Kai, 25",text:"Ik werd verteld dat ik niet autistisch kon zijn omdat ik oogcontact kon maken. De stereotypen hebben me bijna jaren van begrip gekost. Autisme bij vrouwen en non-binaire mensen ziet er heel anders uit."}],
+    faq:[{q:"Kun je zien of iemand autistisch is?",a:"Nee. Autisme is een intern neurologisch verschil. Veel autistische mensen — met name vrouwen en mensen die maskeren — lijken volledig 'neurotypisch' aan de buitenkant."},{q:"Wordt autisme veroorzaakt door vaccins?",a:"Nee. Deze bewering is grondig en herhaaldelijk ontkracht. Autisme wordt veroorzaakt door een combinatie van genetische en neurobiologische factoren."},{q:"Kunnen autistische mensen romantische relaties hebben?",a:"Absoluut. Autistische mensen zijn volledig in staat tot liefde, intimiteit en diepe relaties. Relaties kunnen er anders uitzien, maar autistische mensen vormen betekenisvolle, duurzame verbindingen."},{q:"Wat is masking?",a:"Masking is wanneer autistische mensen hun autistische kenmerken verbergen of onderdrukken om aan neurotypische verwachtingen te voldoen. Het is uitputtend, onhoudbaar en kan leiden tot burn-out, angst en depressie."},{q:"Wat is een meltdown?",a:"Een meltdown is een onvrijwillige reactie op neurologische overweldiging — geen driftbui of keuze. Het vereist geduld, verminderde stimulatie en ruimte om te herstellen."},{q:"Wat is autistische burn-out?",a:"Autistische burn-out is een toestand van chronische uitputting en verminderd functioneren — meestal veroorzaakt door langdurig maskeren, sensorische eisen of sociale druk. Het kan maanden duren om van te herstellen."},{q:"Komt autisme vaker voor bij mannen?",a:"Autisme wordt vaker gediagnosticeerd bij mannen, maar onderzoek toont steeds meer aan dat autisme bij vrouwen en non-binaire mensen anders presenteert en vaak gemist, gemaskeerd of verkeerd gediagnosticeerd wordt."},{q:"Moet ik 'autistisch persoon' of 'persoon met autisme' zeggen?",a:"Veel autistische mensen geven de voorkeur aan identiteitsgericht taalgebruik ('autistisch persoon'). Vraag altijd naar de voorkeur van de persoon. Beide worden in de gemeenschap gebruikt."},{q:"Wat zijn speciale interesses?",a:"Speciale interesses zijn gebieden van intense, diepe focus die veel autistische mensen hebben. Ze zijn een echte bron van vreugde, identiteit en vaak expertise. Ze zijn een kenmerk, geen gebrek."},{q:"Kunnen autistische mensen zelfstandig wonen?",a:"Veel autistische mensen wonen volledig zelfstandig. Sommigen hebben wisselende niveaus van ondersteuning nodig. Ondersteuningsbehoeften bestaan op een spectrum en kunnen in de loop van de tijd veranderen."}]
+  }
+};
 
-      <section id="learn">
-        <div class="hero-panel" style="background: rgba(248, 231, 247, 0.9)">
-          <div class="hero-icon">🧠</div>
-          <h2>Learn About Autism</h2>
-          <p class="lead">
-            Understanding autism helps us create a more inclusive and
-            compassionate world. Explore these topics at your own pace.
-          </p>
-        </div>
+const OCD_QUIZ={
+  en:{questions:[{q:"Do you experience repeated, unwanted thoughts that feel intrusive and hard to dismiss?",hint:"e.g. fears about contamination, harm, religion, relationships, or your identity"},{q:"Do these thoughts cause you significant distress or anxiety?",hint:"More than occasional worry — they feel urgent or horrifying"},{q:"Do you feel compelled to perform behaviours or mental rituals to reduce the anxiety?",hint:"e.g. washing, checking, counting, praying, mental reviewing"},{q:"Do these thoughts and behaviours take up more than an hour of your day?",hint:"Or do they significantly interfere with work, school, or relationships?"},{q:"Have you tried to stop the rituals or thoughts, but found it very difficult?",hint:"You may know they're excessive but can't resist"},{q:"Do the rituals provide only temporary relief — and does the anxiety return, often stronger?",hint:"The relief never fully lasts"},{q:"Have you avoided certain situations, places, or people because of these fears?",hint:"e.g. avoiding knives, public spaces, being alone, or certain people"},{q:"Have these experiences been present for more than a few weeks?",hint:"Not just a brief stressful period"},{q:"Do you feel shame or keep these thoughts/behaviours secret?",hint:"Fear of being judged or misunderstood"},{q:"Have you wondered whether your thoughts say something about who you are as a person?",hint:"'Does having this thought make me a bad person?'"}],options:["Never","Rarely","Sometimes","Often","Very often"],rL:{title:"Low likelihood 💚",text:"Your answers suggest OCD-related patterns are not strongly present right now. If you're experiencing distress, speaking to a GP or counsellor is always worthwhile."},rM:{title:"Some patterns present 💛",text:"Your answers suggest some OCD-related patterns. This doesn't mean you have OCD, but it may be worth discussing with a mental health professional — especially if they interfere with daily life."},rH:{title:"Strong patterns present 💗",text:"Your answers suggest significant OCD-related patterns. This is not a diagnosis, but it strongly suggests speaking to a mental health professional trained in OCD and ERP. You are not alone, and this is very treatable."},submit:"See my result →",restart:"Retake quiz",score:"Your score",disc:"This is not a clinical diagnosis. Please speak to a qualified professional."},
+  nl:{questions:[{q:"Heb je herhaaldelijke, ongewenste gedachten die opdringend aanvoelen en moeilijk te negeren zijn?",hint:"bijv. angsten over besmetting, schade, religie, relaties of je identiteit"},{q:"Veroorzaken deze gedachten je aanzienlijk leed of angst?",hint:"Meer dan af en toe zorgen — ze voelen urgent of verschrikkelijk"},{q:"Voel je je gedwongen bepaalde gedragingen of mentale rituelen uit te voeren om de angst te verminderen?",hint:"bijv. wassen, controleren, tellen, bidden, mentaal herhalen"},{q:"Nemen deze gedachten en gedragingen meer dan een uur per dag in beslag?",hint:"Of verstoren ze significant je werk, school of relaties?"},{q:"Heb je geprobeerd de rituelen of gedachten te stoppen, maar vond je dat zeer moeilijk?",hint:"Je weet misschien dat ze overdreven zijn, maar kunt niet weerstaan"},{q:"Geven de rituelen alleen tijdelijke verlichting — en keert de angst terug, vaak sterker?",hint:"De verlichting duurt nooit volledig"},{q:"Heb je bepaalde situaties, plaatsen of mensen vermeden vanwege deze angsten?",hint:"bijv. messen vermijden, openbare ruimtes, alleen zijn"},{q:"Zijn deze ervaringen al meer dan een paar weken aanwezig?",hint:"Niet alleen een korte stressvolle periode"},{q:"Voel je je schamen of houd je deze gedachten/gedragingen voor anderen geheim?",hint:"Angst om beoordeeld of verkeerd begrepen te worden"},{q:"Heb je je afgevraagd of je gedachten iets zeggen over wie je bent als persoon?",hint:"'Maakt het feit dat ik deze gedachte heb me een slecht persoon?'"}],options:["Nooit","Zelden","Soms","Vaak","Zeer vaak"],rL:{title:"Lage waarschijnlijkheid 💚",text:"Je antwoorden suggereren dat OCS-gerelateerde patronen momenteel niet sterk aanwezig zijn. Als je leed ervaart, is het altijd de moeite waard om met een huisarts of counselor te spreken."},rM:{title:"Enkele patronen aanwezig 💛",text:"Je antwoorden suggereren enkele OCS-gerelateerde patronen. Dit betekent niet dat je OCS hebt, maar het kan de moeite waard zijn om dit te bespreken met een GGZ-professional."},rH:{title:"Sterke patronen aanwezig 💗",text:"Je antwoorden suggereren significante OCS-gerelateerde patronen. Dit is geen diagnose, maar het suggereert sterk dat je met een GGZ-professional spreekt die getraind is in OCS en ERV. Je bent niet alleen, en dit is goed behandelbaar."},submit:"Bekijk mijn resultaat →",restart:"Quiz opnieuw doen",score:"Jouw score",disc:"Dit is geen klinische diagnose. Raadpleeg een gekwalificeerde professional."}
+};
 
-        <div class="accordion" style="margin-top: 24px">
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">🧠</span>
-              <span class="accordion-title">What is Autism?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that affects how people perceive and interact with the world. It's called a "spectrum" because it presents differently in each person.
+const AUT_QUIZ={
+  en:{questions:[{q:"Do you often feel overwhelmed or exhausted after social situations, even if you enjoyed them?",hint:"Sometimes called 'social hangover' — feeling drained after interacting with people"},{q:"Do you prefer direct, literal communication and find hints or sarcasm confusing?",hint:"e.g. taking things literally, not picking up on implied meanings"},{q:"Do you have deep, intense interests in specific topics that you can focus on for hours?",hint:"Sometimes called 'special interests' — areas of passionate, detailed knowledge"},{q:"Do you notice small details that others seem to miss — sounds, textures, patterns, smells?",hint:"This could be sensitivity (distress from stimuli) or hypo-sensitivity (seeking stimuli)"},{q:"Do unexpected changes to routines or plans cause significant distress or anxiety?",hint:"Even small changes — like a different route home or plans changing at the last minute"},{q:"Have you often felt 'different' from others socially, even when you tried hard to fit in?",hint:"Feeling like you're missing an unspoken rulebook everyone else seems to have"},{q:"Do you use repetitive movements, sounds, or behaviours to calm yourself or regulate your emotions?",hint:"e.g. rocking, tapping, humming, fidgeting, repeating words — this is called stimming"},{q:"Do you find it difficult to maintain eye contact, or do you find it uncomfortable or draining?",hint:"You may be able to do it but it takes effort, concentration, or feels unnatural"},{q:"Have you been told your reactions (emotional, physical, or verbal) are 'too much' or 'too intense'?",hint:"Or conversely, 'too flat' or 'not enough' — a mismatch with neurotypical expectations"},{q:"Do you often need to 'recharge' with solitude after social or sensory demands — more than most people seem to?",hint:"Even after enjoyable activities — needing significant alone time to recover"}],options:["Never","Rarely","Sometimes","Often","Very often"],rL:{title:"Low likelihood 💚",text:"Your answers suggest autistic traits are not strongly present for you right now. If you are exploring this, speaking to a professional is always a valid next step."},rM:{title:"Some traits present 💛",text:"Your answers suggest some autistic traits. Many people relate to some of these — this is not a diagnosis. If these experiences significantly affect your life, a professional assessment could be clarifying."},rH:{title:"Strong traits present 💗",text:"Your answers suggest significant autistic traits across several areas. This is not a diagnosis — only a professional assessment can confirm that. But it may be worth exploring further with a psychologist or autism specialist. You are not alone."},submit:"See my result →",restart:"Retake quiz",score:"Your score",disc:"This is not a clinical diagnosis. Please speak to a qualified professional."},
+  nl:{questions:[{q:"Voel je je vaak overweldigd of uitgeput na sociale situaties, zelfs als je ze leuk vond?",hint:"Soms een 'sociale kater' genoemd — je leeg voelen na interactie met mensen"},{q:"Geef je de voorkeur aan directe, letterlijke communicatie en vind je hints of sarcasme verwarrend?",hint:"bijv. dingen letterlijk nemen, niet begrijpen wat er impliciet wordt bedoeld"},{q:"Heb je diepe, intense interesses in specifieke onderwerpen waarop je je uren kunt concentreren?",hint:"Soms 'speciale interesses' genoemd — gebieden van gepassioneerde, gedetailleerde kennis"},{q:"Merk je kleine details op die anderen lijken te missen — geluiden, texturen, patronen, geuren?",hint:"Dit kan gevoeligheid zijn (stress van stimuli) of hyposensitiviteit (stimuli zoeken)"},{q:"Veroorzaken onverwachte veranderingen in routines of plannen aanzienlijk leed of angst?",hint:"Zelfs kleine veranderingen — zoals een andere route naar huis of plannen die op het laatste moment veranderen"},{q:"Heb je je sociaal vaak 'anders' gevoeld dan anderen, zelfs wanneer je je best deed om erbij te horen?",hint:"Het gevoel dat je een ongeschreven regelboek mist dat iedereen anders lijkt te hebben"},{q:"Gebruik je herhaaldelijke bewegingen, klanken of gedragingen om jezelf te kalmeren of je emoties te reguleren?",hint:"bijv. wiegen, tikken, neuriën, friemelen, woorden herhalen — dit heet stimmen"},{q:"Vind je het moeilijk om oogcontact te houden, of voel je het als ongemakkelijk of uitputtend?",hint:"Je kunt het misschien doen maar het kost moeite, concentratie, of voelt onnatuurlijk"},{q:"Hebben mensen je verteld dat je reacties 'te veel' of 'te intens' zijn?",hint:"Of omgekeerd, 'te vlak' of 'niet genoeg' — een mismatch met neurotypische verwachtingen"},{q:"Heb je na sociale of sensorische eisen vaak meer hersteltijd nodig met rust dan de meeste mensen?",hint:"Zelfs na leuke activiteiten — aanzienlijk alleen-tijd nodig om te herstellen"}],options:["Nooit","Zelden","Soms","Vaak","Zeer vaak"],rL:{title:"Lage waarschijnlijkheid 💚",text:"Je antwoorden suggereren dat autistische kenmerken momenteel niet sterk aanwezig zijn. Als je dit verkent, is spreken met een professional altijd een geldige volgende stap."},rM:{title:"Enkele kenmerken aanwezig 💛",text:"Je antwoorden suggereren enkele autistische kenmerken. Dit is geen diagnose. Als deze ervaringen je leven significant beïnvloeden, kan een professionele beoordeling verhelderend zijn."},rH:{title:"Sterke kenmerken aanwezig 💗",text:"Je antwoorden suggereren significante autistische kenmerken over meerdere gebieden. Dit is geen diagnose — alleen een professionele beoordeling kan dat bevestigen. Maar het kan de moeite waard zijn om dit verder te verkennen met een psycholoog of autismespecialist. Je bent niet alleen."},submit:"Bekijk mijn resultaat →",restart:"Quiz opnieuw doen",score:"Jouw score",disc:"Dit is geen klinische diagnose. Raadpleeg een gekwalificeerde professional."}
+};
 
-Autism is not a disease or something that needs to be "fixed." It's a natural variation in human neurology. Many autistic individuals prefer identity-first language ("autistic person") as they see autism as an integral part of who they are.
+const OCD_RES={
+  en:{sections:[{title:"Books",icon:"📚",items:[{name:"Freedom from OCD",author:"Jonathan Grayson",desc:"Comprehensive self-help guide using ERP. Widely recommended by OCD specialists."},{name:"Overcoming Unwanted Intrusive Thoughts",author:"Sally M. Winston & Martin N. Seif",desc:"Addresses shame around distressing intrusive thoughts across all OCD subtypes."},{name:"The OCD Workbook",author:"Hyman & Pedrick",desc:"Practical CBT/ERP exercises and worksheets."},{name:"Imp of the Mind",author:"Lee Baer",desc:"Specifically addresses taboo, shame-inducing intrusive thoughts — harm, sexual, blasphemous OCD."}]},{title:"Websites & Organisations",icon:"🌐",items:[{name:"IOCDF — International OCD Foundation",author:"iocdf.org",desc:"The leading global OCD organisation. Therapist finder, research, stories, and resources."},{name:"OCD-UK",author:"ocduk.org",desc:"UK's dedicated OCD charity. Information, helpline, and support groups."},{name:"OCD Vereniging Nederland",author:"ocdvereniging.nl",desc:"Dutch OCD association for people with OCD and their loved ones."},{name:"NOCD",author:"treatmyocd.com",desc:"OCD-specialist teletherapy platform connecting people with ERP-trained therapists."}]},{title:"Apps",icon:"📱",items:[{name:"NOCD App",author:"iOS & Android",desc:"ERP-based therapy app with OCD-specialist therapists."},{name:"nOCD",author:"iOS & Android",desc:"Self-guided ERP exercises, mood tracking, and OCD education."},{name:"Headspace / Calm",author:"iOS & Android",desc:"General mindfulness apps. Useful as supplement — not a replacement for OCD treatment."}]},{title:"For Families",icon:"🤝",items:[{name:"Loving Someone with OCD",author:"Karen J. Landsman et al.",desc:"A compassionate guide — understanding OCD, avoiding accommodation, offering real support."},{name:"OCD in the Family",author:"IOCDF resource",desc:"Free guides and webinars from the IOCDF specifically for families."}]}]},
+  nl:{sections:[{title:"Boeken",icon:"📚",items:[{name:"Vrijheid van OCS",author:"Jonathan Grayson",desc:"Uitgebreide zelfhulpgids met ERV. Breed aanbevolen door OCS-specialisten."},{name:"Omgaan met Opdringerige Gedachten",author:"Sally M. Winston & Martin N. Seif",desc:"Behandelt de schaamte rond verontrustende opdringerige gedachten bij alle OCS-subtypes."},{name:"Het OCS Werkboek",author:"Hyman & Pedrick",desc:"Praktische CGT/ERV-oefeningen en werkbladen."},{name:"De Duivel in de Details",author:"Lee Baer",desc:"Richt zich specifiek op taboe, schaamte-inducerende opdringerige gedachten."}]},{title:"Websites & Organisaties",icon:"🌐",items:[{name:"IOCDF — International OCD Foundation",author:"iocdf.org",desc:"De toonaangevende mondiale OCS-organisatie. Therapeutenvinder, onderzoek en bronnen."},{name:"OCD Vereniging Nederland",author:"ocdvereniging.nl",desc:"Nederlandse vereniging voor mensen met OCS en hun naasten."},{name:"GGZ Nederland",author:"ggznederland.nl",desc:"Overkoepelende organisatie voor geestelijke gezondheidszorg in Nederland."},{name:"NOCD",author:"treatmyocd.com",desc:"OCS-specialist teletherapie platform met ERV-getrainde therapeuten."}]},{title:"Apps",icon:"📱",items:[{name:"NOCD App",author:"iOS & Android",desc:"ERV-gebaseerde therapie-app met OCS-specialistische therapeuten."},{name:"nOCD",author:"iOS & Android",desc:"Zelfsturende ERV-oefeningen, stemmingstracking en OCS-educatie."},{name:"Headspace / Calm",author:"iOS & Android",desc:"Algemene mindfulness-apps. Nuttig als aanvulling."}]},{title:"Voor Familie",icon:"🤝",items:[{name:"Omgaan met OCS van een Naaste",author:"Karen J. Landsman e.a.",desc:"Een begripvolle gids voor familieleden — OCS begrijpen en echte steun bieden."},{name:"OCS in de Familie",author:"IOCDF-bron",desc:"Gratis gidsen en webinars specifiek voor families."}]}]}
+};
 
-Key points:
+const AUT_RES={
+  en:{sections:[{title:"Books",icon:"📚",items:[{name:"The Reason I Jump",author:"Naoki Higashida",desc:"A deeply personal account of autism from the perspective of a non-speaking autistic person."},{name:"Divergent Mind",author:"Jenara Nerenberg",desc:"Explores sensory processing and neurodivergence in women. Practical and compassionate."},{name:"Unmasking Autism",author:"Devon Price",desc:"A powerful exploration of masking, identity, and autistic burnout. Widely loved in the autistic community."},{name:"The Autistic Brain",author:"Temple Grandin",desc:"First-person insight from one of the most well-known autistic scientists and advocates."},{name:"I Think I Might Be Autistic",author:"Cynthia Kim",desc:"A guide for adults who suspect they are autistic and are exploring diagnosis."}]},{title:"Websites & Organisations",icon:"🌐",items:[{name:"Autistic Self Advocacy Network",author:"autisticadvocacy.org",desc:"Run by and for autistic people. Disability rights, acceptance, and community."},{name:"Autism Science Foundation",author:"autismsciencefoundation.org",desc:"Science-based autism research and family resources."},{name:"NVA (Netherlands)",author:"autisme.nl",desc:"Dutch national autism association. Resources, support, and diagnosis information in Dutch."},{name:"Autism-Europe",author:"autismeurope.org",desc:"Pan-European autism organisation connecting national societies and promoting rights."}]},{title:"Apps & Tools",icon:"📱",items:[{name:"Tiimo",author:"iOS & Android",desc:"Visual planning app designed for neurodivergent people. Great for daily structure and routines."},{name:"Opal / Freedom",author:"iOS & Android",desc:"Screen-time and distraction management. Helpful for focus and sensory regulation."},{name:"Headspace / Calm",author:"iOS & Android",desc:"Mindfulness apps. Some autistic people find guided relaxation very helpful."}]},{title:"Community",icon:"🤝",items:[{name:"Wrong Planet",author:"wrongplanet.net",desc:"Online community and forum for autistic people and their families."},{name:"Reddit — r/autism",author:"reddit.com/r/autism",desc:"Large peer community. Not a substitute for professional support but genuinely helpful."},{name:"Autistic Women & Nonbinary Network",author:"awnnetwork.org",desc:"Community and resources specifically for autistic women and non-binary people."}]}]},
+  nl:{sections:[{title:"Boeken",icon:"📚",items:[{name:"De Reden Waarom Ik Spring",author:"Naoki Higashida",desc:"Een diep persoonlijk verslag van autisme vanuit het perspectief van een niet-sprekend autistisch persoon."},{name:"Divergent Mind",author:"Jenara Nerenberg",desc:"Verkent sensorische verwerking en neurodiversiteit bij vrouwen. Praktisch en begripvol."},{name:"Ongemaskerd: Autisme Onthuld",author:"Devon Price",desc:"Een krachtige verkenning van masking, identiteit en autistische burn-out."},{name:"Het Autistische Brein",author:"Temple Grandin",desc:"Eerste-persoons inzicht van een van de bekendste autistische wetenschappers en pleitbezorgers."},{name:"Ik Ben Misschien Autistisch",author:"Cynthia Kim",desc:"Een gids voor volwassenen die vermoeden autistisch te zijn en een diagnose overwegen."}]},{title:"Websites & Organisaties",icon:"🌐",items:[{name:"NVA — Nederlandse Vereniging voor Autisme",author:"autisme.nl",desc:"Nederlandse nationale autismevereniging. Bronnen, ondersteuning en diagnoseinformatie."},{name:"Autisme Centraal",author:"autismecentraal.be",desc:"Belgische organisatie voor autismezorg en ondersteuning."},{name:"Autism-Europe",author:"autismeurope.org",desc:"Pan-Europese autismeorganisatie die nationale verenigingen verbindt en rechten bevordert."},{name:"Autistic Self Advocacy Network",author:"autisticadvocacy.org",desc:"Geleid door en voor autistische mensen. Rechten, acceptatie en gemeenschap."}]},{title:"Apps & Tools",icon:"📱",items:[{name:"Tiimo",author:"iOS & Android",desc:"Visuele planningsapp ontworpen voor neurodivergente mensen. Geweldig voor dagelijkse structuur."},{name:"Opal / Freedom",author:"iOS & Android",desc:"Schermtijdbeheer. Nuttig voor focus en sensorische regulatie."},{name:"Headspace / Calm",author:"iOS & Android",desc:"Mindfulness-apps. Sommige autistische mensen vinden begeleide ontspanning erg nuttig."}]},{title:"Gemeenschap",icon:"🤝",items:[{name:"Wrong Planet",author:"wrongplanet.net",desc:"Online gemeenschap en forum voor autistische mensen en hun families."},{name:"Reddit — r/autism",author:"reddit.com/r/autism",desc:"Grote peer-gemeenschap. Geen vervanging voor professionele ondersteuning maar echt nuttig."},{name:"Autistische Vrouwen & Non-binair Netwerk",author:"awnnetwork.org",desc:"Gemeenschap en bronnen specifiek voor autistische vrouwen en non-binaire mensen."}]}]}
+};
 
-Autism affects about 1 in 36 children
-It's present from birth, though often diagnosed later
-Both genetic and environmental factors play a role
-Every autistic person is unique
-            </div>
-          </details>
+// ── RENDER OCD ────────────────────────────────────────────────
+function renderOCDHome(){
+  const d=OCD_DATA[lang];
+  const types=OCD_TYPES[lang];
+  document.getElementById('ocd-types-grid').innerHTML=types.map(t=>`<div class="card" onclick="openOCDType('${t.id}')"><span class="card-em">${t.emoji}</span><div class="card-title">${t.title}</div><div class="card-body">${t.short}</div><div class="card-more">${lang==='en'?'Read full guide →':'Lees volledige gids →'}</div></div>`).join('');
+  document.getElementById('ocd-pills-obs').innerHTML=d.obs.map(p=>`<span class="pill po">${p}</span>`).join('');
+  document.getElementById('ocd-pills-comp').innerHTML=d.comp.map(p=>`<span class="pill pc">${p}</span>`).join('');
+  document.getElementById('ocd-pills-phy').innerHTML=d.phy.map(p=>`<span class="pill pp">${p}</span>`).join('');
+  document.getElementById('ocd-treat-row').innerHTML=d.treat.map(t=>`<div class="treat-card"><div class="treat-title">${t.t}</div><div class="treat-body">${t.b}</div></div>`).join('');
+  document.getElementById('ocd-tip-list').innerHTML=d.tips.map((t,i)=>`<li><span class="tip-n">${i+1}</span><span>${t}</span></li>`).join('');
+  document.getElementById('ocd-story-grid').innerHTML=d.stories.map(s=>`<div class="story-card"><div class="story-bq">"</div><div class="story-text">${s.text}</div><div class="story-name">${s.name}</div><div class="story-tag">${s.tag}</div></div>`).join('');
+  document.getElementById('ocd-faq-list').innerHTML=d.faq.map(f=>`<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">${f.q}<span class="faq-arr">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('');
+  document.getElementById('ocd-hotline-grid').innerHTML=hotlines.map(h=>`<div class="hotline"><div class="hl-country">${lang==='nl'?h.cn:h.ce}</div><div class="hl-name">${h.name}</div><div class="hl-num">${h.num}</div><div class="hl-note">${lang==='nl'?h.nn:h.ne}</div></div>`).join('');
+}
 
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #e4dcff">🌻</span>
-              <span class="accordion-title">Common Characteristics</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              While every autistic person is different, some common characteristics include:
+function openOCDType(typeId){
+  const types=OCD_TYPES[lang];
+  const t=types.find(x=>x.id===typeId);if(!t)return;
+  document.getElementById('ocd-type-detail').innerHTML=`
+    <div class="type-hero"><div class="type-badge">${lang==='en'?'OCD Type':'OCS Type'}</div><h1>${t.emoji} ${t.title}</h1><p>${t.overview}</p></div>
+    <div class="detail-section"><h3>${lang==='en'?'In Depth':'Meer Detail'}</h3>${t.detail.split('\n\n').map(p=>`<p>${p}</p>`).join('')}</div>
+    <div class="detail-section"><h3>${lang==='en'?'Personal Experiences':'Persoonlijke Ervaringen'}</h3>${t.examples.map(e=>`<div class="example-box">${e.text}<div class="example-name">— ${e.name}</div></div>`).join('')}</div>
+    <div class="detail-section"><h3>${lang==='en'?'Common Intrusive Thoughts':'Veelvoorkomende Opdringerige Gedachten'}</h3><div class="thought-grid">${t.thoughts.map(th=>`<div class="thought-card">${th}</div>`).join('')}</div></div>
+    <div class="detail-section"><h3>${lang==='en'?'Common Triggers':'Veelvoorkomende Triggers'}</h3><ul class="trigger-list">${t.triggers.map(tr=>`<li>${tr}</li>`).join('')}</ul></div>
+    <div class="detail-section"><h3>${lang==='en'?'Coping Strategies':'Copingstrategieën'}</h3><div class="coping-grid">${t.coping.map(c=>`<div class="coping-card"><div class="coping-num">${c.num}</div><div class="coping-title">${c.title}</div><div class="coping-body">${c.body}</div></div>`).join('')}</div></div>`;
+  showPage('ocd-type',null);
+}
 
-Social Communication:
+function renderOCDQuiz(){
+  const q=OCD_QUIZ[lang];
+  ocdQuizAnswers=new Array(q.questions.length).fill(null);
+  let h=`<div class="sec-hd"><span class="sec-em">📝</span><h2>${lang==='en'?'10 questions':'10 vragen'}</h2></div><div class="div"></div>`;
+  q.questions.forEach((item,i)=>{
+    h+=`<div style="margin-bottom:1.4rem"><p style="font-weight:700;color:var(--text);margin-bottom:.15rem;font-size:.88rem">${i+1}. ${item.q}</p><p style="font-size:.72rem;color:var(--text3);margin-bottom:.5rem;font-style:italic">${item.hint}</p><div style="display:flex;flex-wrap:wrap;gap:.35rem">${q.options.map((o,j)=>`<button class="quiz-opt" onclick="selQ('ocd',${i},${j},this)" data-qi="${i}" data-vi="${j}">${o}</button>`).join('')}</div></div>`;
+  });
+  h+=`<button class="btn-p" onclick="submitQ('ocd')">${q.submit}</button>`;
+  document.getElementById('ocd-quiz-container').innerHTML=h;
+  document.getElementById('ocd-quiz-result').style.display='none';
+}
 
-Processing social cues differently
-Preferring direct, literal communication
-Needing more time to process conversations
-Expressing emotions in unique ways
-Sensory Experiences:
+function renderOCDResources(){
+  const r=OCD_RES[lang];
+  document.getElementById('ocd-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1.1rem"><div class="sec-hd"><span class="sec-em">${s.icon}</span><h2>${s.title}</h2></div><div class="div"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.85rem">${s.items.map(item=>`<div class="res-card"><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`).join('')}</div></div>`).join('');
+}
 
-Heightened or reduced sensitivity to sounds, lights, textures, or smells
-Sensory overwhelm in busy environments
-Seeking or avoiding certain sensory inputs
-Interests & Routines:
+// ── RENDER AUTISM ─────────────────────────────────────────────
+function renderAutismHome(){
+  const d=AUT_DATA[lang];
+  document.getElementById('aut-pills-social').innerHTML=d.social.map(p=>`<span class="pill po">${p}</span>`).join('');
+  document.getElementById('aut-pills-sensory').innerHTML=d.sensory.map(p=>`<span class="pill pp">${p}</span>`).join('');
+  document.getElementById('aut-pills-interests').innerHTML=d.interests.map(p=>`<span class="pill pc">${p}</span>`).join('');
+  document.getElementById('aut-pills-strengths').innerHTML=d.strengths.map(p=>`<span class="pill pb">${p}</span>`).join('');
+  document.getElementById('aut-pills-sens-types').innerHTML=d.sensTypes.map(p=>`<span class="pill po">${p}</span>`).join('');
+  document.getElementById('aut-support-row').innerHTML=d.support.map(t=>`<div class="treat-card"><div class="treat-title">${t.t}</div><div class="treat-body">${t.b}</div></div>`).join('');
+  document.getElementById('aut-tip-list').innerHTML=d.tips.map((t,i)=>`<li><span class="tip-n">${i+1}</span><span>${t}</span></li>`).join('');
+  document.getElementById('aut-story-grid').innerHTML=d.stories.map(s=>`<div class="story-card"><div class="story-bq">"</div><div class="story-text">${s.text}</div><div class="story-name">${s.name}</div><div class="story-tag">${lang==='en'?'Autism':'Autisme'}</div></div>`).join('');
+  document.getElementById('aut-faq-list').innerHTML=d.faq.map(f=>`<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">${f.q}<span class="faq-arr">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('');
+}
 
-Deep, passionate interests in specific topics
-Comfort in predictable routines
-Attention to detail and patterns
-            </div>
-          </details>
+function renderAutQuiz(){
+  const q=AUT_QUIZ[lang];
+  autQuizAnswers=new Array(q.questions.length).fill(null);
+  let h=`<div class="sec-hd"><span class="sec-em">🌟</span><h2>${lang==='en'?'10 questions':'10 vragen'}</h2></div><div class="div"></div>`;
+  q.questions.forEach((item,i)=>{
+    h+=`<div style="margin-bottom:1.4rem"><p style="font-weight:700;color:var(--text);margin-bottom:.15rem;font-size:.88rem">${i+1}. ${item.q}</p><p style="font-size:.72rem;color:var(--text3);margin-bottom:.5rem;font-style:italic">${item.hint}</p><div style="display:flex;flex-wrap:wrap;gap:.35rem">${q.options.map((o,j)=>`<button class="quiz-opt" onclick="selQ('aut',${i},${j},this)" data-qi="${i}" data-vi="${j}">${o}</button>`).join('')}</div></div>`;
+  });
+  h+=`<button class="btn-p" onclick="submitQ('aut')">${q.submit}</button>`;
+  document.getElementById('aut-quiz-container').innerHTML=h;
+  document.getElementById('aut-quiz-result').style.display='none';
+}
 
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #c8f6e6">✨</span>
-              <span class="accordion-title">Autistic Strengths</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Autistic individuals often have remarkable strengths that should be celebrated:
+function renderAutResources(){
+  const r=AUT_RES[lang];
+  document.getElementById('aut-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1.1rem"><div class="sec-hd"><span class="sec-em">${s.icon}</span><h2>${s.title}</h2></div><div class="div"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.85rem">${s.items.map(item=>`<div class="res-card"><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`).join('')}</div></div>`).join('');
+}
 
-Attention to detail: Noticing things others might miss
-Deep focus: Ability to concentrate intensely on areas of interest
-Honesty: Valuing truth and authenticity
-Loyalty: Strong dedication to relationships and commitments
-Pattern recognition: Excellent at identifying patterns and systems
-Memory: Often exceptional recall for facts and details
-Creative thinking: Unique perspectives and problem-solving approaches
-Persistence: Determination in pursuing goals
-            </div>
-          </details>
+// ── SHARED QUIZ LOGIC ─────────────────────────────────────────
+function selQ(topic,qi,vi,btn){
+  const arr=topic==='ocd'?ocdQuizAnswers:autQuizAnswers;
+  arr[qi]=vi;
+  const prefix=topic==='ocd'?'ocd':'aut';
+  document.querySelectorAll(`#${prefix}-quiz-container [data-qi="${qi}"]`).forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
 
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #e4dcff">💬</span>
-              <span class="accordion-title">Communication Differences</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             Autistic people may communicate differently, and that's okay! Understanding these differences helps everyone connect better.
+function submitQ(tp){
+  const q=tp==='ocd'?OCD_QUIZ[lang]:AUT_QUIZ[lang];
+  const answers=tp==='ocd'?ocdQuizAnswers:autQuizAnswers;
+  if(answers.filter(a=>a!==null).length<q.questions.length){
+    alert(lang==='en'?`Please answer all ${q.questions.length} questions.`:`Beantwoord alle ${q.questions.length} vragen.`);return;
+  }
+  const total=answers.reduce((s,a)=>s+a,0);
+  const max=q.questions.length*4;
+  const pct=total/max;
+  const res=pct<0.3?q.rL:pct<0.6?q.rM:q.rH;
+  const barCol=pct<0.3?'#34d399':pct<0.6?'#fbbf24':'#f472b6';
+  const elId=tp==='ocd'?'ocd-quiz-result':'aut-quiz-result';
+  const el=document.getElementById(elId);
+  el.style.display='block';
+  el.innerHTML=`
+    <div class="sec-hd"><span class="sec-em">${pct<0.3?'💚':pct<0.6?'💛':'💗'}</span><h2>${res.title}</h2></div>
+    <div class="div"></div>
+    <p style="margin-bottom:.9rem">${res.text}</p>
+    <div style="margin-bottom:1.1rem">
+      <div style="display:flex;justify-content:space-between;font-size:.73rem;color:var(--text3);margin-bottom:.35rem;font-weight:700"><span>${q.score}</span><span>${total}/${max}</span></div>
+      <div style="height:9px;background:rgba(155,109,255,.1);border-radius:50px;overflow:hidden"><div style="height:100%;width:${Math.round(pct*100)}%;background:linear-gradient(90deg,var(--purple),${barCol});border-radius:50px"></div></div>
+    </div>
+    <p style="font-size:.72rem;color:var(--text3);font-style:italic;margin-bottom:.9rem">${q.disc}</p>
+    <button class="btn-o" onclick="${tp==='ocd'?'renderOCDQuiz':'renderAutQuiz'}()">${q.restart}</button>`;
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
 
-Things to know:
-
-Eye contact may be uncomfortable or difficult
-Some people are non-speaking or use AAC (Augmentative and Alternative Communication)
-Literal interpretation of language is common
-Processing time may be needed before responding
-Stimming (self-stimulatory behavior) is a form of expression and regulation
-Helpful tips:
-
-Be patient and give extra time for responses
-Use clear, direct language
-Respect different communication styles
-Ask how someone prefers to communicate
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe2c2">👁️</span>
-              <span class="accordion-title">Sensory Processing</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Many autistic individuals experience sensory input differently. This can mean being hypersensitive (over-responsive) or hyposensitive (under-responsive) to various stimuli.
-
-Common sensory sensitivities:
-
-Sound: Loud noises, background noise, specific frequencies
-Light: Bright lights, fluorescent lighting, flickering
-Touch: Certain textures, clothing tags, light touch
-Smell: Strong perfumes, food smells, cleaning products
-Taste: Food textures, strong flavors, temperature
-Understanding sensory needs can help create more comfortable environments for everyone.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">🤝</span>
-              <span class="accordion-title">Supporting Autistic People</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              The best way to support autistic individuals is to listen, learn, and accept them as they are.
-
-Do:
-
-Ask about individual needs and preferences
-Respect boundaries and communication styles
-Create sensory-friendly environments when possible
-Celebrate strengths and differences
-Educate yourself from autistic voices
-Avoid:
-
-Making assumptions based on stereotypes
-Forcing eye contact or social norms
-Using puzzle piece symbols (many find this offensive)
-Speaking over autistic individuals about their experiences
-            </div>
-          </details>
-        </div>
-
-        <div class="note-card" style="margin-top: 24px">
-          <div class="note-icon">💗</div>
-          <div>
-            <strong>Remember</strong>
-            <p>
-              Every autistic person is unique. What works for one person may not
-              work for another. The best approach is always to listen, ask, and
-              respect individual needs and preferences.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="resources">
-        <div class="hero-panel" style="background: rgba(248, 231, 247, 0.9)">
-          <div class="hero-icon">✨</div>
-          <h2>Helpful Resources</h2>
-          <p class="lead">
-            A curated collection of trusted organizations, communities, and
-            tools to support you on your journey.
-          </p>
-        </div>
-
-        <section style="margin-top: 26px">
-          <div class="section-head">
-            <div class="soft-line" aria-hidden="true"></div>
-            <h2>Organizations &amp; Support</h2>
-          </div>
-          <div class="grid-2">
-            <article class="card">
-              <div class="card-icon" style="background: #ffe5f0">🌐</div>
-              <h3>Autism Society of America</h3>
-              <p class="muted">
-                National organization providing education, advocacy, and support
-                for autistic individuals and families.
-              </p>
-              <a class="resource-link" href="https://autismsociety.org" target="_blank" rel="noopener">
-                Visit website ↗
-              </a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #e4dcff">💜</div>
-              <h3>Autistic Self Advocacy Network (ASAN)</h3>
-              <p class="muted">
-                Run by and for autistic people, advocating for disability rights
-                and acceptance.
-              </p>
-              <a class="resource-link" href="https://autisticadvocacy.org" target="_blank" rel="noopener">
-                Visit website ↗
-              </a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #c8f6e6">👥</div>
-              <h3>Autism Science Foundation</h3>
-              <p class="muted">
-                Supporting autism research and providing science-based
-                information to families.
-              </p>
-              <a class="resource-link" href="https://autismsciencefoundation.org" target="_blank" rel="noopener">
-                Visit website ↗
-              </a>
-            </article>
-          </div>
-        </section>
-
-        <section style="margin-top: 30px">
-          <div class="section-head">
-            <div class="soft-line" aria-hidden="true"></div>
-            <h2>Community &amp; Connection</h2>
-          </div>
-          <div class="grid-2">
-            <article class="card">
-              <div class="card-icon" style="background: #e4dcff">💬</div>
-              <h3>Wrong Planet</h3>
-              <p class="muted">
-                Online community for individuals on the autism spectrum, their
-                families, and others interested in autism.
-              </p>
-              <a class="resource-link" href="https://wrongplanet.net" target="_blank" rel="noopener">
-                Join community ↗
-              </a>
-            </article>
-            <article class="card">
-              <div class="card-icon" style="background: #ffe5f0">👥</div>
-              <h3>Autism Forums</h3>
-              <p class="muted">
-                A friendly discussion community for autistic individuals and
-                those who love them.
-              </p>
-              <a class="resource-link" href="https://www.autismforums.com" target="_blank" rel="noopener">
-                Join forum ↗
-              </a>
-            </article>
-          </div>
-        </section>
-      </section>
-
-      <section id="self-care">
-        <div class="section-head">
-          <div class="soft-line" aria-hidden="true"></div>
-          <h2>Calming Techniques</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <div class="card-icon" style="background: #c8f6e6">🌬️</div>
-            <h3>Deep Breathing</h3>
-            <p class="muted">
-              Simple breathing exercises to help calm your nervous system.
-            </p>
-            <ul class="list">
-              <li>Try 4-7-8 breathing: inhale for 4 counts, hold for 7, exhale for 8</li>
-              <li>Box breathing: 4 counts in, hold 4, out 4, hold 4</li>
-              <li>Focus on slow, belly breaths</li>
-              <li>Practice in a comfortable, quiet space</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" style="background: #e4dcff">⏱️</div>
-            <h3>Grounding Exercises</h3>
-            <p class="muted">Techniques to bring you back to the present moment.</p>
-            <ul class="list">
-              <li>5-4-3-2-1: Name 5 things you see, 4 you hear, 3 you feel</li>
-              <li>Hold a cold object or splash cold water on your face</li>
-              <li>Press your feet firmly into the ground</li>
-              <li>Describe your surroundings in detail</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" style="background: #ffd7ea">〰️</div>
-            <h3>Progressive Muscle Relaxation</h3>
-            <p class="muted">Release tension by tensing and relaxing muscle groups.</p>
-            <ul class="list">
-              <li>Start with your toes and work up to your head</li>
-              <li>Tense each muscle group for 5 seconds, then release</li>
-              <li>Notice the difference between tension and relaxation</li>
-              <li>Take slow breaths throughout</li>
-            </ul>
-          </article>
-        </div>
-
-        <section style="margin-top: 34px">
-          <div class="section-head">
-            <div class="soft-line" aria-hidden="true"></div>
-            <h2>Sensory Strategies</h2>
-          </div>
-          <div class="grid-3">
-            <article class="card">
-              <div class="card-icon" style="background: #e4dcff">🎧</div>
-              <h3>Sound Management</h3>
-              <p class="muted">
-                Noise-cancelling headphones, predictable playlists, and finding
-                quiet corners can ease sensory overload.
-              </p>
-            </article>
-
-            <article class="card">
-              <div class="card-icon" style="background: #ffe2c2">✨</div>
-              <h3>Stimming &amp; Movement</h3>
-              <p class="muted">
-                Gentle movement, fidget tools, or rocking can help regulate your
-                nervous system and release energy.
-              </p>
-            </article>
-
-            <article class="card">
-              <div class="card-icon" style="background: #d7f0ff">🛡️</div>
-              <h3>Creating Safe Spaces</h3>
-              <p class="muted">
-                Design calming environments with soft lighting, comforting
-                textures, and predictable routines.
-              </p>
-            </article>
-          </div>
-        </section>
-      </section>
-
-      <section id="faq">
-        <div class="section-head">
-          <div class="soft-line" aria-hidden="true"></div>
-          <h2>Frequently Asked Questions</h2>
-        </div>
-        <div class="accordion">
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What causes autism?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Autism is caused by a combination of genetic and environmental factors. Research shows that genetics play a significant role, with many different genes contributing to autism risk. It's important to note that vaccines do NOT cause autism—this has been thoroughly studied and debunked. Autism is a natural variation in human neurodevelopment, not caused by parenting styles or social circumstances.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">At what age is autism typically diagnosed?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             Autism can be reliably diagnosed as early as age 2, though many children aren't diagnosed until later. Some people, especially women and those who 'mask' their traits, may not receive a diagnosis until adolescence or adulthood. Early intervention can be helpful, but it's never too late for a diagnosis to provide understanding and access to support.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">Is there a "cure" for autism?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Autism is not a disease that needs curing—it's a neurological difference. Many autistic individuals don't want to be 'cured' and view autism as an integral part of their identity. The focus should be on support, acceptance, and accommodations that help autistic people thrive, rather than trying to make them 'normal.' Therapies should aim to build skills and quality of life, not eliminate autistic traits.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What is "stimming" and why do autistic people do it?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Stimming (self-stimulatory behavior) includes repetitive movements or sounds like hand-flapping, rocking, spinning, or repeating words. Stimming serves important purposes: it can help regulate emotions, process sensory input, express excitement, or provide comfort. Stimming is natural and healthy—it should only be addressed if it causes harm. Trying to stop all stimming can be harmful to an autistic person's wellbeing.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">Why do autistic people sometimes avoid eye contact?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             For many autistic people, making eye contact can feel uncomfortable, overwhelming, or even painful. It can make it harder to concentrate on what someone is saying. Some describe it as too intense or invasive. Not making eye contact doesn't mean someone isn't listening or isn't interested—it may actually help them focus better on the conversation.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">Can autistic people have successful relationships?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Absolutely! Autistic people can and do have fulfilling romantic relationships, friendships, and family connections. Relationships may look different—communication styles might vary, and accommodations might be needed—but autistic people are capable of deep love and connection. Many autistic people find partners (autistic or not) who appreciate their authentic selves.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What is "masking" or "camouflaging"?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Masking is when autistic people consciously or unconsciously hide their autistic traits to fit in with neurotypical expectations. This might include forcing eye contact, suppressing stims, or mimicking social behaviors. While masking can help in some situations, it's exhausting and can lead to burnout, anxiety, and depression. Creating accepting environments reduces the need for masking.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">Are autistic people more likely to have other conditions?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             Yes, many autistic people have co-occurring conditions. Common ones include ADHD, anxiety, depression, epilepsy, gastrointestinal issues, and sleep disorders. This is why comprehensive healthcare that addresses the whole person is important. Having these conditions doesn't define someone's experience of autism—everyone is unique.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What's the difference between "high-functioning" and "low-functioning" autism?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             These terms are outdated and often unhelpful. They don't capture the full picture of someone's abilities and challenges. A person labeled 'high-functioning' may struggle greatly with things that aren't visible, while someone labeled 'low-functioning' may have significant strengths that are overlooked. Many prefer to describe specific support needs rather than using functioning labels.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">How can I be a good ally to autistic people?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-             Listen to autistic voices and learn from their perspectives. Use identity-first language if that's what the person prefers ('autistic person' rather than 'person with autism'). Don't make assumptions—ask about individual needs. Advocate for accessibility and inclusion. Challenge stereotypes and misinformation. Accept people as they are without trying to change their autistic traits.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What is sensory overload?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              Sensory overload occurs when the brain receives more sensory input than it can process, leading to feelings of overwhelm, anxiety, or shutdown. This can be triggered by loud noises, bright lights, crowded spaces, strong smells, or multiple sensory inputs at once. Signs include needing to escape, covering ears or eyes, becoming nonverbal, or meltdowns. Creating sensory-friendly environments helps prevent overload.
-            </div>
-          </details>
-
-          <details class="accordion-item">
-            <summary>
-              <span class="accordion-icon" style="background: #ffe5f0">💬</span>
-              <span class="accordion-title">What's the difference between a meltdown and a tantrum?</span>
-              <span class="accordion-chevron">⌄</span>
-            </summary>
-            <div class="accordion-body">
-              A meltdown is an involuntary response to overwhelming stress or sensory overload—the person has lost control and isn't choosing to behave this way. A tantrum is goal-oriented behavior that stops when the goal is achieved. Meltdowns require patience, reducing stimulation, and giving the person space and time to recover. They're not manipulative or attention-seeking.
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <footer>
-        <div class="foot">
-          <div style="font-weight: 750">
-            © <span id="year"></span> JourHelp
-          </div>
-          <p>Our new webgames : </p>
-          <div id="gameLinks">
-          <a href="https://stimquest.nl">StimQuest</a>
-          <p>&</p>
-          <a href="https://juliejanssen.nl/clickbaitme">ClickBaitMe</a>
-          </div>
-          
-          <a href="https://juliejanssen.nl/">Made with ❤️ for the autism community by Julie Janssen</a>
-          <a href="mailto:jourhelp@icloud.com">Contact : jourhelp@icloud.com</a>
-        </div>
-      </footer>
-    </main>
-
-    <a class="floating-chat" href="mailto:jourhelp@icloud.com" aria-label="Email JourHelp">
-      💬
-    </a>
-
-    <script>
-      // Smooth anchor scrolling
-      function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      function smoothScrollToY(targetY, durationMs) {
-        const startY = window.scrollY || window.pageYOffset;
-        const delta = targetY - startY;
-        const startT = performance.now();
-
-        function step(now) {
-          const t = Math.min(1, (now - startT) / durationMs);
-          const eased = easeInOutCubic(t);
-          window.scrollTo(0, startY + delta * eased);
-          if (t < 1) requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
-      }
-
-      function scrollToElement(el) {
-        if (!el) return;
-        const headerEl = document.querySelector("header");
-        const headerH = headerEl ? headerEl.getBoundingClientRect().height : 0;
-        const y = window.scrollY + el.getBoundingClientRect().top - headerH - 10;
-        smoothScrollToY(Math.max(0, y), 700);
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-          const href = a.getAttribute("href");
-          if (!href || href === "#") return;
-          const target = document.querySelector(href);
-          if (!target) return;
-          e.preventDefault();
-          scrollToElement(target);
-          history.pushState(null, "", href);
-        });
-      });
-
-      // Active nav highlighting
-      const navLinks = Array.from(document.querySelectorAll(".navlinks .chip"));
-      const sections = navLinks
-        .map((a) => document.querySelector(a.getAttribute("href")))
-        .filter(Boolean);
-
-      const activeObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (!e.isIntersecting) return;
-            navLinks.forEach((a) => (a.dataset.active = "false"));
-            const hit = navLinks.find(
-              (a) => a.getAttribute("href") === "#" + e.target.id,
-            );
-            if (hit) hit.dataset.active = "true";
-          });
-        },
-        { rootMargin: "-45% 0px -50% 0px", threshold: 0.01 },
-      );
-
-      sections.forEach((sec) => activeObs.observe(sec));
-
-      // Footer year
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+// ── INIT ──────────────────────────────────────────────────────
+buildSidebar();
+renderOCDHome();
+renderAutismHome();
+renderOCDQuiz();
+renderAutQuiz();
+renderOCDResources();
+renderAutResources();
+</script>
+</body>
 </html>
