@@ -21,11 +21,9 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* ── TOP NAV ── */
-.topnav{height:56px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:100}
+.topnav{height:74px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:100}
 .brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;flex-shrink:0}
-.brand-dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--g1),var(--g2));display:flex;align-items:center;justify-content:center}
-.brand-dot svg{width:14px;height:14px;fill:white}
-.brand-name{font-size:.95rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.brand-logo{display:block;width:176px;height:auto}
 .nav-divider{width:1px;height:18px;background:var(--border);flex-shrink:0}
 .topic-tabs{display:flex;gap:2px}
 .topic-tab{padding:.35rem .8rem;border-radius:6px;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:500;cursor:pointer;color:var(--text2);transition:all .15s}
@@ -46,7 +44,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.2);z-index:98}
 
 /* ── SIDEBAR ── */
-.sidebar{width:210px;flex-shrink:0;position:sticky;top:72px;align-self:flex-start;max-height:calc(100vh - 88px);overflow-y:auto;padding-right:4px}
+.sidebar{width:210px;flex-shrink:0;position:sticky;top:90px;align-self:flex-start;max-height:calc(100vh - 106px);overflow-y:auto;padding-right:4px}
 .sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 .nav-group-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin:1.25rem 0 .35rem .5rem}
 .nav-group-label:first-child{margin-top:0}
@@ -200,7 +198,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 @media(max-width:600px){
   .topnav{height:auto;min-height:56px;align-items:center;flex-wrap:wrap;padding:.6rem 1rem;gap:.5rem .65rem}
   .nav-spacer{display:none}
-  .brand-name{font-size:.88rem}
+  .brand-logo{width:132px}
   .topic-tab{font-size:.75rem;padding:.3rem .65rem}
   .disclaimer-nav{order:5;width:100%;font-size:.75rem;padding:.38rem .8rem}
   .lang-toggle{margin-left:auto}
@@ -229,8 +227,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
     <span></span><span></span><span></span>
   </button>
   <a class="brand" href="#">
-    <div class="brand-dot"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-    <span class="brand-name">JourHelp</span>
+    <img class="brand-logo" src="Assets/JourHelpLogo.png" alt="JourHelp Psychology & Support">
   </a>
   <div class="nav-divider"></div>
   <div class="topic-tabs">
