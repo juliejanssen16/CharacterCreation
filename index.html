@@ -31,6 +31,8 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab{padding:.35rem .8rem;border-radius:6px;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:500;cursor:pointer;color:var(--text2);transition:all .15s}
 .topic-tab:hover{background:var(--surface2);color:var(--text)}
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
+.disclaimer-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(124,58,237,.18);background:rgba(124,58,237,.07);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--p);text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.disclaimer-nav:hover{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.28)}
 .nav-spacer{flex:1}
 .lang-toggle{display:flex;background:var(--surface2);border-radius:6px;padding:2px;gap:1px}
 .lang-btn{padding:.28rem .7rem;border-radius:5px;border:none;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;cursor:pointer;background:transparent;color:var(--text2);transition:all .15s}
@@ -177,6 +179,10 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
+/* ── DISCLAIMER ── */
+.disclaimer-list{margin:.2rem 0 0 1.1rem;color:var(--text2);font-size:.83rem;line-height:1.8}
+.disclaimer-list li{margin-bottom:.45rem}
+
 /* ── FOOTER ── */
 .footer{border-top:1px solid var(--border);padding:1.25rem 1.5rem;font-size:.74rem;color:var(--text3);text-align:center;background:var(--surface)}
 .footer-disclaimer{max-width:640px;margin:0 auto .55rem;color:var(--text2);line-height:1.6}
@@ -192,9 +198,12 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   .content-area{padding:1.5rem 1rem 3rem;gap:0}
 }
 @media(max-width:600px){
-  .topnav{padding:0 1rem;gap:.65rem}
+  .topnav{height:auto;min-height:56px;align-items:center;flex-wrap:wrap;padding:.6rem 1rem;gap:.5rem .65rem}
+  .nav-spacer{display:none}
   .brand-name{font-size:.88rem}
   .topic-tab{font-size:.75rem;padding:.3rem .65rem}
+  .disclaimer-nav{order:5;width:100%;font-size:.75rem;padding:.38rem .8rem}
+  .lang-toggle{margin-left:auto}
   .hero{padding:1.75rem 1.25rem}
   .section{padding:1.2rem}
   .card-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
@@ -228,6 +237,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
     <button class="topic-tab active" onclick="setTopic('ocd',this)" data-en="OCD" data-nl="OCS">OCD</button>
     <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
+  <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <div class="nav-spacer"></div>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -439,6 +449,33 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <p data-en="Books, websites, apps, and communities for autistic people and their loved ones." data-nl="Boeken, websites, apps en gemeenschappen voor autistische mensen en hun naasten.">Books, websites, apps, and communities for autistic people and their loved ones.</p>
       </div>
       <div id="aut-resources-content"></div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="page" id="page-disclaimer">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Important Information" data-nl="Belangrijke Informatie">Important Information</span></div>
+        <h1><span class="grad" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</span></h1>
+        <p data-en="JourHelp shares personal insights and general information about autism and OCD. It is not a substitute for professional medical or psychological advice." data-nl="JourHelp deelt persoonlijke inzichten en algemene informatie over autisme en OCS. Het is geen vervanging voor professioneel medisch of psychologisch advies.">JourHelp shares personal insights and general information about autism and OCD. It is not a substitute for professional medical or psychological advice.</p>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">i</div><h2 data-en="Extended Disclaimer" data-nl="Uitgebreide Disclaimer">Extended Disclaimer</h2></div>
+        <div class="divider"></div>
+        <p data-en="The information on JourHelp is shared for awareness, reflection, and education. It is based on personal insights and general information about autism, OCD, mental health, coping strategies, and support options." data-nl="De informatie op JourHelp wordt gedeeld voor bewustwording, reflectie en educatie. De inhoud is gebaseerd op persoonlijke inzichten en algemene informatie over autisme, OCS, mentale gezondheid, copingstrategieën en ondersteuningsmogelijkheden.">The information on JourHelp is shared for awareness, reflection, and education. It is based on personal insights and general information about autism, OCD, mental health, coping strategies, and support options.</p>
+        <p data-en="JourHelp does not provide medical, psychological, therapeutic, diagnostic, or crisis-care services. Nothing on this website should be used to diagnose yourself or someone else, start or stop treatment, change medication, or replace guidance from a qualified professional." data-nl="JourHelp biedt geen medische, psychologische, therapeutische, diagnostische of crisishulpdiensten. Niets op deze website mag worden gebruikt om jezelf of iemand anders te diagnosticeren, een behandeling te starten of te stoppen, medicatie te wijzigen, of begeleiding van een gekwalificeerde professional te vervangen.">JourHelp does not provide medical, psychological, therapeutic, diagnostic, or crisis-care services. Nothing on this website should be used to diagnose yourself or someone else, start or stop treatment, change medication, or replace guidance from a qualified professional.</p>
+        <p data-en="Autism and OCD can look different for every person. If something you read here feels familiar, confusing, upsetting, or urgent, please speak with a doctor, psychologist, therapist, psychiatrist, or another qualified mental health professional." data-nl="Autisme en OCS kunnen er bij iedere persoon anders uitzien. Als iets wat je hier leest herkenbaar, verwarrend, verontrustend of dringend voelt, neem dan contact op met een arts, psycholoog, therapeut, psychiater of een andere gekwalificeerde GGZ-professional.">Autism and OCD can look different for every person. If something you read here feels familiar, confusing, upsetting, or urgent, please speak with a doctor, psychologist, therapist, psychiatrist, or another qualified mental health professional.</p>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">!</div><h2 data-en="When to Get Support" data-nl="Wanneer Hulp Zoeken">When to Get Support</h2></div>
+        <div class="divider"></div>
+        <ul class="disclaimer-list">
+          <li data-en="If you are in immediate danger, feel unable to stay safe, or are worried you may harm yourself or someone else, contact local emergency services now." data-nl="Als je direct gevaar loopt, je jezelf niet veilig kunt houden, of bang bent dat je jezelf of iemand anders iets aandoet, neem dan nu contact op met lokale hulpdiensten.">If you are in immediate danger, feel unable to stay safe, or are worried you may harm yourself or someone else, contact local emergency services now.</li>
+          <li data-en="If you are experiencing intense distress, panic, suicidal thoughts, compulsions that feel unmanageable, or a major change in your mental health, seek professional support as soon as possible." data-nl="Als je intense stress, paniek, suïcidale gedachten, dwanghandelingen die onbeheersbaar voelen, of een grote verandering in je mentale gezondheid ervaart, zoek dan zo snel mogelijk professionele hulp.">If you are experiencing intense distress, panic, suicidal thoughts, compulsions that feel unmanageable, or a major change in your mental health, seek professional support as soon as possible.</li>
+          <li data-en="If you are already receiving care, use JourHelp only as extra reflection material alongside the plan you have made with your professional support team." data-nl="Als je al zorg ontvangt, gebruik JourHelp dan alleen als aanvullend reflectiemateriaal naast het plan dat je met je professionele hulpverleners hebt gemaakt.">If you are already receiving care, use JourHelp only as extra reflection material alongside the plan you have made with your professional support team.</li>
+        </ul>
+      </div>
     </div>
 
   </main>
