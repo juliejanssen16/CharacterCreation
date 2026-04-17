@@ -180,8 +180,12 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
 /* ── DISCORD ── */
-.discord-widget{width:100%;max-width:350px;height:500px;border:0;border-radius:var(--r-sm);display:block;background:#1f2937}
-.discord-wrap{display:flex;justify-content:center;margin-top:.9rem}
+.discord-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem;border:1px solid rgba(88,101,242,.18);border-radius:var(--r-sm);background:linear-gradient(135deg,rgba(88,101,242,.08),rgba(219,39,119,.06));margin-top:.9rem}
+.discord-copy{min-width:0}
+.discord-title{font-size:.86rem;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:.18rem}
+.discord-text{font-size:.76rem;color:var(--text2);line-height:1.6}
+.discord-cta{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:.48rem .9rem;border-radius:var(--r-sm);background:#5865f2;color:white;text-decoration:none;font-size:.78rem;font-weight:700;box-shadow:var(--shadow);transition:opacity .15s}
+.discord-cta:hover{opacity:.88}
 
 /* ── DISCLAIMER ── */
 .disclaimer-list{margin:.2rem 0 0 1.1rem;color:var(--text2);font-size:.83rem;line-height:1.8}
@@ -209,6 +213,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   .disclaimer-nav{order:5;width:100%;font-size:.75rem;padding:.38rem .8rem}
   .discord-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .lang-toggle{margin-left:auto}
+  .discord-card{align-items:flex-start;flex-direction:column}
   .hero{padding:1.75rem 1.25rem}
   .section{padding:1.2rem}
   .card-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
@@ -243,7 +248,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <div class="nav-spacer"></div>
-  <a class="discord-nav" href="https://discord.com/widget?id=1494643922314592256&theme=dark" target="_blank" rel="noopener" data-en="Discord" data-nl="Discord">Discord</a>
+  <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Discord">Join Discord</a>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('nl')">NL</button>
@@ -321,8 +326,12 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
         <div class="divider"></div>
         <p data-en="Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation." data-nl="Word lid van de JourHelp Discord-community voor fijne lotgenotensteun, gedeelde ervaringen en gesprekken.">Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation.</p>
-        <div class="discord-wrap">
-          <iframe class="discord-widget" title="JourHelp Discord community" src="https://discord.com/widget?id=1494643922314592256&theme=dark" width="350" height="500" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <div class="discord-card">
+          <div class="discord-copy">
+            <div class="discord-title" data-en="Come sit with us" data-nl="Kom erbij">Come sit with us</div>
+            <div class="discord-text" data-en="A cozy space for people who want support, understanding, and kind conversation." data-nl="Een fijne plek voor mensen die steun, begrip en vriendelijke gesprekken zoeken.">A cozy space for people who want support, understanding, and kind conversation.</div>
+          </div>
+          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
         </div>
       </div>
 
@@ -439,8 +448,12 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
         <div class="divider"></div>
         <p data-en="Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation." data-nl="Word lid van de JourHelp Discord-community voor fijne lotgenotensteun, gedeelde ervaringen en gesprekken.">Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation.</p>
-        <div class="discord-wrap">
-          <iframe class="discord-widget" title="JourHelp Discord community" src="https://discord.com/widget?id=1494643922314592256&theme=dark" width="350" height="500" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <div class="discord-card">
+          <div class="discord-copy">
+            <div class="discord-title" data-en="Come sit with us" data-nl="Kom erbij">Come sit with us</div>
+            <div class="discord-text" data-en="A cozy space for people who want support, understanding, and kind conversation." data-nl="Een fijne plek voor mensen die steun, begrip en vriendelijke gesprekken zoeken.">A cozy space for people who want support, understanding, and kind conversation.</div>
+          </div>
+          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
         </div>
       </div>
 
