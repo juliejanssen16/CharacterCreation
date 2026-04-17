@@ -838,7 +838,8 @@ const READING_SPOT_KEY='jourhelp_reading_spot';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
 let lowStim=false;
 let cookieMode='first';
-let savedReadingSpot='';
+let savedReadingSpot=null;
+let restoringReadingSpot=false;
 
 function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
@@ -931,35 +932,47 @@ function updateReadingProgress(){
   bar.style.width=`${Math.round((read/total)*100)}%`;
   updateFloatingReadTools();
 }
-function saveReadingSpot(hash){
-  if(!hash||hash===savedReadingSpot)return;
-  savedReadingSpot=hash;
-  if(storageAllowed())localStorage.setItem(READING_SPOT_KEY,hash);
+function saveReadingSpot(){
+  if(window.scrollY<420)return;
+  const hash=updateShareUrl();
+  const spot={page:activePageId(),hash,y:Math.round(window.scrollY)};
+  if(savedReadingSpot&&savedReadingSpot.page===spot.page&&Math.abs(savedReadingSpot.y-spot.y)<80)return;
+  savedReadingSpot=spot;
+  if(storageAllowed())localStorage.setItem(READING_SPOT_KEY,JSON.stringify(spot));
   updateFloatingReadTools();
 }
 function maybeSaveReadingSpot(){
-  if(window.scrollY<420)return;
-  saveReadingSpot(updateShareUrl());
+  if(restoringReadingSpot)return;
+  saveReadingSpot();
 }
 function loadReadingSpot(){
   if(!storageAllowed())return;
-  try{savedReadingSpot=localStorage.getItem(READING_SPOT_KEY)||'';}catch{}
+  try{
+    const raw=localStorage.getItem(READING_SPOT_KEY);
+    if(!raw)return;
+    savedReadingSpot=raw.startsWith('{')?JSON.parse(raw):{page:raw.split('/')[0],hash:raw,y:0};
+  }catch{}
 }
 function backToTop(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function continueReading(){
   if(!savedReadingSpot)return;
-  window.location.hash=savedReadingSpot;
-  applyHashRoute();
+  restoringReadingSpot=true;
+  showPage(savedReadingSpot.page||'ocd-home',null);
+  setTimeout(()=>{
+    window.scrollTo({top:savedReadingSpot.y||0,behavior:'smooth'});
+    if(savedReadingSpot.hash)history.replaceState(null,'',`#${savedReadingSpot.hash}`);
+    setTimeout(()=>{restoringReadingSpot=false;updateFloatingReadTools();},700);
+  },80);
 }
 function updateFloatingReadTools(){
   const wrap=document.getElementById('floatingReadTools'),cont=document.getElementById('continueReadingBtn');
   if(!wrap||!cont)return;
   const current=updateShareUrl();
-  const canContinue=Boolean(savedReadingSpot&&savedReadingSpot!==current);
+  const canContinue=Boolean(savedReadingSpot&&(savedReadingSpot.page!==activePageId()||Math.abs(window.scrollY-(savedReadingSpot.y||0))>140));
   wrap.classList.toggle('show',window.scrollY>420||canContinue);
-  cont.classList.toggle('show',Boolean(savedReadingSpot&&savedReadingSpot!==current));
+  cont.classList.toggle('show',canContinue);
   cont.textContent=lang==='en'?'Continue':'Verder lezen';
 }
 function applyHashRoute(){
@@ -1148,7 +1161,7 @@ function acceptStorageConsent(){
   localStorage.setItem(STORAGE_CONSENT_KEY,'yes');
   collectCalmPlan();
   writeCalmPlan();
-  if(savedReadingSpot)localStorage.setItem(READING_SPOT_KEY,savedReadingSpot);
+  if(savedReadingSpot)localStorage.setItem(READING_SPOT_KEY,JSON.stringify(savedReadingSpot));
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.');
 }
