@@ -900,7 +900,7 @@ function updateShareUrl(pageId,sectionId){
   const section=sectionId||visibleSectionId();
   const hash=section?`${page}/${section}`:page;
   history.replaceState(null,'',`#${hash}`);
-  saveReadingSpot(hash);
+  return hash;
 }
 function currentShareUrl(){
   updateShareUrl();
@@ -937,6 +937,10 @@ function saveReadingSpot(hash){
   if(storageAllowed())localStorage.setItem(READING_SPOT_KEY,hash);
   updateFloatingReadTools();
 }
+function maybeSaveReadingSpot(){
+  if(window.scrollY<420)return;
+  saveReadingSpot(updateShareUrl());
+}
 function loadReadingSpot(){
   if(!storageAllowed())return;
   try{savedReadingSpot=localStorage.getItem(READING_SPOT_KEY)||'';}catch{}
@@ -952,8 +956,9 @@ function continueReading(){
 function updateFloatingReadTools(){
   const wrap=document.getElementById('floatingReadTools'),cont=document.getElementById('continueReadingBtn');
   if(!wrap||!cont)return;
-  wrap.classList.toggle('show',window.scrollY>420);
-  const current=window.location.hash.replace(/^#/,'');
+  const current=updateShareUrl();
+  const canContinue=Boolean(savedReadingSpot&&savedReadingSpot!==current);
+  wrap.classList.toggle('show',window.scrollY>420||canContinue);
   cont.classList.toggle('show',Boolean(savedReadingSpot&&savedReadingSpot!==current));
   cont.textContent=lang==='en'?'Continue':'Verder lezen';
 }
@@ -963,7 +968,7 @@ function applyHashRoute(){
   const [page,section]=raw.split('/');
   if(!page||!document.getElementById('page-'+page))return false;
   showPage(page,null);
-  if(section)setTimeout(()=>document.getElementById(section)?.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  if(section)setTimeout(()=>{document.getElementById(section)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(page,section);},80);
   return true;
 }
 function setTopic(t,btn){
@@ -1464,7 +1469,7 @@ initConsent();
 loadReadingSpot();
 renderCalmPlan();
 renderLowStim();
-window.addEventListener('scroll',()=>{updateReadingProgress();updateShareUrl();updateFloatingReadTools();},{passive:true});
+window.addEventListener('scroll',()=>{updateReadingProgress();updateShareUrl();maybeSaveReadingSpot();updateFloatingReadTools();},{passive:true});
 window.addEventListener('resize',()=>{updateReadingProgress();updateFloatingReadTools();});
 if(!applyHashRoute())updateShareUrl();
 updateReadingProgress();
