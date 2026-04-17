@@ -195,6 +195,17 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
+/* ── GLOSSARY ── */
+.glossary-tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:.85rem 0 1rem}
+.glossary-search{flex:1;min-width:220px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;padding:.68rem .75rem;outline:none}
+.glossary-search:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+.glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem}
+.glossary-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem}
+.glossary-card h3{font-size:.9rem;font-weight:800;color:var(--text);letter-spacing:-.02em;margin-bottom:.25rem}
+.glossary-tag{display:inline-block;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:.45rem}
+.glossary-card p{font-size:.78rem;color:var(--text2);line-height:1.7;margin:0}
+.glossary-empty{font-size:.82rem;color:var(--text2);line-height:1.7;padding:.75rem 0}
+
 /* ── CALM PLAN ── */
 .calm-form{display:grid;gap:.85rem}
 .calm-field{display:grid;gap:.35rem}
@@ -323,6 +334,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <a class="disclaimer-nav calm-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
+  <a class="disclaimer-nav calm-nav" href="#page-glossary" onclick="showPage('glossary',null)" data-en="Glossary" data-nl="Woordenboek">Glossary</a>
   <div class="nav-spacer"></div>
   <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Word lid van Discord">Join Discord</a>
   <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Steun JourHelp">Buy me a coffee</a>
@@ -634,6 +646,25 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       </div>
     </div>
 
+    <!-- GLOSSARY -->
+    <div class="page" id="page-glossary">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Quick Reference" data-nl="Snelle referentie">Quick Reference</span></div>
+        <h1><span class="grad" data-en="Glossary" data-nl="Woordenboek">Glossary</span></h1>
+        <p data-en="Short, gentle explanations of common OCD, autism, and mental health terms." data-nl="Korte, rustige uitleg van veelgebruikte termen rond OCS, autisme en mentale gezondheid.">Short, gentle explanations of common OCD, autism, and mental health terms.</p>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">Aa</div><h2 data-en="Find a term" data-nl="Zoek een term">Find a term</h2></div>
+        <div class="divider"></div>
+        <div class="glossary-tools">
+          <input class="glossary-search" id="glossarySearch" type="search" placeholder="Search terms..." data-placeholder-en="Search terms..." data-placeholder-nl="Zoek termen..." oninput="renderGlossary()">
+        </div>
+        <div class="glossary-grid" id="glossaryGrid"></div>
+        <div class="glossary-empty" id="glossaryEmpty" style="display:none"></div>
+      </div>
+    </div>
+
     <!-- DISCLAIMER -->
     <div class="page" id="page-disclaimer">
       <div class="hero" style="margin-bottom:1rem">
@@ -700,6 +731,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <h3 data-en="Tools" data-nl="Tools">Tools</h3>
         <ul class="footer-links">
           <li><a href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a></li>
+          <li><a href="#page-glossary" onclick="showPage('glossary',null)" data-en="Glossary" data-nl="Woordenboek">Glossary</a></li>
           <li><a href="#page-ocd-resources" onclick="showPage('ocd-resources',null)" data-en="OCD resources" data-nl="OCS bronnen">OCD resources</a></li>
           <li><a href="#page-autism-resources" onclick="showPage('autism-resources',null)" data-en="Autism resources" data-nl="Autisme bronnen">Autism resources</a></li>
           <li><a href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a></li>
@@ -784,6 +816,7 @@ function setLang(l){
   document.querySelectorAll('[data-placeholder-en]').forEach(el=>{const v=el.getAttribute('data-placeholder-'+l);if(v!==null)el.setAttribute('placeholder',v);});
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
+  renderGlossary();
   renderCalmPlan();
   renderLowStim();
   renderCookieBanner();
@@ -964,6 +997,39 @@ function bindStorageSettings(){
   document.getElementById('storageSettingsBtn')?.addEventListener('click',openCookieSettings);
 }
 
+const GLOSSARY_TERMS=[
+  {cat:'OCD',en:{term:'Obsession',desc:'An unwanted, repeated thought, image, urge, or doubt that feels distressing or hard to let go of.'},nl:{term:'Obsessie',desc:'Een ongewenste, terugkerende gedachte, beeld, drang of twijfel die veel spanning geeft of moeilijk los te laten is.'}},
+  {cat:'OCD',en:{term:'Compulsion',desc:'A behavior or mental ritual done to reduce anxiety, get certainty, or prevent a feared outcome.'},nl:{term:'Dwanghandeling',desc:'Gedrag of een mentaal ritueel om angst te verminderen, zekerheid te krijgen of een gevreesde uitkomst te voorkomen.'}},
+  {cat:'OCD',en:{term:'ERP',desc:'Exposure and Response Prevention: gradually facing triggers while resisting compulsions. It is a core OCD treatment.'},nl:{term:'ERP / ERV',desc:'Exposure en responspreventie: stap voor stap triggers aangaan zonder dwanghandelingen te doen. Dit is een kernbehandeling voor OCS.'}},
+  {cat:'OCD',en:{term:'Intrusive thoughts',desc:'Unwanted thoughts that pop up automatically. They can feel shocking, but having a thought is not the same as wanting it.'},nl:{term:'Intrusieve gedachten',desc:'Ongewenste gedachten die automatisch opkomen. Ze kunnen schokkend voelen, maar een gedachte hebben is niet hetzelfde als iets willen.'}},
+  {cat:'OCD',en:{term:'Reassurance seeking',desc:'Asking, checking, or researching to feel certain. It can soothe briefly, but often keeps the OCD cycle going.'},nl:{term:'Geruststelling zoeken',desc:'Vragen, controleren of opzoeken om zekerheid te voelen. Het kalmeert kort, maar houdt de OCS-cyclus vaak in stand.'}},
+  {cat:'OCD',en:{term:'Rumination',desc:'Getting stuck analyzing a worry, memory, or feeling over and over in search of certainty or relief.'},nl:{term:'Piekeren / rumineren',desc:'Vastzitten in het steeds opnieuw analyseren van een zorg, herinnering of gevoel om zekerheid of opluchting te vinden.'}},
+  {cat:'Autism',en:{term:'Masking',desc:'Hiding or suppressing autistic traits to meet social expectations. It can be exhausting and may contribute to burnout.'},nl:{term:'Masking',desc:'Autistische kenmerken verbergen of onderdrukken om aan sociale verwachtingen te voldoen. Dit kan uitputtend zijn en bijdragen aan burn-out.'}},
+  {cat:'Autism',en:{term:'Stimming',desc:'Repeated movement, sound, or sensory behavior that can help with regulation, focus, or expressing emotion.'},nl:{term:'Stimmen',desc:'Herhaalde bewegingen, geluiden of sensorisch gedrag dat kan helpen met regulatie, focus of het uiten van emotie.'}},
+  {cat:'Autism',en:{term:'Meltdown',desc:'An involuntary response to overwhelm. It is not a tantrum or a choice; reducing demands and stimulation can help.'},nl:{term:'Meltdown',desc:'Een onvrijwillige reactie op overbelasting. Het is geen driftbui of keuze; minder eisen en minder prikkels kunnen helpen.'}},
+  {cat:'Autism',en:{term:'Shutdown',desc:'A response to overwhelm where someone may become quiet, frozen, disconnected, or unable to communicate easily.'},nl:{term:'Shutdown',desc:'Een reactie op overbelasting waarbij iemand stil, bevroren, afgesloten of moeilijk bereikbaar kan worden.'}},
+  {cat:'Autism',en:{term:'Sensory overload',desc:'When sound, light, touch, smell, or other input becomes more than the nervous system can process.'},nl:{term:'Sensorische overbelasting',desc:'Wanneer geluid, licht, aanraking, geur of andere prikkels meer worden dan het zenuwstelsel kan verwerken.'}},
+  {cat:'Autism',en:{term:'Special interest',desc:'A deep, focused interest that can bring joy, comfort, identity, and expertise.'},nl:{term:'Speciale interesse',desc:'Een diepe, gerichte interesse die plezier, rust, identiteit en expertise kan geven.'}},
+  {cat:'Support',en:{term:'Grounding',desc:'A technique that brings attention back to the present moment through senses, movement, breath, or surroundings.'},nl:{term:'Grounding',desc:'Een techniek die je aandacht terugbrengt naar het huidige moment via zintuigen, beweging, ademhaling of je omgeving.'}},
+  {cat:'Support',en:{term:'Trigger',desc:'Something that sparks distress, symptoms, memories, compulsions, or overwhelm. Triggers are personal and can change.'},nl:{term:'Trigger',desc:'Iets dat spanning, klachten, herinneringen, dwang of overbelasting oproept. Triggers zijn persoonlijk en kunnen veranderen.'}},
+  {cat:'Support',en:{term:'Accommodation',desc:'A practical adjustment that helps someone access school, work, care, or daily life with less unnecessary strain.'},nl:{term:'Aanpassing',desc:'Een praktische wijziging die iemand helpt om school, werk, zorg of dagelijks leven toegankelijker te maken met minder onnodige belasting.'}}
+];
+function renderGlossary(){
+  const grid=document.getElementById('glossaryGrid'),empty=document.getElementById('glossaryEmpty');
+  if(!grid||!empty)return;
+  const query=(document.getElementById('glossarySearch')?.value||'').trim().toLowerCase();
+  const filtered=GLOSSARY_TERMS.filter(item=>{
+    const t=item[lang];
+    return !query||item.cat.toLowerCase().includes(query)||t.term.toLowerCase().includes(query)||t.desc.toLowerCase().includes(query);
+  });
+  grid.innerHTML=filtered.map(item=>{
+    const t=item[lang];
+    return `<article class="glossary-card"><span class="glossary-tag">${item.cat}</span><h3>${t.term}</h3><p>${t.desc}</p></article>`;
+  }).join('');
+  empty.style.display=filtered.length?'none':'block';
+  empty.textContent=lang==='en'?'No matching terms yet.':'Nog geen passende termen.';
+}
+
 function buildSidebar(){
   const isOCD=topic==='ocd';
   const mainLinks=isOCD?[
@@ -979,7 +1045,8 @@ function buildSidebar(){
     {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
     {page:'ocd-resources',en:'Resources',nl:'Bronnen'},
-    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'}
+    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
+    {page:'glossary',en:'Glossary',nl:'Woordenboek'}
   ]:[
     {page:'autism-home',en:'Home',nl:'Home'},
     {page:'autism-home',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
@@ -993,7 +1060,8 @@ function buildSidebar(){
     {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
     {page:'autism-resources',en:'Resources',nl:'Bronnen'},
-    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'}
+    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
+    {page:'glossary',en:'Glossary',nl:'Woordenboek'}
   ];
   document.getElementById('sidebar-main-links').innerHTML=
     `<div class="nav-group-label" data-en="Navigation" data-nl="Navigatie">${lang==='en'?'Navigation':'Navigatie'}</div>`+
@@ -1182,6 +1250,7 @@ buildSidebar();
 renderOCDHome();renderAutismHome();
 renderOCDQuiz();renderAutQuiz();
 renderOCDResources();renderAutResources();
+renderGlossary();
 bindCalmPlan();
 bindStorageSettings();
 initConsent();
