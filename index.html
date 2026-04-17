@@ -273,11 +273,13 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <h1><span class="grad">OCD</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
         <p data-en="A compassionate, informative guide to Obsessive-Compulsive Disorder — covering all types, symptoms, treatments, stories, and coping strategies. You are not alone." data-nl="Een begripvolle gids over OCS — alle soorten, symptomen, behandelingen, verhalen en strategieën. Je bent niet alleen.">A compassionate, informative guide to Obsessive-Compulsive Disorder — covering all types, symptoms, treatments, stories, and coping strategies. You are not alone.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="scrollSec('ocd-sec-types')" data-en="Explore types" data-nl="Bekijk soorten">Explore types</button>
+          <button class="btn-primary" onclick="showPage('ocd-types',null)" data-en="Explore types" data-nl="Bekijk soorten">Explore types</button>
           <button class="btn-ghost" onclick="showPage('ocd-quiz',null)" data-en="Self-assessment" data-nl="Zelfbeoordeling">Self-assessment</button>
         </div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-what">
       <div class="section" id="ocd-sec-what">
         <div class="sec-hd"><div class="sec-icon-wrap">🧠</div><h2 data-en="What is OCD?" data-nl="Wat is OCD?">What is OCD?</h2></div>
         <div class="divider"></div>
@@ -285,14 +287,18 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <p data-en="OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement." data-nl="OCS treft 2–3% van de wereldbevolking. Met de juiste behandeling — voornamelijk ERV-therapie — zien de meeste mensen significante verbetering.">OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement.</p>
         <p data-en="OCD is not about being 'a little obsessive.' The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values and character." data-nl="OCS gaat niet over 'een beetje perfectionistisch zijn'. De gedachten zijn ongewenst, verontrustend en ego-dystoon — ze voelen volledig in strijd met de echte waarden van de persoon.">OCD is not about being 'a little obsessive.' The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values and character.</p>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-types">
       <div class="section" id="ocd-sec-types">
         <div class="sec-hd"><div class="sec-icon-wrap">📋</div><h2 data-en="Types of OCD" data-nl="Soorten OCD">Types of OCD</h2></div>
         <div class="divider"></div>
         <p data-en="Click any card to read the full in-depth guide for that type." data-nl="Klik op een kaart om de volledige gids voor dat type te lezen.">Click any card to read the full in-depth guide for that type.</p>
         <div class="card-grid" id="ocd-types-grid"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-symptoms">
       <div class="section" id="ocd-sec-symptoms">
         <div class="sec-hd"><div class="sec-icon-wrap">🔍</div><h2 data-en="Symptoms" data-nl="Symptomen">Symptoms</h2></div>
         <div class="divider"></div>
@@ -301,27 +307,35 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="sub-lbl" data-en="Compulsions" data-nl="Dwanghandelingen">Compulsions</div><div class="pill-wrap" id="ocd-pills-comp"></div>
         <div class="sub-lbl" data-en="Physical & Emotional" data-nl="Fysiek & Emotioneel">Physical & Emotional</div><div class="pill-wrap" id="ocd-pills-phy"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-treatment">
       <div class="section" id="ocd-sec-treatment">
         <div class="sec-hd"><div class="sec-icon-wrap">✅</div><h2 data-en="Treatment" data-nl="Behandeling">Treatment</h2></div>
         <div class="divider"></div>
         <p data-en="OCD is highly treatable. Most people respond well to ERP therapy and/or medication." data-nl="OCS is goed behandelbaar. De meeste mensen reageren goed op ERV-therapie en/of medicatie.">OCD is highly treatable. Most people respond well to ERP therapy and/or medication.</p>
         <div class="treat-row" id="ocd-treat-row"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-tips">
       <div class="section" id="ocd-sec-tips">
         <div class="sec-hd"><div class="sec-icon-wrap">💡</div><h2 data-en="Tips & Coping" data-nl="Tips & Omgaan">Tips & Coping</h2></div>
         <div class="divider"></div>
         <ul class="tip-list" id="ocd-tip-list"></ul>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-stories">
       <div class="section" id="ocd-sec-stories">
         <div class="sec-hd"><div class="sec-icon-wrap">💬</div><h2 data-en="Personal Stories" data-nl="Persoonlijke Verhalen">Personal Stories</h2></div>
         <div class="divider"></div>
         <p data-en="Real experiences from people living with OCD. Names changed for privacy." data-nl="Echte ervaringen. Namen gewijzigd voor privacy.">Real experiences from people living with OCD. Names changed for privacy.</p>
         <div class="story-grid" id="ocd-story-grid"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-community">
       <div class="section" id="ocd-sec-community">
         <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
         <div class="divider"></div>
@@ -334,13 +348,17 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
           <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
         </div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-faq">
       <div class="section" id="ocd-sec-faq">
         <div class="sec-hd"><div class="sec-icon-wrap">❓</div><h2>FAQ</h2></div>
         <div class="divider"></div>
         <div id="ocd-faq-list"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-ocd-crisis">
       <div class="crisis-box" id="ocd-sec-crisis">
         <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.2rem">
           <div class="sec-icon-wrap" style="background:linear-gradient(135deg,#dc2626,#db2777)">🆘</div>
@@ -387,11 +405,13 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <h1><span class="grad" data-en="Autism" data-nl="Autisme">Autism</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
         <p data-en="A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences." data-nl="Een vriendelijke gids voor het begrijpen van autisme — over kenmerken, sterke punten, sensorische behoeften, diagnose, ondersteuning en echte ervaringen.">A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="scrollSec('aut-sec-what')" data-en="Start reading" data-nl="Begin te lezen">Start reading</button>
+          <button class="btn-primary" onclick="showPage('autism-what',null)" data-en="Start reading" data-nl="Begin te lezen">Start reading</button>
           <button class="btn-ghost" onclick="showPage('autism-quiz',null)" data-en="Self-reflection quiz" data-nl="Zelfreflectiequiz">Self-reflection quiz</button>
         </div>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-what">
       <div class="section" id="aut-sec-what">
         <div class="sec-hd"><div class="sec-icon-wrap">🌟</div><h2 data-en="What is Autism?" data-nl="Wat is Autisme?">What is Autism?</h2></div>
         <div class="divider"></div>
@@ -399,7 +419,9 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <p data-en="Autism is not a disease or something to be 'fixed.' It is a natural variation in human neurology. Autistic people may experience the world more intensely, process information differently, and have unique strengths alongside challenges." data-nl="Autisme is geen ziekte en hoeft niet 'gerepareerd' te worden. Het is een natuurlijke variatie in menselijke neurologie. Autistische mensen ervaren de wereld mogelijk intenser, verwerken informatie anders en hebben unieke sterke punten.">Autism is not a disease or something to be 'fixed.' It is a natural variation in human neurology. Autistic people may experience the world more intensely, process information differently, and have unique strengths alongside challenges.</p>
         <p data-en="About 1 in 36 children is diagnosed with autism. Many people are diagnosed in adulthood — especially women and people who mask their traits. A diagnosis, at any age, can be life-changing and clarifying." data-nl="Ongeveer 1 op 36 kinderen krijgt de diagnose autisme. Veel mensen krijgen pas op volwassen leeftijd een diagnose — vooral vrouwen en mensen die hun kenmerken maskeren. Een diagnose, op elke leeftijd, kan levensveranderend en verhelderend zijn.">About 1 in 36 children is diagnosed with autism. Many people are diagnosed in adulthood — especially women and people who mask their traits. A diagnosis, at any age, can be life-changing and clarifying.</p>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-characteristics">
       <div class="section" id="aut-sec-chars">
         <div class="sec-hd"><div class="sec-icon-wrap">🧩</div><h2 data-en="Characteristics" data-nl="Kenmerken">Characteristics</h2></div>
         <div class="divider"></div>
@@ -408,7 +430,9 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="sub-lbl" data-en="Interests & Routines" data-nl="Interesses & Routines">Interests & Routines</div><div class="pill-wrap" id="aut-pills-interests"></div>
         <div class="sub-lbl" data-en="Strengths" data-nl="Sterke Punten">Strengths</div><div class="pill-wrap" id="aut-pills-strengths"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-sensory">
       <div class="section" id="aut-sec-sensory">
         <div class="sec-hd"><div class="sec-icon-wrap">🎧</div><h2 data-en="Sensory Processing" data-nl="Sensorische Verwerking">Sensory Processing</h2></div>
         <div class="divider"></div>
@@ -416,34 +440,44 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="sub-lbl" data-en="Common sensitivities" data-nl="Veelvoorkomende gevoeligheden">Common sensitivities</div><div class="pill-wrap" id="aut-pills-sens-types"></div>
         <p style="margin-top:.85rem" data-en="Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously." data-nl="Sensorische overbelasting treedt op wanneer het brein meer input ontvangt dan het kan verwerken, wat leidt tot overweldiging, shutdown of meltdown. Het creëren van sensorisch-vriendelijke omgevingen helpt enorm.">Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously.</p>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-diagnosis">
       <div class="section" id="aut-sec-diagnosis">
         <div class="sec-hd"><div class="sec-icon-wrap">📋</div><h2 data-en="Diagnosis & Masking" data-nl="Diagnose & Masking">Diagnosis & Masking</h2></div>
         <div class="divider"></div>
         <p data-en="Autism can be diagnosed at any age. Early diagnosis allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late.'" data-nl="Autisme kan op elke leeftijd worden gediagnosticeerd. Vroege diagnose maakt eerder ondersteuning mogelijk, maar veel mensen — met name vrouwen en mensen die maskeren — krijgen een diagnose later. Een late diagnose is nooit 'te laat'.">Autism can be diagnosed at any age. Early diagnosis allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late.'</p>
         <p data-en="Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression. It also means many people remain undiagnosed or misdiagnosed for years." data-nl="Masking — het verbergen of onderdrukken van autistische kenmerken om aan neurotypische verwachtingen te voldoen — komt vooral voor bij vrouwen en meisjes. Het is uitputtend en kan leiden tot burn-out, angst en depressie.">Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression.</p>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-support">
       <div class="section" id="aut-sec-support">
         <div class="sec-hd"><div class="sec-icon-wrap">🤝</div><h2 data-en="Support & Accommodations" data-nl="Ondersteuning & Aanpassingen">Support & Accommodations</h2></div>
         <div class="divider"></div>
         <p data-en="The best support starts with listening, accepting, and asking what the person needs — not assuming." data-nl="De beste ondersteuning begint met luisteren, accepteren en vragen wat de persoon nodig heeft — niet aannemen.">The best support starts with listening, accepting, and asking what the person needs — not assuming.</p>
         <div class="treat-row" id="aut-support-row"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-tips">
       <div class="section" id="aut-sec-tips">
         <div class="sec-hd"><div class="sec-icon-wrap">💡</div><h2 data-en="Self-Care Tips" data-nl="Zelfzorgtips">Self-Care Tips</h2></div>
         <div class="divider"></div>
         <ul class="tip-list" id="aut-tip-list"></ul>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-stories">
       <div class="section" id="aut-sec-stories">
         <div class="sec-hd"><div class="sec-icon-wrap">💬</div><h2 data-en="Personal Stories" data-nl="Persoonlijke Verhalen">Personal Stories</h2></div>
         <div class="divider"></div>
         <p data-en="Real experiences from autistic people. Names changed for privacy." data-nl="Echte ervaringen van autistische mensen. Namen gewijzigd voor privacy.">Real experiences from autistic people. Names changed for privacy.</p>
         <div class="story-grid" id="aut-story-grid"></div>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-community">
       <div class="section" id="aut-sec-community">
         <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
         <div class="divider"></div>
@@ -456,7 +490,9 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
           <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
         </div>
       </div>
+    </div>
 
+    <div class="page" id="page-autism-faq">
       <div class="section" id="aut-sec-faq">
         <div class="sec-hd"><div class="sec-icon-wrap">❓</div><h2>FAQ</h2></div>
         <div class="divider"></div>
@@ -540,7 +576,6 @@ function showPage(id,navEl){
   if(window.innerWidth<=900){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open');}
   if(navEl){document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('act'));navEl.classList.add('act');}
 }
-function scrollSec(id){setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}),50)}
 function setTopic(t,btn){
   topic=t;
   document.querySelectorAll('.topic-tab').forEach(b=>b.classList.remove('active'));
@@ -560,34 +595,34 @@ function buildSidebar(){
   const isOCD=topic==='ocd';
   const mainLinks=isOCD?[
     {page:'ocd-home',en:'Home',nl:'Home'},
-    {page:'ocd-home',en:'What is OCD?',nl:'Wat is OCD?',sec:'ocd-sec-what'},
-    {page:'ocd-home',en:'Types',nl:'Soorten',sec:'ocd-sec-types'},
-    {page:'ocd-home',en:'Symptoms',nl:'Symptomen',sec:'ocd-sec-symptoms'},
-    {page:'ocd-home',en:'Treatment',nl:'Behandeling',sec:'ocd-sec-treatment'},
-    {page:'ocd-home',en:'Tips & Coping',nl:'Tips & Omgaan',sec:'ocd-sec-tips'},
-    {page:'ocd-home',en:'Stories',nl:'Verhalen',sec:'ocd-sec-stories'},
-    {page:'ocd-home',en:'Community',nl:'Community',sec:'ocd-sec-community'},
-    {page:'ocd-home',en:'FAQ',nl:'FAQ',sec:'ocd-sec-faq'},
-    {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
+    {page:'ocd-what',en:'What is OCD?',nl:'Wat is OCD?'},
+    {page:'ocd-types',en:'Types',nl:'Soorten'},
+    {page:'ocd-symptoms',en:'Symptoms',nl:'Symptomen'},
+    {page:'ocd-treatment',en:'Treatment',nl:'Behandeling'},
+    {page:'ocd-tips',en:'Tips & Coping',nl:'Tips & Omgaan'},
+    {page:'ocd-stories',en:'Stories',nl:'Verhalen'},
+    {page:'ocd-community',en:'Community',nl:'Community'},
+    {page:'ocd-faq',en:'FAQ',nl:'FAQ'},
+    {page:'ocd-crisis',en:'Crisis Help',nl:'Crisishulp'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
     {page:'ocd-resources',en:'Resources',nl:'Bronnen'}
   ]:[
     {page:'autism-home',en:'Home',nl:'Home'},
-    {page:'autism-home',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
-    {page:'autism-home',en:'Characteristics',nl:'Kenmerken',sec:'aut-sec-chars'},
-    {page:'autism-home',en:'Sensory Processing',nl:'Sensorische Verwerking',sec:'aut-sec-sensory'},
-    {page:'autism-home',en:'Diagnosis & Masking',nl:'Diagnose & Masking',sec:'aut-sec-diagnosis'},
-    {page:'autism-home',en:'Support',nl:'Ondersteuning',sec:'aut-sec-support'},
-    {page:'autism-home',en:'Self-Care Tips',nl:'Zelfzorgtips',sec:'aut-sec-tips'},
-    {page:'autism-home',en:'Stories',nl:'Verhalen',sec:'aut-sec-stories'},
-    {page:'autism-home',en:'Community',nl:'Community',sec:'aut-sec-community'},
-    {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
+    {page:'autism-what',en:'What is Autism?',nl:'Wat is Autisme?'},
+    {page:'autism-characteristics',en:'Characteristics',nl:'Kenmerken'},
+    {page:'autism-sensory',en:'Sensory Processing',nl:'Sensorische Verwerking'},
+    {page:'autism-diagnosis',en:'Diagnosis & Masking',nl:'Diagnose & Masking'},
+    {page:'autism-support',en:'Support',nl:'Ondersteuning'},
+    {page:'autism-tips',en:'Self-Care Tips',nl:'Zelfzorgtips'},
+    {page:'autism-stories',en:'Stories',nl:'Verhalen'},
+    {page:'autism-community',en:'Community',nl:'Community'},
+    {page:'autism-faq',en:'FAQ',nl:'FAQ'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
     {page:'autism-resources',en:'Resources',nl:'Bronnen'}
   ];
   document.getElementById('sidebar-main-links').innerHTML=
     `<div class="nav-group-label" data-en="Navigation" data-nl="Navigatie">${lang==='en'?'Navigation':'Navigatie'}</div>`+
-    mainLinks.map(l=>`<a class="nav-link" onclick="showPage('${l.page}',this);${l.sec?`scrollSec('${l.sec}');`:''}">${lang==='nl'?l.nl:l.en}</a>`).join('');
+    mainLinks.map(l=>`<a class="nav-link" onclick="showPage('${l.page}',this)">${lang==='nl'?l.nl:l.en}</a>`).join('');
   if(isOCD){
     document.getElementById('sidebar-types-label').textContent=lang==='nl'?'OCS Soorten':'OCD Types';
     document.getElementById('sidebar-types-label').style.display='block';
