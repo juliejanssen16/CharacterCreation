@@ -31,6 +31,8 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
 .disclaimer-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(124,58,237,.18);background:rgba(124,58,237,.07);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--p);text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
 .disclaimer-nav:hover{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.28)}
+.discord-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(88,101,242,.22);background:rgba(88,101,242,.08);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;color:#5865f2;text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.discord-nav:hover{background:rgba(88,101,242,.14);border-color:rgba(88,101,242,.34)}
 .nav-spacer{flex:1}
 .lang-toggle{display:flex;background:var(--surface2);border-radius:6px;padding:2px;gap:1px}
 .lang-btn{padding:.28rem .7rem;border-radius:5px;border:none;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;cursor:pointer;background:transparent;color:var(--text2);transition:all .15s}
@@ -177,6 +179,10 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
+/* ── DISCORD ── */
+.discord-widget{width:100%;max-width:350px;height:500px;border:0;border-radius:var(--r-sm);display:block;background:#1f2937}
+.discord-wrap{display:flex;justify-content:center;margin-top:.9rem}
+
 /* ── DISCLAIMER ── */
 .disclaimer-list{margin:.2rem 0 0 1.1rem;color:var(--text2);font-size:.83rem;line-height:1.8}
 .disclaimer-list li{margin-bottom:.45rem}
@@ -201,6 +207,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   .brand-logo{width:132px}
   .topic-tab{font-size:.75rem;padding:.3rem .65rem}
   .disclaimer-nav{order:5;width:100%;font-size:.75rem;padding:.38rem .8rem}
+  .discord-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .lang-toggle{margin-left:auto}
   .hero{padding:1.75rem 1.25rem}
   .section{padding:1.2rem}
@@ -236,6 +243,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <div class="nav-spacer"></div>
+  <a class="discord-nav" href="https://discord.com/widget?id=1494643922314592256&theme=dark" target="_blank" rel="noopener" data-en="Discord" data-nl="Discord">Discord</a>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('nl')">NL</button>
@@ -307,6 +315,15 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="divider"></div>
         <p data-en="Real experiences from people living with OCD. Names changed for privacy." data-nl="Echte ervaringen. Namen gewijzigd voor privacy.">Real experiences from people living with OCD. Names changed for privacy.</p>
         <div class="story-grid" id="ocd-story-grid"></div>
+      </div>
+
+      <div class="section" id="ocd-sec-community">
+        <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
+        <div class="divider"></div>
+        <p data-en="Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation." data-nl="Word lid van de JourHelp Discord-community voor fijne lotgenotensteun, gedeelde ervaringen en gesprekken.">Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation.</p>
+        <div class="discord-wrap">
+          <iframe class="discord-widget" title="JourHelp Discord community" src="https://discord.com/widget?id=1494643922314592256&theme=dark" width="350" height="500" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
       </div>
 
       <div class="section" id="ocd-sec-faq">
@@ -418,6 +435,15 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
         <div class="story-grid" id="aut-story-grid"></div>
       </div>
 
+      <div class="section" id="aut-sec-community">
+        <div class="sec-hd"><div class="sec-icon-wrap">#</div><h2 data-en="Community" data-nl="Community">Community</h2></div>
+        <div class="divider"></div>
+        <p data-en="Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation." data-nl="Word lid van de JourHelp Discord-community voor fijne lotgenotensteun, gedeelde ervaringen en gesprekken.">Join the JourHelp Discord community for gentle peer support, shared experiences, and conversation.</p>
+        <div class="discord-wrap">
+          <iframe class="discord-widget" title="JourHelp Discord community" src="https://discord.com/widget?id=1494643922314592256&theme=dark" width="350" height="500" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+      </div>
+
       <div class="section" id="aut-sec-faq">
         <div class="sec-hd"><div class="sec-icon-wrap">❓</div><h2>FAQ</h2></div>
         <div class="divider"></div>
@@ -527,6 +553,7 @@ function buildSidebar(){
     {page:'ocd-home',en:'Treatment',nl:'Behandeling',sec:'ocd-sec-treatment'},
     {page:'ocd-home',en:'Tips & Coping',nl:'Tips & Omgaan',sec:'ocd-sec-tips'},
     {page:'ocd-home',en:'Stories',nl:'Verhalen',sec:'ocd-sec-stories'},
+    {page:'ocd-home',en:'Community',nl:'Community',sec:'ocd-sec-community'},
     {page:'ocd-home',en:'FAQ',nl:'FAQ',sec:'ocd-sec-faq'},
     {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
@@ -540,6 +567,7 @@ function buildSidebar(){
     {page:'autism-home',en:'Support',nl:'Ondersteuning',sec:'aut-sec-support'},
     {page:'autism-home',en:'Self-Care Tips',nl:'Zelfzorgtips',sec:'aut-sec-tips'},
     {page:'autism-home',en:'Stories',nl:'Verhalen',sec:'aut-sec-stories'},
+    {page:'autism-home',en:'Community',nl:'Community',sec:'aut-sec-community'},
     {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
     {page:'autism-resources',en:'Resources',nl:'Bronnen'}
