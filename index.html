@@ -25,8 +25,6 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .floating-read-tools.show{display:flex}
 .float-btn{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);box-shadow:var(--shadow-md);font-family:'Inter',sans-serif;font-size:.76rem;font-weight:800;padding:.55rem .75rem;cursor:pointer}
 .float-btn:hover{background:var(--surface2);color:var(--text)}
-.float-btn.continue{display:none}
-.float-btn.continue.show{display:inline-flex}
 
 /* ── TOP NAV ── */
 .topnav{height:74px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:100}
@@ -825,7 +823,6 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 </div>
 
 <div class="floating-read-tools" id="floatingReadTools">
-  <button class="float-btn continue" id="continueReadingBtn" onclick="continueReading()" type="button" data-en="Continue" data-nl="Verder lezen">Continue</button>
   <button class="float-btn" id="backToTopBtn" onclick="backToTop()" type="button" aria-label="Back to top">↑</button>
 </div>
 
@@ -834,12 +831,9 @@ let lang='en',topic='ocd';
 let ocdQuizAnswers=[],autQuizAnswers=[];
 const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
-const READING_SPOT_KEY='jourhelp_reading_spot';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
 let lowStim=false;
 let cookieMode='first';
-let savedReadingSpot=null;
-let restoringReadingSpot=false;
 
 function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
@@ -932,48 +926,13 @@ function updateReadingProgress(){
   bar.style.width=`${Math.round((read/total)*100)}%`;
   updateFloatingReadTools();
 }
-function saveReadingSpot(){
-  if(window.scrollY<420)return;
-  const hash=updateShareUrl();
-  const spot={page:activePageId(),hash,y:Math.round(window.scrollY)};
-  if(savedReadingSpot&&savedReadingSpot.page===spot.page&&Math.abs(savedReadingSpot.y-spot.y)<80)return;
-  savedReadingSpot=spot;
-  if(storageAllowed())localStorage.setItem(READING_SPOT_KEY,JSON.stringify(spot));
-  updateFloatingReadTools();
-}
-function maybeSaveReadingSpot(){
-  if(restoringReadingSpot)return;
-  saveReadingSpot();
-}
-function loadReadingSpot(){
-  if(!storageAllowed())return;
-  try{
-    const raw=localStorage.getItem(READING_SPOT_KEY);
-    if(!raw)return;
-    savedReadingSpot=raw.startsWith('{')?JSON.parse(raw):{page:raw.split('/')[0],hash:raw,y:0};
-  }catch{}
-}
 function backToTop(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function continueReading(){
-  if(!savedReadingSpot)return;
-  restoringReadingSpot=true;
-  showPage(savedReadingSpot.page||'ocd-home',null);
-  setTimeout(()=>{
-    window.scrollTo({top:savedReadingSpot.y||0,behavior:'smooth'});
-    if(savedReadingSpot.hash)history.replaceState(null,'',`#${savedReadingSpot.hash}`);
-    setTimeout(()=>{restoringReadingSpot=false;updateFloatingReadTools();},700);
-  },80);
-}
 function updateFloatingReadTools(){
-  const wrap=document.getElementById('floatingReadTools'),cont=document.getElementById('continueReadingBtn');
-  if(!wrap||!cont)return;
-  const current=updateShareUrl();
-  const canContinue=Boolean(savedReadingSpot&&(savedReadingSpot.page!==activePageId()||Math.abs(window.scrollY-(savedReadingSpot.y||0))>140));
-  wrap.classList.toggle('show',window.scrollY>420||canContinue);
-  cont.classList.toggle('show',canContinue);
-  cont.textContent=lang==='en'?'Continue':'Verder lezen';
+  const wrap=document.getElementById('floatingReadTools');
+  if(!wrap)return;
+  wrap.classList.toggle('show',window.scrollY>420);
 }
 function applyHashRoute(){
   const raw=window.location.hash.replace(/^#/,'');
@@ -1161,7 +1120,6 @@ function acceptStorageConsent(){
   localStorage.setItem(STORAGE_CONSENT_KEY,'yes');
   collectCalmPlan();
   writeCalmPlan();
-  if(savedReadingSpot)localStorage.setItem(READING_SPOT_KEY,JSON.stringify(savedReadingSpot));
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.');
 }
@@ -1169,7 +1127,6 @@ function declineStorageConsent(){
   try{
     localStorage.removeItem(STORAGE_CONSENT_KEY);
     localStorage.removeItem(CALM_PLAN_KEY);
-    localStorage.removeItem(READING_SPOT_KEY);
   }catch{}
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is off. Your entries will not be saved after refresh.':'Lokaal opslaan staat uit. Je invoer wordt niet bewaard na vernieuwen.');
@@ -1479,10 +1436,9 @@ renderGlossary();
 bindCalmPlan();
 bindStorageSettings();
 initConsent();
-loadReadingSpot();
 renderCalmPlan();
 renderLowStim();
-window.addEventListener('scroll',()=>{updateReadingProgress();updateShareUrl();maybeSaveReadingSpot();updateFloatingReadTools();},{passive:true});
+window.addEventListener('scroll',()=>{updateReadingProgress();updateShareUrl();updateFloatingReadTools();},{passive:true});
 window.addEventListener('resize',()=>{updateReadingProgress();updateFloatingReadTools();});
 if(!applyHashRoute())updateShareUrl();
 updateReadingProgress();
