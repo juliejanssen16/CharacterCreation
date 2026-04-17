@@ -29,9 +29,13 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab{padding:.35rem .8rem;border-radius:6px;border:none;background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:500;cursor:pointer;color:var(--text2);transition:all .15s}
 .topic-tab:hover{background:var(--surface2);color:var(--text)}
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
-.mega-menu-btn{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
+.menu-row{background:var(--surface);border-bottom:1px solid var(--border)}
+.menu-row-inner{max-width:1160px;margin:0 auto;padding:.55rem 1.5rem;display:flex;align-items:center}
+.mega-menu-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .7rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
 .mega-menu-btn:hover,.mega-menu-btn.open{background:var(--surface2);color:var(--text)}
-.mega-menu{position:fixed;top:74px;left:50%;transform:translateX(-50%);z-index:120;width:min(1040px,calc(100vw - 2rem));background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;display:none}
+.mega-menu-icon{display:flex;flex-direction:column;gap:4px}
+.mega-menu-icon span{display:block;width:17px;height:1.5px;border-radius:2px;background:currentColor}
+.mega-menu{position:fixed;top:128px;left:50%;transform:translateX(-50%);z-index:120;width:min(1040px,calc(100vw - 2rem));background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;display:none}
 .mega-menu.open{display:block}
 .mega-menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
 .mega-col{min-width:0}
@@ -295,7 +299,8 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 }
 @media(max-width:600px){
   .topnav{height:auto;min-height:56px;align-items:center;flex-wrap:wrap;padding:.6rem 1rem;gap:.5rem .65rem}
-  .mega-menu{top:112px;width:calc(100vw - 1rem);max-height:calc(100vh - 128px);overflow:auto}
+  .menu-row-inner{padding:.5rem 1rem}
+  .mega-menu{top:154px;width:calc(100vw - 1rem);max-height:calc(100vh - 170px);overflow:auto}
   .mega-menu-grid{grid-template-columns:1fr 1fr}
   .nav-spacer{display:none}
   .brand-logo{width:132px}
@@ -345,7 +350,6 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
     <button class="topic-tab active" onclick="setTopic('ocd',this)" data-en="OCD" data-nl="OCS">OCD</button>
     <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
-  <button class="mega-menu-btn" id="megaMenuBtn" onclick="toggleMegaMenu()" type="button" aria-expanded="false" data-en="Menu" data-nl="Menu">Menu</button>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <a class="disclaimer-nav calm-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
   <a class="disclaimer-nav calm-nav" href="#page-glossary" onclick="showPage('glossary',null)" data-en="Glossary" data-nl="Woordenboek">Glossary</a>
@@ -358,6 +362,15 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
     <button class="lang-btn" onclick="setLang('nl')">NL</button>
   </div>
 </nav>
+
+<div class="menu-row">
+  <div class="menu-row-inner">
+    <button class="mega-menu-btn" id="megaMenuBtn" onclick="toggleMegaMenu()" type="button" aria-expanded="false">
+      <span class="mega-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span data-en="Menu" data-nl="Menu">Menu</span>
+    </button>
+  </div>
+</div>
 
 <div class="mega-menu" id="megaMenu" aria-label="Main menu">
   <div class="mega-menu-grid" id="megaMenuGrid"></div>
