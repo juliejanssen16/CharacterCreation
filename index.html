@@ -196,13 +196,13 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .support-preview-line{font-size:.8rem;color:var(--text2);line-height:1.75;margin-bottom:.35rem}
 .support-preview-line strong{color:var(--text)}
 
-/* ── COOKIE / STORAGE CONSENT ── */
-.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
-.cookie-banner.open{display:block}
-.cookie-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.25rem;letter-spacing:-.02em}
-.cookie-text{font-size:.78rem;color:var(--text2);line-height:1.65;margin-bottom:.75rem}
-.cookie-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
-.cookie-mini{font-size:.68rem;color:var(--text3);line-height:1.5;margin-top:.55rem}
+/* ── STORAGE CONSENT ── */
+.storage-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
+.storage-consent.open{display:block}
+.storage-consent-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.25rem;letter-spacing:-.02em}
+.storage-consent-text{font-size:.78rem;color:var(--text2);line-height:1.65;margin-bottom:.75rem}
+.storage-consent-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.storage-consent-mini{font-size:.68rem;color:var(--text3);line-height:1.5;margin-top:.55rem}
 
 /* ── DISCORD ── */
 .discord-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem;border:1px solid rgba(88,101,242,.18);border-radius:var(--r-sm);background:linear-gradient(135deg,rgba(88,101,242,.08),rgba(219,39,119,.06));margin-top:.9rem}
@@ -576,7 +576,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
           <button class="btn-primary" onclick="saveCalmPlan()" data-en="Save locally" data-nl="Lokaal opslaan">Save locally</button>
           <button class="btn-ghost" onclick="exportCalmPlan()" data-en="Export text" data-nl="Tekst exporteren">Export text</button>
           <button class="btn-ghost" onclick="clearCalmPlan()" data-en="Clear plan" data-nl="Plan wissen">Clear plan</button>
-          <button class="btn-ghost" onclick="openCookieSettings()" data-en="Cookie settings" data-nl="Cookie-instellingen">Cookie settings</button>
+          <button class="btn-ghost" id="storageSettingsBtn" onclick="openCookieSettings()" data-en="Cookie settings" data-nl="Cookie-instellingen">Cookie settings</button>
         </div>
         <div class="calm-status" id="calmStatus"></div>
         <p class="calm-note" data-en="If local storage is declined, your plan stays only on this page until refresh or close." data-nl="Als lokale opslag is geweigerd, blijft je plan alleen op deze pagina tot je vernieuwt of sluit.">If local storage is declined, your plan stays only on this page until refresh or close.</p>
@@ -626,15 +626,15 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 
 </div>
 
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie settings">
-  <div class="cookie-title" id="cookieTitle">Cookie settings</div>
-  <div class="cookie-text" id="cookieText"></div>
-  <div class="cookie-actions">
-    <button class="btn-primary" id="cookieAcceptBtn" onclick="acceptStorageConsent()">Allow local saving</button>
-    <button class="btn-ghost" id="cookieDeclineBtn" onclick="declineStorageConsent()">Do not save</button>
-    <button class="btn-ghost" id="cookieKeepBtn" onclick="closeCookieBanner()">Keep settings</button>
+<div class="storage-consent" id="storageConsentPanel" role="dialog" aria-live="polite" aria-label="Cookie settings">
+  <div class="storage-consent-title" id="storageConsentTitle">Cookie settings</div>
+  <div class="storage-consent-text" id="storageConsentText"></div>
+  <div class="storage-consent-actions">
+    <button class="btn-primary" id="storageConsentAcceptBtn" onclick="acceptStorageConsent()">Allow local saving</button>
+    <button class="btn-ghost" id="storageConsentDeclineBtn" onclick="declineStorageConsent()">Do not save</button>
+    <button class="btn-ghost" id="storageConsentKeepBtn" onclick="closeCookieBanner()">Keep settings</button>
   </div>
-  <div class="cookie-mini" id="cookieMini"></div>
+  <div class="storage-consent-mini" id="storageConsentMini"></div>
 </div>
 
 <script>
@@ -777,8 +777,8 @@ function bindCalmPlan(){
   ['calmName','calmSigns','calmHelps','calmWords','calmAvoid','calmContacts'].forEach(id=>document.getElementById(id)?.addEventListener('input',onCalmInput));
 }
 function renderCookieBanner(){
-  const title=document.getElementById('cookieTitle'),text=document.getElementById('cookieText'),mini=document.getElementById('cookieMini');
-  const accept=document.getElementById('cookieAcceptBtn'),decline=document.getElementById('cookieDeclineBtn'),keep=document.getElementById('cookieKeepBtn');
+  const title=document.getElementById('storageConsentTitle'),text=document.getElementById('storageConsentText'),mini=document.getElementById('storageConsentMini');
+  const accept=document.getElementById('storageConsentAcceptBtn'),decline=document.getElementById('storageConsentDeclineBtn'),keep=document.getElementById('storageConsentKeepBtn');
   if(!title||!text||!mini||!accept||!decline||!keep)return;
   const review=cookieMode==='review';
   title.textContent=lang==='en'?(review?'Are your cookie settings still correct?':'Cookie settings'):(review?'Kloppen je cookie-instellingen nog?':'Cookie-instellingen');
@@ -796,10 +796,10 @@ function renderCookieBanner(){
 function openCookieSettings(){
   cookieMode=storageAllowed()?'review':'first';
   renderCookieBanner();
-  document.getElementById('cookieBanner')?.classList.add('open');
+  document.getElementById('storageConsentPanel')?.classList.add('open');
 }
 function closeCookieBanner(){
-  document.getElementById('cookieBanner')?.classList.remove('open');
+  document.getElementById('storageConsentPanel')?.classList.remove('open');
 }
 function acceptStorageConsent(){
   localStorage.setItem(STORAGE_CONSENT_KEY,'yes');
@@ -820,6 +820,9 @@ function initConsent(){
   loadCalmPlan();
   cookieMode=storageAllowed()?'review':'first';
   openCookieSettings();
+}
+function bindStorageSettings(){
+  document.getElementById('storageSettingsBtn')?.addEventListener('click',openCookieSettings);
 }
 
 function buildSidebar(){
@@ -1041,6 +1044,7 @@ renderOCDHome();renderAutismHome();
 renderOCDQuiz();renderAutQuiz();
 renderOCDResources();renderAutResources();
 bindCalmPlan();
+bindStorageSettings();
 initConsent();
 renderCalmPlan();
 </script>
