@@ -41,8 +41,20 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .lang-toggle{display:flex;background:var(--surface2);border-radius:6px;padding:2px;gap:1px}
 .lang-btn{padding:.28rem .7rem;border-radius:5px;border:none;font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;cursor:pointer;background:transparent;color:var(--text2);transition:all .15s}
 .lang-btn.active{background:var(--surface);color:var(--text);font-weight:600;box-shadow:var(--shadow)}
+.stim-toggle{display:inline-flex;align-items:center;gap:.38rem;padding:.32rem .65rem;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);font-family:'Inter',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.stim-toggle:hover{background:var(--surface2);color:var(--text)}
+.stim-toggle.active{background:var(--surface2);border-color:var(--border2);color:var(--text)}
 .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:.3rem;background:none;border:none;margin-right:.25rem}
 .hamburger span{width:18px;height:1.5px;background:var(--text2);border-radius:2px;display:block;transition:all .2s}
+
+/* ── LOW STIMULATION MODE ── */
+body.low-stim{--p:#374151;--pk:#4b5563;--g1:#4b5563;--g2:#6b7280;--bg:#f7f7f8;--surface2:#f1f2f3;--text:#202124;--text2:#4b5563;--text3:#71717a}
+body.low-stim *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+body.low-stim .grad{-webkit-text-fill-color:var(--text);background:none;color:var(--text)}
+body.low-stim .hero,body.low-stim .section,body.low-stim .type-hero,body.low-stim .detail-section,body.low-stim .crisis-box{box-shadow:none}
+body.low-stim .sec-icon-wrap,body.low-stim .nav-link .nav-icon,body.low-stim .tip-n{background:#6b7280}
+body.low-stim .btn-primary,body.low-stim .support-cta{background:#4b5563}
+body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface2)}
 
 /* ── LAYOUT ── */
 .app{display:flex;flex-direction:column;min-height:100vh}
@@ -246,6 +258,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   .calm-nav{width:auto;padding:.32rem .45rem}
   .discord-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .coffee-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
+  .stim-toggle{order:4;font-size:.72rem;padding:.3rem .55rem}
   .lang-toggle{margin-left:auto}
   .discord-card,.support-card{align-items:flex-start;flex-direction:column}
   .hero{padding:1.75rem 1.25rem}
@@ -285,6 +298,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   <div class="nav-spacer"></div>
   <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Discord">Join Discord</a>
   <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
+  <button class="stim-toggle" id="lowStimToggle" onclick="toggleLowStim()" type="button" data-en="Low stimulation" data-nl="Prikkelarm">Low stimulation</button>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('nl')">NL</button>
@@ -646,6 +660,7 @@ let ocdQuizAnswers=[],autQuizAnswers=[];
 const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
+let lowStim=false;
 let cookieMode='first';
 
 function toggleSidebar(){
@@ -675,6 +690,7 @@ function setLang(l){
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
   renderCalmPlan();
+  renderLowStim();
   renderCookieBanner();
 }
 
@@ -685,12 +701,16 @@ function loadCalmPlan(){
   if(!storageAllowed())return;
   try{
     const saved=localStorage.getItem(CALM_PLAN_KEY);
-    if(saved)calmPlan={...calmPlan,...JSON.parse(saved)};
+    if(saved){
+      const parsed=JSON.parse(saved);
+      calmPlan={...calmPlan,...parsed};
+      lowStim=parsed.lowStim===true;
+    }
   }catch{}
 }
 function writeCalmPlan(){
   if(!storageAllowed())return false;
-  localStorage.setItem(CALM_PLAN_KEY,JSON.stringify(calmPlan));
+  localStorage.setItem(CALM_PLAN_KEY,JSON.stringify({...calmPlan,lowStim}));
   return true;
 }
 function collectCalmPlan(){
@@ -778,6 +798,18 @@ function exportCalmPlan(){
 }
 function bindCalmPlan(){
   ['calmName','calmSigns','calmHelps','calmWords','calmAvoid','calmContacts'].forEach(id=>document.getElementById(id)?.addEventListener('input',onCalmInput));
+}
+function renderLowStim(){
+  document.body.classList.toggle('low-stim',lowStim);
+  const btn=document.getElementById('lowStimToggle');if(!btn)return;
+  btn.classList.toggle('active',lowStim);
+  btn.setAttribute('aria-pressed',lowStim?'true':'false');
+  btn.textContent=lang==='en'?(lowStim?'Low stimulation on':'Low stimulation'):(lowStim?'Prikkelarm aan':'Prikkelarm');
+}
+function toggleLowStim(){
+  lowStim=!lowStim;
+  renderLowStim();
+  if(storageAllowed())writeCalmPlan();
 }
 function renderCookieBanner(){
   const title=document.getElementById('storageConsentTitle'),text=document.getElementById('storageConsentText'),mini=document.getElementById('storageConsentMini');
@@ -1050,6 +1082,7 @@ bindCalmPlan();
 bindStorageSettings();
 initConsent();
 renderCalmPlan();
+renderLowStim();
 </script>
 </body>
 </html>
