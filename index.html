@@ -241,10 +241,12 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .footer-top{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-bottom:3.25rem}
 .footer-title{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:.75rem}
 .footer-text{font-size:.84rem;line-height:1.8;color:#b8bac2;max-width:470px}
-.newsletter-form{display:flex;gap:.6rem;margin-top:.9rem}
-.newsletter-form input{flex:1;border:1px solid #353741;border-radius:6px;background:#f7f7f8;color:#18181b;font-family:'Inter',sans-serif;font-size:.82rem;padding:.68rem .75rem;min-width:0}
-.newsletter-form button{border:1px solid #f7f7f8;border-radius:6px;background:transparent;color:#fff;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;padding:.65rem 1rem;cursor:pointer}
-.newsletter-form button:hover{background:#fff;color:#101114}
+.contact-request-form{display:grid;gap:.6rem;margin-top:.9rem}
+.contact-request-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.contact-request-form input,.contact-request-form textarea{width:100%;border:1px solid #353741;border-radius:6px;background:#f7f7f8;color:#18181b;font-family:'Inter',sans-serif;font-size:.82rem;padding:.68rem .75rem;min-width:0}
+.contact-request-form textarea{min-height:82px;resize:vertical}
+.contact-request-form button{justify-self:start;border:1px solid #f7f7f8;border-radius:6px;background:transparent;color:#fff;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;padding:.65rem 1rem;cursor:pointer}
+.contact-request-form button:hover{background:#fff;color:#101114}
 .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:3rem}
 .footer-col h3{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:.7rem}
 .footer-links{list-style:none;display:grid;gap:.35rem}
@@ -284,7 +286,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .discord-card,.support-card{align-items:flex-start;flex-direction:column}
   .footer{padding:3rem 1rem 1.25rem}
   .footer-top,.footer-grid{grid-template-columns:1fr;gap:1.5rem}
-  .newsletter-form{flex-direction:column}
+  .contact-request-row{grid-template-columns:1fr}
   .footer-bottom{display:block}
   .footer-wordmark{font-size:clamp(2.45rem,18vw,5rem);letter-spacing:-.07em}
   .hero{padding:1.75rem 1.25rem}
@@ -322,8 +324,8 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <a class="disclaimer-nav calm-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
   <div class="nav-spacer"></div>
-  <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Discord">Join Discord</a>
-  <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
+  <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Word lid van Discord">Join Discord</a>
+  <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Steun JourHelp">Buy me a coffee</a>
   <button class="stim-toggle" id="lowStimToggle" onclick="toggleLowStim()" type="button" data-en="Low stimulation" data-nl="Prikkelarm">Low stimulation</button>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -407,14 +409,14 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
             <div class="discord-title" data-en="Come sit with us 🤍" data-nl="Kom bij ons zitten 🤍">Come sit with us 🤍</div>
             <div class="discord-text" data-en="A safe space to talk, feel, or just exist for a while.<br>No pressure. No judgment. Just JourHelp 🌸" data-nl="Een veilige plek om te praten, te voelen, of gewoon even te bestaan.<br>Geen druk. Geen oordeel. Gewoon JourHelp 🌸">A safe space to talk, feel, or just exist for a while.<br>No pressure. No judgment. Just JourHelp 🌸</div>
           </div>
-          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
+          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid van Discord">Join the Discord</a>
         </div>
         <div class="support-card">
           <div class="discord-copy">
             <div class="support-title" data-en="Support JourHelp 🌸" data-nl="Steun JourHelp 🌸">Support JourHelp 🌸</div>
             <div class="support-text" data-en="If JourHelp helps you feel a little less alone, you can support the project with a small optional donation." data-nl="Als JourHelp je helpt om je iets minder alleen te voelen, kun je het project steunen met een kleine vrijwillige donatie.">If JourHelp helps you feel a little less alone, you can support the project with a small optional donation.</div>
           </div>
-          <a class="support-cta" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
+          <a class="support-cta" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Steun JourHelp">Buy me a coffee</a>
         </div>
       </div>
 
@@ -536,14 +538,14 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
             <div class="discord-title" data-en="Come sit with us 🤍" data-nl="Kom bij ons zitten 🤍">Come sit with us 🤍</div>
             <div class="discord-text" data-en="A safe space to talk, feel, or just exist for a while.<br>No pressure. No judgment. Just JourHelp 🌸" data-nl="Een veilige plek om te praten, te voelen, of gewoon even te bestaan.<br>Geen druk. Geen oordeel. Gewoon JourHelp 🌸">A safe space to talk, feel, or just exist for a while.<br>No pressure. No judgment. Just JourHelp 🌸</div>
           </div>
-          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid">Join the Discord</a>
+          <a class="discord-cta" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join the Discord" data-nl="Word lid van Discord">Join the Discord</a>
         </div>
         <div class="support-card">
           <div class="discord-copy">
             <div class="support-title" data-en="Support JourHelp 🌸" data-nl="Steun JourHelp 🌸">Support JourHelp 🌸</div>
             <div class="support-text" data-en="If JourHelp helps you feel a little less alone, you can support the project with a small optional donation." data-nl="Als JourHelp je helpt om je iets minder alleen te voelen, kun je het project steunen met een kleine vrijwillige donatie.">If JourHelp helps you feel a little less alone, you can support the project with a small optional donation.</div>
           </div>
-          <a class="support-cta" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
+          <a class="support-cta" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Steun JourHelp">Buy me a coffee</a>
         </div>
       </div>
 
@@ -671,11 +673,15 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <p class="footer-text"><a href="mailto:jourhelp@icloud.com">jourhelp@icloud.com</a></p>
       </div>
       <div>
-        <div class="footer-title" data-en="Newsletter" data-nl="Nieuwsbrief">Newsletter</div>
-        <p class="footer-text" data-en="Small updates, thoughtful resources, and new JourHelp tools." data-nl="Kleine updates, zorgvuldige bronnen en nieuwe JourHelp-tools.">Small updates, thoughtful resources, and new JourHelp tools.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault();alert(lang==='en'?'Newsletter signup is coming soon.':'Nieuwsbriefinschrijving komt binnenkort.');">
-          <input type="email" placeholder="E-mail address" data-en="E-mail address" data-nl="E-mailadres" aria-label="E-mail address">
-          <button type="submit" data-en="Send" data-nl="Verzenden">Send</button>
+        <div class="footer-title" data-en="Contact me" data-nl="Neem contact op">Contact me</div>
+        <p class="footer-text" data-en="Send a short note about feedback, collaboration, or a JourHelp question." data-nl="Stuur een kort bericht over feedback, samenwerking of een vraag over JourHelp.">Send a short note about feedback, collaboration, or a JourHelp question.</p>
+        <form class="contact-request-form" onsubmit="sendContactRequest(event)">
+          <div class="contact-request-row">
+            <input id="contactName" type="text" placeholder="Name" data-placeholder-en="Name" data-placeholder-nl="Naam" aria-label="Name">
+            <input id="contactEmail" type="email" placeholder="E-mail address" data-placeholder-en="E-mail address" data-placeholder-nl="E-mailadres" aria-label="E-mail address">
+          </div>
+          <textarea id="contactMessage" placeholder="How can I help?" data-placeholder-en="How can I help?" data-placeholder-nl="Waarmee kan ik helpen?" aria-label="Message"></textarea>
+          <button type="submit" data-en="Send request" data-nl="Verzoek versturen">Send request</button>
         </form>
       </div>
     </div>
@@ -714,7 +720,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
           <a href="mailto:jourhelp@icloud.com" aria-label="Email">@</a>
           <a href="https://juliejanssen.nl" target="_blank" rel="noopener" aria-label="Website">J</a>
         </div>
-        <a class="footer-donate" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
+        <a class="footer-donate" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Steun JourHelp">Buy me a coffee</a>
         <div class="payment-row" aria-label="Support options">
           <span class="payment-pill">VISA</span><span class="payment-pill">MC</span><span class="payment-pill">PayPal</span><span class="payment-pill">Apple Pay</span>
         </div>
@@ -775,11 +781,21 @@ function setLang(l){
   lang=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
   document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v;});
+  document.querySelectorAll('[data-placeholder-en]').forEach(el=>{const v=el.getAttribute('data-placeholder-'+l);if(v!==null)el.setAttribute('placeholder',v);});
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
   renderCalmPlan();
   renderLowStim();
   renderCookieBanner();
+}
+function sendContactRequest(e){
+  e.preventDefault();
+  const name=document.getElementById('contactName')?.value.trim()||'';
+  const email=document.getElementById('contactEmail')?.value.trim()||'';
+  const message=document.getElementById('contactMessage')?.value.trim()||'';
+  const subject=encodeURIComponent('JourHelp contact request');
+  const body=encodeURIComponent(`${lang==='en'?'Name':'Naam'}: ${name||'-'}\n${lang==='en'?'Email':'E-mail'}: ${email||'-'}\n\n${message||'-'}`);
+  window.location.href=`mailto:jourhelp@icloud.com?subject=${subject}&body=${body}`;
 }
 
 function storageAllowed(){
