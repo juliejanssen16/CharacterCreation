@@ -19,6 +19,8 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.reading-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:transparent;z-index:220;pointer-events:none}
+.reading-progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--g1),var(--g2));transition:width .08s linear}
 
 /* ── TOP NAV ── */
 .topnav{height:74px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:100}
@@ -30,9 +32,12 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab:hover{background:var(--surface2);color:var(--text)}
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
 .menu-row{background:var(--surface);border-bottom:1px solid var(--border)}
-.menu-row-inner{padding:.55rem 1rem;display:flex;align-items:center}
+.menu-row-inner{padding:.55rem 1rem;display:flex;align-items:center;gap:.55rem}
 .mega-menu-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .7rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
 .mega-menu-btn:hover,.mega-menu-btn.open{background:var(--surface2);color:var(--text)}
+.share-page-btn{display:inline-flex;align-items:center;justify-content:center;padding:.4rem .7rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
+.share-page-btn:hover{background:var(--surface2);color:var(--text)}
+.share-page-btn.copied{border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.08);color:#047857}
 .mega-menu-icon{display:flex;flex-direction:column;gap:4px}
 .mega-menu-icon span{display:block;width:17px;height:1.5px;border-radius:2px;background:currentColor}
 .mega-menu{position:fixed;top:128px;left:1rem;z-index:120;width:min(1040px,calc(100vw - 2rem));background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;display:none}
@@ -335,6 +340,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 </style>
 </head>
 <body>
+<div class="reading-progress" aria-hidden="true"><div class="reading-progress-bar" id="readingProgressBar"></div></div>
 <div class="app">
 
 <!-- TOP NAV -->
@@ -369,6 +375,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <span class="mega-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       <span data-en="Menu" data-nl="Menu">Menu</span>
     </button>
+    <button class="share-page-btn" id="sharePageBtn" onclick="shareCurrentPage()" type="button" data-en="Share page" data-nl="Deel pagina">Share page</button>
   </div>
 </div>
 
@@ -854,10 +861,70 @@ function showPage(id,navEl){
   if(pg)pg.classList.add('active');
   closeMegaMenu();
   window.scrollTo(0,0);
+  updateShareUrl(id);
+  updateReadingProgress();
   if(window.innerWidth<=900){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open');}
   if(navEl){document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('act'));navEl.classList.add('act');}
 }
-function scrollSec(id){setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}),50)}
+function scrollSec(id){setTimeout(()=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(null,id);},50)}
+function activePageId(){
+  const page=document.querySelector('.page.active');
+  return page?page.id.replace('page-'):'ocd-home';
+}
+function visibleSectionId(){
+  const active=document.querySelector('.page.active');
+  if(!active)return '';
+  const sections=[...active.querySelectorAll('[id]')].filter(el=>el.id&&!el.id.startsWith('page-'));
+  let best='',bestTop=-Infinity;
+  sections.forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top<=150&&top>bestTop){bestTop=top;best=el.id;}
+  });
+  return best;
+}
+function updateShareUrl(pageId,sectionId){
+  const page=pageId||activePageId();
+  const section=sectionId||visibleSectionId();
+  const hash=section?`${page}/${section}`:page;
+  history.replaceState(null,'',`#${hash}`);
+}
+function currentShareUrl(){
+  updateShareUrl();
+  return window.location.href;
+}
+async function shareCurrentPage(){
+  const btn=document.getElementById('sharePageBtn');
+  const url=currentShareUrl();
+  try{
+    await navigator.clipboard.writeText(url);
+  }catch{
+    const tmp=document.createElement('textarea');
+    tmp.value=url;document.body.appendChild(tmp);tmp.select();document.execCommand('copy');tmp.remove();
+  }
+  if(!btn)return;
+  const original=lang==='en'?'Share page':'Deel pagina';
+  btn.textContent=lang==='en'?'Copied link':'Link gekopieerd';
+  btn.classList.add('copied');
+  setTimeout(()=>{btn.textContent=original;btn.classList.remove('copied');},1600);
+}
+function updateReadingProgress(){
+  const bar=document.getElementById('readingProgressBar');
+  const active=document.querySelector('.page.active');
+  if(!bar||!active)return;
+  const rect=active.getBoundingClientRect();
+  const total=Math.max(1,active.scrollHeight-window.innerHeight);
+  const read=Math.min(total,Math.max(0,-rect.top));
+  bar.style.width=`${Math.round((read/total)*100)}%`;
+}
+function applyHashRoute(){
+  const raw=window.location.hash.replace(/^#/,'');
+  if(!raw)return false;
+  const [page,section]=raw.split('/');
+  if(!page||!document.getElementById('page-'+page))return false;
+  showPage(page,null);
+  if(section)setTimeout(()=>document.getElementById(section)?.scrollIntoView({behavior:'smooth',block:'start'}),80);
+  return true;
+}
 function setTopic(t,btn){
   topic=t;
   document.querySelectorAll('.topic-tab').forEach(b=>b.classList.remove('active'));
@@ -870,6 +937,7 @@ function setLang(l){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
   document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v;});
   document.querySelectorAll('[data-placeholder-en]').forEach(el=>{const v=el.getAttribute('data-placeholder-'+l);if(v!==null)el.setAttribute('placeholder',v);});
+  const shareBtn=document.getElementById('sharePageBtn');if(shareBtn)shareBtn.textContent=lang==='en'?'Share page':'Deel pagina';
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
   renderGlossary();
@@ -1351,6 +1419,10 @@ bindStorageSettings();
 initConsent();
 renderCalmPlan();
 renderLowStim();
+window.addEventListener('scroll',()=>{updateReadingProgress();updateShareUrl();},{passive:true});
+window.addEventListener('resize',updateReadingProgress);
+if(!applyHashRoute())updateShareUrl();
+updateReadingProgress();
 </script>
 </body>
 </html>
