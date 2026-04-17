@@ -30,7 +30,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab:hover{background:var(--surface2);color:var(--text)}
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
 .menu-row{background:var(--surface);border-bottom:1px solid var(--border)}
-.menu-row-inner{max-width:1160px;margin:0 auto;padding:.55rem 1.5rem;display:flex;align-items:center}
+.menu-row-inner{padding:.55rem 1rem;display:flex;align-items:center}
 .mega-menu-btn{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .7rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
 .mega-menu-btn:hover,.mega-menu-btn.open{background:var(--surface2);color:var(--text)}
 .mega-menu-icon{display:flex;flex-direction:column;gap:4px}
@@ -365,14 +365,14 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 
 <div class="menu-row">
   <div class="menu-row-inner">
-    <button class="mega-menu-btn" id="megaMenuBtn" onclick="toggleMegaMenu()" type="button" aria-expanded="false">
+    <button class="mega-menu-btn" id="megaMenuBtn" onclick="toggleMegaMenu()" onmouseenter="openMegaMenu()" onfocus="openMegaMenu()" type="button" aria-expanded="false">
       <span class="mega-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       <span data-en="Menu" data-nl="Menu">Menu</span>
     </button>
   </div>
 </div>
 
-<div class="mega-menu" id="megaMenu" aria-label="Main menu">
+<div class="mega-menu" id="megaMenu" aria-label="Main menu" onmouseenter="openMegaMenu()" onmouseleave="closeMegaMenu()">
   <div class="mega-menu-grid" id="megaMenuGrid"></div>
 </div>
 
@@ -829,6 +829,12 @@ function closeMegaMenu(){
   const btn=document.getElementById('megaMenuBtn');
   btn?.classList.remove('open');
   btn?.setAttribute('aria-expanded','false');
+}
+function openMegaMenu(){
+  document.getElementById('megaMenu')?.classList.add('open');
+  const btn=document.getElementById('megaMenuBtn');
+  btn?.classList.add('open');
+  btn?.setAttribute('aria-expanded','true');
 }
 function toggleMegaMenu(){
   const menu=document.getElementById('megaMenu'),btn=document.getElementById('megaMenuBtn');
