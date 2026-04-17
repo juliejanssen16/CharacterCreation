@@ -31,6 +31,8 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .topic-tab.active{background:var(--surface2);color:var(--text);font-weight:600}
 .disclaimer-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(124,58,237,.18);background:rgba(124,58,237,.07);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--p);text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
 .disclaimer-nav:hover{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.28)}
+.calm-nav{border-color:transparent;background:transparent;color:var(--text3);font-weight:500;padding:.35rem .55rem}
+.calm-nav:hover{background:var(--surface2);border-color:transparent;color:var(--text2)}
 .discord-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(88,101,242,.22);background:rgba(88,101,242,.08);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;color:#5865f2;text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
 .discord-nav:hover{background:rgba(88,101,242,.14);border-color:rgba(88,101,242,.34)}
 .coffee-nav{display:inline-flex;align-items:center;justify-content:center;padding:.35rem .8rem;border-radius:6px;border:1px solid rgba(219,39,119,.22);background:rgba(219,39,119,.08);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;color:var(--pk);text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
@@ -241,6 +243,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
   .brand-logo{width:132px}
   .topic-tab{font-size:.75rem;padding:.3rem .65rem}
   .disclaimer-nav{order:5;width:100%;font-size:.75rem;padding:.38rem .8rem}
+  .calm-nav{width:auto;padding:.32rem .45rem}
   .discord-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .coffee-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .lang-toggle{margin-left:auto}
@@ -278,7 +281,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
     <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
-  <a class="disclaimer-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
+  <a class="disclaimer-nav calm-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
   <div class="nav-spacer"></div>
   <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Discord">Join Discord</a>
   <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
