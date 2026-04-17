@@ -181,6 +181,29 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
+/* ── CALM PLAN ── */
+.calm-form{display:grid;gap:.85rem}
+.calm-field{display:grid;gap:.35rem}
+.calm-field label{font-size:.76rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.calm-field textarea,.calm-field input{width:100%;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;line-height:1.6;padding:.75rem;outline:none;transition:border-color .12s,box-shadow .12s}
+.calm-field textarea{min-height:92px;resize:vertical}
+.calm-field textarea:focus,.calm-field input:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+.calm-note{font-size:.72rem;color:var(--text3);line-height:1.65}
+.calm-actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.2rem}
+.calm-status{font-size:.72rem;color:var(--text2);min-height:1.2rem}
+.support-preview{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.85rem}
+.support-preview-title{font-size:.78rem;font-weight:800;color:var(--p);margin-bottom:.45rem}
+.support-preview-line{font-size:.8rem;color:var(--text2);line-height:1.75;margin-bottom:.35rem}
+.support-preview-line strong{color:var(--text)}
+
+/* ── COOKIE / STORAGE CONSENT ── */
+.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
+.cookie-banner.open{display:block}
+.cookie-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.25rem;letter-spacing:-.02em}
+.cookie-text{font-size:.78rem;color:var(--text2);line-height:1.65;margin-bottom:.75rem}
+.cookie-actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.cookie-mini{font-size:.68rem;color:var(--text3);line-height:1.5;margin-top:.55rem}
+
 /* ── DISCORD ── */
 .discord-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem;border:1px solid rgba(88,101,242,.18);border-radius:var(--r-sm);background:linear-gradient(135deg,rgba(88,101,242,.08),rgba(219,39,119,.06));margin-top:.9rem}
 .discord-copy{min-width:0}
@@ -255,6 +278,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
     <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
+  <a class="disclaimer-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
   <div class="nav-spacer"></div>
   <a class="discord-nav" href="https://discord.gg/Hsb8mR8waq" target="_blank" rel="noopener" data-en="Join Discord" data-nl="Discord">Join Discord</a>
   <a class="coffee-nav" href="https://buymeacoffee.com/juliejanssen" target="_blank" rel="noopener" data-en="Buy me a coffee" data-nl="Koop een koffie">Buy me a coffee</a>
@@ -510,6 +534,61 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
       <div id="aut-resources-content"></div>
     </div>
 
+    <!-- CALM PLAN -->
+    <div class="page" id="page-calm-plan">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Private Tool" data-nl="Prive hulpmiddel">Private Tool</span></div>
+        <h1><span class="grad" data-en="My Calm Plan" data-nl="Mijn Rustplan">My Calm Plan</span></h1>
+        <p data-en="A gentle support card for overwhelming moments. Saving is optional and only happens if you allow local storage." data-nl="Een zachte steunkaart voor overweldigende momenten. Opslaan is optioneel en gebeurt alleen als je lokale opslag toestaat.">A gentle support card for overwhelming moments. Saving is optional and only happens if you allow local storage.</p>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">♡</div><h2 data-en="Build your support card" data-nl="Maak je steunkaart">Build your support card</h2></div>
+        <div class="divider"></div>
+        <p data-en="Fill in whatever feels useful. This is not a medical or crisis safety plan, but it can help you explain what supports you when words are hard." data-nl="Vul in wat nuttig voelt. Dit is geen medisch of crisisveiligheidsplan, maar het kan helpen uitleggen wat je steunt wanneer woorden moeilijk zijn.">Fill in whatever feels useful. This is not a medical or crisis safety plan, but it can help you explain what supports you when words are hard.</p>
+        <div class="calm-form">
+          <div class="calm-field">
+            <label for="calmName" data-en="Name or nickname" data-nl="Naam of bijnaam">Name or nickname</label>
+            <input id="calmName" type="text" autocomplete="name">
+          </div>
+          <div class="calm-field">
+            <label for="calmSigns" data-en="When I am overwhelmed, you might notice..." data-nl="Als ik overweldigd ben, merk je misschien...">When I am overwhelmed, you might notice...</label>
+            <textarea id="calmSigns"></textarea>
+          </div>
+          <div class="calm-field">
+            <label for="calmHelps" data-en="Things that help me calm down" data-nl="Dingen die mij helpen kalmeren">Things that help me calm down</label>
+            <textarea id="calmHelps"></textarea>
+          </div>
+          <div class="calm-field">
+            <label for="calmWords" data-en="Helpful words or phrases" data-nl="Helpende woorden of zinnen">Helpful words or phrases</label>
+            <textarea id="calmWords"></textarea>
+          </div>
+          <div class="calm-field">
+            <label for="calmAvoid" data-en="Please avoid..." data-nl="Vermijd alsjeblieft...">Please avoid...</label>
+            <textarea id="calmAvoid"></textarea>
+          </div>
+          <div class="calm-field">
+            <label for="calmContacts" data-en="People, places, or services I can contact" data-nl="Mensen, plekken of diensten die ik kan contacteren">People, places, or services I can contact</label>
+            <textarea id="calmContacts"></textarea>
+          </div>
+        </div>
+        <div class="calm-actions">
+          <button class="btn-primary" onclick="saveCalmPlan()" data-en="Save locally" data-nl="Lokaal opslaan">Save locally</button>
+          <button class="btn-ghost" onclick="exportCalmPlan()" data-en="Export text" data-nl="Tekst exporteren">Export text</button>
+          <button class="btn-ghost" onclick="clearCalmPlan()" data-en="Clear plan" data-nl="Plan wissen">Clear plan</button>
+          <button class="btn-ghost" onclick="openCookieSettings()" data-en="Cookie settings" data-nl="Cookie-instellingen">Cookie settings</button>
+        </div>
+        <div class="calm-status" id="calmStatus"></div>
+        <p class="calm-note" data-en="If local storage is declined, your plan stays only on this page until refresh or close." data-nl="Als lokale opslag is geweigerd, blijft je plan alleen op deze pagina tot je vernieuwt of sluit.">If local storage is declined, your plan stays only on this page until refresh or close.</p>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">✦</div><h2 data-en="Support card preview" data-nl="Voorbeeld steunkaart">Support card preview</h2></div>
+        <div class="divider"></div>
+        <div class="support-preview" id="calmPreview"></div>
+      </div>
+    </div>
+
     <!-- DISCLAIMER -->
     <div class="page" id="page-disclaimer">
       <div class="hero" style="margin-bottom:1rem">
@@ -547,9 +626,24 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 
 </div>
 
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie settings">
+  <div class="cookie-title" id="cookieTitle">Cookie settings</div>
+  <div class="cookie-text" id="cookieText"></div>
+  <div class="cookie-actions">
+    <button class="btn-primary" id="cookieAcceptBtn" onclick="acceptStorageConsent()">Allow local saving</button>
+    <button class="btn-ghost" id="cookieDeclineBtn" onclick="declineStorageConsent()">Do not save</button>
+    <button class="btn-ghost" id="cookieKeepBtn" onclick="closeCookieBanner()">Keep settings</button>
+  </div>
+  <div class="cookie-mini" id="cookieMini"></div>
+</div>
+
 <script>
 let lang='en',topic='ocd';
 let ocdQuizAnswers=[],autQuizAnswers=[];
+const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
+const CALM_PLAN_KEY='jourhelp_calm_plan';
+let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
+let cookieMode='first';
 
 function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
@@ -577,6 +671,155 @@ function setLang(l){
   document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v;});
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
+  renderCalmPlan();
+  renderCookieBanner();
+}
+
+function storageAllowed(){
+  try{return localStorage.getItem(STORAGE_CONSENT_KEY)==='yes';}catch{return false;}
+}
+function loadCalmPlan(){
+  if(!storageAllowed())return;
+  try{
+    const saved=localStorage.getItem(CALM_PLAN_KEY);
+    if(saved)calmPlan={...calmPlan,...JSON.parse(saved)};
+  }catch{}
+}
+function writeCalmPlan(){
+  if(!storageAllowed())return false;
+  localStorage.setItem(CALM_PLAN_KEY,JSON.stringify(calmPlan));
+  return true;
+}
+function collectCalmPlan(){
+  calmPlan={
+    name:document.getElementById('calmName')?.value.trim()||'',
+    signs:document.getElementById('calmSigns')?.value.trim()||'',
+    helps:document.getElementById('calmHelps')?.value.trim()||'',
+    words:document.getElementById('calmWords')?.value.trim()||'',
+    avoid:document.getElementById('calmAvoid')?.value.trim()||'',
+    contacts:document.getElementById('calmContacts')?.value.trim()||''
+  };
+}
+function fillCalmInputs(){
+  const fields={calmName:'name',calmSigns:'signs',calmHelps:'helps',calmWords:'words',calmAvoid:'avoid',calmContacts:'contacts'};
+  Object.entries(fields).forEach(([id,key])=>{const el=document.getElementById(id);if(el)el.value=calmPlan[key]||'';});
+}
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+}
+function lineBreaks(str){
+  return escapeHtml(str).replace(/\n/g,'<br>');
+}
+function renderCalmPlan(){
+  fillCalmInputs();
+  updateCalmPreview();
+  updateCalmStatus();
+}
+function updateCalmStatus(msg){
+  const el=document.getElementById('calmStatus');if(!el)return;
+  if(msg){el.textContent=msg;return;}
+  el.textContent=storageAllowed()
+    ? (lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.')
+    : (lang==='en'?'Local saving is off. Your entries will not be saved after refresh.':'Lokaal opslaan staat uit. Je invoer wordt niet bewaard na vernieuwen.');
+}
+function updateCalmPreview(){
+  const el=document.getElementById('calmPreview');if(!el)return;
+  collectCalmPlan();
+  const empty=Object.values(calmPlan).every(v=>!v);
+  if(empty){
+    el.innerHTML=`<div class="support-preview-title">${lang==='en'?'Your card will appear here':'Je kaart verschijnt hier'}</div><div class="support-preview-line">${lang==='en'?'Add a few notes to create a gentle support card.':'Voeg een paar notities toe om een zachte steunkaart te maken.'}</div>`;
+    return;
+  }
+  const title=calmPlan.name?(lang==='en'?`${escapeHtml(calmPlan.name)}'s Calm Plan`:`Rustplan van ${escapeHtml(calmPlan.name)}`):(lang==='en'?'My Calm Plan':'Mijn Rustplan');
+  const rows=[
+    [lang==='en'?'You might notice':'Je merkt misschien',calmPlan.signs],
+    [lang==='en'?'What helps':'Wat helpt',calmPlan.helps],
+    [lang==='en'?'Helpful words':'Helpende woorden',calmPlan.words],
+    [lang==='en'?'Please avoid':'Vermijd alsjeblieft',calmPlan.avoid],
+    [lang==='en'?'Contacts':'Contacten',calmPlan.contacts]
+  ].filter(r=>r[1]);
+  el.innerHTML=`<div class="support-preview-title">${title}</div>`+rows.map(r=>`<div class="support-preview-line"><strong>${r[0]}:</strong> ${lineBreaks(r[1])}</div>`).join('');
+}
+function onCalmInput(){
+  collectCalmPlan();
+  updateCalmPreview();
+  if(storageAllowed())writeCalmPlan();
+  updateCalmStatus(storageAllowed()?(lang==='en'?'Saved locally.':'Lokaal opgeslagen.'):undefined);
+}
+function saveCalmPlan(){
+  collectCalmPlan();
+  updateCalmPreview();
+  if(writeCalmPlan())updateCalmStatus(lang==='en'?'Saved locally.':'Lokaal opgeslagen.');
+  else{
+    updateCalmStatus(lang==='en'?'Turn on local saving first.':'Zet lokaal opslaan eerst aan.');
+    openCookieSettings();
+  }
+}
+function clearCalmPlan(){
+  calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
+  fillCalmInputs();
+  updateCalmPreview();
+  if(storageAllowed())localStorage.removeItem(CALM_PLAN_KEY);
+  updateCalmStatus(lang==='en'?'Plan cleared.':'Plan gewist.');
+}
+function exportCalmPlan(){
+  collectCalmPlan();
+  const labels=lang==='en'
+    ? [['Name','name'],['You might notice','signs'],['What helps','helps'],['Helpful words','words'],['Please avoid','avoid'],['Contacts','contacts']]
+    : [['Naam','name'],['Je merkt misschien','signs'],['Wat helpt','helps'],['Helpende woorden','words'],['Vermijd alsjeblieft','avoid'],['Contacten','contacts']];
+  const body=labels.map(([label,key])=>`${label}\n${calmPlan[key]||'-'}`).join('\n\n');
+  const blob=new Blob([`${lang==='en'?'My Calm Plan':'Mijn Rustplan'}\n\n${body}\n\n${lang==='en'?'Not a medical or crisis safety plan.':'Geen medisch of crisisveiligheidsplan.'}`],{type:'text/plain'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='jourhelp-calm-plan.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function bindCalmPlan(){
+  ['calmName','calmSigns','calmHelps','calmWords','calmAvoid','calmContacts'].forEach(id=>document.getElementById(id)?.addEventListener('input',onCalmInput));
+}
+function renderCookieBanner(){
+  const title=document.getElementById('cookieTitle'),text=document.getElementById('cookieText'),mini=document.getElementById('cookieMini');
+  const accept=document.getElementById('cookieAcceptBtn'),decline=document.getElementById('cookieDeclineBtn'),keep=document.getElementById('cookieKeepBtn');
+  if(!title||!text||!mini||!accept||!decline||!keep)return;
+  const review=cookieMode==='review';
+  title.textContent=lang==='en'?(review?'Are your cookie settings still correct?':'Cookie settings'):(review?'Kloppen je cookie-instellingen nog?':'Cookie-instellingen');
+  text.textContent=lang==='en'
+    ? 'JourHelp can use local storage to remember your Calm Plan and cookie choice on this device. If you decline, nothing is saved and this banner returns on refresh.'
+    : 'JourHelp kan lokale opslag gebruiken om je Rustplan en cookiekeuze op dit apparaat te onthouden. Als je weigert, wordt niets opgeslagen en komt deze banner terug na vernieuwen.';
+  accept.textContent=lang==='en'?'Allow local saving':'Lokaal opslaan toestaan';
+  decline.textContent=lang==='en'?'Do not save':'Niet opslaan';
+  keep.textContent=lang==='en'?'Keep settings':'Instellingen behouden';
+  keep.style.display=review?'inline-flex':'none';
+  mini.textContent=storageAllowed()
+    ? (lang==='en'?'Current setting: local saving is allowed.':'Huidige instelling: lokaal opslaan is toegestaan.')
+    : (lang==='en'?'Current setting: local saving is off.':'Huidige instelling: lokaal opslaan staat uit.');
+}
+function openCookieSettings(){
+  cookieMode=storageAllowed()?'review':'first';
+  renderCookieBanner();
+  document.getElementById('cookieBanner')?.classList.add('open');
+}
+function closeCookieBanner(){
+  document.getElementById('cookieBanner')?.classList.remove('open');
+}
+function acceptStorageConsent(){
+  localStorage.setItem(STORAGE_CONSENT_KEY,'yes');
+  collectCalmPlan();
+  writeCalmPlan();
+  closeCookieBanner();
+  updateCalmStatus(lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.');
+}
+function declineStorageConsent(){
+  try{
+    localStorage.removeItem(STORAGE_CONSENT_KEY);
+    localStorage.removeItem(CALM_PLAN_KEY);
+  }catch{}
+  closeCookieBanner();
+  updateCalmStatus(lang==='en'?'Local saving is off. Your entries will not be saved after refresh.':'Lokaal opslaan staat uit. Je invoer wordt niet bewaard na vernieuwen.');
+}
+function initConsent(){
+  loadCalmPlan();
+  cookieMode=storageAllowed()?'review':'first';
+  openCookieSettings();
 }
 
 function buildSidebar(){
@@ -593,7 +836,8 @@ function buildSidebar(){
     {page:'ocd-home',en:'FAQ',nl:'FAQ',sec:'ocd-sec-faq'},
     {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
-    {page:'ocd-resources',en:'Resources',nl:'Bronnen'}
+    {page:'ocd-resources',en:'Resources',nl:'Bronnen'},
+    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'}
   ]:[
     {page:'autism-home',en:'Home',nl:'Home'},
     {page:'autism-home',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
@@ -606,7 +850,8 @@ function buildSidebar(){
     {page:'autism-home',en:'Community',nl:'Community',sec:'aut-sec-community'},
     {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
-    {page:'autism-resources',en:'Resources',nl:'Bronnen'}
+    {page:'autism-resources',en:'Resources',nl:'Bronnen'},
+    {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'}
   ];
   document.getElementById('sidebar-main-links').innerHTML=
     `<div class="nav-group-label" data-en="Navigation" data-nl="Navigatie">${lang==='en'?'Navigation':'Navigatie'}</div>`+
@@ -795,6 +1040,9 @@ buildSidebar();
 renderOCDHome();renderAutismHome();
 renderOCDQuiz();renderAutQuiz();
 renderOCDResources();renderAutResources();
+bindCalmPlan();
+initConsent();
+renderCalmPlan();
 </script>
 </body>
 </html>
