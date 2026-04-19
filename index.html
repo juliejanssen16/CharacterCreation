@@ -249,6 +249,12 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .small-note{font-size:.7rem;color:var(--text3);line-height:1.55;margin-top:.5rem}
 .myth-card .info-kicker{color:#be185d}
 .joy-card{background:linear-gradient(135deg,rgba(5,150,105,.07),rgba(124,58,237,.06))}
+.start-card{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.start-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.first-aid-box{background:linear-gradient(135deg,rgba(5,150,105,.08),rgba(219,39,119,.05));border:1px solid rgba(5,150,105,.18);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem}
+.first-aid-list{list-style:none;display:grid;gap:.5rem;margin-top:.7rem}
+.first-aid-list li{font-size:.82rem;color:var(--text2);line-height:1.65;display:flex;gap:.55rem;align-items:flex-start}
+.first-aid-list li::before{content:'✓';color:#059669;font-weight:900;flex-shrink:0}
 
 /* ── GLOSSARY ── */
 .glossary-tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:.85rem 0 1rem}
@@ -559,9 +565,31 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <h1><span class="grad" data-en="Autism" data-nl="Autisme">Autism</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
         <p data-en="A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences." data-nl="Een vriendelijke gids voor het begrijpen van autisme — over kenmerken, sterke punten, sensorische behoeften, diagnose, ondersteuning en echte ervaringen.">A friendly, compassionate guide to understanding autism — covering characteristics, strengths, sensory needs, diagnosis, support, and real experiences.</p>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="scrollSec('aut-sec-what')" data-en="Start reading" data-nl="Begin te lezen">Start reading</button>
+          <button class="btn-primary" onclick="scrollSec('aut-sec-start')" data-en="Start here" data-nl="Start hier">Start here</button>
+          <button class="btn-ghost" onclick="scrollSec('aut-sec-first-aid')" data-en="I'm overwhelmed" data-nl="Ik ben overprikkeld">I'm overwhelmed</button>
           <button class="btn-ghost" onclick="showPage('autism-quiz',null)" data-en="Self-reflection quiz" data-nl="Zelfreflectiequiz">Self-reflection quiz</button>
           <button class="btn-ghost" onclick="scrollSec('aut-sec-daily')" data-en="Daily life guide" data-nl="Gids voor dagelijks leven">Daily life guide</button>
+        </div>
+      </div>
+
+      <div class="section" id="aut-sec-start">
+        <div class="sec-hd"><div class="sec-icon-wrap">⌂</div><h2 data-en="Start Here" data-nl="Start Hier">Start Here</h2></div>
+        <div class="divider"></div>
+        <p data-en="Choose the path that fits this moment. You do not have to read everything in order." data-nl="Kies wat past bij dit moment. Je hoeft niet alles op volgorde te lezen.">Choose the path that fits this moment. You do not have to read everything in order.</p>
+        <div class="info-grid" id="aut-start-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-first-aid">
+        <div class="sec-hd"><div class="sec-icon-wrap">SOS</div><h2 data-en="Overwhelm First Aid" data-nl="Overprikkeling Eerste Hulp">Overwhelm First Aid</h2></div>
+        <div class="divider"></div>
+        <p data-en="For moments when words, choices, noise, or touch feel like too much. This is not a crisis service, just a low-demand reset." data-nl="Voor momenten waarop woorden, keuzes, geluid of aanraking te veel voelen. Dit is geen crisishulp, maar een prikkelarme reset.">For moments when words, choices, noise, or touch feel like too much. This is not a crisis service, just a low-demand reset.</p>
+        <div class="first-aid-box">
+          <div class="info-title" data-en="Right now, try less." data-nl="Probeer nu minder.">Right now, try less.</div>
+          <ul class="first-aid-list" id="aut-first-aid-list"></ul>
+        </div>
+        <div class="mini-actions">
+          <button class="btn-primary" onclick="showPage('calm-plan',null)" data-en="Open Calm Plan" data-nl="Open Rustplan">Open Calm Plan</button>
+          <button class="btn-ghost" onclick="scrollSec('aut-sec-tools')" data-en="Open support card" data-nl="Open steunkaart">Open support card</button>
         </div>
       </div>
 
@@ -605,6 +633,14 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <p data-en="Autism is not only visible in big moments. It often shapes ordinary daily things: waking up, eating, planning, switching tasks, studying, working, travelling, socialising, and recovering afterwards." data-nl="Autisme is niet alleen zichtbaar in grote momenten. Het heeft vaak invloed op gewone dagelijkse dingen: wakker worden, eten, plannen, wisselen van taak, studeren, werken, reizen, sociaal contact en daarna herstellen.">Autism is not only visible in big moments. It often shapes ordinary daily things: waking up, eating, planning, switching tasks, studying, working, travelling, socialising, and recovering afterwards.</p>
         <div class="info-grid" id="aut-daily-grid"></div>
         <div class="gentle-note" data-en="Needing structure is not childish or rigid. For many autistic people, structure protects energy. It makes the day more understandable and leaves more room for joy, relationships, study, work, and rest." data-nl="Structuur nodig hebben is niet kinderachtig of star. Voor veel autistische mensen beschermt structuur energie. Het maakt de dag begrijpelijker en laat meer ruimte over voor plezier, relaties, studie, werk en rust.">Needing structure is not childish or rigid. For many autistic people, structure protects energy. It makes the day more understandable and leaves more room for joy, relationships, study, work, and rest.</div>
+      </div>
+
+      <div class="section" id="aut-sec-hygiene">
+        <div class="sec-hd"><div class="sec-icon-wrap">🫧</div><h2 data-en="Autism & Hygiene" data-nl="Autisme & Hygiëne">Autism & Hygiene</h2></div>
+        <div class="divider"></div>
+        <p data-en="Hygiene struggles are not moral failure. Showering, brushing teeth, hair care, skincare, laundry, and changing clothes can involve sensory pain, transitions, executive dysfunction, fatigue, and shame." data-nl="Moeite met hygiëne is geen moreel falen. Douchen, tandenpoetsen, haarzorg, huidverzorging, was en omkleden kunnen prikkelpijn, overgangen, executieve dysfunctie, vermoeidheid en schaamte bevatten.">Hygiene struggles are not moral failure. Showering, brushing teeth, hair care, skincare, laundry, and changing clothes can involve sensory pain, transitions, executive dysfunction, fatigue, and shame.</p>
+        <div class="info-grid" id="aut-hygiene-grid"></div>
+        <div class="gentle-note" data-en="Care tasks are morally neutral. A smaller version of care still counts." data-nl="Zorgtaken zijn moreel neutraal. Een kleinere versie van zorg telt ook.">Care tasks are morally neutral. A smaller version of care still counts.</div>
       </div>
 
       <div class="section" id="aut-sec-communication">
@@ -736,6 +772,13 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="need-grid" id="aut-supporters-grid"></div>
       </div>
 
+      <div class="section" id="aut-sec-supporter-mistakes">
+        <div class="sec-hd"><div class="sec-icon-wrap">!</div><h2 data-en="Supporter Mistakes to Avoid" data-nl="Valkuilen voor Naasten">Supporter Mistakes to Avoid</h2></div>
+        <div class="divider"></div>
+        <p data-en="Most people mean well. These common responses can still hurt, shame, or increase overload." data-nl="De meeste mensen bedoelen het goed. Deze veelvoorkomende reacties kunnen alsnog kwetsen, beschamen of overbelasting vergroten.">Most people mean well. These common responses can still hurt, shame, or increase overload.</p>
+        <div class="info-grid" id="aut-supporter-mistakes-grid"></div>
+      </div>
+
       <div class="section" id="aut-sec-overlap">
         <div class="sec-hd"><div class="sec-icon-wrap">∞</div><h2 data-en="Autism + OCD, ADHD & Anxiety" data-nl="Autisme + OCS, ADHD & Angst">Autism + OCD, ADHD & Anxiety</h2></div>
         <div class="divider"></div>
@@ -743,11 +786,34 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="info-grid" id="aut-overlap-grid"></div>
       </div>
 
+      <div class="section" id="aut-sec-trauma">
+        <div class="sec-hd"><div class="sec-icon-wrap">🛡</div><h2 data-en="Autism, Trauma & Being Misunderstood" data-nl="Autisme, Trauma & Misbegrepen Worden">Autism, Trauma & Being Misunderstood</h2></div>
+        <div class="divider"></div>
+        <p data-en="Many autistic people carry pain from being punished, dismissed, bullied, or treated as difficult for needs they could not explain yet." data-nl="Veel autistische mensen dragen pijn mee van gestraft, weggewuifd, gepest of als lastig behandeld worden voor behoeften die ze nog niet konden uitleggen.">Many autistic people carry pain from being punished, dismissed, bullied, or treated as difficult for needs they could not explain yet.</p>
+        <div class="info-grid" id="aut-trauma-grid"></div>
+      </div>
+
       <div class="section" id="aut-sec-autistic-joy">
         <div class="sec-hd"><div class="sec-icon-wrap">★</div><h2 data-en="Autistic Joy" data-nl="Autistische Vreugde">Autistic Joy</h2></div>
         <div class="divider"></div>
         <p data-en="Autism is not only challenge. Autistic joy, focus, honesty, sensory delight, and deep interest are real parts of autistic life." data-nl="Autisme is niet alleen uitdaging. Autistische vreugde, focus, eerlijkheid, sensorisch plezier en diepe interesse zijn echte delen van autistisch leven.">Autism is not only challenge. Autistic joy, focus, honesty, sensory delight, and deep interest are real parts of autistic life.</p>
         <div class="info-grid" id="aut-joy-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-special-interests">
+        <div class="sec-hd"><div class="sec-icon-wrap">♥</div><h2 data-en="Special Interests" data-nl="Speciale Interesses">Special Interests</h2></div>
+        <div class="divider"></div>
+        <p data-en="Special interests are not 'too much.' They can be regulation, identity, learning, joy, connection, and a place where the nervous system finally gets to breathe." data-nl="Speciale interesses zijn niet 'te veel'. Ze kunnen regulatie, identiteit, leren, vreugde, verbinding en een plek zijn waar het zenuwstelsel eindelijk kan ademen.">Special interests are not 'too much.' They can be regulation, identity, learning, joy, connection, and a place where the nervous system finally gets to breathe.</p>
+        <div class="info-grid" id="aut-special-interests-grid"></div>
+        <div class="tool-box">
+          <div class="sub-lbl" data-en="Special interest card" data-nl="Speciale interesse kaart">Special interest card</div>
+          <div class="tool-row" id="aut-interest-tool"></div>
+          <div class="mini-actions">
+            <button class="btn-primary" onclick="generateInterestCard()" data-en="Generate interest card" data-nl="Maak interessekaart">Generate interest card</button>
+            <button class="btn-ghost" onclick="copyToolText('aut-interest-preview')" data-en="Copy card" data-nl="Kopieer kaart">Copy card</button>
+          </div>
+          <div class="tool-preview" id="aut-interest-preview"></div>
+        </div>
       </div>
 
       <div class="section" id="aut-sec-autism-glossary">
@@ -1024,7 +1090,9 @@ let lang='en',topic='autism';
 let ocdQuizAnswers=[],autQuizAnswers=[],maskingAnswers=[];
 const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
+const AUTISM_TOOLS_KEY='jourhelp_autism_tools';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
+let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},previews:{sensory:'',support:'',id:'',masking:'',interest:''}};
 let lowStim=false;
 let cookieMode='first';
 
@@ -1186,6 +1254,70 @@ function writeCalmPlan(){
   localStorage.setItem(CALM_PLAN_KEY,JSON.stringify({...calmPlan,lowStim}));
   return true;
 }
+function loadAutismTools(){
+  if(!storageAllowed())return;
+  try{
+    const saved=localStorage.getItem(AUTISM_TOOLS_KEY);
+    if(saved)autismTools={...autismTools,...JSON.parse(saved)};
+  }catch{}
+}
+function writeAutismTools(){
+  if(!storageAllowed())return false;
+  collectAutismTools();
+  localStorage.setItem(AUTISM_TOOLS_KEY,JSON.stringify(autismTools));
+  return true;
+}
+function collectAutismTools(){
+  autismTools.maskingAnswers=[...maskingAnswers];
+  autismTools.sensory={};
+  document.querySelectorAll('[data-sens-cat]').forEach(input=>{
+    const cat=input.getAttribute('data-sens-cat');
+    if(!autismTools.sensory[cat])autismTools.sensory[cat]=[];
+    if(input.checked)autismTools.sensory[cat].push(input.getAttribute('data-sens-label'));
+  });
+  autismTools.support={};
+  (AUT_HUB[lang]?.supportFields||[]).forEach(([id])=>autismTools.support[id]=document.getElementById(`support-${id}`)?.value||'');
+  autismTools.id={};
+  (AUT_HUB[lang]?.idFields||[]).forEach(([id])=>autismTools.id[id]=document.getElementById(`autid-${id}`)?.value||'');
+  autismTools.interest={};
+  (AUT_HUB[lang]?.interestFields||[]).forEach(([id])=>autismTools.interest[id]=document.getElementById(`interest-${id}`)?.value||'');
+  autismTools.previews={
+    masking:document.getElementById('aut-masking-result')?.textContent||'',
+    sensory:document.getElementById('aut-sensory-profile')?.textContent||'',
+    support:document.getElementById('aut-support-preview')?.textContent||'',
+    id:document.getElementById('aut-id-preview')?.textContent||'',
+    interest:document.getElementById('aut-interest-preview')?.textContent||''
+  };
+}
+function fillAutismTools(){
+  const h=AUT_HUB[lang];if(!h)return;
+  maskingAnswers=(autismTools.maskingAnswers&&autismTools.maskingAnswers.length===h.maskingQuestions.length)?[...autismTools.maskingAnswers]:new Array(h.maskingQuestions.length).fill(null);
+  maskingAnswers.forEach((answer,i)=>{
+    if(answer===null||answer===undefined)return;
+    document.querySelectorAll(`#aut-masking-tool [data-mi="${i}"]`)[answer]?.classList.add('sel');
+  });
+  document.querySelectorAll('[data-sens-cat]').forEach(input=>{
+    const cat=input.getAttribute('data-sens-cat');
+    const label=input.getAttribute('data-sens-label');
+    input.checked=(autismTools.sensory?.[cat]||[]).includes(label);
+  });
+  h.supportFields.forEach(([id])=>{const el=document.getElementById(`support-${id}`);if(el)el.value=autismTools.support?.[id]||'';});
+  h.idFields.forEach(([id])=>{const el=document.getElementById(`autid-${id}`);if(el)el.value=autismTools.id?.[id]||'';});
+  (h.interestFields||[]).forEach(([id])=>{const el=document.getElementById(`interest-${id}`);if(el)el.value=autismTools.interest?.[id]||'';});
+  setPreviewText('aut-masking-result',autismTools.previews?.masking,true);
+  setPreviewText('aut-sensory-profile',autismTools.previews?.sensory);
+  setPreviewText('aut-support-preview',autismTools.previews?.support);
+  setPreviewText('aut-id-preview',autismTools.previews?.id);
+  setPreviewText('aut-interest-preview',autismTools.previews?.interest);
+}
+function setPreviewText(id,text,hideWhenEmpty=false){
+  const el=document.getElementById(id);if(!el||!text)return;
+  el.textContent=text;
+  if(hideWhenEmpty)el.style.display='block';
+}
+function onAutismToolInput(){
+  if(storageAllowed())writeAutismTools();
+}
 function collectCalmPlan(){
   calmPlan={
     name:document.getElementById('calmName')?.value.trim()||'',
@@ -1291,8 +1423,8 @@ function renderCookieBanner(){
   const review=cookieMode==='review';
   title.textContent=lang==='en'?(review?'Are your cookie settings still correct?':'Cookie settings'):(review?'Kloppen je cookie-instellingen nog?':'Cookie-instellingen');
   text.textContent=lang==='en'
-    ? 'JourHelp can use local storage to remember your Calm Plan and cookie choice on this device. If you decline, nothing is saved and this banner returns on refresh.'
-    : 'JourHelp kan lokale opslag gebruiken om je Rustplan en cookiekeuze op dit apparaat te onthouden. Als je weigert, wordt niets opgeslagen en komt deze banner terug na vernieuwen.';
+    ? 'JourHelp can use local storage to remember your Calm Plan, autism support tools, low-stimulation setting, and cookie choice on this device. If you decline, nothing is saved and this banner returns on refresh.'
+    : 'JourHelp kan lokale opslag gebruiken om je Rustplan, autisme steuntools, prikkelarme instelling en cookiekeuze op dit apparaat te onthouden. Als je weigert, wordt niets opgeslagen en komt deze banner terug na vernieuwen.';
   accept.textContent=lang==='en'?'Allow local saving':'Lokaal opslaan toestaan';
   decline.textContent=lang==='en'?'Do not save':'Niet opslaan';
   keep.textContent=lang==='en'?'Keep settings':'Instellingen behouden';
@@ -1313,6 +1445,7 @@ function acceptStorageConsent(){
   localStorage.setItem(STORAGE_CONSENT_KEY,'yes');
   collectCalmPlan();
   writeCalmPlan();
+  writeAutismTools();
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.');
 }
@@ -1320,12 +1453,15 @@ function declineStorageConsent(){
   try{
     localStorage.removeItem(STORAGE_CONSENT_KEY);
     localStorage.removeItem(CALM_PLAN_KEY);
+    localStorage.removeItem(AUTISM_TOOLS_KEY);
   }catch{}
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is off. Your entries will not be saved after refresh.':'Lokaal opslaan staat uit. Je invoer wordt niet bewaard na vernieuwen.');
 }
 function initConsent(){
   loadCalmPlan();
+  loadAutismTools();
+  fillAutismTools();
   cookieMode=storageAllowed()?'review':'first';
   openCookieSettings();
 }
@@ -1385,11 +1521,14 @@ function getMainLinks(){
     {page:'glossary',en:'Glossary',nl:'Woordenboek'}
   ]:[
     {page:'autism-home',en:'Home',nl:'Home'},
+    {page:'autism-home',en:'Start Here',nl:'Start Hier',sec:'aut-sec-start'},
+    {page:'autism-home',en:'Overwhelm First Aid',nl:'Overprikkeling Eerste Hulp',sec:'aut-sec-first-aid'},
     {page:'autism-home',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
     {page:'autism-home',en:'Myths vs Reality',nl:'Mythes vs Realiteit',sec:'aut-sec-myths'},
     {page:'autism-home',en:'Characteristics',nl:'Kenmerken',sec:'aut-sec-chars'},
     {page:'autism-home',en:'Sensory Processing',nl:'Sensorische Verwerking',sec:'aut-sec-sensory'},
     {page:'autism-home',en:'Daily Life',nl:'Dagelijks Leven',sec:'aut-sec-daily'},
+    {page:'autism-home',en:'Hygiene',nl:'Hygiëne',sec:'aut-sec-hygiene'},
     {page:'autism-home',en:'Communication',nl:'Communicatie',sec:'aut-sec-communication'},
     {page:'autism-home',en:'Women & Girls',nl:'Vrouwen & Meiden',sec:'aut-sec-women'},
     {page:'autism-home',en:'Diagnosis & Masking',nl:'Diagnose & Masking',sec:'aut-sec-diagnosis'},
@@ -1404,8 +1543,11 @@ function getMainLinks(){
     {page:'autism-home',en:'Relationships',nl:'Relaties',sec:'aut-sec-relationships'},
     {page:'autism-home',en:'Accommodations',nl:'Aanpassingen',sec:'aut-sec-accommodations'},
     {page:'autism-home',en:'For Supporters',nl:'Voor Naasten',sec:'aut-sec-supporters'},
+    {page:'autism-home',en:'Supporter Mistakes',nl:'Valkuilen voor Naasten',sec:'aut-sec-supporter-mistakes'},
     {page:'autism-home',en:'Overlap',nl:'Overlap',sec:'aut-sec-overlap'},
+    {page:'autism-home',en:'Trauma & Misunderstood',nl:'Trauma & Misbegrepen',sec:'aut-sec-trauma'},
     {page:'autism-home',en:'Autistic Joy',nl:'Autistische Vreugde',sec:'aut-sec-autistic-joy'},
+    {page:'autism-home',en:'Special Interests',nl:'Speciale Interesses',sec:'aut-sec-special-interests'},
     {page:'autism-home',en:'Mini Glossary',nl:'Miniwoordenboek',sec:'aut-sec-autism-glossary'},
     {page:'autism-home',en:'You Might Be Autistic If',nl:'Je Zou Autistisch Kunnen Zijn Als',sec:'aut-sec-signs'},
     {page:'autism-home',en:'Self-Care Tips',nl:'Zelfzorgtips',sec:'aut-sec-tips'},
@@ -1440,6 +1582,8 @@ function buildMegaMenu(){
   const typeColumn=isOCD
     ? `<div class="mega-col"><div class="mega-label">${lang==='nl'?'OCS soorten':'OCD types'}</div>${OCD_TYPES[lang].map(t=>`<a class="mega-link subtle" onclick="openOCDType('${t.id}')">${t.emoji} ${t.title}</a>`).join('')}</div>`
     : renderMegaColumn(lang==='nl'?'Belangrijk':'Key pages',[
+        {page:'autism-home',sec:'aut-sec-start',en:'Start Here',nl:'Start Hier'},
+        {page:'autism-home',sec:'aut-sec-first-aid',en:'Overwhelm First Aid',nl:'Overprikkeling Eerste Hulp'},
         {page:'autism-home',sec:'aut-sec-sensory',en:'Sensory Processing',nl:'Sensorische Verwerking'},
         {page:'autism-home',sec:'aut-sec-myths',en:'Myths vs Reality',nl:'Mythes vs Realiteit'},
         {page:'autism-home',sec:'aut-sec-daily',en:'Daily Life',nl:'Dagelijks Leven'},
@@ -1447,7 +1591,8 @@ function buildMegaMenu(){
         {page:'autism-home',sec:'aut-sec-self-diagnosis',en:'Self-Diagnosis',nl:'Zelfdiagnose'},
         {page:'autism-home',sec:'aut-sec-tools',en:'Support Tools',nl:'Steuntools'},
         {page:'autism-home',sec:'aut-sec-overwhelm',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out'},
-        {page:'autism-home',sec:'aut-sec-overlap',en:'Overlap',nl:'Overlap'}
+        {page:'autism-home',sec:'aut-sec-hygiene',en:'Hygiene',nl:'Hygiëne'},
+        {page:'autism-home',sec:'aut-sec-trauma',en:'Trauma & Misunderstood',nl:'Trauma & Misbegrepen'}
       ],'subtle');
   grid.innerHTML=[
     renderMegaColumn(lang==='nl'?'Overzicht':'Overview',overview),
@@ -1658,6 +1803,15 @@ const AUT_EXT={
 
 const AUT_HUB={
   en:{
+    start:[
+      {k:"Explore",t:"I think I might be autistic",b:"Self-diagnosis, signs, masking, and research paths.",sec:"aut-sec-self-diagnosis"},
+      {k:"Now",t:"I am overwhelmed",b:"Low-demand steps for reducing input and getting through the next few minutes.",sec:"aut-sec-first-aid"},
+      {k:"Explain",t:"I want to explain my needs",b:"Use support cards, sensory profiles, and clear language.",sec:"aut-sec-tools"},
+      {k:"Access",t:"I need school or work accommodations",b:"Practical adjustments that reduce unnecessary barriers.",sec:"aut-sec-accommodations"},
+      {k:"Care",t:"I support an autistic person",b:"What helps, what hurts, and how to respond with respect.",sec:"aut-sec-supporters"},
+      {k:"Recover",t:"I might be burned out",b:"Understand burnout, reduce demands, and protect recovery.",sec:"aut-sec-burnout"}
+    ],
+    firstAid:["Lower noise if you can: headphones, distance, mute, or a quieter room.","Lower light if you can: dim screen, sunglasses, close curtains, turn away from glare.","Stop explaining for now. You can use short words, text, gestures, or silence.","Reduce choices. Pick one next step: water, bathroom, sit down, leave, or message someone.","Give your body predictable input: pressure, rocking, fidget, blanket, or feet on the floor.","After the peak, do not immediately demand normal functioning. Recovery counts."],
     myths:[
       {k:"Myth",t:"You can always tell",b:"Reality: many autistic people mask, compensate, or are simply not recognised because they do not match stereotypes."},
       {k:"Myth",t:"Eye contact rules autism out",b:"Reality: some autistic people make eye contact, force it, or look near the eyes while finding it draining."},
@@ -1686,6 +1840,14 @@ const AUT_HUB={
       {k:"Conflict",t:"Shutdowns need pauses",b:"A pause can be a regulation strategy, not avoidance. Agree on how to return to the conversation."},
       {k:"Clarity",t:"Direct requests help",b:"Specific words, plans, expectations, and reassurance reduce guessing and misread signals."}
     ],
+    hygiene:[
+      {k:"Showering",t:"Water can be a lot",b:"Temperature shifts, sound, wet skin, hair, towels, and transitions can make showering a full sensory task."},
+      {k:"Teeth",t:"Toothbrushing can hurt",b:"Taste, foam, bristles, gagging, sound, and timing can make dental care harder than it looks."},
+      {k:"Hair and skin",t:"Touch can be demanding",b:"Brushing hair, washing face, moisturiser, shaving, or skincare textures may need adaptations."},
+      {k:"Laundry",t:"Clean clothes still have sensory rules",b:"Fabric, seams, smells, tightness, tags, and temperature matter. Comfort is a real access need."},
+      {k:"Tiny care",t:"A smaller version counts",b:"Wipes, mouthwash, dry shampoo, changing one item of clothing, or brushing for ten seconds can still be care."},
+      {k:"Support",t:"Shame makes it harder",b:"Helpful support reduces steps, offers options, and avoids disgust, jokes, or moral judgement."}
+    ],
     accommodations:[
       {t:"Written instructions",b:"Reduce memory load and unclear expectations."},
       {t:"Quiet workspace",b:"Lower background noise and visual overwhelm."},
@@ -1704,6 +1866,14 @@ const AUT_HUB={
       {t:"Reduce demands during overload",b:"Fewer words, fewer choices, and a calmer space usually help."},
       {t:"Celebrate autonomy",b:"The goal is not normality. The goal is a life that works."}
     ],
+    supporterMistakes:[
+      {k:"Avoid",t:"Everyone feels that way",b:"This can erase the intensity, frequency, and cost of autistic experiences."},
+      {k:"Avoid",t:"You do not look autistic",b:"Autism is not a look. Masking, exhaustion, and private distress are often invisible."},
+      {k:"Avoid",t:"Just try harder",b:"The person may already be trying harder than you can see. Support should reduce barriers, not add shame."},
+      {k:"Avoid",t:"Use your words",b:"During shutdown or meltdown, speech may not be available. Offer quiet, text, gestures, or time."},
+      {k:"Avoid",t:"Forced exposure",b:"Pushing someone into overwhelming situations without consent can increase trauma and burnout."},
+      {k:"Avoid",t:"Taking routines away",b:"Routines, safe foods, stims, and sameness may be regulation, not stubbornness."}
+    ],
     overlap:[
       {k:"ADHD",t:"Shared executive function struggles",b:"Autism and ADHD can both affect focus, transitions, routines, sensory needs, and emotional regulation."},
       {k:"OCD",t:"Routines are not always compulsions",b:"Autistic routines often create predictability. OCD rituals usually aim to neutralise fear or doubt."},
@@ -1712,11 +1882,27 @@ const AUT_HUB={
       {k:"Depression",t:"Burnout can overlap",b:"Low energy and withdrawal may be depression, burnout, or both. Support should look at context."},
       {k:"Giftedness",t:"Ability can hide disability",b:"Strong language, memory, or academics can mask real support needs."}
     ],
+    trauma:[
+      {k:"Invalidation",t:"Being dismissed leaves marks",b:"Years of being told you are dramatic, lazy, rude, or too sensitive can damage self-trust."},
+      {k:"Bullying",t:"Difference is often punished",b:"Social exclusion, teasing, and public correction can teach autistic people to hide instead of ask for help."},
+      {k:"Care",t:"Support can be retraumatising",b:"Therapy, school, or family support that ignores autism may accidentally repeat the harm."},
+      {k:"Healing",t:"Safety first",b:"Gentle, autism-informed support gives choice, predictability, consent, and time."},
+      {k:"Self-trust",t:"Your needs are information",b:"Relearning your limits is not weakness. It is how the nervous system rebuilds safety."},
+      {k:"Boundaries",t:"You do not owe performance",b:"You are allowed to stop explaining, stop masking, and protect your body."}
+    ],
     joy:[
       {k:"Special interests",t:"Depth is beautiful",b:"Deep interest can bring meaning, expertise, comfort, identity, and connection."},
       {k:"Sensory joy",t:"Good input matters",b:"Soft textures, music, patterns, movement, lights, pressure, or nature can feel deeply regulating."},
       {k:"Honesty",t:"Directness can be care",b:"Clear, sincere communication can be a strength in relationships and communities."},
       {k:"Pattern spotting",t:"Details can sing",b:"Many autistic people notice connections, systems, and small changes others miss."}
+    ],
+    specialInterests:[
+      {k:"Regulation",t:"Interests can calm the body",b:"Returning to a loved topic can lower uncertainty and give the nervous system a safe rhythm."},
+      {k:"Identity",t:"They can feel like home",b:"A special interest may hold memory, meaning, community, creativity, and self-expression."},
+      {k:"Learning",t:"Depth is not a flaw",b:"Knowing a lot, talking with detail, or researching deeply can be a strength."},
+      {k:"Connection",t:"Sharing needs consent",b:"It is okay to share joy, and it is also okay to ask whether someone has capacity to listen."},
+      {k:"Shame",t:"Do not shrink your joy",b:"Being told you are obsessive or too much can hurt. Your delight is allowed to take up space."},
+      {k:"Community",t:"Find your people",b:"Special interests can become bridges to friends, projects, learning, and belonging."}
     ],
     miniGlossary:[
       {term:"Masking",def:"Hiding or suppressing autistic traits to meet neurotypical expectations."},
@@ -1733,9 +1919,19 @@ const AUT_HUB={
     maskingQuestions:["Do you rehearse conversations before or after they happen?","Do you copy other people's facial expressions, tone, or gestures to fit in?","Do you force eye contact even when it hurts or distracts you?","Do you hide stimming, sensory pain, confusion, or exhaustion?","Do you seem fine in public and crash when you get home?","Do you feel unsure who you are when you stop performing?"],
     sensoryTool:{sound:["background chatter","sudden noises","bass or vibration","crowded places"],light:["fluorescent light","bright screens","visual clutter","sun glare"],touch:["clothing tags","certain textures","unexpected touch","temperature shifts"],helps:["headphones","sunglasses","quiet room","weighted pressure","safe food","movement break"]},
     supportFields:[["overload","When I am overloaded, you might notice"],["helps","What helps me"],["avoid","Please avoid"],["words","Helpful words"],["contact","Who to contact if needed"]],
-    idFields:[["name","Name or nickname"],["signals","When overwhelmed I may"],["helps","Please help by"],["avoid","Please avoid"],["needs","Useful sensory or communication needs"]]
+    idFields:[["name","Name or nickname"],["signals","When overwhelmed I may"],["helps","Please help by"],["avoid","Please avoid"],["needs","Useful sensory or communication needs"]],
+    interestFields:[["topic","My special interest"],["why","Why I love it"],["helps","How it helps me"],["share","How I like to share it"]]
   },
   nl:{
+    start:[
+      {k:"Verkennen",t:"Ik denk dat ik autistisch kan zijn",b:"Zelfdiagnose, signalen, masking en research-paden.",sec:"aut-sec-self-diagnosis"},
+      {k:"Nu",t:"Ik ben overprikkeld",b:"Prikkelarme stappen om input te verminderen en de komende minuten door te komen.",sec:"aut-sec-first-aid"},
+      {k:"Uitleggen",t:"Ik wil mijn behoeften uitleggen",b:"Gebruik steunkaarten, sensorische profielen en duidelijke taal.",sec:"aut-sec-tools"},
+      {k:"Toegang",t:"Ik heb aanpassingen nodig op school of werk",b:"Praktische aanpassingen die onnodige drempels verminderen.",sec:"aut-sec-accommodations"},
+      {k:"Steun",t:"Ik steun een autistisch persoon",b:"Wat helpt, wat schaadt en hoe je respectvol reageert.",sec:"aut-sec-supporters"},
+      {k:"Herstel",t:"Ik ben misschien burned out",b:"Begrijp burn-out, verminder eisen en bescherm herstel.",sec:"aut-sec-burnout"}
+    ],
+    firstAid:["Verminder geluid als dat kan: koptelefoon, afstand, dempen of een stillere kamer.","Verminder licht als dat kan: scherm dimmen, zonnebril, gordijnen dicht of wegkijken van fel licht.","Stop nu met uitleggen. Korte woorden, tekst, gebaren of stilte mogen ook.","Verminder keuzes. Kies één stap: water, toilet, zitten, weggaan of iemand appen.","Geef je lichaam voorspelbare input: druk, wiegen, friemelen, deken of voeten op de grond.","Vraag na de piek niet meteen normaal functioneren. Herstel telt."],
     myths:[
       {k:"Mythe",t:"Je ziet het altijd",b:"Realiteit: veel autistische mensen maskeren, compenseren of worden niet herkend omdat ze niet in stereotypen passen."},
       {k:"Mythe",t:"Oogcontact sluit autisme uit",b:"Realiteit: sommige autistische mensen maken oogcontact, forceren het of kijken vlakbij de ogen terwijl het uitput."},
@@ -1764,6 +1960,14 @@ const AUT_HUB={
       {k:"Conflict",t:"Shutdowns hebben pauzes nodig",b:"Een pauze kan regulatie zijn, geen vermijding. Spreek af hoe je terugkomt op het gesprek."},
       {k:"Duidelijkheid",t:"Directe verzoeken helpen",b:"Specifieke woorden, plannen, verwachtingen en geruststelling verminderen raden en misverstanden."}
     ],
+    hygiene:[
+      {k:"Douchen",t:"Water kan veel zijn",b:"Temperatuurwissels, geluid, natte huid, haar, handdoeken en overgangen kunnen douchen een volledige prikkeltaak maken."},
+      {k:"Tanden",t:"Tandenpoetsen kan pijn doen",b:"Smaak, schuim, borstelharen, kokhalzen, geluid en timing kunnen mondzorg moeilijker maken dan het lijkt."},
+      {k:"Haar en huid",t:"Aanraking kan veel vragen",b:"Haar borstelen, gezicht wassen, crème, scheren of skincare-texturen kunnen aanpassingen nodig hebben."},
+      {k:"Was",t:"Schone kleding heeft sensorische regels",b:"Stof, naden, geuren, strakheid, labels en temperatuur tellen. Comfort is een echte toegangsbehoefte."},
+      {k:"Mini-zorg",t:"Een kleinere versie telt",b:"Doekjes, mondspoeling, droogshampoo, één kledingstuk wisselen of tien seconden poetsen is ook zorg."},
+      {k:"Steun",t:"Schaamte maakt het moeilijker",b:"Helpende steun vermindert stappen, biedt opties en vermijdt walging, grapjes of moreel oordeel."}
+    ],
     accommodations:[
       {t:"Schriftelijke instructies",b:"Verminderen geheugenbelasting en onduidelijke verwachtingen."},
       {t:"Stille werkplek",b:"Minder achtergrondgeluid en visuele overprikkeling."},
@@ -1782,6 +1986,14 @@ const AUT_HUB={
       {t:"Verminder eisen bij overbelasting",b:"Minder woorden, minder keuzes en een rustigere plek helpen vaak."},
       {t:"Vier autonomie",b:"Het doel is niet normaliteit. Het doel is een leven dat werkt."}
     ],
+    supporterMistakes:[
+      {k:"Vermijd",t:"Iedereen heeft dat weleens",b:"Dit wist de intensiteit, frequentie en prijs van autistische ervaringen uit."},
+      {k:"Vermijd",t:"Je ziet er niet autistisch uit",b:"Autisme heeft geen uiterlijk. Masking, uitputting en private stress zijn vaak onzichtbaar."},
+      {k:"Vermijd",t:"Probeer gewoon harder",b:"De persoon probeert mogelijk al harder dan jij ziet. Steun vermindert drempels en voegt geen schaamte toe."},
+      {k:"Vermijd",t:"Gebruik je woorden",b:"Tijdens shutdown of meltdown is spraak soms niet beschikbaar. Bied stilte, tekst, gebaren of tijd."},
+      {k:"Vermijd",t:"Geforceerde blootstelling",b:"Iemand zonder consent in overweldigende situaties duwen kan trauma en burn-out vergroten."},
+      {k:"Vermijd",t:"Routines afpakken",b:"Routines, veilig eten, stimmen en voorspelbaarheid kunnen regulatie zijn, geen koppigheid."}
+    ],
     overlap:[
       {k:"ADHD",t:"Gedeelde executieve problemen",b:"Autisme en ADHD kunnen beide invloed hebben op focus, overgangen, routines, prikkels en emotieregulatie."},
       {k:"OCS",t:"Routines zijn niet altijd dwang",b:"Autistische routines geven vaak voorspelbaarheid. OCS-rituelen neutraliseren meestal angst of twijfel."},
@@ -1790,11 +2002,27 @@ const AUT_HUB={
       {k:"Depressie",t:"Burn-out kan overlappen",b:"Lage energie en terugtrekken kunnen depressie, burn-out of beide zijn. Context is belangrijk."},
       {k:"Hoogbegaafdheid",t:"Vaardigheid kan beperking verbergen",b:"Sterke taal, geheugen of schoolprestaties kunnen echte steunbehoeften maskeren."}
     ],
+    trauma:[
+      {k:"Invalidatie",t:"Weggewuifd worden laat sporen na",b:"Jaren horen dat je dramatisch, lui, bot of te gevoelig bent kan zelfvertrouwen beschadigen."},
+      {k:"Pesten",t:"Verschil wordt vaak gestraft",b:"Buitensluiting, plagen en publieke correctie kunnen autistische mensen leren verbergen in plaats van hulp vragen."},
+      {k:"Zorg",t:"Steun kan opnieuw pijn doen",b:"Therapie, school of familiehulp die autisme negeert kan onbedoeld oude schade herhalen."},
+      {k:"Herstel",t:"Veiligheid eerst",b:"Zachte, autismebewuste steun geeft keuze, voorspelbaarheid, consent en tijd."},
+      {k:"Zelfvertrouwen",t:"Je behoeften zijn informatie",b:"Je grenzen opnieuw leren is geen zwakte. Zo bouwt het zenuwstelsel veiligheid op."},
+      {k:"Grenzen",t:"Je bent niemand performance verschuldigd",b:"Je mag stoppen met uitleggen, stoppen met maskeren en je lichaam beschermen."}
+    ],
     joy:[
       {k:"Speciale interesses",t:"Diepte is mooi",b:"Diepe interesse kan betekenis, expertise, troost, identiteit en verbinding brengen."},
       {k:"Sensorische vreugde",t:"Fijne input telt",b:"Zachte stoffen, muziek, patronen, beweging, licht, druk of natuur kunnen diep regulerend voelen."},
       {k:"Eerlijkheid",t:"Directheid kan zorg zijn",b:"Heldere, oprechte communicatie kan een kracht zijn in relaties en communities."},
       {k:"Patronen zien",t:"Details kunnen zingen",b:"Veel autistische mensen zien verbanden, systemen en kleine veranderingen die anderen missen."}
+    ],
+    specialInterests:[
+      {k:"Regulatie",t:"Interesses kunnen het lichaam kalmeren",b:"Terugkeren naar een geliefd onderwerp kan onzekerheid verminderen en het zenuwstelsel een veilig ritme geven."},
+      {k:"Identiteit",t:"Ze kunnen als thuis voelen",b:"Een speciale interesse kan herinnering, betekenis, community, creativiteit en zelfexpressie dragen."},
+      {k:"Leren",t:"Diepte is geen fout",b:"Veel weten, gedetailleerd praten of diep researchen kan een kracht zijn."},
+      {k:"Verbinding",t:"Delen vraagt consent",b:"Je mag vreugde delen, en je mag ook vragen of iemand ruimte heeft om te luisteren."},
+      {k:"Schaamte",t:"Maak je vreugde niet kleiner",b:"Horen dat je obsessief of te veel bent kan pijn doen. Je plezier mag ruimte innemen."},
+      {k:"Community",t:"Vind je mensen",b:"Speciale interesses kunnen bruggen worden naar vrienden, projecten, leren en erbij horen."}
     ],
     miniGlossary:[
       {term:"Masking",def:"Autistische kenmerken verbergen of onderdrukken om aan neurotypische verwachtingen te voldoen."},
@@ -1811,7 +2039,8 @@ const AUT_HUB={
     maskingQuestions:["Oefen je gesprekken vooraf of herhaal je ze achteraf?","Kopieer je gezichtsuitdrukkingen, toon of gebaren van anderen om erbij te horen?","Forceer je oogcontact terwijl het pijn doet of afleidt?","Verberg je stimmen, prikkelpijn, verwarring of uitputting?","Lijk je oké in het openbaar en crash je thuis?","Weet je soms niet wie je bent als je stopt met presteren?"],
     sensoryTool:{sound:["achtergrondgesprekken","plotselinge geluiden","bas of trilling","drukke plekken"],light:["tl-licht","felle schermen","visuele rommel","zonneschittering"],touch:["kledinglabels","bepaalde texturen","onverwachte aanraking","temperatuurwissels"],helps:["koptelefoon","zonnebril","stille kamer","verzwarende druk","veilig eten","bewegingspauze"]},
     supportFields:[["overload","Wanneer ik overbelast ben, merk je misschien"],["helps","Wat mij helpt"],["avoid","Vermijd alsjeblieft"],["words","Helpende woorden"],["contact","Wie je kunt contacteren als nodig"]],
-    idFields:[["name","Naam of bijnaam"],["signals","Bij overbelasting kan ik"],["helps","Help mij door"],["avoid","Vermijd alsjeblieft"],["needs","Nuttige prikkel- of communicatiebehoeften"]]
+    idFields:[["name","Naam of bijnaam"],["signals","Bij overbelasting kan ik"],["helps","Help mij door"],["avoid","Vermijd alsjeblieft"],["needs","Nuttige prikkel- of communicatiebehoeften"]],
+    interestFields:[["topic","Mijn speciale interesse"],["why","Waarom ik ervan houd"],["helps","Hoe het mij helpt"],["share","Hoe ik het graag deel"]]
   }
 };
 
@@ -1863,6 +2092,8 @@ function renderAutismHome(){
   const d=AUT_D[lang];
   const e=AUT_EXT[lang];
   const h=AUT_HUB[lang];
+  document.getElementById('aut-start-grid').innerHTML=h.start.map(c=>`<div class="info-card start-card" onclick="scrollSec('${c.sec}')"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-first-aid-list').innerHTML=h.firstAid.map(item=>`<li>${item}</li>`).join('');
   document.getElementById('aut-pills-social').innerHTML=d.social.map(p=>`<span class="pill po">${p}</span>`).join('');
   document.getElementById('aut-pills-sensory').innerHTML=d.sensory.map(p=>`<span class="pill pp">${p}</span>`).join('');
   document.getElementById('aut-pills-interests').innerHTML=d.interests.map(p=>`<span class="pill pc">${p}</span>`).join('');
@@ -1871,6 +2102,7 @@ function renderAutismHome(){
   document.getElementById('aut-pills-sens-types').innerHTML=d.sensTypes.map(p=>`<span class="pill po">${p}</span>`).join('');
   document.getElementById('aut-sensory-deep-grid').innerHTML=e.sensoryDeep.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-daily-grid').innerHTML=e.daily.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-hygiene-grid').innerHTML=h.hygiene.map(c=>infoCard(c)).join('');
   document.getElementById('aut-communication-grid').innerHTML=e.communication.map(c=>`<div class="contrast-card"><h3>${c.t}</h3><ul>${c.items.map(item=>`<li>${item}</li>`).join('')}</ul></div>`).join('');
   document.getElementById('aut-women-grid').innerHTML=e.women.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-masking-grid').innerHTML=e.masking.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
@@ -1886,8 +2118,12 @@ function renderAutismHome(){
   document.getElementById('aut-relationships-grid').innerHTML=h.relationships.map(c=>infoCard(c)).join('');
   document.getElementById('aut-accommodations-grid').innerHTML=h.accommodations.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
   document.getElementById('aut-supporters-grid').innerHTML=h.supporters.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
+  document.getElementById('aut-supporter-mistakes-grid').innerHTML=h.supporterMistakes.map(c=>infoCard(c,'myth-card')).join('');
   document.getElementById('aut-overlap-grid').innerHTML=h.overlap.map(c=>infoCard(c)).join('');
+  document.getElementById('aut-trauma-grid').innerHTML=h.trauma.map(c=>infoCard(c)).join('');
   document.getElementById('aut-joy-grid').innerHTML=h.joy.map(c=>infoCard(c,'joy-card')).join('');
+  document.getElementById('aut-special-interests-grid').innerHTML=h.specialInterests.map(c=>infoCard(c,'joy-card')).join('');
+  renderSpecialInterestTool();
   document.getElementById('aut-mini-glossary').innerHTML=h.miniGlossary.map(g=>`<div class="glossary-card"><h3>${g.term}</h3><span class="glossary-tag">${lang==='en'?'Autism':'Autisme'}</span><p>${g.def}</p></div>`).join('');
   document.getElementById('aut-signs-list').innerHTML=h.signs.map((t,i)=>`<li><span class="tip-n">${i+1}</span><span>${t}</span></li>`).join('');
   document.getElementById('aut-tip-list').innerHTML=d.tips.map((t,i)=>`<li><span class="tip-n">${i+1}</span><span>${t}</span></li>`).join('');
@@ -1905,14 +2141,20 @@ function renderAutismTools(){
   document.getElementById('aut-sensory-tool').innerHTML=Object.keys(cats).map(cat=>`<div class="sub-lbl">${sensoryCatLabel(cat)}</div><div class="check-grid">${cats[cat].map(item=>`<label class="check-chip"><input type="checkbox" data-sens-cat="${cat}" data-sens-label="${item}"><span>${item}</span></label>`).join('')}</div>`).join('');
   document.getElementById('aut-support-tool').innerHTML=h.supportFields.map(([id,label])=>`<div class="tool-field"><label for="support-${id}">${label}</label><textarea id="support-${id}"></textarea></div>`).join('');
   document.getElementById('aut-id-tool').innerHTML=h.idFields.map(([id,label],i)=>`<div class="tool-field"><label for="autid-${id}">${label}</label>${i===0?`<input id="autid-${id}">`:`<textarea id="autid-${id}"></textarea>`}</div>`).join('');
+  const maskingResult=document.getElementById('aut-masking-result');
+  if(maskingResult){maskingResult.textContent='';maskingResult.style.display='none';}
   document.getElementById('aut-sensory-profile').textContent=lang==='en'?'Your sensory profile will appear here.':'Je sensorisch profiel verschijnt hier.';
   document.getElementById('aut-support-preview').textContent=lang==='en'?'Your support card will appear here.':'Je steunkaart verschijnt hier.';
   document.getElementById('aut-id-preview').textContent=lang==='en'?'Your shareable card will appear here.':'Je deelbare kaart verschijnt hier.';
+  document.querySelectorAll('#aut-sensory-tool input,#aut-support-tool textarea,#aut-id-tool input,#aut-id-tool textarea').forEach(el=>el.addEventListener('input',onAutismToolInput));
+  document.querySelectorAll('#aut-sensory-tool input').forEach(el=>el.addEventListener('change',onAutismToolInput));
+  fillAutismTools();
 }
 function selMasking(qi,vi,btn){
   maskingAnswers[qi]=vi;
   document.querySelectorAll(`#aut-masking-tool [data-mi="${qi}"]`).forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
+  if(storageAllowed())writeAutismTools();
 }
 function submitMaskingTool(){
   const h=AUT_HUB[lang];
@@ -1926,6 +2168,7 @@ function submitMaskingTool(){
     : score>=4
       ? (lang==='en'?'Some masking patterns may be present. Notice when you perform, copy, hide needs, or crash after social demands.':'Er kunnen enkele masking-patronen aanwezig zijn. Let op wanneer je presteert, kopieert, behoeften verbergt of crasht na sociale eisen.')
       : (lang==='en'?'Your answers do not strongly suggest masking in this moment. You can still use the prompts to reflect on energy and authenticity.':'Je antwoorden wijzen nu niet sterk op masking. Je kunt de vragen alsnog gebruiken om na te denken over energie en echtheid.');
+  if(storageAllowed())writeAutismTools();
 }
 function checkedSensory(cat){
   return [...document.querySelectorAll(`[data-sens-cat="${cat}"]:checked`)].map(i=>i.getAttribute('data-sens-label'));
@@ -1938,6 +2181,7 @@ function generateSensoryProfile(){
   const h=AUT_HUB[lang],cats=Object.keys(h.sensoryTool);
   const lines=cats.map(cat=>`${sensoryCatLabel(cat)}: ${checkedSensory(cat).join(', ')||'-'}`);
   document.getElementById('aut-sensory-profile').textContent=(lang==='en'?'My sensory profile':'Mijn sensorisch profiel')+'\n\n'+lines.join('\n');
+  if(storageAllowed())writeAutismTools();
 }
 function fieldValue(prefix,id){
   return document.getElementById(`${prefix}-${id}`)?.value.trim()||'-';
@@ -1946,11 +2190,27 @@ function generateSupportCard(){
   const h=AUT_HUB[lang];
   const lines=h.supportFields.map(([id,label])=>`${label}: ${fieldValue('support',id)}`);
   document.getElementById('aut-support-preview').textContent=(lang==='en'?'Support me like this':'Steun mij zo')+'\n\n'+lines.join('\n\n');
+  if(storageAllowed())writeAutismTools();
 }
 function generateAutismCard(){
   const h=AUT_HUB[lang];
   const lines=h.idFields.map(([id,label])=>`${label}: ${fieldValue('autid',id)}`);
   document.getElementById('aut-id-preview').textContent=(lang==='en'?'JourHelp autism support card':'JourHelp autismesteunkaart')+'\n\n'+lines.join('\n\n');
+  if(storageAllowed())writeAutismTools();
+}
+function renderSpecialInterestTool(){
+  const h=AUT_HUB[lang];
+  const wrap=document.getElementById('aut-interest-tool');if(!wrap)return;
+  wrap.innerHTML=h.interestFields.map(([id,label],i)=>`<div class="tool-field"><label for="interest-${id}">${label}</label>${i===0?`<input id="interest-${id}">`:`<textarea id="interest-${id}"></textarea>`}</div>`).join('');
+  document.getElementById('aut-interest-preview').textContent=lang==='en'?'Your special interest card will appear here.':'Je speciale interessekaart verschijnt hier.';
+  document.querySelectorAll('#aut-interest-tool input,#aut-interest-tool textarea').forEach(el=>el.addEventListener('input',onAutismToolInput));
+  fillAutismTools();
+}
+function generateInterestCard(){
+  const h=AUT_HUB[lang];
+  const lines=h.interestFields.map(([id,label])=>`${label}: ${fieldValue('interest',id)}`);
+  document.getElementById('aut-interest-preview').textContent=(lang==='en'?'My special interest card':'Mijn speciale interessekaart')+'\n\n'+lines.join('\n\n');
+  if(storageAllowed())writeAutismTools();
 }
 async function copyToolText(id){
   const text=document.getElementById(id)?.textContent||'';
