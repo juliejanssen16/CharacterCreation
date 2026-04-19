@@ -376,8 +376,8 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   </a>
   <div class="nav-divider"></div>
   <div class="topic-tabs">
-    <button class="topic-tab active" onclick="setTopic('ocd',this)" data-en="OCD" data-nl="OCS">OCD</button>
-    <button class="topic-tab" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
+    <button class="topic-tab" onclick="setTopic('ocd',this)" data-en="OCD" data-nl="OCS">OCD</button>
+    <button class="topic-tab active" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
   <a class="disclaimer-nav" href="#page-disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
   <a class="disclaimer-nav calm-nav" href="#page-calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
@@ -418,7 +418,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   <main class="main" id="main-content">
 
     <!-- OCD HOME -->
-    <div class="page active" id="page-ocd-home">
+    <div class="page" id="page-ocd-home">
       <div class="hero">
         <div class="hero-eyebrow"><span class="hero-tag" data-en="Awareness Guide" data-nl="Bewustzijnsgids">Awareness Guide</span></div>
         <h1><span class="grad">OCD</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
@@ -539,7 +539,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
     </div>
 
     <!-- AUTISM HOME -->
-    <div class="page" id="page-autism-home">
+    <div class="page active" id="page-autism-home">
       <div class="hero">
         <div class="hero-eyebrow"><span class="hero-tag" data-en="Awareness Guide" data-nl="Bewustzijnsgids">Awareness Guide</span></div>
         <h1><span class="grad" data-en="Autism" data-nl="Autisme">Autism</span> <span data-en="Explained" data-nl="Uitgelegd">Explained</span></h1>
@@ -897,7 +897,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 </div>
 
 <script>
-let lang='en',topic='ocd';
+let lang='en',topic='autism';
 let ocdQuizAnswers=[],autQuizAnswers=[];
 const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
@@ -947,7 +947,7 @@ function showPage(id,navEl){
 function scrollSec(id){setTimeout(()=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(null,id);},50)}
 function activePageId(){
   const page=document.querySelector('.page.active');
-  return page?page.id.replace('page-'):'ocd-home';
+  return page?page.id.replace('page-'):'autism-home';
 }
 function visibleSectionId(){
   const active=document.querySelector('.page.active');
