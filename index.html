@@ -744,6 +744,39 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         </div>
       </div>
 
+      <div class="section" id="aut-sec-request-tools">
+        <div class="sec-hd"><div class="sec-icon-wrap">✉</div><h2 data-en="Words & Request Tools" data-nl="Woorden & Verzoektools">Words & Request Tools</h2></div>
+        <div class="divider"></div>
+        <p data-en="For moments when you know what you need, but finding the words is the hard part." data-nl="Voor momenten waarop je weet wat je nodig hebt, maar woorden vinden het moeilijke deel is.">For moments when you know what you need, but finding the words is the hard part.</p>
+        <div class="tool-box" id="aut-sec-accommodation-generator">
+          <div class="sub-lbl" data-en="Accommodation request generator" data-nl="Aanpassingsverzoek maken">Accommodation request generator</div>
+          <div class="tool-row" id="aut-accommodation-tool"></div>
+          <div class="mini-actions">
+            <button class="btn-primary" onclick="generateAccommodationRequest()" data-en="Generate request" data-nl="Maak verzoek">Generate request</button>
+            <button class="btn-ghost" onclick="copyToolText('aut-accommodation-preview')" data-en="Copy request" data-nl="Kopieer verzoek">Copy request</button>
+          </div>
+          <div class="tool-preview" id="aut-accommodation-preview"></div>
+        </div>
+        <div class="tool-box" id="aut-sec-boundary-builder">
+          <div class="sub-lbl" data-en="Boundary builder" data-nl="Grenzen formuleren">Boundary builder</div>
+          <div class="tool-row" id="aut-boundary-tool"></div>
+          <div class="mini-actions">
+            <button class="btn-primary" onclick="generateBoundary()" data-en="Generate boundary" data-nl="Maak grens">Generate boundary</button>
+            <button class="btn-ghost" onclick="copyToolText('aut-boundary-preview')" data-en="Copy boundary" data-nl="Kopieer grens">Copy boundary</button>
+          </div>
+          <div class="tool-preview" id="aut-boundary-preview"></div>
+        </div>
+        <div class="tool-box" id="aut-sec-explain-autism">
+          <div class="sub-lbl" data-en="Explain autism to someone else" data-nl="Autisme uitleggen aan iemand anders">Explain autism to someone else</div>
+          <div class="tool-row" id="aut-explain-tool"></div>
+          <div class="mini-actions">
+            <button class="btn-primary" onclick="generateExplainAutism()" data-en="Generate explanation" data-nl="Maak uitleg">Generate explanation</button>
+            <button class="btn-ghost" onclick="copyToolText('aut-explain-preview')" data-en="Copy explanation" data-nl="Kopieer uitleg">Copy explanation</button>
+          </div>
+          <div class="tool-preview" id="aut-explain-preview"></div>
+        </div>
+      </div>
+
       <div class="section" id="aut-sec-late">
         <div class="sec-hd"><div class="sec-icon-wrap">🧭</div><h2 data-en="Late-Identified Autism" data-nl="Laat Herkend Autisme">Late-Identified Autism</h2></div>
         <div class="divider"></div>
@@ -1092,7 +1125,7 @@ const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
 const AUTISM_TOOLS_KEY='jourhelp_autism_tools';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
-let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},previews:{sensory:'',support:'',id:'',masking:'',interest:''}};
+let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},accommodation:{},boundary:{},explain:{},previews:{sensory:'',support:'',id:'',masking:'',interest:'',accommodation:'',boundary:'',explain:''}};
 let lowStim=false;
 let cookieMode='first';
 
@@ -1281,12 +1314,21 @@ function collectAutismTools(){
   (AUT_HUB[lang]?.idFields||[]).forEach(([id])=>autismTools.id[id]=document.getElementById(`autid-${id}`)?.value||'');
   autismTools.interest={};
   (AUT_HUB[lang]?.interestFields||[]).forEach(([id])=>autismTools.interest[id]=document.getElementById(`interest-${id}`)?.value||'');
+  autismTools.accommodation={};
+  (AUT_HUB[lang]?.accommodationFields||[]).forEach(([id])=>autismTools.accommodation[id]=document.getElementById(`accommodation-${id}`)?.value||'');
+  autismTools.boundary={};
+  (AUT_HUB[lang]?.boundaryFields||[]).forEach(([id])=>autismTools.boundary[id]=document.getElementById(`boundary-${id}`)?.value||'');
+  autismTools.explain={};
+  (AUT_HUB[lang]?.explainFields||[]).forEach(([id])=>autismTools.explain[id]=document.getElementById(`explain-${id}`)?.value||'');
   autismTools.previews={
     masking:document.getElementById('aut-masking-result')?.textContent||'',
     sensory:document.getElementById('aut-sensory-profile')?.textContent||'',
     support:document.getElementById('aut-support-preview')?.textContent||'',
     id:document.getElementById('aut-id-preview')?.textContent||'',
-    interest:document.getElementById('aut-interest-preview')?.textContent||''
+    interest:document.getElementById('aut-interest-preview')?.textContent||'',
+    accommodation:document.getElementById('aut-accommodation-preview')?.textContent||'',
+    boundary:document.getElementById('aut-boundary-preview')?.textContent||'',
+    explain:document.getElementById('aut-explain-preview')?.textContent||''
   };
 }
 function fillAutismTools(){
@@ -1304,11 +1346,17 @@ function fillAutismTools(){
   h.supportFields.forEach(([id])=>{const el=document.getElementById(`support-${id}`);if(el)el.value=autismTools.support?.[id]||'';});
   h.idFields.forEach(([id])=>{const el=document.getElementById(`autid-${id}`);if(el)el.value=autismTools.id?.[id]||'';});
   (h.interestFields||[]).forEach(([id])=>{const el=document.getElementById(`interest-${id}`);if(el)el.value=autismTools.interest?.[id]||'';});
+  (h.accommodationFields||[]).forEach(([id])=>{const el=document.getElementById(`accommodation-${id}`);if(el)el.value=autismTools.accommodation?.[id]||'';});
+  (h.boundaryFields||[]).forEach(([id])=>{const el=document.getElementById(`boundary-${id}`);if(el)el.value=autismTools.boundary?.[id]||'';});
+  (h.explainFields||[]).forEach(([id])=>{const el=document.getElementById(`explain-${id}`);if(el)el.value=autismTools.explain?.[id]||'';});
   setPreviewText('aut-masking-result',autismTools.previews?.masking,true);
   setPreviewText('aut-sensory-profile',autismTools.previews?.sensory);
   setPreviewText('aut-support-preview',autismTools.previews?.support);
   setPreviewText('aut-id-preview',autismTools.previews?.id);
   setPreviewText('aut-interest-preview',autismTools.previews?.interest);
+  setPreviewText('aut-accommodation-preview',autismTools.previews?.accommodation);
+  setPreviewText('aut-boundary-preview',autismTools.previews?.boundary);
+  setPreviewText('aut-explain-preview',autismTools.previews?.explain);
 }
 function setPreviewText(id,text,hideWhenEmpty=false){
   const el=document.getElementById(id);if(!el||!text)return;
@@ -1539,6 +1587,7 @@ function getMainLinks(){
     {page:'autism-home',en:'Life Stages',nl:'Levensfasen',sec:'aut-sec-life'},
     {page:'autism-home',en:'Support',nl:'Ondersteuning',sec:'aut-sec-support'},
     {page:'autism-home',en:'Support Tools',nl:'Steuntools',sec:'aut-sec-tools'},
+    {page:'autism-home',en:'Words & Requests',nl:'Woorden & Verzoeken',sec:'aut-sec-request-tools'},
     {page:'autism-home',en:'Late-Identified',nl:'Laat Herkend',sec:'aut-sec-late'},
     {page:'autism-home',en:'Relationships',nl:'Relaties',sec:'aut-sec-relationships'},
     {page:'autism-home',en:'Accommodations',nl:'Aanpassingen',sec:'aut-sec-accommodations'},
@@ -1590,6 +1639,7 @@ function buildMegaMenu(){
         {page:'autism-home',sec:'aut-sec-women',en:'Women & Girls',nl:'Vrouwen & Meiden'},
         {page:'autism-home',sec:'aut-sec-self-diagnosis',en:'Self-Diagnosis',nl:'Zelfdiagnose'},
         {page:'autism-home',sec:'aut-sec-tools',en:'Support Tools',nl:'Steuntools'},
+        {page:'autism-home',sec:'aut-sec-request-tools',en:'Words & Requests',nl:'Woorden & Verzoeken'},
         {page:'autism-home',sec:'aut-sec-overwhelm',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out'},
         {page:'autism-home',sec:'aut-sec-hygiene',en:'Hygiene',nl:'Hygiëne'},
         {page:'autism-home',sec:'aut-sec-trauma',en:'Trauma & Misunderstood',nl:'Trauma & Misbegrepen'}
@@ -1920,7 +1970,10 @@ const AUT_HUB={
     sensoryTool:{sound:["background chatter","sudden noises","bass or vibration","crowded places"],light:["fluorescent light","bright screens","visual clutter","sun glare"],touch:["clothing tags","certain textures","unexpected touch","temperature shifts"],helps:["headphones","sunglasses","quiet room","weighted pressure","safe food","movement break"]},
     supportFields:[["overload","When I am overloaded, you might notice"],["helps","What helps me"],["avoid","Please avoid"],["words","Helpful words"],["contact","Who to contact if needed"]],
     idFields:[["name","Name or nickname"],["signals","When overwhelmed I may"],["helps","Please help by"],["avoid","Please avoid"],["needs","Useful sensory or communication needs"]],
-    interestFields:[["topic","My special interest"],["why","Why I love it"],["helps","How it helps me"],["share","How I like to share it"]]
+    interestFields:[["topic","My special interest"],["why","Why I love it"],["helps","How it helps me"],["share","How I like to share it"]],
+    accommodationFields:[["setting","Setting: school, work, healthcare, event, family"],["need","What I need"],["reason","Why this helps"],["example","A practical example of the adjustment"]],
+    boundaryFields:[["tooMuch","What feels too much"],["need","What I need instead"],["canDo","What I can offer or do"],["tone","Tone: gentle, firm, short, formal"]],
+    explainFields:[["audience","Who this is for"],["needs","What autism means for me"],["support","What helps me"],["avoid","What I need people to avoid"]]
   },
   nl:{
     start:[
@@ -2040,7 +2093,10 @@ const AUT_HUB={
     sensoryTool:{sound:["achtergrondgesprekken","plotselinge geluiden","bas of trilling","drukke plekken"],light:["tl-licht","felle schermen","visuele rommel","zonneschittering"],touch:["kledinglabels","bepaalde texturen","onverwachte aanraking","temperatuurwissels"],helps:["koptelefoon","zonnebril","stille kamer","verzwarende druk","veilig eten","bewegingspauze"]},
     supportFields:[["overload","Wanneer ik overbelast ben, merk je misschien"],["helps","Wat mij helpt"],["avoid","Vermijd alsjeblieft"],["words","Helpende woorden"],["contact","Wie je kunt contacteren als nodig"]],
     idFields:[["name","Naam of bijnaam"],["signals","Bij overbelasting kan ik"],["helps","Help mij door"],["avoid","Vermijd alsjeblieft"],["needs","Nuttige prikkel- of communicatiebehoeften"]],
-    interestFields:[["topic","Mijn speciale interesse"],["why","Waarom ik ervan houd"],["helps","Hoe het mij helpt"],["share","Hoe ik het graag deel"]]
+    interestFields:[["topic","Mijn speciale interesse"],["why","Waarom ik ervan houd"],["helps","Hoe het mij helpt"],["share","Hoe ik het graag deel"]],
+    accommodationFields:[["setting","Situatie: school, werk, zorg, event, familie"],["need","Wat ik nodig heb"],["reason","Waarom dit helpt"],["example","Een praktisch voorbeeld van de aanpassing"]],
+    boundaryFields:[["tooMuch","Wat voelt te veel"],["need","Wat ik in plaats daarvan nodig heb"],["canDo","Wat ik wel kan bieden of doen"],["tone","Toon: zacht, duidelijk, kort, formeel"]],
+    explainFields:[["audience","Voor wie dit is"],["needs","Wat autisme voor mij betekent"],["support","Wat mij helpt"],["avoid","Wat mensen beter kunnen vermijden"]]
   }
 };
 
@@ -2114,6 +2170,7 @@ function renderAutismHome(){
   document.getElementById('aut-life-grid').innerHTML=e.life.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-support-row').innerHTML=d.support.map(t=>`<div class="treat-card"><div class="treat-title">${t.t}</div><div class="treat-body">${t.b}</div></div>`).join('');
   renderAutismTools();
+  renderRequestTools();
   document.getElementById('aut-late-grid').innerHTML=h.late.map(c=>infoCard(c)).join('');
   document.getElementById('aut-relationships-grid').innerHTML=h.relationships.map(c=>infoCard(c)).join('');
   document.getElementById('aut-accommodations-grid').innerHTML=h.accommodations.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
@@ -2210,6 +2267,45 @@ function generateInterestCard(){
   const h=AUT_HUB[lang];
   const lines=h.interestFields.map(([id,label])=>`${label}: ${fieldValue('interest',id)}`);
   document.getElementById('aut-interest-preview').textContent=(lang==='en'?'My special interest card':'Mijn speciale interessekaart')+'\n\n'+lines.join('\n\n');
+  if(storageAllowed())writeAutismTools();
+}
+function renderRequestTools(){
+  const h=AUT_HUB[lang];
+  renderToolFields('aut-accommodation-tool','accommodation',h.accommodationFields);
+  renderToolFields('aut-boundary-tool','boundary',h.boundaryFields);
+  renderToolFields('aut-explain-tool','explain',h.explainFields);
+  setDefaultPreview('aut-accommodation-preview',lang==='en'?'Your accommodation request will appear here.':'Je aanpassingsverzoek verschijnt hier.');
+  setDefaultPreview('aut-boundary-preview',lang==='en'?'Your boundary script will appear here.':'Je grens-script verschijnt hier.');
+  setDefaultPreview('aut-explain-preview',lang==='en'?'Your autism explanation will appear here.':'Je autisme-uitleg verschijnt hier.');
+  document.querySelectorAll('#aut-accommodation-tool input,#aut-accommodation-tool textarea,#aut-boundary-tool input,#aut-boundary-tool textarea,#aut-explain-tool input,#aut-explain-tool textarea').forEach(el=>el.addEventListener('input',onAutismToolInput));
+  fillAutismTools();
+}
+function renderToolFields(containerId,prefix,fields){
+  const wrap=document.getElementById(containerId);if(!wrap)return;
+  wrap.innerHTML=fields.map(([id,label],i)=>`<div class="tool-field"><label for="${prefix}-${id}">${label}</label>${i===0?`<input id="${prefix}-${id}">`:`<textarea id="${prefix}-${id}"></textarea>`}</div>`).join('');
+}
+function setDefaultPreview(id,text){
+  const el=document.getElementById(id);if(el&&!el.textContent.trim())el.textContent=text;
+}
+function generateAccommodationRequest(){
+  const setting=fieldValue('accommodation','setting'),need=fieldValue('accommodation','need'),reason=fieldValue('accommodation','reason'),example=fieldValue('accommodation','example');
+  document.getElementById('aut-accommodation-preview').textContent=lang==='en'
+    ? `Hi,\n\nI would like to request an accommodation for ${setting}.\n\nWhat I need: ${need}\n\nWhy this helps: ${reason}\n\nA practical way to do this could be: ${example}\n\nThis would reduce unnecessary barriers and help me participate more reliably.\n\nThank you.`
+    : `Hoi,\n\nIk wil graag een aanpassing vragen voor ${setting}.\n\nWat ik nodig heb: ${need}\n\nWaarom dit helpt: ${reason}\n\nEen praktische manier om dit te doen kan zijn: ${example}\n\nDit vermindert onnodige drempels en helpt mij betrouwbaarder mee te doen.\n\nDank je wel.`;
+  if(storageAllowed())writeAutismTools();
+}
+function generateBoundary(){
+  const tooMuch=fieldValue('boundary','tooMuch'),need=fieldValue('boundary','need'),canDo=fieldValue('boundary','canDo'),tone=fieldValue('boundary','tone');
+  document.getElementById('aut-boundary-preview').textContent=lang==='en'
+    ? `Boundary (${tone}):\n\n${tooMuch} is too much for me right now.\n\nI need ${need}.\n\nWhat I can do is ${canDo}.\n\nPlease respect this without pushing me to explain more than I can.`
+    : `Grens (${tone}):\n\n${tooMuch} is nu te veel voor mij.\n\nIk heb ${need} nodig.\n\nWat ik wel kan doen is ${canDo}.\n\nRespecteer dit alsjeblieft zonder mij te pushen om meer uit te leggen dan ik kan.`;
+  if(storageAllowed())writeAutismTools();
+}
+function generateExplainAutism(){
+  const audience=fieldValue('explain','audience'),needs=fieldValue('explain','needs'),support=fieldValue('explain','support'),avoid=fieldValue('explain','avoid');
+  document.getElementById('aut-explain-preview').textContent=lang==='en'
+    ? `Hi ${audience},\n\nI want to explain what autism means for me. Autism affects how I process sensory input, communication, change, energy, and social demands. For me, this can look like: ${needs}\n\nWhat helps me: ${support}\n\nPlease avoid: ${avoid}\n\nI am not asking to be treated as less capable. I am asking for clearer, kinder conditions so I can function as myself.`
+    : `Hoi ${audience},\n\nIk wil uitleggen wat autisme voor mij betekent. Autisme heeft invloed op hoe ik prikkels, communicatie, verandering, energie en sociale eisen verwerk. Bij mij kan dat eruitzien als: ${needs}\n\nWat mij helpt: ${support}\n\nVermijd alsjeblieft: ${avoid}\n\nIk vraag niet om behandeld te worden alsof ik minder kan. Ik vraag om duidelijkere, vriendelijkere omstandigheden zodat ik als mezelf kan functioneren.`;
   if(storageAllowed())writeAutismTools();
 }
 async function copyToolText(id){
