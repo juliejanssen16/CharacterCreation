@@ -218,6 +218,24 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
+/* ── AUTISM DEEPENING ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.75rem;margin-top:.75rem}
+.info-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.95rem}
+.info-kicker{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.28rem}
+.info-title{font-size:.82rem;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:.28rem}
+.info-body{font-size:.75rem;color:var(--text2);line-height:1.65}
+.gentle-note{border-left:3px solid var(--p);background:rgba(124,58,237,.06);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:.9rem 1rem;margin:.9rem 0;font-size:.8rem;color:var(--text2);line-height:1.75}
+.contrast-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+.contrast-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem}
+.contrast-card h3{font-size:.82rem;font-weight:800;color:var(--text);letter-spacing:-.01em;margin-bottom:.45rem}
+.contrast-card ul{list-style:none;display:grid;gap:.38rem}
+.contrast-card li{font-size:.76rem;color:var(--text2);line-height:1.55;display:flex;gap:.45rem}
+.contrast-card li::before{content:'–';color:var(--text3);flex-shrink:0}
+.need-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.65rem;margin-top:.75rem}
+.need-card{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);padding:.85rem}
+.need-card strong{display:block;font-size:.78rem;color:var(--p);margin-bottom:.25rem}
+.need-card span{display:block;font-size:.74rem;color:var(--text2);line-height:1.6}
+
 /* ── GLOSSARY ── */
 .glossary-tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:.85rem 0 1rem}
 .glossary-search{flex:1;min-width:220px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;padding:.68rem .75rem;outline:none}
@@ -333,6 +351,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .hotline-grid{grid-template-columns:1fr 1fr}
   .story-grid{grid-template-columns:1fr}
   .thought-grid,.coping-grid{grid-template-columns:1fr 1fr}
+  .contrast-grid{grid-template-columns:1fr}
   .type-hero{padding:1.4rem}
   .detail-section{padding:1.2rem}
 }
@@ -528,6 +547,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="hero-btns">
           <button class="btn-primary" onclick="scrollSec('aut-sec-what')" data-en="Start reading" data-nl="Begin te lezen">Start reading</button>
           <button class="btn-ghost" onclick="showPage('autism-quiz',null)" data-en="Self-reflection quiz" data-nl="Zelfreflectiequiz">Self-reflection quiz</button>
+          <button class="btn-ghost" onclick="scrollSec('aut-sec-daily')" data-en="Daily life guide" data-nl="Gids voor dagelijks leven">Daily life guide</button>
         </div>
       </div>
 
@@ -554,6 +574,31 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <p data-en="Many autistic people experience sensory input differently — either hypersensitive (over-responsive) or hyposensitive (under-responsive) to various stimuli. This is not a choice; it is a neurological difference." data-nl="Veel autistische mensen ervaren sensorische input anders — ofwel hypersensitief of hyposensitief voor verschillende stimuli. Dit is geen keuze; het is een neurologisch verschil.">Many autistic people experience sensory input differently — either hypersensitive or hyposensitive to various stimuli. This is not a choice; it is a neurological difference.</p>
         <div class="sub-lbl" data-en="Common sensitivities" data-nl="Veelvoorkomende gevoeligheden">Common sensitivities</div><div class="pill-wrap" id="aut-pills-sens-types"></div>
         <p style="margin-top:.85rem" data-en="Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously." data-nl="Sensorische overbelasting treedt op wanneer het brein meer input ontvangt dan het kan verwerken, wat leidt tot overweldiging, shutdown of meltdown. Het creëren van sensorisch-vriendelijke omgevingen helpt enorm.">Sensory overload occurs when the brain receives more input than it can process, leading to overwhelm, shutdown, or meltdown. Creating sensory-friendly environments helps tremendously.</p>
+        <div class="gentle-note" data-en="Sensory needs can change from day to day. Someone may tolerate a supermarket one afternoon and find the same place unbearable the next day because sleep, stress, pain, hunger, hormones, or social demands have already used up processing capacity." data-nl="Sensorische behoeften kunnen per dag verschillen. Iemand kan de ene middag een supermarkt verdragen en dezelfde plek de volgende dag ondraaglijk vinden, omdat slaap, stress, pijn, honger, hormonen of sociale eisen al veel verwerkingsruimte hebben opgebruikt.">Sensory needs can change from day to day. Someone may tolerate a supermarket one afternoon and find the same place unbearable the next day because sleep, stress, pain, hunger, hormones, or social demands have already used up processing capacity.</div>
+        <div class="info-grid" id="aut-sensory-deep-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-daily">
+        <div class="sec-hd"><div class="sec-icon-wrap">🏠</div><h2 data-en="Daily Life & Energy" data-nl="Dagelijks Leven & Energie">Daily Life & Energy</h2></div>
+        <div class="divider"></div>
+        <p data-en="Autism is not only visible in big moments. It often shapes ordinary daily things: waking up, eating, planning, switching tasks, studying, working, travelling, socialising, and recovering afterwards." data-nl="Autisme is niet alleen zichtbaar in grote momenten. Het heeft vaak invloed op gewone dagelijkse dingen: wakker worden, eten, plannen, wisselen van taak, studeren, werken, reizen, sociaal contact en daarna herstellen.">Autism is not only visible in big moments. It often shapes ordinary daily things: waking up, eating, planning, switching tasks, studying, working, travelling, socialising, and recovering afterwards.</p>
+        <div class="info-grid" id="aut-daily-grid"></div>
+        <div class="gentle-note" data-en="Needing structure is not childish or rigid. For many autistic people, structure protects energy. It makes the day more understandable and leaves more room for joy, relationships, study, work, and rest." data-nl="Structuur nodig hebben is niet kinderachtig of star. Voor veel autistische mensen beschermt structuur energie. Het maakt de dag begrijpelijker en laat meer ruimte over voor plezier, relaties, studie, werk en rust.">Needing structure is not childish or rigid. For many autistic people, structure protects energy. It makes the day more understandable and leaves more room for joy, relationships, study, work, and rest.</div>
+      </div>
+
+      <div class="section" id="aut-sec-communication">
+        <div class="sec-hd"><div class="sec-icon-wrap">💬</div><h2 data-en="Communication & Social Differences" data-nl="Communicatie & Sociale Verschillen">Communication & Social Differences</h2></div>
+        <div class="divider"></div>
+        <p data-en="Autistic communication is not worse communication. It can be more direct, precise, honest, detailed, quiet, visual, written, or needs-based. Misunderstanding often happens when two communication styles are expected to work by only one set of social rules." data-nl="Autistische communicatie is geen slechtere communicatie. Het kan directer, preciezer, eerlijker, gedetailleerder, stiller, visueler, schriftelijker of behoefte-gerichter zijn. Misverstanden ontstaan vaak wanneer twee communicatiestijlen volgens maar één set sociale regels moeten werken.">Autistic communication is not worse communication. It can be more direct, precise, honest, detailed, quiet, visual, written, or needs-based. Misunderstanding often happens when two communication styles are expected to work by only one set of social rules.</p>
+        <div class="contrast-grid" id="aut-communication-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-women">
+        <div class="sec-hd"><div class="sec-icon-wrap">♀</div><h2 data-en="Autism in Women & Girls" data-nl="Autisme bij Vrouwen & Meiden">Autism in Women & Girls</h2></div>
+        <div class="divider"></div>
+        <p data-en="Autism in women and girls is often missed, misunderstood, or diagnosed late. This does not mean it is 'milder.' It often means the person has learned to hide distress, copy social rules, and survive by masking." data-nl="Autisme bij vrouwen en meiden wordt vaak gemist, verkeerd begrepen of pas laat gediagnosticeerd. Dat betekent niet dat het 'milder' is. Het betekent vaak dat iemand heeft geleerd spanning te verbergen, sociale regels te kopiëren en te overleven door masking.">Autism in women and girls is often missed, misunderstood, or diagnosed late. This does not mean it is 'milder.' It often means the person has learned to hide distress, copy social rules, and survive by masking.</p>
+        <div class="info-grid" id="aut-women-grid"></div>
+        <div class="gentle-note" data-en="Gender matters, but it is not the whole story. Autistic traits can also be missed in non-binary people, trans people, people of colour, people with intellectual giftedness, and anyone whose presentation does not match old stereotypes." data-nl="Gender speelt mee, maar is niet het hele verhaal. Autistische kenmerken kunnen ook gemist worden bij non-binaire mensen, trans mensen, mensen van kleur, hoogbegaafde mensen en iedereen die niet past in oude stereotypen.">Gender matters, but it is not the whole story. Autistic traits can also be missed in non-binary people, trans people, people of colour, people with intellectual giftedness, and anyone whose presentation does not match old stereotypes.</div>
       </div>
 
       <div class="section" id="aut-sec-diagnosis">
@@ -561,6 +606,31 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="divider"></div>
         <p data-en="Autism can be diagnosed at any age. Early diagnosis allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late.'" data-nl="Autisme kan op elke leeftijd worden gediagnosticeerd. Vroege diagnose maakt eerder ondersteuning mogelijk, maar veel mensen — met name vrouwen en mensen die maskeren — krijgen een diagnose later. Een late diagnose is nooit 'te laat'.">Autism can be diagnosed at any age. Early diagnosis allows for earlier support, but many people — especially women, girls, and those who mask — are diagnosed in adolescence or adulthood. A late diagnosis is never 'too late.'</p>
         <p data-en="Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression. It also means many people remain undiagnosed or misdiagnosed for years." data-nl="Masking — het verbergen of onderdrukken van autistische kenmerken om aan neurotypische verwachtingen te voldoen — komt vooral voor bij vrouwen en meisjes. Het is uitputtend en kan leiden tot burn-out, angst en depressie.">Masking — hiding or suppressing autistic traits to fit neurotypical expectations — is especially common in women and girls. It is exhausting and can lead to burnout, anxiety, and depression.</p>
+        <div class="info-grid" id="aut-masking-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-self-diagnosis">
+        <div class="sec-hd"><div class="sec-icon-wrap">🔎</div><h2 data-en="Self-Diagnosis & Self-Recognition" data-nl="Zelfdiagnose & Zelfherkenning">Self-Diagnosis & Self-Recognition</h2></div>
+        <div class="divider"></div>
+        <p data-en="Many people first recognise autism in themselves through reading, community stories, screeners, or seeing their child, friend, or partner get diagnosed. Self-recognition can be meaningful and validating, especially when formal assessment is expensive, unavailable, or shaped by outdated stereotypes." data-nl="Veel mensen herkennen autisme eerst bij zichzelf door lezen, ervaringsverhalen, vragenlijsten of doordat hun kind, vriend(in) of partner een diagnose krijgt. Zelfherkenning kan betekenisvol en bevestigend zijn, vooral wanneer officiële diagnostiek duur, onbereikbaar of gebaseerd op verouderde stereotypen is.">Many people first recognise autism in themselves through reading, community stories, screeners, or seeing their child, friend, or partner get diagnosed. Self-recognition can be meaningful and validating, especially when formal assessment is expensive, unavailable, or shaped by outdated stereotypes.</p>
+        <div class="gentle-note" data-en="Disclaimer: Self-diagnosis is not the same as a formal clinical diagnosis. JourHelp cannot diagnose you. If you need official accommodations, benefits, treatment planning, or clarity around overlapping conditions, speak with a qualified psychologist, psychiatrist, GP, or autism specialist where possible." data-nl="Disclaimer: Zelfdiagnose is niet hetzelfde als een officiële klinische diagnose. JourHelp kan jou niet diagnosticeren. Als je officiële aanpassingen, voorzieningen, behandeladvies of duidelijkheid rond overlappende klachten nodig hebt, bespreek dit waar mogelijk met een gekwalificeerde psycholoog, psychiater, huisarts of autismespecialist.">Disclaimer: Self-diagnosis is not the same as a formal clinical diagnosis. JourHelp cannot diagnose you. If you need official accommodations, benefits, treatment planning, or clarity around overlapping conditions, speak with a qualified psychologist, psychiatrist, GP, or autism specialist where possible.</div>
+        <div class="info-grid" id="aut-self-diagnosis-grid"></div>
+      </div>
+
+      <div class="section" id="aut-sec-overwhelm">
+        <div class="sec-hd"><div class="sec-icon-wrap">🌊</div><h2 data-en="Meltdowns, Shutdowns & Burnout" data-nl="Meltdowns, Shutdowns & Burn-out">Meltdowns, Shutdowns & Burnout</h2></div>
+        <div class="divider"></div>
+        <p data-en="Overwhelm is often misunderstood from the outside. A meltdown, shutdown, or period of autistic burnout is not attention-seeking, laziness, or being dramatic. It is the nervous system reaching a limit." data-nl="Overweldiging wordt van buitenaf vaak verkeerd begrepen. Een meltdown, shutdown of periode van autistische burn-out is geen aandacht zoeken, luiheid of drama. Het is het zenuwstelsel dat een grens bereikt.">Overwhelm is often misunderstood from the outside. A meltdown, shutdown, or period of autistic burnout is not attention-seeking, laziness, or being dramatic. It is the nervous system reaching a limit.</p>
+        <div class="info-grid" id="aut-overwhelm-grid"></div>
+        <div class="sub-lbl" data-en="What helps in the moment" data-nl="Wat op dat moment helpt">What helps in the moment</div>
+        <div class="need-grid" id="aut-overwhelm-needs"></div>
+      </div>
+
+      <div class="section" id="aut-sec-life">
+        <div class="sec-hd"><div class="sec-icon-wrap">🌱</div><h2 data-en="Across Life Stages" data-nl="Door Levensfasen Heen">Across Life Stages</h2></div>
+        <div class="divider"></div>
+        <p data-en="Autism can look different across childhood, teenage years, adulthood, parenthood, study, work, relationships, and ageing. Support should grow with the person instead of freezing them in one stereotype." data-nl="Autisme kan er anders uitzien in de kindertijd, tienerjaren, volwassenheid, ouderschap, studie, werk, relaties en ouder worden. Ondersteuning moet met de persoon meegroeien in plaats van iemand vast te zetten in één stereotype.">Autism can look different across childhood, teenage years, adulthood, parenthood, study, work, relationships, and ageing. Support should grow with the person instead of freezing them in one stereotype.</p>
+        <div class="info-grid" id="aut-life-grid"></div>
       </div>
 
       <div class="section" id="aut-sec-support">
@@ -1195,7 +1265,13 @@ function getMainLinks(){
     {page:'autism-home',en:'What is Autism?',nl:'Wat is Autisme?',sec:'aut-sec-what'},
     {page:'autism-home',en:'Characteristics',nl:'Kenmerken',sec:'aut-sec-chars'},
     {page:'autism-home',en:'Sensory Processing',nl:'Sensorische Verwerking',sec:'aut-sec-sensory'},
+    {page:'autism-home',en:'Daily Life',nl:'Dagelijks Leven',sec:'aut-sec-daily'},
+    {page:'autism-home',en:'Communication',nl:'Communicatie',sec:'aut-sec-communication'},
+    {page:'autism-home',en:'Women & Girls',nl:'Vrouwen & Meiden',sec:'aut-sec-women'},
     {page:'autism-home',en:'Diagnosis & Masking',nl:'Diagnose & Masking',sec:'aut-sec-diagnosis'},
+    {page:'autism-home',en:'Self-Diagnosis',nl:'Zelfdiagnose',sec:'aut-sec-self-diagnosis'},
+    {page:'autism-home',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out',sec:'aut-sec-overwhelm'},
+    {page:'autism-home',en:'Life Stages',nl:'Levensfasen',sec:'aut-sec-life'},
     {page:'autism-home',en:'Support',nl:'Ondersteuning',sec:'aut-sec-support'},
     {page:'autism-home',en:'Self-Care Tips',nl:'Zelfzorgtips',sec:'aut-sec-tips'},
     {page:'autism-home',en:'Stories',nl:'Verhalen',sec:'aut-sec-stories'},
@@ -1230,7 +1306,12 @@ function buildMegaMenu(){
     ? `<div class="mega-col"><div class="mega-label">${lang==='nl'?'OCS soorten':'OCD types'}</div>${OCD_TYPES[lang].map(t=>`<a class="mega-link subtle" onclick="openOCDType('${t.id}')">${t.emoji} ${t.title}</a>`).join('')}</div>`
     : renderMegaColumn(lang==='nl'?'Belangrijk':'Key pages',[
         {page:'autism-home',sec:'aut-sec-sensory',en:'Sensory Processing',nl:'Sensorische Verwerking'},
+        {page:'autism-home',sec:'aut-sec-daily',en:'Daily Life',nl:'Dagelijks Leven'},
+        {page:'autism-home',sec:'aut-sec-communication',en:'Communication',nl:'Communicatie'},
+        {page:'autism-home',sec:'aut-sec-women',en:'Women & Girls',nl:'Vrouwen & Meiden'},
         {page:'autism-home',sec:'aut-sec-diagnosis',en:'Diagnosis & Masking',nl:'Diagnose & Masking'},
+        {page:'autism-home',sec:'aut-sec-self-diagnosis',en:'Self-Diagnosis',nl:'Zelfdiagnose'},
+        {page:'autism-home',sec:'aut-sec-overwhelm',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out'},
         {page:'autism-home',sec:'aut-sec-support',en:'Support',nl:'Ondersteuning'},
         {page:'autism-home',sec:'aut-sec-tips',en:'Self-Care Tips',nl:'Zelfzorgtips'}
       ],'subtle');
@@ -1314,6 +1395,131 @@ const AUT_D={
   nl:{social:["Directe, letterlijke communicatie prefereren","Sociale signalen anders verwerken","Extra tijd nodig voor het verwerken van gesprekken","Emoties op unieke manieren uitdrukken","Moeite met ongeschreven sociale regels","Voorkeur voor minder, diepere vriendschappen"],sensory:["Hypersensitiviteit voor geluid, licht of aanraking","Hyposensitiviteit (sensorische input zoeken)","Sensorische overbelasting in drukke omgevingen","Specifieke texturen, geuren of smaken die verontrustend zijn","Behoefte aan sensorisch-vriendelijke omgevingen"],interests:["Diepe, gepassioneerde focus op specifieke onderwerpen","Comfort in voorspelbare routines","Stress bij verstoringen van routines","Sterke aandacht voor detail en patronen","Stimmen (zelfregulerend herhaaldelijk bewegen of klanken maken)"],strengths:["Uitzonderlijke aandacht voor detail","Diepe focus en concentratie","Eerlijkheid en directheid","Sterk logisch denken","Loyaliteit en toewijding","Patroonherkenning","Uitstekend langetermijngeheugen","Unieke creatieve perspectieven"],sensTypes:["Geluid (luide geluiden, achtergrondgeluid)","Licht (felle of tl-verlichting)","Aanraking (bepaalde texturen, labels in kleding)","Geur (sterke parfums, voedselgeuren)","Smaak (voedseltexturen, sterke smaken)","Proprioceptie (bewustzijn van lichaamshouding)"],support:[{t:"Luister eerst",b:"Vraag autistische mensen wat ze nodig hebben — veronderstel niets."},{t:"Verminder sensorische eisen",b:"Bied stille ruimtes, koptelefoons en voorspelbare omgevingen aan."},{t:"Duidelijke communicatie",b:"Gebruik directe, letterlijke taal. Vermijd sarcasme of onuitgesproken verwachtingen."},{t:"Respecteer routines",b:"Geef van tevoren melding van veranderingen. Verstoringen kunnen aanzienlijk leed veroorzaken."},{t:"Vier verschillen",b:"Autisme is geen tekort. Autistische sterke punten zijn reëel en waardevol."},{t:"Aanpassingen",b:"Schriftelijke instructies, flexibele deadlines en stille werkruimten verminderen overweldiging."}],tips:["Geef jezelf toestemming om te stimmen — het is zelfregulatie, geen 'raar' gedrag.","Identificeer je sensorische triggers en maak een sensorisch gereedschapskistje.","Maak routines je bondgenoot — structuur vermindert beslissingsvermoeidheid en angst.","Begrijp je masking — het is uitputtend en onhoudbaar. Laat jezelf ontmaskeren op veilige plekken.","Communiceer je behoeften duidelijk — je mag om aanpassingen vragen.","Burn-out is reëel en ernstig — rust, verminder eisen en zoek steun voordat het een piek bereikt.","Maak contact met andere autistische mensen — gedeeld begrip is diep bevestigend.","Een late diagnose is nooit 'te laat' — het is altijd een geschenk van begrip."],stories:[{name:"Sara, 28",text:"Ik kreeg op 26-jarige leeftijd een diagnose. Mijn hele leven had plotseling zin. Mijn diagnose was geen verlies. Het was een opluchting."},{name:"Tom, 34",text:"Ik maskeerde 30 jaar. Op mijn 32e raakte ik volledig opgebrand. Mezelf eindelijk autistisch laten zijn is het meest helende wat ik ooit heb gedaan."},{name:"Nadia, 22",text:"Een geluid dat niemand anders leek te horen kon me fysiek ziek maken. Noise-cancelling koptelefoons veranderden mijn leven meer dan welke therapie dan ook."},{name:"Leo, 19",text:"Mensen vonden mijn interesses altijd 'obsessief'. Nu weet ik dat het speciale interesses zijn en een van mijn grootste vreugdebronnen. Ik wil niet genezen worden. Ik wil begrepen worden."},{name:"Anya, 31",text:"Leren dat meltdowns een neurologische reactie zijn — geen karakterfout — veranderde hoe ik mezelf volledig zie."},{name:"Kai, 25",text:"Ik werd verteld dat ik niet autistisch kon zijn omdat ik oogcontact kon maken. De stereotypen hebben me bijna jaren van begrip gekost."}],faq:[{q:"Kun je zien of iemand autistisch is?",a:"Nee. Autisme is een intern neurologisch verschil. Veel autistische mensen lijken volledig 'neurotypisch' aan de buitenkant."},{q:"Wordt autisme veroorzaakt door vaccins?",a:"Nee. Deze bewering is grondig ontkracht. Autisme wordt veroorzaakt door genetische en neurobiologische factoren."},{q:"Kunnen autistische mensen romantische relaties hebben?",a:"Absoluut. Autistische mensen zijn volledig in staat tot liefde, intimiteit en diepe relaties."},{q:"Wat is masking?",a:"Het verbergen of onderdrukken van autistische kenmerken. Het is uitputtend en kan leiden tot burn-out, angst en depressie."},{q:"Wat is een meltdown?",a:"Een onvrijwillige reactie op neurologische overweldiging — geen driftbui of keuze."},{q:"Wat is autistische burn-out?",a:"Een toestand van chronische uitputting — veroorzaakt door langdurig maskeren, sensorische eisen of sociale druk."},{q:"Komt autisme vaker voor bij mannen?",a:"Autisme wordt vaker gediagnosticeerd bij mannen, maar autisme bij vrouwen presenteert anders en wordt vaak gemist."},{q:"Moet ik 'autistisch persoon' of 'persoon met autisme' zeggen?",a:"Veel autistische mensen geven de voorkeur aan 'autistisch persoon'. Vraag altijd naar de voorkeur."},{q:"Wat zijn speciale interesses?",a:"Gebieden van intense, diepe focus. Een echte bron van vreugde en expertise — een kenmerk, geen gebrek."},{q:"Kunnen autistische mensen zelfstandig wonen?",a:"Veel autistische mensen wonen volledig zelfstandig. Sommigen hebben wisselende niveaus van ondersteuning nodig."}]}
 };
 
+const AUT_EXT={
+  en:{
+    sensoryDeep:[
+      {k:"Sound",t:"Noise is not just volume",b:"Layered sound, sudden sounds, echo, bass, or background chatter can take a lot of processing power even when nobody else seems bothered."},
+      {k:"Light",t:"Brightness can drain quickly",b:"Fluorescent lights, flicker, glare, screens, and busy visual spaces can cause headaches, nausea, shutdown, or irritability."},
+      {k:"Body signals",t:"Interoception may differ",b:"Some autistic people notice hunger, thirst, pain, temperature, or needing the toilet later or more intensely than expected."},
+      {k:"Recovery",t:"Quiet time is a real need",b:"After sensory load, the nervous system may need low demand time before conversation, decisions, or touch feel possible again."}
+    ],
+    daily:[
+      {k:"Executive function",t:"Starting and switching tasks",b:"A task can be understood and still feel impossible to start. Transitions, prioritising, remembering steps, and stopping can all use extra energy."},
+      {k:"Food",t:"Eating can be sensory",b:"Safe foods, texture needs, routines around meals, or difficulty noticing hunger are common. This is not being difficult."},
+      {k:"Plans",t:"Predictability lowers stress",b:"Knowing what will happen, when it will happen, and what is expected reduces the amount of guessing the brain has to do."},
+      {k:"Social energy",t:"Enjoyment still costs energy",b:"A person can love their friends and still need hours or days to recover from noise, conversation, travel, and masking."},
+      {k:"Work and study",t:"Ability can be uneven",b:"Someone may be excellent at complex work but struggle with emails, open offices, vague deadlines, or sudden schedule changes."},
+      {k:"Rest",t:"Rest should reduce demands",b:"Real rest often means fewer decisions, fewer sensory demands, fewer social expectations, and permission to be quiet or repetitive."}
+    ],
+    communication:[
+      {t:"Helpful communication",items:["Say what you mean clearly","Give one question or request at a time","Use written details for important plans","Allow processing time before expecting an answer","Check understanding without treating the person like a child"]},
+      {t:"Often unhelpful",items:["Hinting and expecting the person to guess","Changing plans without warning","Mistaking directness for rudeness","Forcing eye contact to prove attention","Saying 'never mind' when the person asks for clarity"]}
+    ],
+    women:[
+      {k:"Social camouflage",t:"Looking fine can hide distress",b:"Girls may learn to copy peers, rehearse conversations, force facial expressions, or appear socially successful while feeling exhausted and confused inside."},
+      {k:"Interests",t:"Special interests may be missed",b:"If an interest looks socially typical, such as animals, books, music, psychology, celebrities, fashion, or caring roles, its intensity may be overlooked."},
+      {k:"Internalised distress",t:"Anxiety can become the visible label",b:"Many women and girls are first labelled anxious, depressed, shy, sensitive, perfectionistic, dramatic, or difficult before autism is considered."},
+      {k:"Friendships",t:"Social life can be complex",b:"They may want deep connection but struggle with group dynamics, changing rules, indirect conflict, exclusion, or the pressure to be constantly available."},
+      {k:"Body and hormones",t:"Needs can shift across cycles",b:"Periods, hormonal changes, pain, sleep disruption, pregnancy, postpartum life, or menopause can affect sensory sensitivity, energy, and burnout risk."},
+      {k:"Late diagnosis",t:"Relief and grief can coexist",b:"A late discovery can bring validation, but also grief for years spent misunderstood. Both reactions are valid."}
+    ],
+    masking:[
+      {k:"Why people mask",t:"Safety and belonging",b:"Masking may begin as a way to avoid bullying, criticism, exclusion, or being seen as difficult."},
+      {k:"What it can look like",t:"Copying social rules",b:"Practising facial expressions, forcing eye contact, suppressing stims, scripting conversations, or hiding sensory pain."},
+      {k:"The cost",t:"Exhaustion builds quietly",b:"Long-term masking can lead to anxiety, depression, identity confusion, loss of skills, and autistic burnout."},
+      {k:"Unmasking",t:"It can be gradual",b:"Unmasking often starts in safer places: using headphones, asking direct questions, resting after events, or allowing stimming."}
+    ],
+    selfDiagnosis:[
+      {k:"A starting point",t:"Self-recognition can guide support",b:"Even without a formal diagnosis, noticing autistic patterns can help you reduce sensory load, protect rest, communicate needs, and find community."},
+      {k:"Be careful",t:"Look for patterns across life",b:"Autism is lifelong. Helpful reflection includes childhood traits, sensory history, social communication, routines, interests, burnout, and family patterns."},
+      {k:"Overlap",t:"Other explanations can coexist",b:"Trauma, ADHD, OCD, anxiety, depression, giftedness, chronic illness, and sensory processing differences can overlap with autism or look similar from the outside."},
+      {k:"Evidence",t:"Write things down",b:"If you want an assessment later, notes about examples, school reports, family memories, sensory needs, and daily impact can be useful."},
+      {k:"Community",t:"Listen widely",b:"Autistic community stories can be validating, but no single story defines autism. Look for recurring patterns, not a perfect match."},
+      {k:"Professional help",t:"Seek assessment when needed",b:"A clinician can help with formal documentation, accommodations, differential diagnosis, and support planning when that is accessible and useful."}
+    ],
+    overwhelm:[
+      {k:"Meltdown",t:"Outward overload",b:"May involve crying, shouting, pacing, bolting, or losing speech. It is not manipulation; it is loss of control under overload."},
+      {k:"Shutdown",t:"Inward overload",b:"May look like silence, freezing, blankness, exhaustion, or being unable to move, speak, decide, or respond."},
+      {k:"Burnout",t:"Long-term depletion",b:"Autistic burnout can involve chronic exhaustion, reduced tolerance, loss of skills, increased sensory sensitivity, and needing a long recovery period."}
+    ],
+    overwhelmNeeds:[
+      {t:"Reduce input",b:"Lower noise, light, questions, touch, and people nearby."},
+      {t:"Use simple words",b:"Short, literal sentences are easier to process."},
+      {t:"Do not punish",b:"Shame and lectures usually make overload worse."},
+      {t:"Offer safe options",b:"Water, a quiet room, headphones, weighted items, or a familiar person can help."}
+    ],
+    life:[
+      {k:"Children",t:"Behaviour is communication",b:"Distress, refusal, silence, or intense routines may be signs of unmet sensory, communication, or predictability needs."},
+      {k:"Teenagers",t:"Masking can increase",b:"Social rules become more complex. School, friendships, identity, hormones, and performance pressure can make needs more visible."},
+      {k:"Adults",t:"Late discovery is common",b:"Many adults recognise autism after burnout, therapy, parenthood, relationship stress, or learning from autistic peers."},
+      {k:"Relationships",t:"Different needs can coexist",b:"Clear agreements about alone time, touch, routines, conflict, plans, and sensory needs can make relationships safer."},
+      {k:"Work",t:"Accommodations are practical",b:"Quiet space, written instructions, agenda previews, flexible timing, and fewer sudden interruptions can improve performance and wellbeing."},
+      {k:"Ageing",t:"Needs still matter",b:"Life transitions, health changes, grief, and reduced energy can make old coping strategies less effective. Support may need updating."}
+    ]
+  },
+  nl:{
+    sensoryDeep:[
+      {k:"Geluid",t:"Geluid is niet alleen volume",b:"Gelaagd geluid, plotselinge geluiden, echo, bas of achtergrondgesprekken kunnen veel verwerkingsruimte kosten, ook als niemand anders er last van lijkt te hebben."},
+      {k:"Licht",t:"Felheid kan snel uitputten",b:"Tl-licht, flikkering, schittering, schermen en drukke visuele ruimtes kunnen hoofdpijn, misselijkheid, shutdown of prikkelbaarheid veroorzaken."},
+      {k:"Lichaamssignalen",t:"Interoceptie kan anders zijn",b:"Sommige autistische mensen merken honger, dorst, pijn, temperatuur of toiletbehoefte later of juist veel intenser op."},
+      {k:"Herstel",t:"Stilte is een echte behoefte",b:"Na veel prikkels heeft het zenuwstelsel vaak prikkelarme tijd nodig voordat praten, kiezen of aanraking weer mogelijk voelt."}
+    ],
+    daily:[
+      {k:"Executieve functies",t:"Taken starten en wisselen",b:"Iemand kan een taak begrijpen en toch niet kunnen beginnen. Overgangen, prioriteiten, stappen onthouden en stoppen kunnen extra energie kosten."},
+      {k:"Eten",t:"Eten kan sensorisch zijn",b:"Veilige voeding, textuurbehoeften, routines rond maaltijden of honger laat opmerken komen vaak voor. Dat is niet moeilijk doen."},
+      {k:"Plannen",t:"Voorspelbaarheid verlaagt stress",b:"Weten wat er gebeurt, wanneer het gebeurt en wat verwacht wordt, vermindert hoeveel het brein moet raden."},
+      {k:"Sociale energie",t:"Leuk kan toch energie kosten",b:"Iemand kan van vrienden houden en alsnog uren of dagen hersteltijd nodig hebben na geluid, gesprek, reizen en masking."},
+      {k:"Werk en studie",t:"Vaardigheden kunnen ongelijk zijn",b:"Iemand kan sterk zijn in complex werk, maar vastlopen op mails, kantoortuinen, vage deadlines of plotselinge roosterwijzigingen."},
+      {k:"Rust",t:"Rust betekent minder eisen",b:"Echte rust betekent vaak minder keuzes, minder prikkels, minder sociale verwachtingen en toestemming om stil of repetitief te zijn."}
+    ],
+    communication:[
+      {t:"Helpende communicatie",items:["Zeg duidelijk wat je bedoelt","Stel één vraag of verzoek tegelijk","Gebruik schriftelijke details voor belangrijke plannen","Geef verwerkingstijd voordat je antwoord verwacht","Check begrip zonder kinderachtig te doen"]},
+      {t:"Vaak niet helpend",items:["Hinten en verwachten dat iemand raadt","Plannen zonder waarschuwing veranderen","Directheid verwarren met onbeleefdheid","Oogcontact afdwingen als bewijs van aandacht","'Laat maar' zeggen wanneer iemand verduidelijking vraagt"]}
+    ],
+    women:[
+      {k:"Sociale camouflage",t:"Er goed uitzien kan stress verbergen",b:"Meiden leren soms leeftijdsgenoten kopiëren, gesprekken oefenen, gezichtsuitdrukkingen forceren of sociaal succesvol lijken terwijl ze zich vanbinnen uitgeput en verward voelen."},
+      {k:"Interesses",t:"Speciale interesses worden soms gemist",b:"Als een interesse sociaal normaal lijkt, zoals dieren, boeken, muziek, psychologie, beroemdheden, mode of zorgrollen, wordt de intensiteit sneller over het hoofd gezien."},
+      {k:"Geïnternaliseerde stress",t:"Angst wordt vaak het zichtbare label",b:"Veel vrouwen en meiden krijgen eerst labels als angstig, depressief, verlegen, gevoelig, perfectionistisch, dramatisch of lastig voordat autisme wordt overwogen."},
+      {k:"Vriendschappen",t:"Sociaal contact kan ingewikkeld zijn",b:"Ze kunnen verlangen naar diepe verbinding, maar vastlopen op groepsdynamiek, veranderende regels, indirect conflict, buitensluiting of druk om altijd beschikbaar te zijn."},
+      {k:"Lichaam en hormonen",t:"Behoeften kunnen verschuiven",b:"Menstruatie, hormonale veranderingen, pijn, slaaptekort, zwangerschap, postpartum of menopauze kunnen prikkelgevoeligheid, energie en burn-outrisico beïnvloeden."},
+      {k:"Late diagnose",t:"Opluchting en rouw kunnen samen",b:"Late herkenning kan bevestiging geven, maar ook verdriet om jaren van onbegrip. Beide reacties zijn geldig."}
+    ],
+    masking:[
+      {k:"Waarom mensen maskeren",t:"Veiligheid en erbij horen",b:"Masking kan beginnen als manier om pesten, kritiek, buitensluiting of het label 'lastig' te vermijden."},
+      {k:"Hoe het eruit kan zien",t:"Sociale regels kopiëren",b:"Gezichtsuitdrukkingen oefenen, oogcontact forceren, stimmen onderdrukken, gesprekken scripten of sensorische pijn verbergen."},
+      {k:"De prijs",t:"Uitputting bouwt stil op",b:"Langdurig maskeren kan leiden tot angst, depressie, identiteitsverwarring, vaardigheidsverlies en autistische burn-out."},
+      {k:"Ontmaskeren",t:"Het mag geleidelijk",b:"Ontmaskeren begint vaak op veiligere plekken: koptelefoon gebruiken, directe vragen stellen, herstellen na afspraken of stimmen toelaten."}
+    ],
+    selfDiagnosis:[
+      {k:"Een startpunt",t:"Zelfherkenning kan steun richting geven",b:"Ook zonder officiële diagnose kan herkenning helpen om prikkels te verminderen, rust te beschermen, behoeften te communiceren en gemeenschap te vinden."},
+      {k:"Wees zorgvuldig",t:"Kijk naar patronen door je leven heen",b:"Autisme is levenslang. Nuttige reflectie kijkt naar kindertijd, prikkelgeschiedenis, sociale communicatie, routines, interesses, burn-out en familiepatronen."},
+      {k:"Overlap",t:"Andere verklaringen kunnen meespelen",b:"Trauma, ADHD, OCS, angst, depressie, hoogbegaafdheid, chronische ziekte en sensorische verschillen kunnen overlappen met autisme of er van buitenaf op lijken."},
+      {k:"Bewijs",t:"Schrijf voorbeelden op",b:"Als je later diagnostiek wilt, kunnen notities over voorbeelden, schoolrapporten, familieherinneringen, prikkelbehoeften en dagelijkse impact nuttig zijn."},
+      {k:"Community",t:"Luister breed",b:"Ervaringen van autistische mensen kunnen herkenning geven, maar één verhaal definieert autisme niet. Zoek naar terugkerende patronen, niet naar een perfecte match."},
+      {k:"Professionele hulp",t:"Zoek onderzoek wanneer nodig",b:"Een professional kan helpen met officiële documentatie, aanpassingen, differentiaaldiagnostiek en een passend steunplan wanneer dat bereikbaar en nuttig is."}
+    ],
+    overwhelm:[
+      {k:"Meltdown",t:"Overbelasting naar buiten",b:"Kan lijken op huilen, roepen, ijsberen, weglopen of spraak verliezen. Het is geen manipulatie; het is controleverlies door overbelasting."},
+      {k:"Shutdown",t:"Overbelasting naar binnen",b:"Kan lijken op stilte, bevriezen, leegte, extreme moeheid of niet kunnen bewegen, praten, kiezen of reageren."},
+      {k:"Burn-out",t:"Langdurige uitputting",b:"Autistische burn-out kan bestaan uit chronische uitputting, minder belastbaarheid, vaardigheidsverlies, meer prikkelgevoeligheid en lange hersteltijd."}
+    ],
+    overwhelmNeeds:[
+      {t:"Verminder input",b:"Minder geluid, licht, vragen, aanraking en mensen dichtbij."},
+      {t:"Gebruik simpele taal",b:"Korte, letterlijke zinnen zijn makkelijker te verwerken."},
+      {t:"Straf niet",b:"Schaamte en preken maken overbelasting meestal erger."},
+      {t:"Bied veilige opties",b:"Water, een stille kamer, koptelefoon, verzwarende spullen of een vertrouwd persoon kunnen helpen."}
+    ],
+    life:[
+      {k:"Kinderen",t:"Gedrag is communicatie",b:"Stress, weigeren, stilte of sterke routines kunnen wijzen op onvervulde sensorische, communicatieve of voorspelbaarheidsbehoeften."},
+      {k:"Tieners",t:"Masking kan toenemen",b:"Sociale regels worden complexer. School, vriendschappen, identiteit, hormonen en prestatiedruk kunnen behoeften zichtbaarder maken."},
+      {k:"Volwassenen",t:"Late herkenning komt vaak voor",b:"Veel volwassenen herkennen autisme na burn-out, therapie, ouderschap, relatieproblemen of herkenning bij autistische peers."},
+      {k:"Relaties",t:"Verschillende behoeften kunnen samen",b:"Duidelijke afspraken over alleen-tijd, aanraking, routines, conflict, plannen en prikkels maken relaties veiliger."},
+      {k:"Werk",t:"Aanpassingen zijn praktisch",b:"Stilteplek, schriftelijke instructies, agenda vooraf, flexibele timing en minder plotselinge onderbrekingen kunnen functioneren en welzijn verbeteren."},
+      {k:"Ouder worden",t:"Behoeften blijven belangrijk",b:"Levensovergangen, gezondheid, verlies en minder energie kunnen oude coping minder effectief maken. Ondersteuning mag meebewegen."}
+    ]
+  }
+};
+
 const OCD_QUIZ={
   en:{questions:[{q:"Do you experience repeated, unwanted thoughts that feel intrusive and hard to dismiss?",hint:"e.g. fears about contamination, harm, religion, relationships, or your identity"},{q:"Do these thoughts cause you significant distress or anxiety?",hint:"More than occasional worry — they feel urgent or horrifying"},{q:"Do you feel compelled to perform behaviours or mental rituals to reduce the anxiety?",hint:"e.g. washing, checking, counting, praying, mental reviewing"},{q:"Do these thoughts and behaviours take up more than an hour of your day?",hint:"Or do they significantly interfere with work, school, or relationships?"},{q:"Have you tried to stop the rituals or thoughts, but found it very difficult?",hint:"You may know they're excessive but can't resist"},{q:"Do the rituals provide only temporary relief — and does the anxiety return, often stronger?",hint:"The relief never fully lasts"},{q:"Have you avoided certain situations, places, or people because of these fears?",hint:"e.g. avoiding knives, public spaces, being alone, or certain people"},{q:"Have these experiences been present for more than a few weeks?",hint:"Not just a brief stressful period"},{q:"Do you feel shame or keep these thoughts/behaviours secret?",hint:"Fear of being judged or misunderstood"},{q:"Have you wondered whether your thoughts say something about who you are as a person?",hint:"'Does having this thought make me a bad person?'"}],options:["Never","Rarely","Sometimes","Often","Very often"],rL:{title:"Low likelihood",text:"Your answers suggest OCD-related patterns are not strongly present right now. If you're experiencing distress, speaking to a GP or counsellor is always worthwhile."},rM:{title:"Some patterns present",text:"Your answers suggest some OCD-related patterns. This doesn't mean you have OCD, but it may be worth discussing with a mental health professional — especially if they interfere with daily life."},rH:{title:"Strong patterns present",text:"Your answers suggest significant OCD-related patterns. This is not a diagnosis, but it strongly suggests speaking to a mental health professional trained in OCD and ERP. You are not alone, and this is very treatable."},submit:"See my result",restart:"Retake quiz",score:"Your score",disc:"Not a clinical diagnosis. Please speak to a qualified professional."},
   nl:{questions:[{q:"Heb je herhaaldelijke, ongewenste gedachten die opdringend aanvoelen en moeilijk te negeren zijn?",hint:"bijv. angsten over besmetting, schade, religie, relaties of je identiteit"},{q:"Veroorzaken deze gedachten je aanzienlijk leed of angst?",hint:"Meer dan af en toe zorgen — ze voelen urgent of verschrikkelijk"},{q:"Voel je je gedwongen bepaalde gedragingen of mentale rituelen uit te voeren?",hint:"bijv. wassen, controleren, tellen, bidden, mentaal herhalen"},{q:"Nemen deze gedachten en gedragingen meer dan een uur per dag in beslag?",hint:"Of verstoren ze significant je werk, school of relaties?"},{q:"Heb je geprobeerd de rituelen of gedachten te stoppen, maar vond je dat zeer moeilijk?",hint:"Je weet misschien dat ze overdreven zijn, maar kunt niet weerstaan"},{q:"Geven de rituelen alleen tijdelijke verlichting — en keert de angst terug, vaak sterker?",hint:"De verlichting duurt nooit volledig"},{q:"Heb je bepaalde situaties, plaatsen of mensen vermeden vanwege deze angsten?",hint:"bijv. messen vermijden, openbare ruimtes, alleen zijn"},{q:"Zijn deze ervaringen al meer dan een paar weken aanwezig?",hint:"Niet alleen een korte stressvolle periode"},{q:"Voel je je schamen of houd je deze gedachten/gedragingen geheim?",hint:"Angst om beoordeeld of verkeerd begrepen te worden"},{q:"Heb je je afgevraagd of je gedachten iets zeggen over wie je bent?",hint:"'Maakt het feit dat ik deze gedachte heb me een slecht persoon?'"}],options:["Nooit","Zelden","Soms","Vaak","Zeer vaak"],rL:{title:"Lage waarschijnlijkheid",text:"Je antwoorden suggereren dat OCS-gerelateerde patronen momenteel niet sterk aanwezig zijn."},rM:{title:"Enkele patronen aanwezig",text:"Je antwoorden suggereren enkele OCS-gerelateerde patronen. Het kan de moeite waard zijn om dit te bespreken met een GGZ-professional."},rH:{title:"Sterke patronen aanwezig",text:"Je antwoorden suggereren significante OCS-gerelateerde patronen. Dit is geen diagnose, maar het suggereert sterk dat je met een GGZ-professional spreekt die getraind is in OCS en ERV."},submit:"Bekijk mijn resultaat",restart:"Quiz opnieuw doen",score:"Jouw score",disc:"Geen klinische diagnose. Raadpleeg een gekwalificeerde professional."}
@@ -1360,11 +1566,21 @@ function openOCDType(typeId){
 }
 function renderAutismHome(){
   const d=AUT_D[lang];
+  const e=AUT_EXT[lang];
   document.getElementById('aut-pills-social').innerHTML=d.social.map(p=>`<span class="pill po">${p}</span>`).join('');
   document.getElementById('aut-pills-sensory').innerHTML=d.sensory.map(p=>`<span class="pill pp">${p}</span>`).join('');
   document.getElementById('aut-pills-interests').innerHTML=d.interests.map(p=>`<span class="pill pc">${p}</span>`).join('');
   document.getElementById('aut-pills-strengths').innerHTML=d.strengths.map(p=>`<span class="pill pb">${p}</span>`).join('');
   document.getElementById('aut-pills-sens-types').innerHTML=d.sensTypes.map(p=>`<span class="pill po">${p}</span>`).join('');
+  document.getElementById('aut-sensory-deep-grid').innerHTML=e.sensoryDeep.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-daily-grid').innerHTML=e.daily.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-communication-grid').innerHTML=e.communication.map(c=>`<div class="contrast-card"><h3>${c.t}</h3><ul>${c.items.map(item=>`<li>${item}</li>`).join('')}</ul></div>`).join('');
+  document.getElementById('aut-women-grid').innerHTML=e.women.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-masking-grid').innerHTML=e.masking.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-self-diagnosis-grid').innerHTML=e.selfDiagnosis.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-overwhelm-grid').innerHTML=e.overwhelm.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-overwhelm-needs').innerHTML=e.overwhelmNeeds.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
+  document.getElementById('aut-life-grid').innerHTML=e.life.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-support-row').innerHTML=d.support.map(t=>`<div class="treat-card"><div class="treat-title">${t.t}</div><div class="treat-body">${t.b}</div></div>`).join('');
   document.getElementById('aut-tip-list').innerHTML=d.tips.map((t,i)=>`<li><span class="tip-n">${i+1}</span><span>${t}</span></li>`).join('');
   document.getElementById('aut-story-grid').innerHTML=d.stories.map(s=>`<div class="story-card"><div class="story-text">${s.text}</div><div class="story-name">${s.name}</div><div class="story-tag">${lang==='en'?'Autism':'Autisme'}</div></div>`).join('');
