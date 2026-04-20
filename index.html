@@ -42,6 +42,18 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .share-page-btn{display:inline-flex;align-items:center;justify-content:center;padding:.4rem .7rem;border-radius:6px;border:1px solid var(--border);background:transparent;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;color:var(--text2);transition:all .15s;white-space:nowrap}
 .share-page-btn:hover{background:var(--surface2);color:var(--text)}
 .share-page-btn.copied{border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.08);color:#047857}
+.save-page-btn.saved{border-color:rgba(219,39,119,.3);background:rgba(219,39,119,.08);color:var(--pk)}
+.global-search-wrap{position:relative;flex:1;max-width:360px;margin-left:auto}
+.global-search{width:100%;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.8rem;padding:.46rem .7rem;outline:none}
+.global-search:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+.global-search-results{position:absolute;top:calc(100% + .4rem);right:0;width:min(460px,calc(100vw - 2rem));max-height:360px;overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow-md);padding:.45rem;display:none;z-index:125}
+.global-search-results.open{display:block}
+.search-result{display:block;width:100%;text-align:left;border:none;border-radius:6px;background:transparent;color:var(--text);font-family:'Inter',sans-serif;padding:.55rem .65rem;cursor:pointer}
+.search-result:hover,.search-result:focus{background:var(--surface2);outline:none}
+.search-result-kicker{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:.12rem}
+.search-result-title{font-size:.8rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.search-result-body{font-size:.72rem;color:var(--text2);line-height:1.45;margin-top:.12rem}
+.search-empty{font-size:.76rem;color:var(--text2);padding:.65rem}
 .mega-menu-icon{display:flex;flex-direction:column;gap:4px}
 .mega-menu-icon span{display:block;width:17px;height:1.5px;border-radius:2px;background:currentColor}
 .mega-menu{position:fixed;top:128px;left:1rem;z-index:120;width:min(1040px,calc(100vw - 2rem));background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;display:none}
@@ -284,6 +296,19 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .support-preview-title{font-size:.78rem;font-weight:800;color:var(--p);margin-bottom:.45rem}
 .support-preview-line{font-size:.8rem;color:var(--text2);line-height:1.75;margin-bottom:.35rem}
 .support-preview-line strong{color:var(--text)}
+.toolbox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.75rem;margin-top:.85rem}
+.toolbox-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem}
+.toolbox-card-title{font-size:.84rem;font-weight:800;color:var(--text);letter-spacing:-.01em;margin-bottom:.25rem}
+.toolbox-card-text{font-size:.76rem;color:var(--text2);line-height:1.65;white-space:pre-wrap}
+.saved-list{display:grid;gap:.55rem;margin-top:.8rem}
+.saved-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.75rem}
+.saved-item-main{min-width:0}
+.saved-item-title{font-size:.8rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.saved-item-meta{font-size:.68rem;color:var(--text3);margin-top:.12rem}
+.saved-actions{display:flex;gap:.4rem;flex-shrink:0}
+.mini-btn{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:800;padding:.38rem .55rem;cursor:pointer}
+.mini-btn:hover{background:var(--surface);color:var(--text);border-color:var(--border2)}
+.empty-state{font-size:.8rem;color:var(--text2);line-height:1.7;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem}
 
 /* ── STORAGE CONSENT ── */
 .storage-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
@@ -362,6 +387,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .discord-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .coffee-nav{order:4;font-size:.75rem;padding:.32rem .7rem}
   .stim-toggle{order:4;font-size:.72rem;padding:.3rem .55rem}
+  .global-search-wrap{order:6;max-width:none;width:100%;margin-left:0}
   .lang-toggle{margin-left:auto}
   .discord-card,.support-card{align-items:flex-start;flex-direction:column}
   .footer{padding:3rem 1rem 1.25rem}
@@ -376,6 +402,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .hotline-grid{grid-template-columns:1fr 1fr}
   .story-grid{grid-template-columns:1fr}
   .thought-grid,.coping-grid{grid-template-columns:1fr 1fr}
+  .saved-item{align-items:flex-start;flex-direction:column}
   .contrast-grid{grid-template-columns:1fr}
   .type-hero{padding:1.4rem}
   .detail-section{padding:1.2rem}
@@ -405,6 +432,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
     <button class="topic-tab active" onclick="setTopic('autism',this)" data-en="Autism" data-nl="Autisme">Autism</button>
   </div>
   <a class="disclaimer-nav" href="#disclaimer" onclick="showPage('disclaimer',null)" data-en="Disclaimer" data-nl="Disclaimer">Disclaimer</a>
+  <a class="disclaimer-nav calm-nav" href="#toolbox" onclick="showPage('toolbox',null)" data-en="Toolbox" data-nl="Toolbox">Toolbox</a>
   <a class="disclaimer-nav calm-nav" href="#calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a>
   <a class="disclaimer-nav calm-nav" href="#glossary" onclick="showPage('glossary',null)" data-en="Glossary" data-nl="Woordenboek">Glossary</a>
   <div class="nav-spacer"></div>
@@ -424,6 +452,11 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <span data-en="Menu" data-nl="Menu">Menu</span>
     </button>
     <button class="share-page-btn" id="sharePageBtn" onclick="shareCurrentPage()" type="button" data-en="Share page" data-nl="Deel pagina">Share page</button>
+    <button class="share-page-btn save-page-btn" id="savePageBtn" onclick="toggleSaveCurrent()" type="button" data-en="Save page" data-nl="Pagina opslaan">Save page</button>
+    <div class="global-search-wrap">
+      <input class="global-search" id="globalSearchInput" type="search" placeholder="Search JourHelp..." data-placeholder-en="Search JourHelp..." data-placeholder-nl="Zoek in JourHelp..." oninput="renderGlobalSearch()" onfocus="renderGlobalSearch()" onkeydown="handleGlobalSearchKey(event)" autocomplete="off" aria-label="Search JourHelp">
+      <div class="global-search-results" id="globalSearchResults"></div>
+    </div>
   </div>
 </div>
 
@@ -930,6 +963,39 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <div id="aut-resources-content"></div>
     </div>
 
+    <!-- TOOLBOX -->
+    <div class="page" id="page-toolbox">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Private Support Kit" data-nl="Prive steunkit">Private Support Kit</span></div>
+        <h1><span class="grad" data-en="My Toolbox" data-nl="Mijn Toolbox">My Toolbox</span></h1>
+        <p data-en="Your saved JourHelp pages and private support tools in one place. Local saving is optional and stays on this device." data-nl="Je opgeslagen JourHelp-pagina's en prive steuntools op een plek. Lokaal opslaan is optioneel en blijft op dit apparaat.">Your saved JourHelp pages and private support tools in one place. Local saving is optional and stays on this device.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('calm-plan',null)" data-en="Open Calm Plan" data-nl="Open Rustplan">Open Calm Plan</button>
+          <button class="btn-ghost" onclick="showPage('autism-home',null);scrollSec('aut-sec-tools')" data-en="Open support tools" data-nl="Open steuntools">Open support tools</button>
+          <button class="btn-ghost" onclick="openCookieSettings()" data-en="Storage settings" data-nl="Opslaginstellingen">Storage settings</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">★</div><h2 data-en="Saved pages" data-nl="Opgeslagen pagina's">Saved pages</h2></div>
+        <div class="divider"></div>
+        <p data-en="Save any guide, tool, or section so you can return when your brain is not in search mode." data-nl="Sla gidsen, tools of onderdelen op zodat je later makkelijk terug kunt wanneer zoeken te veel is.">Save any guide, tool, or section so you can return when your brain is not in search mode.</p>
+        <div id="savedSectionsList"></div>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">♡</div><h2 data-en="Calm Plan" data-nl="Rustplan">Calm Plan</h2></div>
+        <div class="divider"></div>
+        <div id="toolboxCalmSummary"></div>
+      </div>
+
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">🧰</div><h2 data-en="Autism support tools" data-nl="Autisme steuntools">Autism support tools</h2></div>
+        <div class="divider"></div>
+        <div class="toolbox-grid" id="toolboxToolsGrid"></div>
+      </div>
+    </div>
+
     <!-- CALM PLAN -->
     <div class="page" id="page-calm-plan">
       <div class="hero" style="margin-bottom:1rem">
@@ -1121,6 +1187,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <div class="footer-col">
         <h3 data-en="Tools" data-nl="Tools">Tools</h3>
         <ul class="footer-links">
+          <li><a href="#toolbox" onclick="showPage('toolbox',null)" data-en="Toolbox" data-nl="Toolbox">Toolbox</a></li>
           <li><a href="#calm-plan" onclick="showPage('calm-plan',null)" data-en="Calm Plan" data-nl="Rustplan">Calm Plan</a></li>
           <li><a href="#glossary" onclick="showPage('glossary',null)" data-en="Glossary" data-nl="Woordenboek">Glossary</a></li>
           <li><a href="#ocd-resources" onclick="showPage('ocd-resources',null)" data-en="OCD resources" data-nl="OCS bronnen">OCD resources</a></li>
@@ -1182,8 +1249,10 @@ let ocdQuizAnswers=[],autQuizAnswers=[],maskingAnswers=[];
 const STORAGE_CONSENT_KEY='jourhelp_storage_consent';
 const CALM_PLAN_KEY='jourhelp_calm_plan';
 const AUTISM_TOOLS_KEY='jourhelp_autism_tools';
+const SAVED_SECTIONS_KEY='jourhelp_saved_sections';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
 let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},accommodation:{},boundary:{},explain:{},previews:{sensory:'',support:'',id:'',masking:'',interest:'',accommodation:'',boundary:'',explain:''}};
+let savedSections=[];
 let lowStim=false;
 let cookieMode='first';
 
@@ -1194,6 +1263,7 @@ const PAGE_SLUGS={
   'ocd-quiz':'ocd-quiz',
   'autism-resources':'autism-resources',
   'ocd-resources':'ocd-resources',
+  toolbox:'toolbox',
   'calm-plan':'calm-plan',
   glossary:'glossary',
   disclaimer:'disclaimer',
@@ -1262,13 +1332,16 @@ function showPage(id,navEl){
   const pg=document.getElementById('page-'+id);
   if(pg)pg.classList.add('active');
   closeMegaMenu();
+  closeGlobalSearch();
   window.scrollTo(0,0);
   updateShareUrl(id);
+  updateSaveButton();
+  renderToolbox();
   updateReadingProgress();
   if(window.innerWidth<=900){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('open');}
   if(navEl){document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('act'));navEl.classList.add('act');}
 }
-function scrollSec(id){setTimeout(()=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(null,id);},50)}
+function scrollSec(id){setTimeout(()=>{document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(null,id);updateSaveButton();},50)}
 function activePageId(){
   const page=document.querySelector('.page.active');
   return page?page.id.replace('page-'):'autism-home';
@@ -1276,7 +1349,7 @@ function activePageId(){
 function visibleSectionId(){
   const active=document.querySelector('.page.active');
   if(!active)return '';
-  const sections=[...active.querySelectorAll('[id]')].filter(el=>el.id&&!el.id.startsWith('page-'));
+  const sections=[...active.querySelectorAll('.section[id],.crisis-box[id],.tool-box[id]')].filter(el=>el.id&&!el.id.startsWith('page-'));
   let best='',bestTop=-Infinity;
   sections.forEach(el=>{
     const top=el.getBoundingClientRect().top;
@@ -1357,7 +1430,10 @@ function setLang(l){
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
   renderGlossary();
   renderCalmPlan();
+  renderToolbox();
+  renderGlobalSearch();
   renderLowStim();
+  updateSaveButton();
   renderCookieBanner();
 }
 function sendContactRequest(e){
@@ -1400,6 +1476,18 @@ function writeAutismTools(){
   if(!storageAllowed())return false;
   collectAutismTools();
   localStorage.setItem(AUTISM_TOOLS_KEY,JSON.stringify(autismTools));
+  return true;
+}
+function loadSavedSections(){
+  if(!storageAllowed())return;
+  try{
+    const saved=localStorage.getItem(SAVED_SECTIONS_KEY);
+    savedSections=saved?JSON.parse(saved):[];
+  }catch{savedSections=[];}
+}
+function writeSavedSections(){
+  if(!storageAllowed())return false;
+  localStorage.setItem(SAVED_SECTIONS_KEY,JSON.stringify(savedSections));
   return true;
 }
 function collectAutismTools(){
@@ -1573,8 +1661,8 @@ function renderCookieBanner(){
   const review=cookieMode==='review';
   title.textContent=lang==='en'?(review?'Are your cookie settings still correct?':'Cookie settings'):(review?'Kloppen je cookie-instellingen nog?':'Cookie-instellingen');
   text.textContent=lang==='en'
-    ? 'JourHelp can use local storage to remember your Calm Plan, autism support tools, low-stimulation setting, and cookie choice on this device. If you decline, nothing is saved and this banner returns on refresh.'
-    : 'JourHelp kan lokale opslag gebruiken om je Rustplan, autisme steuntools, prikkelarme instelling en cookiekeuze op dit apparaat te onthouden. Als je weigert, wordt niets opgeslagen en komt deze banner terug na vernieuwen.';
+    ? 'JourHelp can use local storage to remember your Calm Plan, autism support tools, saved pages, low-stimulation setting, and cookie choice on this device. If you decline, nothing is saved and this banner returns on refresh.'
+    : "JourHelp kan lokale opslag gebruiken om je Rustplan, autisme steuntools, opgeslagen pagina's, prikkelarme instelling en cookiekeuze op dit apparaat te onthouden. Als je weigert, wordt niets opgeslagen en komt deze banner terug na vernieuwen.";
   accept.textContent=lang==='en'?'Allow local saving':'Lokaal opslaan toestaan';
   decline.textContent=lang==='en'?'Do not save':'Niet opslaan';
   keep.textContent=lang==='en'?'Keep settings':'Instellingen behouden';
@@ -1596,21 +1684,29 @@ function acceptStorageConsent(){
   collectCalmPlan();
   writeCalmPlan();
   writeAutismTools();
+  writeSavedSections();
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is on.':'Lokaal opslaan staat aan.');
+  renderToolbox();
+  updateSaveButton();
 }
 function declineStorageConsent(){
   try{
     localStorage.removeItem(STORAGE_CONSENT_KEY);
     localStorage.removeItem(CALM_PLAN_KEY);
     localStorage.removeItem(AUTISM_TOOLS_KEY);
+    localStorage.removeItem(SAVED_SECTIONS_KEY);
   }catch{}
+  savedSections=[];
   closeCookieBanner();
   updateCalmStatus(lang==='en'?'Local saving is off. Your entries will not be saved after refresh.':'Lokaal opslaan staat uit. Je invoer wordt niet bewaard na vernieuwen.');
+  renderToolbox();
+  updateSaveButton();
 }
 function initConsent(){
   loadCalmPlan();
   loadAutismTools();
+  loadSavedSections();
   fillAutismTools();
   cookieMode=storageAllowed()?'review':'first';
   openCookieSettings();
@@ -1652,6 +1748,136 @@ function renderGlossary(){
   empty.textContent=lang==='en'?'No matching terms yet.':'Nog geen passende termen.';
 }
 
+function pageTitle(page,section=''){
+  if(page==='ocd-type'){
+    const title=document.querySelector('#ocd-type-detail h1')?.textContent?.trim();
+    return title||'OCD type';
+  }
+  const target=section?document.getElementById(section):document.getElementById('page-'+page);
+  const heading=target?.querySelector('h1,h2')?.textContent?.trim();
+  if(heading)return heading;
+  return page.replace(/-/g,' ');
+}
+function getCurrentSaveTarget(){
+  const page=activePageId();
+  const section=visibleSectionId();
+  const key=`${page}|${section}`;
+  return {page,section,key,title:pageTitle(page,section),hash:routeHash(page,section),ts:Date.now()};
+}
+function isSavedTarget(target=getCurrentSaveTarget()){
+  return savedSections.some(item=>item.key===target.key);
+}
+function updateSaveButton(){
+  const btn=document.getElementById('savePageBtn');if(!btn)return;
+  const saved=isSavedTarget();
+  btn.classList.toggle('saved',saved);
+  btn.textContent=lang==='en'?(saved?'Saved':'Save page'):(saved?'Opgeslagen':'Pagina opslaan');
+}
+function toggleSaveCurrent(){
+  const target=getCurrentSaveTarget();
+  const idx=savedSections.findIndex(item=>item.key===target.key);
+  if(idx>=0)savedSections.splice(idx,1);
+  else savedSections.unshift(target);
+  savedSections=savedSections.slice(0,30);
+  if(!writeSavedSections()){
+    openCookieSettings();
+  }
+  updateSaveButton();
+  renderToolbox();
+}
+function openSavedItem(page,section){
+  showPage(page,null);
+  if(section)scrollSec(section);
+}
+function removeSavedItem(key){
+  savedSections=savedSections.filter(item=>item.key!==key);
+  writeSavedSections();
+  renderToolbox();
+  updateSaveButton();
+}
+function renderSavedSections(){
+  const wrap=document.getElementById('savedSectionsList');if(!wrap)return;
+  if(!storageAllowed()){
+    wrap.innerHTML=`<div class="empty-state">${lang==='en'?'Turn on local saving to keep saved pages on this device.':"Zet lokaal opslaan aan om pagina's op dit apparaat te bewaren."}</div>`;
+    return;
+  }
+  if(!savedSections.length){
+    wrap.innerHTML=`<div class="empty-state">${lang==='en'?'No saved pages yet. Use Save page from the top bar when something feels useful.':"Nog geen opgeslagen pagina's. Gebruik Pagina opslaan bovenaan wanneer iets nuttig voelt."}</div>`;
+    return;
+  }
+  wrap.innerHTML=`<div class="saved-list">${savedSections.map(item=>`
+    <div class="saved-item">
+      <div class="saved-item-main">
+        <div class="saved-item-title">${escapeHtml(item.title)}</div>
+        <div class="saved-item-meta">#${escapeHtml(item.hash)}</div>
+      </div>
+      <div class="saved-actions">
+        <button class="mini-btn" onclick="openSavedItem('${item.page}','${item.section||''}')">${lang==='en'?'Open':'Open'}</button>
+        <button class="mini-btn" onclick="removeSavedItem('${item.key}')">${lang==='en'?'Remove':'Wissen'}</button>
+      </div>
+    </div>`).join('')}</div>`;
+}
+function previewValue(value,fallback){
+  return value&&value.trim()?value.trim():fallback;
+}
+function renderToolbox(){
+  renderSavedSections();
+  const calm=document.getElementById('toolboxCalmSummary');
+  if(calm){
+    const hasCalm=Object.values(calmPlan).some(v=>v);
+    calm.innerHTML=hasCalm
+      ? `<div class="support-preview">${document.getElementById('calmPreview')?.innerHTML||''}</div><div class="mini-actions"><button class="btn-primary" onclick="showPage('calm-plan',null)">${lang==='en'?'Edit Calm Plan':'Rustplan bewerken'}</button></div>`
+      : `<div class="empty-state">${lang==='en'?'Your Calm Plan is empty for now.':'Je Rustplan is nu nog leeg.'}</div><div class="mini-actions"><button class="btn-primary" onclick="showPage('calm-plan',null)">${lang==='en'?'Create Calm Plan':'Maak Rustplan'}</button></div>`;
+  }
+  const grid=document.getElementById('toolboxToolsGrid');
+  if(grid){
+    const labels=lang==='en'
+      ? [['Sensory profile','sensory'],['Support card','support'],['Autism card','id'],['Special interest card','interest'],['Accommodation request','accommodation'],['Boundary script','boundary'],['Autism explanation','explain']]
+      : [['Sensorisch profiel','sensory'],['Steunkaart','support'],['Autismekaart','id'],['Speciale interessekaart','interest'],['Aanpassingsverzoek','accommodation'],['Grens-script','boundary'],['Autisme-uitleg','explain']];
+    grid.innerHTML=labels.map(([title,key])=>`<div class="toolbox-card"><div class="toolbox-card-title">${title}</div><div class="toolbox-card-text">${escapeHtml(previewValue(autismTools.previews?.[key],lang==='en'?'Not created yet.':'Nog niet gemaakt.'))}</div></div>`).join('');
+  }
+}
+function getSearchItems(){
+  const bothTopics=[...getMainLinksFor('autism'),...getMainLinksFor('ocd')];
+  const routeItems=bothTopics.map(item=>({type:lang==='en'?'Page':'Pagina',title:linkLabel(item),body:item.sec?pageTitle(item.page,item.sec):'',page:item.page,section:item.sec||''}));
+  const ocdTypeItems=OCD_TYPES[lang].map(t=>({type:lang==='en'?'OCD type':'OCS type',title:t.title,body:t.short,page:'ocd-type',section:'',action:()=>openOCDType(t.id)}));
+  const glossaryItems=GLOSSARY_TERMS.map(item=>({type:item.cat,title:item[lang].term,body:item[lang].desc,page:'glossary',section:''}));
+  const resourceItems=[...OCD_RES[lang].sections.flatMap(s=>s.items.map(i=>({type:lang==='en'?'OCD resource':'OCS bron',title:i.name,body:i.desc,page:'ocd-resources',section:''}))),...AUT_RES[lang].sections.flatMap(s=>s.items.map(i=>({type:lang==='en'?'Autism resource':'Autisme bron',title:i.name,body:i.desc,page:'autism-resources',section:''})))];
+  return [...routeItems,...ocdTypeItems,...glossaryItems,...resourceItems];
+}
+function getMainLinksFor(t){
+  const old=topic;
+  topic=t;
+  const links=getMainLinks();
+  topic=old;
+  return links;
+}
+function renderGlobalSearch(){
+  const input=document.getElementById('globalSearchInput'),box=document.getElementById('globalSearchResults');
+  if(!input||!box)return;
+  const q=input.value.trim().toLowerCase();
+  if(!q){box.classList.remove('open');box.innerHTML='';return;}
+  const results=getSearchItems().filter(item=>`${item.type} ${item.title} ${item.body}`.toLowerCase().includes(q)).slice(0,8);
+  box.classList.add('open');
+  box.innerHTML=results.length?results.map((item,i)=>`<button class="search-result" onclick="openSearchResult(${i})"><div class="search-result-kicker">${escapeHtml(item.type)}</div><div class="search-result-title">${escapeHtml(item.title)}</div><div class="search-result-body">${escapeHtml(item.body||'')}</div></button>`).join(''):`<div class="search-empty">${lang==='en'?'No results yet.':'Nog geen resultaten.'}</div>`;
+  box._results=results;
+}
+function openSearchResult(index){
+  const box=document.getElementById('globalSearchResults');
+  const item=box?._results?.[index];if(!item)return;
+  if(item.action)item.action();
+  else openSavedItem(item.page,item.section);
+  const input=document.getElementById('globalSearchInput');if(input)input.value='';
+  closeGlobalSearch();
+}
+function closeGlobalSearch(){
+  const box=document.getElementById('globalSearchResults');
+  if(box)box.classList.remove('open');
+}
+function handleGlobalSearchKey(e){
+  if(e.key==='Escape')closeGlobalSearch();
+}
+
 function getMainLinks(){
   const isOCD=topic==='ocd';
   return isOCD?[
@@ -1667,6 +1893,7 @@ function getMainLinks(){
     {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
     {page:'ocd-resources',en:'Resources',nl:'Bronnen'},
+    {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'},
     {page:'about-me',en:'About me',nl:'Over mij'}
@@ -1708,6 +1935,7 @@ function getMainLinks(){
     {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
     {page:'autism-resources',en:'Resources',nl:'Bronnen'},
+    {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'},
     {page:'about-me',en:'About me',nl:'Over mij'}
@@ -1730,6 +1958,7 @@ function buildMegaMenu(){
     {page:isOCD?'ocd-home':'autism-home',sec:isOCD?'ocd-sec-community':'aut-sec-community',en:'Community',nl:'Community'},
     {page:'about-me',en:'About me',nl:'Over mij'},
     {page:'disclaimer',en:'Disclaimer',nl:'Disclaimer'},
+    {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'}
   ];
@@ -2487,10 +2716,13 @@ bindCalmPlan();
 bindStorageSettings();
 initConsent();
 renderCalmPlan();
+renderToolbox();
 renderLowStim();
-window.addEventListener('scroll',()=>{updateReadingProgress();updateFloatingReadTools();},{passive:true});
+window.addEventListener('scroll',()=>{updateReadingProgress();updateFloatingReadTools();updateSaveButton();},{passive:true});
 window.addEventListener('resize',()=>{updateReadingProgress();updateFloatingReadTools();});
+document.addEventListener('click',e=>{if(!e.target.closest('.global-search-wrap'))closeGlobalSearch();});
 if(!applyHashRoute())updateShareUrl();
+updateSaveButton();
 updateReadingProgress();
 updateFloatingReadTools();
 </script>
