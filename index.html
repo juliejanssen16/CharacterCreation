@@ -51,6 +51,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .global-search:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
 .global-search-results{position:absolute;top:calc(100% + .4rem);right:0;width:min(460px,calc(100vw - 2rem));max-height:360px;overflow:auto;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);box-shadow:var(--shadow-md);padding:.45rem;display:none;z-index:125}
 .global-search-results.open{display:block}
+.search-highlight{outline:3px solid rgba(219,39,119,.28);box-shadow:0 0 0 6px rgba(219,39,119,.08)!important;transition:outline .2s,box-shadow .2s}
 .search-result{display:block;width:100%;text-align:left;border:none;border-radius:6px;background:transparent;color:var(--text);font-family:'Inter',sans-serif;padding:.55rem .65rem;cursor:pointer}
 .search-result:hover,.search-result:focus{background:var(--surface2);outline:none}
 .search-result-kicker{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:.12rem}
@@ -233,6 +234,7 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 
 /* ── RESOURCES ── */
 .res-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem}
+.resource-filters{display:flex;flex-wrap:wrap;gap:.35rem;margin:.75rem 0 1rem}
 .res-badges{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.45rem}
 .res-badge{display:inline-flex;align-items:center;border:1px solid rgba(124,58,237,.18);border-radius:4px;background:rgba(124,58,237,.06);color:var(--p);font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.16rem .38rem}
 .res-name{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.08rem;letter-spacing:-.01em}
@@ -324,6 +326,7 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .saved-item-title{font-size:.8rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
 .saved-item-meta{font-size:.68rem;color:var(--text3);margin-top:.12rem}
 .saved-actions{display:flex;gap:.4rem;flex-shrink:0}
+.saved-group-select{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:700;padding:.36rem .45rem;max-width:145px}
 .mini-btn{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:800;padding:.38rem .55rem;cursor:pointer}
 .mini-btn:hover{background:var(--surface);color:var(--text);border-color:var(--border2)}
 .empty-state{font-size:.8rem;color:var(--text2);line-height:1.7;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem;display:flex;gap:.75rem;align-items:flex-start}
@@ -347,6 +350,25 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .sensory-meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#059669,var(--p));transition:width .25s}
 .sensory-zone-title{font-size:.78rem;font-weight:900;color:var(--text);margin-bottom:.15rem}
 .sensory-zone-list{font-size:.72rem;color:var(--text2);line-height:1.55}
+.compare-controls{display:grid;grid-template-columns:1fr 1fr auto;gap:.6rem;align-items:end;margin:.85rem 0 1rem}
+.compare-controls label{display:grid;gap:.25rem;font-size:.72rem;font-weight:800;color:var(--text2)}
+.compare-controls select{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.8rem;padding:.55rem}
+.compare-table{display:grid;gap:.75rem}
+.compare-row{display:grid;grid-template-columns:130px 1fr 1fr;gap:.75rem}
+.compare-head,.compare-cell{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface2);padding:.8rem;font-size:.76rem;color:var(--text2);line-height:1.6}
+.compare-head{font-weight:900;color:var(--text);background:var(--surface)}
+.compare-cell strong{display:block;color:var(--text);margin-bottom:.28rem}
+.overwhelm-overlay{position:fixed;inset:0;z-index:260;background:rgba(247,247,248,.98);display:none;align-items:center;justify-content:center;padding:1rem}
+.overwhelm-overlay.open{display:flex}
+.overwhelm-panel{width:min(720px,100%);min-height:min(520px,calc(100vh - 2rem));border:1px solid var(--border);border-radius:8px;background:var(--surface);box-shadow:var(--shadow-md);display:flex;flex-direction:column;justify-content:space-between;padding:1.35rem}
+.overwhelm-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+.overwhelm-kicker{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--p)}
+.overwhelm-step{display:grid;place-items:center;text-align:center;gap:1rem;padding:2rem 0}
+.overwhelm-symbol{width:92px;height:92px;border-radius:50%;border:1px solid rgba(5,150,105,.25);display:grid;place-items:center;color:var(--p);font-size:2.4rem;background:radial-gradient(circle,rgba(5,150,105,.08),transparent 65%)}
+.overwhelm-title{font-size:clamp(1.35rem,4vw,2.1rem);font-weight:900;letter-spacing:-.03em;color:var(--text)}
+.overwhelm-body{max-width:520px;font-size:1rem;color:var(--text2);line-height:1.75}
+.overwhelm-actions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;align-items:center}
+.overwhelm-count{font-size:.72rem;color:var(--text3);font-weight:800}
 
 /* ── STORAGE CONSENT ── */
 .storage-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
@@ -442,6 +464,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .thought-grid,.coping-grid{grid-template-columns:1fr 1fr}
   .first-aid-visual{grid-template-columns:1fr}
   .ocd-cycle{grid-template-columns:1fr 1fr}
+  .compare-controls,.compare-row{grid-template-columns:1fr}
   .cycle-step:not(:last-child)::after{display:none}
   .saved-item{align-items:flex-start;flex-direction:column}
   .contrast-grid{grid-template-columns:1fr}
@@ -633,6 +656,22 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <div id="ocd-resources-content"></div>
     </div>
 
+    <!-- OCD COMPARE -->
+    <div class="page" id="page-ocd-compare">
+      <div class="back-btn" onclick="showPage('ocd-home',null)">← <span data-en="Back" data-nl="Terug">Back</span></div>
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Compare" data-nl="Vergelijk">Compare</span></div>
+        <h1><span class="grad" data-en="OCD Type Compare" data-nl="OCS Soorten Vergelijken">OCD Type Compare</span></h1>
+        <p data-en="Compare common themes, intrusive thoughts, triggers, and coping reminders across OCD subtypes." data-nl="Vergelijk thema's, opdringerige gedachten, triggers en coping-herinneringen tussen OCS-soorten.">Compare common themes, intrusive thoughts, triggers, and coping reminders across OCD subtypes.</p>
+      </div>
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">⇄</div><h2 data-en="Choose two types" data-nl="Kies twee soorten">Choose two types</h2></div>
+        <div class="divider"></div>
+        <div class="compare-controls" id="ocdCompareControls"></div>
+        <div id="ocdCompareResult"></div>
+      </div>
+    </div>
+
     <!-- OCD TYPE DETAIL -->
     <div class="page" id="page-ocd-type">
       <div class="back-btn" onclick="showPage('ocd-home',null)">← <span data-en="Back to OCD" data-nl="Terug naar OCS">Back to OCD</span></div>
@@ -670,6 +709,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
           <ul class="first-aid-list" id="aut-first-aid-list"></ul>
         </div>
         <div class="mini-actions">
+          <button class="btn-primary" onclick="openOverwhelmMode()" data-en="Fullscreen reset" data-nl="Volledig scherm reset">Fullscreen reset</button>
           <button class="btn-primary" onclick="showPage('calm-plan',null)" data-en="Open Calm Plan" data-nl="Open Rustplan">Open Calm Plan</button>
           <button class="btn-ghost" onclick="scrollSec('aut-sec-tools')" data-en="Open support card" data-nl="Open steunkaart">Open support card</button>
         </div>
@@ -1007,6 +1047,39 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <div id="aut-resources-content"></div>
     </div>
 
+    <!-- SUPPORTER VIEW -->
+    <div class="page" id="page-supporter-view">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="For Supporters" data-nl="Voor Naasten">For Supporters</span></div>
+        <h1><span class="grad" data-en="Supporter View" data-nl="Naastenmodus">Supporter View</span></h1>
+        <p data-en="Gentle guidance for parents, partners, friends, teachers, and anyone trying to support without adding pressure." data-nl="Rustige uitleg voor ouders, partners, vrienden, docenten en iedereen die wil steunen zonder extra druk te geven.">Gentle guidance for parents, partners, friends, teachers, and anyone trying to support without adding pressure.</p>
+      </div>
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">+</div><h2 data-en="What helps" data-nl="Wat helpt">What helps</h2></div>
+        <div class="divider"></div>
+        <div class="need-grid" id="supporterHelpsGrid"></div>
+      </div>
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">!</div><h2 data-en="What to avoid" data-nl="Wat je beter vermijdt">What to avoid</h2></div>
+        <div class="divider"></div>
+        <div class="info-grid" id="supporterAvoidGrid"></div>
+      </div>
+    </div>
+
+    <!-- OVERLAP GUIDE -->
+    <div class="page" id="page-overlap-guide">
+      <div class="hero" style="margin-bottom:1rem">
+        <div class="hero-eyebrow"><span class="hero-tag" data-en="Overlap" data-nl="Overlap">Overlap</span></div>
+        <h1><span class="grad" data-en="Autism, OCD & Anxiety" data-nl="Autisme, OCS & Angst">Autism, OCD & Anxiety</span></h1>
+        <p data-en="A careful comparison for patterns that can look similar from the outside but may need different support." data-nl="Een zorgvuldige vergelijking voor patronen die van buitenaf op elkaar lijken, maar andere steun kunnen vragen.">A careful comparison for patterns that can look similar from the outside but may need different support.</p>
+      </div>
+      <div class="section">
+        <div class="sec-hd"><div class="sec-icon-wrap">∞</div><h2 data-en="Common mix-ups" data-nl="Veelvoorkomende verwarring">Common mix-ups</h2></div>
+        <div class="divider"></div>
+        <div class="contrast-grid" id="overlapGuideGrid"></div>
+      </div>
+    </div>
+
     <!-- TOOLBOX -->
     <div class="page" id="page-toolbox">
       <div class="hero" style="margin-bottom:1rem">
@@ -1288,6 +1361,27 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   <button class="float-btn" id="backToTopBtn" onclick="backToTop()" type="button" aria-label="Back to top">↑</button>
 </div>
 
+<div class="overwhelm-overlay" id="overwhelmOverlay" role="dialog" aria-modal="true" aria-label="Overwhelm reset">
+  <div class="overwhelm-panel">
+    <div class="overwhelm-top">
+      <div>
+        <div class="overwhelm-kicker" id="overwhelmKicker">Overwhelm reset</div>
+        <div class="overwhelm-count" id="overwhelmCount"></div>
+      </div>
+      <button class="mini-btn" onclick="closeOverwhelmMode()" type="button" data-en="Exit" data-nl="Sluiten">Exit</button>
+    </div>
+    <div class="overwhelm-step">
+      <div class="overwhelm-symbol" id="overwhelmSymbol">1</div>
+      <div class="overwhelm-title" id="overwhelmTitle"></div>
+      <div class="overwhelm-body" id="overwhelmBody"></div>
+    </div>
+    <div class="overwhelm-actions">
+      <button class="btn-ghost" onclick="prevOverwhelmStep()" type="button" data-en="Back" data-nl="Terug">Back</button>
+      <button class="btn-primary" onclick="nextOverwhelmStep()" type="button" id="overwhelmNextBtn">Next</button>
+    </div>
+  </div>
+</div>
+
 <script>
 let lang='en',topic='autism';
 let ocdQuizAnswers=[],autQuizAnswers=[],maskingAnswers=[];
@@ -1299,6 +1393,9 @@ let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
 let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},accommodation:{},boundary:{},explain:{},previews:{sensory:'',support:'',id:'',masking:'',interest:'',accommodation:'',boundary:'',explain:''}};
 let savedSections=[];
 let glossaryFilter='All';
+let resourceFilters={ocd:'All',autism:'All'};
+let pendingGlossarySlug='';
+let overwhelmIndex=0;
 let lowStim=false;
 let cookieMode='first';
 
@@ -1309,6 +1406,9 @@ const PAGE_SLUGS={
   'ocd-quiz':'ocd-quiz',
   'autism-resources':'autism-resources',
   'ocd-resources':'ocd-resources',
+  'ocd-compare':'ocd-compare',
+  'supporter-view':'supporter-view',
+  'overlap-guide':'overlap-guide',
   toolbox:'toolbox',
   'calm-plan':'calm-plan',
   glossary:'glossary',
@@ -1461,8 +1561,10 @@ function applyHashRoute(){
   const page=pageFromSlug(rawPage);
   const section=rawSection?sectionFromSlug(rawSection):'';
   if(!page||!document.getElementById('page-'+page))return false;
+  if(page==='glossary'&&rawSection?.startsWith('term-'))pendingGlossarySlug=rawSection.replace(/^term-/,'');
   showPage(page,null);
   if(section)setTimeout(()=>{document.getElementById(section)?.scrollIntoView({behavior:'smooth',block:'start'});updateShareUrl(page,section);},80);
+  if(page==='glossary'&&pendingGlossarySlug)setTimeout(()=>highlightGlossaryTerm(pendingGlossarySlug),120);
   return true;
 }
 function setTopic(t,btn){
@@ -1481,6 +1583,7 @@ function setLang(l){
   updateFloatingReadTools();
   buildSidebar();
   renderOCDHome();renderAutismHome();renderOCDQuiz();renderAutQuiz();renderOCDResources();renderAutResources();
+  renderOCDCompare();renderSupporterView();renderOverlapGuide();
   renderGlossary();
   renderCalmPlan();
   renderToolbox();
@@ -1798,10 +1901,38 @@ function renderGlossary(){
   });
   grid.innerHTML=filtered.map(item=>{
     const t=item[lang];
-    return `<article class="glossary-card"><span class="glossary-tag">${item.cat}</span><h3>${t.term}</h3><p>${t.desc}</p></article>`;
+    const slug=slugify(t.term);
+    return `<article class="glossary-card" id="glossary-${slug}"><span class="glossary-tag">${item.cat}</span><h3>${t.term}</h3><p>${t.desc}</p><div class="mini-actions"><button class="mini-btn" onclick="openGlossaryTerm('${slug}')">${lang==='en'?'Open link':'Open link'}</button><button class="mini-btn" onclick="copyGlossaryLink('${slug}')">${lang==='en'?'Copy':'Kopieer'}</button></div></article>`;
   }).join('');
   empty.style.display=filtered.length?'none':'block';
   empty.textContent=lang==='en'?'No matching terms yet.':'Nog geen passende termen.';
+}
+function slugify(str){
+  return String(str||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function openGlossaryTerm(slug){
+  pendingGlossarySlug=slug;
+  showPage('glossary',null);
+  setRouteHash(`glossary/term-${slug}`);
+  setTimeout(()=>highlightGlossaryTerm(slug),50);
+}
+async function copyGlossaryLink(slug){
+  const url=`${window.location.origin}${window.location.pathname}${window.location.search}#glossary/term-${slug}`;
+  try{await navigator.clipboard.writeText(url);}catch{
+    const tmp=document.createElement('textarea');tmp.value=url;document.body.appendChild(tmp);tmp.select();document.execCommand('copy');tmp.remove();
+  }
+}
+function highlightGlossaryTerm(slug){
+  const el=document.getElementById(`glossary-${slug}`);
+  if(!el)return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  highlightElement(el);
+  pendingGlossarySlug='';
+}
+function highlightElement(el){
+  if(!el)return;
+  el.classList.add('search-highlight');
+  setTimeout(()=>el.classList.remove('search-highlight'),1800);
 }
 function renderGlossaryFilters(){
   const wrap=document.getElementById('glossaryFilters');if(!wrap)return;
@@ -1831,7 +1962,7 @@ function iconSvg(name){
 function applySectionIcons(){
   const map={
     'ocd-sec-what':'brain','ocd-sec-types':'list','ocd-sec-symptoms':'search','ocd-sec-treatment':'heart','ocd-sec-tips':'spark','ocd-sec-stories':'book','ocd-sec-community':'home','ocd-sec-faq':'search','ocd-sec-crisis':'sos',
-    'aut-sec-start':'home','aut-sec-first-aid':'sos','aut-sec-what':'spark','aut-sec-myths':'search','aut-sec-chars':'list','aut-sec-sensory':'wave','aut-sec-daily':'home','aut-sec-hygiene':'heart','aut-sec-communication':'book','aut-sec-tools':'tools','aut-sec-request-tools':'book','aut-sec-burnout':'wave','aut-sec-overwhelm':'wave','aut-sec-special-interests':'heart'
+    'aut-sec-start':'home','aut-sec-first-aid':'sos','aut-sec-what':'spark','aut-sec-myths':'search','aut-sec-chars':'list','aut-sec-sensory':'wave','aut-sec-daily':'home','aut-sec-hygiene':'heart','aut-sec-communication':'book','aut-sec-tools':'tools','aut-sec-request-tools':'book','aut-sec-burnout':'wave','aut-sec-overwhelm':'wave','aut-sec-special-interests':'heart','aut-sec-supporters':'heart','aut-sec-overlap':'search'
   };
   Object.entries(map).forEach(([id,icon])=>{
     const el=document.querySelector(`#${id} .sec-icon-wrap`);
@@ -1860,6 +1991,51 @@ function renderFirstAidVisual(){
     ? ['Lower input','Use fewer words','Pick one next step']
     : ['Minder prikkels','Minder woorden','Kies een stap'];
   wrap.innerHTML=`<div class="calm-rings" aria-hidden="true"></div><div class="first-aid-steps">${steps.map((s,i)=>`<div class="first-aid-step"><span>${i+1}</span><span>${s}</span></div>`).join('')}</div>`;
+}
+
+function overwhelmSteps(){
+  return lang==='en'
+    ? [
+      ['1','Lower input','If you can, reduce sound, light, questions, touch, and movement around you.'],
+      ['2','Stop explaining','You do not need full sentences right now. Silence, text, or one word is enough.'],
+      ['3','Pick one thing','Choose only one next step: sit down, drink water, leave, bathroom, message someone.'],
+      ['4','Give your body a rhythm','Pressure, rocking, feet on the floor, a blanket, or a fidget can help your system settle.'],
+      ['5','Recovery counts','After the peak, stay low-demand. You do not have to become normal immediately.']
+    ]
+    : [
+      ['1','Minder prikkels','Verminder als dat kan geluid, licht, vragen, aanraking en beweging om je heen.'],
+      ['2','Stop met uitleggen','Je hebt nu geen volledige zinnen nodig. Stilte, tekst of een woord is genoeg.'],
+      ['3','Kies een ding','Kies maar een volgende stap: zitten, water, weggaan, wc, iemand appen.'],
+      ['4','Geef je lichaam ritme','Druk, wiegen, voeten op de vloer, een deken of friemelen kan helpen zakken.'],
+      ['5','Herstel telt','Na de piek mag het prikkelarm blijven. Je hoeft niet meteen normaal te doen.']
+    ];
+}
+function openOverwhelmMode(){
+  overwhelmIndex=0;
+  document.getElementById('overwhelmOverlay')?.classList.add('open');
+  renderOverwhelmStep();
+}
+function closeOverwhelmMode(){
+  document.getElementById('overwhelmOverlay')?.classList.remove('open');
+}
+function renderOverwhelmStep(){
+  const steps=overwhelmSteps(),step=steps[overwhelmIndex];
+  document.getElementById('overwhelmKicker').textContent=lang==='en'?'Overwhelm reset':'Overprikkeling reset';
+  document.getElementById('overwhelmCount').textContent=`${overwhelmIndex+1}/${steps.length}`;
+  document.getElementById('overwhelmSymbol').textContent=step[0];
+  document.getElementById('overwhelmTitle').textContent=step[1];
+  document.getElementById('overwhelmBody').textContent=step[2];
+  document.getElementById('overwhelmNextBtn').textContent=overwhelmIndex===steps.length-1?(lang==='en'?'Done':'Klaar'):(lang==='en'?'Next':'Volgende');
+}
+function nextOverwhelmStep(){
+  const steps=overwhelmSteps();
+  if(overwhelmIndex>=steps.length-1){closeOverwhelmMode();return;}
+  overwhelmIndex++;
+  renderOverwhelmStep();
+}
+function prevOverwhelmStep(){
+  overwhelmIndex=Math.max(0,overwhelmIndex-1);
+  renderOverwhelmStep();
 }
 
 function pageTitle(page,section=''){
@@ -1919,17 +2095,32 @@ function renderSavedSections(){
     wrap.innerHTML=`<div class="empty-state" data-illu="☆">${lang==='en'?'No saved pages yet. Use Save page from the top bar when something feels useful.':"Nog geen opgeslagen pagina's. Gebruik Pagina opslaan bovenaan wanneer iets nuttig voelt."}</div>`;
     return;
   }
-  wrap.innerHTML=`<div class="saved-list">${savedSections.map(item=>`
+  const groups=lang==='en'
+    ? [['read','Read later'],['overwhelm','Use when overwhelmed'],['show','Show someone'],['important','Important']]
+    : [['read','Later lezen'],['overwhelm','Bij overprikkeling'],['show','Aan iemand tonen'],['important','Belangrijk']];
+  const itemHtml=item=>`
     <div class="saved-item">
       <div class="saved-item-main">
         <div class="saved-item-title">${escapeHtml(item.title)}</div>
         <div class="saved-item-meta">#${escapeHtml(item.hash)}</div>
       </div>
       <div class="saved-actions">
+        <select class="saved-group-select" onchange="setSavedGroup('${item.key}',this.value)">${groups.map(([key,label])=>`<option value="${key}" ${(item.group||'read')===key?'selected':''}>${label}</option>`).join('')}</select>
         <button class="mini-btn" onclick="openSavedItem('${item.page}','${item.section||''}')">${lang==='en'?'Open':'Open'}</button>
         <button class="mini-btn" onclick="removeSavedItem('${item.key}')">${lang==='en'?'Remove':'Wissen'}</button>
       </div>
-    </div>`).join('')}</div>`;
+    </div>`;
+  wrap.innerHTML=groups.map(([key,label])=>{
+    const items=savedSections.filter(item=>(item.group||'read')===key);
+    if(!items.length)return '';
+    return `<div class="sub-lbl">${label}</div><div class="saved-list">${items.map(itemHtml).join('')}</div>`;
+  }).join('');
+}
+function setSavedGroup(key,group){
+  const item=savedSections.find(item=>item.key===key);
+  if(item)item.group=group;
+  writeSavedSections();
+  renderToolbox();
 }
 function previewValue(value,fallback){
   return value&&value.trim()?value.trim():fallback;
@@ -1955,7 +2146,7 @@ function getSearchItems(){
   const bothTopics=[...getMainLinksFor('autism'),...getMainLinksFor('ocd')];
   const routeItems=bothTopics.map(item=>({type:lang==='en'?'Page':'Pagina',title:linkLabel(item),body:item.sec?pageTitle(item.page,item.sec):'',page:item.page,section:item.sec||''}));
   const ocdTypeItems=OCD_TYPES[lang].map(t=>({type:lang==='en'?'OCD type':'OCS type',title:t.title,body:t.short,page:'ocd-type',section:'',action:()=>openOCDType(t.id)}));
-  const glossaryItems=GLOSSARY_TERMS.map(item=>({type:item.cat,title:item[lang].term,body:item[lang].desc,page:'glossary',section:''}));
+  const glossaryItems=GLOSSARY_TERMS.map(item=>({type:item.cat,title:item[lang].term,body:item[lang].desc,page:'glossary',section:'',action:()=>openGlossaryTerm(slugify(item[lang].term))}));
   const resourceItems=[...OCD_RES[lang].sections.flatMap(s=>s.items.map(i=>({type:lang==='en'?'OCD resource':'OCS bron',title:i.name,body:i.desc,page:'ocd-resources',section:''}))),...AUT_RES[lang].sections.flatMap(s=>s.items.map(i=>({type:lang==='en'?'Autism resource':'Autisme bron',title:i.name,body:i.desc,page:'autism-resources',section:''})))];
   return [...routeItems,...ocdTypeItems,...glossaryItems,...resourceItems];
 }
@@ -1983,6 +2174,7 @@ function openSearchResult(index){
   else openSavedItem(item.page,item.section);
   const input=document.getElementById('globalSearchInput');if(input)input.value='';
   closeGlobalSearch();
+  setTimeout(()=>highlightElement(item.section?document.getElementById(item.section):document.getElementById('page-'+item.page)),220);
 }
 function closeGlobalSearch(){
   const box=document.getElementById('globalSearchResults');
@@ -2007,6 +2199,8 @@ function getMainLinks(){
     {page:'ocd-home',en:'Crisis Help',nl:'Crisishulp',sec:'ocd-sec-crisis'},
     {page:'ocd-quiz',en:'Self-Assessment',nl:'Zelfbeoordeling'},
     {page:'ocd-resources',en:'Resources',nl:'Bronnen'},
+    {page:'ocd-compare',en:'Compare OCD Types',nl:'OCS soorten vergelijken'},
+    {page:'overlap-guide',en:'Autism, OCD & Anxiety',nl:'Autisme, OCS & Angst'},
     {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'},
@@ -2049,6 +2243,8 @@ function getMainLinks(){
     {page:'autism-home',en:'FAQ',nl:'FAQ',sec:'aut-sec-faq'},
     {page:'autism-quiz',en:'Self-Reflection Quiz',nl:'Zelfreflectiequiz'},
     {page:'autism-resources',en:'Resources',nl:'Bronnen'},
+    {page:'supporter-view',en:'Supporter View',nl:'Naastenmodus'},
+    {page:'overlap-guide',en:'Autism, OCD & Anxiety',nl:'Autisme, OCS & Angst'},
     {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'},
@@ -2074,6 +2270,9 @@ function buildMegaMenu(){
     {page:'disclaimer',en:'Disclaimer',nl:'Disclaimer'},
     {page:'toolbox',en:'Toolbox',nl:'Toolbox'},
     {page:'calm-plan',en:'Calm Plan',nl:'Rustplan'},
+    {page:'supporter-view',en:'Supporter View',nl:'Naastenmodus'},
+    {page:'ocd-compare',en:'OCD Compare',nl:'OCS Vergelijk'},
+    {page:'overlap-guide',en:'Overlap Guide',nl:'Overlapgids'},
     {page:'glossary',en:'Glossary',nl:'Woordenboek'}
   ];
   const typeColumn=isOCD
@@ -2807,14 +3006,71 @@ function renderAutQuiz(){
 }
 function renderOCDResources(){
   const r=OCD_RES[lang];
-  document.getElementById('ocd-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,'OCD')).join('')}</div></div>`).join('');
+  document.getElementById('ocd-resources-content').innerHTML=resourceFilterControls('ocd',r.sections)+r.sections.filter(s=>resourceFilters.ocd==='All'||s.title===resourceFilters.ocd).map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,'OCD')).join('')}</div></div>`).join('');
 }
 function renderAutResources(){
   const r=AUT_RES[lang];
-  document.getElementById('aut-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,lang==='en'?'Autism':'Autisme')).join('')}</div></div>`).join('');
+  document.getElementById('aut-resources-content').innerHTML=resourceFilterControls('autism',r.sections)+r.sections.filter(s=>resourceFilters.autism==='All'||s.title===resourceFilters.autism).map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,lang==='en'?'Autism':'Autisme')).join('')}</div></div>`).join('');
+}
+function resourceFilterControls(kind,sections){
+  const current=resourceFilters[kind];
+  const items=['All',...sections.map(s=>s.title)];
+  return `<div class="resource-filters">${items.map(item=>`<button class="filter-chip ${current===item?'active':''}" onclick="setResourceFilter('${kind}','${escapeAttr(item)}')">${item==='All'?(lang==='en'?'All':'Alles'):item}</button>`).join('')}</div>`;
+}
+function escapeAttr(str){return String(str).replace(/'/g,'&#39;');}
+function setResourceFilter(kind,value){
+  resourceFilters[kind]=value.replace(/&#39;/g,"'");
+  kind==='ocd'?renderOCDResources():renderAutResources();
 }
 function resourceCard(item,kind,topicLabel){
   return `<div class="res-card"><div class="res-badges"><span class="res-badge">${kind}</span><span class="res-badge">${topicLabel}</span></div><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`;
+}
+function renderOCDCompare(){
+  const controls=document.getElementById('ocdCompareControls');
+  const result=document.getElementById('ocdCompareResult');
+  if(!controls||!result)return;
+  const types=OCD_TYPES[lang];
+  const selectedA=document.getElementById('compareA')?.value||types[0]?.id;
+  const selectedB=document.getElementById('compareB')?.value||types[1]?.id||types[0]?.id;
+  const options=types.map(t=>`<option value="${t.id}">${t.emoji} ${t.title}</option>`).join('');
+  controls.innerHTML=`<label>${lang==='en'?'First type':'Eerste soort'}<select id="compareA">${options}</select></label><label>${lang==='en'?'Second type':'Tweede soort'}<select id="compareB">${options}</select></label><button class="btn-primary" onclick="updateOCDCompare()">${lang==='en'?'Compare':'Vergelijk'}</button>`;
+  document.getElementById('compareA').value=selectedA;
+  document.getElementById('compareB').value=selectedB;
+  updateOCDCompare();
+}
+function updateOCDCompare(){
+  const types=OCD_TYPES[lang];
+  const a=types.find(t=>t.id===(document.getElementById('compareA')?.value||types[0].id));
+  const b=types.find(t=>t.id===(document.getElementById('compareB')?.value||types[1]?.id||types[0].id));
+  const result=document.getElementById('ocdCompareResult');if(!a||!b||!result)return;
+  const rows=lang==='en'
+    ? [['Core theme',a.short,b.short],['Intrusive thoughts',a.thoughts.slice(0,3).join('\n'),b.thoughts.slice(0,3).join('\n')],['Triggers',a.triggers.slice(0,4).join('\n'),b.triggers.slice(0,4).join('\n')],['Coping focus',a.coping.slice(0,3).map(c=>c.title).join('\n'),b.coping.slice(0,3).map(c=>c.title).join('\n')]]
+    : [['Kernthema',a.short,b.short],['Opdringerige gedachten',a.thoughts.slice(0,3).join('\n'),b.thoughts.slice(0,3).join('\n')],['Triggers',a.triggers.slice(0,4).join('\n'),b.triggers.slice(0,4).join('\n')],['Coping focus',a.coping.slice(0,3).map(c=>c.title).join('\n'),b.coping.slice(0,3).map(c=>c.title).join('\n')]];
+  result.innerHTML=`<div class="compare-table"><div class="compare-row"><div class="compare-head">${lang==='en'?'Area':'Onderdeel'}</div><div class="compare-head">${a.emoji} ${a.title}</div><div class="compare-head">${b.emoji} ${b.title}</div></div>${rows.map(r=>`<div class="compare-row"><div class="compare-head">${r[0]}</div><div class="compare-cell">${lineBreaks(r[1])}</div><div class="compare-cell">${lineBreaks(r[2])}</div></div>`).join('')}</div>`;
+}
+function renderSupporterView(){
+  const helps=document.getElementById('supporterHelpsGrid'),avoid=document.getElementById('supporterAvoidGrid');
+  if(!helps||!avoid)return;
+  const h=AUT_HUB[lang];
+  helps.innerHTML=h.supporters.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
+  avoid.innerHTML=h.supporterMistakes.map(c=>infoCard(c,'myth-card')).join('');
+}
+function renderOverlapGuide(){
+  const grid=document.getElementById('overlapGuideGrid');if(!grid)return;
+  const rows=lang==='en'
+    ? [
+      ['Autistic routine','OCD compulsion','Routine lowers unpredictability and supports regulation. OCD compulsion usually tries to neutralize fear, doubt, or responsibility.'],
+      ['Sensory overwhelm','Panic or anxiety','Sensory overload is input exceeding processing capacity. Panic may come from fear signals, thoughts, or body sensations. They can overlap.'],
+      ['Need for clarity','Reassurance seeking','Clarity gives usable information. Reassurance is repeated checking for certainty that briefly soothes and then returns.'],
+      ['Shutdown','Avoidance','Shutdown can mean speech, movement, or decisions are not available. Avoidance is often a strategy to escape feared situations.']
+    ]
+    : [
+      ['Autistische routine','OCS-dwanghandeling','Routine vermindert onvoorspelbaarheid en helpt reguleren. OCS-dwang probeert meestal angst, twijfel of verantwoordelijkheid te neutraliseren.'],
+      ['Prikkeloverbelasting','Paniek of angst','Prikkeloverbelasting is meer input dan het brein kan verwerken. Paniek kan komen door angstsignalen, gedachten of lichaamssensaties. Ze kunnen overlappen.'],
+      ['Behoefte aan duidelijkheid','Geruststelling zoeken','Duidelijkheid geeft bruikbare informatie. Geruststelling is herhaald controleren op zekerheid dat kort kalmeert en daarna terugkomt.'],
+      ['Shutdown','Vermijding','Shutdown kan betekenen dat spraak, beweging of keuzes niet beschikbaar zijn. Vermijding is vaak een strategie om gevreesde situaties te ontwijken.']
+    ];
+  grid.innerHTML=rows.map(r=>`<div class="contrast-card"><h3>${r[0]} / ${r[1]}</h3><ul><li>${r[2]}</li></ul></div>`).join('');
 }
 function selQ(tp,qi,vi,btn){
   const arr=tp==='ocd'?ocdQuizAnswers:autQuizAnswers;
@@ -2852,6 +3108,7 @@ buildSidebar();
 renderOCDHome();renderAutismHome();
 renderOCDQuiz();renderAutQuiz();
 renderOCDResources();renderAutResources();
+renderOCDCompare();renderSupporterView();renderOverlapGuide();
 renderGlossary();
 bindCalmPlan();
 bindStorageSettings();
