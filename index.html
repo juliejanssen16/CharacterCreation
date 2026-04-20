@@ -21,6 +21,8 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .reading-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:transparent;z-index:220;pointer-events:none}
 .reading-progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--g1),var(--g2));transition:width .08s linear}
+.reading-section-label{position:fixed;top:3px;right:1rem;z-index:219;display:none;max-width:min(320px,calc(100vw - 2rem));border:1px solid var(--border);border-top:none;border-radius:0 0 6px 6px;background:rgba(255,255,255,.96);box-shadow:var(--shadow);color:var(--text2);font-size:.68rem;font-weight:800;padding:.28rem .55rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reading-section-label.show{display:block}
 .floating-read-tools{position:fixed;right:1rem;bottom:1rem;z-index:130;display:none;gap:.45rem;align-items:center}
 .floating-read-tools.show{display:flex}
 .float-btn{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);box-shadow:var(--shadow-md);font-family:'Inter',sans-serif;font-size:.76rem;font-weight:800;padding:.55rem .75rem;cursor:pointer}
@@ -43,6 +45,7 @@ body{background:var(--bg);min-height:100vh;font-family:'Inter',sans-serif;color:
 .share-page-btn:hover{background:var(--surface2);color:var(--text)}
 .share-page-btn.copied{border-color:rgba(5,150,105,.35);background:rgba(5,150,105,.08);color:#047857}
 .save-page-btn.saved{border-color:rgba(219,39,119,.3);background:rgba(219,39,119,.08);color:var(--pk)}
+.save-icon{font-size:.9rem;line-height:1;margin-right:.28rem;color:currentColor}
 .global-search-wrap{position:relative;flex:1;max-width:360px;margin-left:auto}
 .global-search{width:100%;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.8rem;padding:.46rem .7rem;outline:none}
 .global-search:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
@@ -131,6 +134,7 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .section{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1rem;box-shadow:var(--shadow)}
 .sec-hd{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
 .sec-icon-wrap{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--g1),var(--g2));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+.sec-icon-wrap svg{width:16px;height:16px;display:block}
 .section h2{font-size:1rem;font-weight:600;letter-spacing:-.02em;color:var(--text)}
 .section p{font-size:.84rem;color:var(--text2);line-height:1.8;margin-bottom:.65rem}
 .section p:last-child{margin-bottom:0}
@@ -229,13 +233,16 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 
 /* ── RESOURCES ── */
 .res-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem}
+.res-badges{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.45rem}
+.res-badge{display:inline-flex;align-items:center;border:1px solid rgba(124,58,237,.18);border-radius:4px;background:rgba(124,58,237,.06);color:var(--p);font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.16rem .38rem}
 .res-name{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.08rem;letter-spacing:-.01em}
 .res-author{font-size:.7rem;color:var(--p);margin-bottom:.3rem;font-weight:500}
 .res-desc{font-size:.74rem;color:var(--text2);line-height:1.6}
 
 /* ── AUTISM DEEPENING ── */
 .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.75rem;margin-top:.75rem}
-.info-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.95rem}
+.info-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.95rem;position:relative;overflow:hidden}
+.info-card[data-illu]::after{content:attr(data-illu);position:absolute;right:.65rem;bottom:.2rem;font-size:2.3rem;line-height:1;color:rgba(124,58,237,.1);font-weight:900}
 .info-kicker{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:.28rem}
 .info-title{font-size:.82rem;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:.28rem}
 .info-body{font-size:.75rem;color:var(--text2);line-height:1.65}
@@ -267,12 +274,21 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .start-card{cursor:pointer;transition:transform .12s,box-shadow .12s}
 .start-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
 .first-aid-box{background:linear-gradient(135deg,rgba(5,150,105,.08),rgba(219,39,119,.05));border:1px solid rgba(5,150,105,.18);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem}
+.first-aid-visual{display:grid;grid-template-columns:110px minmax(0,1fr);gap:1rem;align-items:center;margin:.75rem 0 1rem;padding:1rem;border:1px solid rgba(5,150,105,.18);border-radius:var(--r-sm);background:var(--surface)}
+.calm-rings{width:96px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(5,150,105,.28);display:grid;place-items:center;background:radial-gradient(circle,rgba(5,150,105,.1),rgba(255,255,255,0) 62%)}
+.calm-rings::before{content:'';width:62px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(124,58,237,.24);display:block}
+.first-aid-steps{display:grid;gap:.45rem}
+.first-aid-step{display:flex;align-items:center;gap:.55rem;font-size:.8rem;color:var(--text2);line-height:1.45}
+.first-aid-step span:first-child{width:24px;height:24px;border-radius:6px;background:var(--surface2);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:900;color:var(--p)}
 .first-aid-list{list-style:none;display:grid;gap:.5rem;margin-top:.7rem}
 .first-aid-list li{font-size:.82rem;color:var(--text2);line-height:1.65;display:flex;gap:.55rem;align-items:flex-start}
 .first-aid-list li::before{content:'✓';color:#059669;font-weight:900;flex-shrink:0}
 
 /* ── GLOSSARY ── */
 .glossary-tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:.85rem 0 1rem}
+.glossary-filters{display:flex;flex-wrap:wrap;gap:.35rem;width:100%}
+.filter-chip{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:800;padding:.38rem .62rem;cursor:pointer}
+.filter-chip.active,.filter-chip:hover{background:var(--surface2);color:var(--text);border-color:var(--border2)}
 .glossary-search{flex:1;min-width:220px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;padding:.68rem .75rem;outline:none}
 .glossary-search:focus{border-color:rgba(124,58,237,.45);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
 .glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem}
@@ -297,9 +313,11 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .support-preview-line{font-size:.8rem;color:var(--text2);line-height:1.75;margin-bottom:.35rem}
 .support-preview-line strong{color:var(--text)}
 .toolbox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.75rem;margin-top:.85rem}
-.toolbox-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem}
+.toolbox-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;position:relative;overflow:hidden;min-height:148px}
+.toolbox-card::after{content:attr(data-illu);position:absolute;right:.75rem;bottom:.25rem;font-size:3.1rem;line-height:1;color:rgba(124,58,237,.12);font-weight:900}
 .toolbox-card-title{font-size:.84rem;font-weight:800;color:var(--text);letter-spacing:-.01em;margin-bottom:.25rem}
 .toolbox-card-text{font-size:.76rem;color:var(--text2);line-height:1.65;white-space:pre-wrap}
+.toolbox-card-kicker{font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--p);margin-bottom:.38rem}
 .saved-list{display:grid;gap:.55rem;margin-top:.8rem}
 .saved-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.75rem}
 .saved-item-main{min-width:0}
@@ -308,7 +326,27 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .saved-actions{display:flex;gap:.4rem;flex-shrink:0}
 .mini-btn{border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text2);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:800;padding:.38rem .55rem;cursor:pointer}
 .mini-btn:hover{background:var(--surface);color:var(--text);border-color:var(--border2)}
-.empty-state{font-size:.8rem;color:var(--text2);line-height:1.7;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem}
+.empty-state{font-size:.8rem;color:var(--text2);line-height:1.7;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem;margin-top:.8rem;display:flex;gap:.75rem;align-items:flex-start}
+.empty-state::before{content:attr(data-illu);font-size:1.45rem;line-height:1;flex-shrink:0}
+.path-map,.ocd-cycle,.sensory-map{display:grid;gap:.75rem;margin-top:.85rem}
+.path-map{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.path-node{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface2);padding:1rem;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.path-node:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.path-icon{width:34px;height:34px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:.65rem;color:var(--p)}
+.path-title{font-size:.82rem;font-weight:800;color:var(--text);letter-spacing:-.01em;margin-bottom:.25rem}
+.path-body{font-size:.74rem;color:var(--text2);line-height:1.55}
+.ocd-cycle{grid-template-columns:repeat(6,minmax(110px,1fr));align-items:stretch}
+.cycle-step{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:.9rem;position:relative;min-height:110px}
+.cycle-step:not(:last-child)::after{content:'›';position:absolute;right:-.6rem;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--p);font-weight:900;z-index:2}
+.cycle-num{font-size:.62rem;font-weight:900;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.cycle-title{font-size:.78rem;font-weight:800;color:var(--text);margin-bottom:.2rem}
+.cycle-body{font-size:.7rem;color:var(--text2);line-height:1.45}
+.sensory-map{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
+.sensory-zone{border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);padding:.85rem}
+.sensory-meter{height:6px;border-radius:6px;background:var(--surface2);overflow:hidden;border:1px solid var(--border);margin:.55rem 0}
+.sensory-meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#059669,var(--p));transition:width .25s}
+.sensory-zone-title{font-size:.78rem;font-weight:900;color:var(--text);margin-bottom:.15rem}
+.sensory-zone-list{font-size:.72rem;color:var(--text2);line-height:1.55}
 
 /* ── STORAGE CONSENT ── */
 .storage-consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-md);padding:1rem;max-width:760px;margin:0 auto;display:none}
@@ -402,13 +440,16 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
   .hotline-grid{grid-template-columns:1fr 1fr}
   .story-grid{grid-template-columns:1fr}
   .thought-grid,.coping-grid{grid-template-columns:1fr 1fr}
+  .first-aid-visual{grid-template-columns:1fr}
+  .ocd-cycle{grid-template-columns:1fr 1fr}
+  .cycle-step:not(:last-child)::after{display:none}
   .saved-item{align-items:flex-start;flex-direction:column}
   .contrast-grid{grid-template-columns:1fr}
   .type-hero{padding:1.4rem}
   .detail-section{padding:1.2rem}
 }
 @media(max-width:400px){
-  .treat-row,.hotline-grid,.thought-grid,.coping-grid{grid-template-columns:1fr}
+  .treat-row,.hotline-grid,.thought-grid,.coping-grid,.ocd-cycle{grid-template-columns:1fr}
   .card-grid{grid-template-columns:1fr 1fr}
   .mega-menu-grid{grid-template-columns:1fr}
 }
@@ -416,6 +457,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
 </head>
 <body>
 <div class="reading-progress" aria-hidden="true"><div class="reading-progress-bar" id="readingProgressBar"></div></div>
+<div class="reading-section-label" id="readingSectionLabel"></div>
 <div class="app">
 
 <!-- TOP NAV -->
@@ -452,7 +494,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
       <span data-en="Menu" data-nl="Menu">Menu</span>
     </button>
     <button class="share-page-btn" id="sharePageBtn" onclick="shareCurrentPage()" type="button" data-en="Share page" data-nl="Deel pagina">Share page</button>
-    <button class="share-page-btn save-page-btn" id="savePageBtn" onclick="toggleSaveCurrent()" type="button" data-en="Save page" data-nl="Pagina opslaan">Save page</button>
+    <button class="share-page-btn save-page-btn" id="savePageBtn" onclick="toggleSaveCurrent()" type="button" data-en="Save page" data-nl="Pagina opslaan"><span class="save-icon" aria-hidden="true">☆</span><span class="save-text">Save page</span></button>
     <div class="global-search-wrap">
       <input class="global-search" id="globalSearchInput" type="search" placeholder="Search JourHelp..." data-placeholder-en="Search JourHelp..." data-placeholder-nl="Zoek in JourHelp..." oninput="renderGlobalSearch()" onfocus="renderGlobalSearch()" onkeydown="handleGlobalSearchKey(event)" autocomplete="off" aria-label="Search JourHelp">
       <div class="global-search-results" id="globalSearchResults"></div>
@@ -493,6 +535,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <p data-en="Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by recurring, unwanted thoughts (obsessions) and repetitive behaviors (compulsions) a person feels driven to perform to reduce anxiety." data-nl="OCS is een psychische aandoening gekenmerkt door terugkerende ongewenste gedachten (obsessies) en dwanghandelingen die iemand gedreven voelt uit te voeren om angst te verminderen.">Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by recurring, unwanted thoughts (obsessions) and repetitive behaviors (compulsions) a person feels driven to perform to reduce anxiety.</p>
         <p data-en="OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement." data-nl="OCS treft 2–3% van de wereldbevolking. Met de juiste behandeling — voornamelijk ERV-therapie — zien de meeste mensen significante verbetering.">OCD affects about 2–3% of the global population. With proper treatment — primarily ERP therapy — most people see significant improvement.</p>
         <p data-en="OCD is not about being 'a little obsessive.' The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values and character." data-nl="OCS gaat niet over 'een beetje perfectionistisch zijn'. De gedachten zijn ongewenst, verontrustend en ego-dystoon — ze voelen volledig in strijd met de echte waarden van de persoon.">OCD is not about being 'a little obsessive.' The thoughts are unwanted, distressing, and ego-dystonic — completely at odds with the person's true values and character.</p>
+        <div id="ocd-cycle-visual"></div>
       </div>
 
       <div class="section" id="ocd-sec-types">
@@ -614,6 +657,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="sec-hd"><div class="sec-icon-wrap">⌂</div><h2 data-en="Start Here" data-nl="Start Hier">Start Here</h2></div>
         <div class="divider"></div>
         <p data-en="Choose the path that fits this moment. You do not have to read everything in order." data-nl="Kies wat past bij dit moment. Je hoeft niet alles op volgorde te lezen.">Choose the path that fits this moment. You do not have to read everything in order.</p>
+        <div class="path-map" id="aut-path-map"></div>
         <div class="info-grid" id="aut-start-grid"></div>
       </div>
 
@@ -623,6 +667,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <p data-en="For moments when words, choices, noise, or touch feel like too much. This is not a crisis service, just a low-demand reset." data-nl="Voor momenten waarop woorden, keuzes, geluid of aanraking te veel voelen. Dit is geen crisishulp, maar een prikkelarme reset.">For moments when words, choices, noise, or touch feel like too much. This is not a crisis service, just a low-demand reset.</p>
         <div class="first-aid-box">
           <div class="info-title" data-en="Right now, try less." data-nl="Probeer nu minder.">Right now, try less.</div>
+          <div class="first-aid-visual" id="first-aid-visual"></div>
           <ul class="first-aid-list" id="aut-first-aid-list"></ul>
         </div>
         <div class="mini-actions">
@@ -1064,6 +1109,7 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="divider"></div>
         <div class="glossary-tools">
           <input class="glossary-search" id="glossarySearch" type="search" placeholder="Search terms..." data-placeholder-en="Search terms..." data-placeholder-nl="Zoek termen..." oninput="renderGlossary()">
+          <div class="glossary-filters" id="glossaryFilters"></div>
         </div>
         <div class="glossary-grid" id="glossaryGrid"></div>
         <div class="glossary-empty" id="glossaryEmpty" style="display:none"></div>
@@ -1253,6 +1299,7 @@ const SAVED_SECTIONS_KEY='jourhelp_saved_sections';
 let calmPlan={name:'',signs:'',helps:'',words:'',avoid:'',contacts:''};
 let autismTools={maskingAnswers:[],sensory:{},support:{},id:{},interest:{},accommodation:{},boundary:{},explain:{},previews:{sensory:'',support:'',id:'',masking:'',interest:'',accommodation:'',boundary:'',explain:''}};
 let savedSections=[];
+let glossaryFilter='All';
 let lowStim=false;
 let cookieMode='first';
 
@@ -1385,12 +1432,19 @@ async function shareCurrentPage(){
 }
 function updateReadingProgress(){
   const bar=document.getElementById('readingProgressBar');
+  const label=document.getElementById('readingSectionLabel');
   const active=document.querySelector('.page.active');
   if(!bar||!active)return;
   const rect=active.getBoundingClientRect();
   const total=Math.max(1,active.scrollHeight-window.innerHeight);
   const read=Math.min(total,Math.max(0,-rect.top));
   bar.style.width=`${Math.round((read/total)*100)}%`;
+  if(label){
+    const section=visibleSectionId();
+    const title=section?pageTitle(activePageId(),section):pageTitle(activePageId());
+    label.textContent=title;
+    label.classList.toggle('show',window.scrollY>220&&!!title);
+  }
   updateFloatingReadTools();
 }
 function backToTop(){
@@ -1736,9 +1790,12 @@ function renderGlossary(){
   const grid=document.getElementById('glossaryGrid'),empty=document.getElementById('glossaryEmpty');
   if(!grid||!empty)return;
   const query=(document.getElementById('glossarySearch')?.value||'').trim().toLowerCase();
+  renderGlossaryFilters();
   const filtered=GLOSSARY_TERMS.filter(item=>{
     const t=item[lang];
-    return !query||item.cat.toLowerCase().includes(query)||t.term.toLowerCase().includes(query)||t.desc.toLowerCase().includes(query);
+    const matchesFilter=glossaryFilter==='All'||item.cat===glossaryFilter;
+    const matchesQuery=!query||item.cat.toLowerCase().includes(query)||t.term.toLowerCase().includes(query)||t.desc.toLowerCase().includes(query);
+    return matchesFilter&&matchesQuery;
   });
   grid.innerHTML=filtered.map(item=>{
     const t=item[lang];
@@ -1746,6 +1803,64 @@ function renderGlossary(){
   }).join('');
   empty.style.display=filtered.length?'none':'block';
   empty.textContent=lang==='en'?'No matching terms yet.':'Nog geen passende termen.';
+}
+function renderGlossaryFilters(){
+  const wrap=document.getElementById('glossaryFilters');if(!wrap)return;
+  const cats=['All',...new Set(GLOSSARY_TERMS.map(item=>item.cat))];
+  wrap.innerHTML=cats.map(cat=>`<button class="filter-chip ${glossaryFilter===cat?'active':''}" onclick="setGlossaryFilter('${cat}')">${cat==='All'?(lang==='en'?'All':'Alles'):cat}</button>`).join('');
+}
+function setGlossaryFilter(cat){
+  glossaryFilter=cat;
+  renderGlossary();
+}
+
+function iconSvg(name){
+  const icons={
+    brain:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M8 7a4 4 0 0 1 8 0v10a4 4 0 0 1-8 0V7Zm4-3v16M8 9H5a3 3 0 0 0 0 6h3m8-6h3a3 3 0 0 1 0 6h-3"/></svg>',
+    list:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>',
+    search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="m16 16 5 5"/></svg>',
+    heart:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c0 6-8 11-8 11Z"/></svg>',
+    spark:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2v6m0 8v6M2 12h6m8 0h6m-3.5-6.5-4 4m-5 5-4 4m13 0-4-4m-5-5-4-4"/></svg>',
+    wave:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg>',
+    home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 11 12 4l8 7v9H6v-9"/></svg>',
+    tools:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 20 14 10m-4-6 10 10M7 17l-2 2m9-15 6 6"/></svg>',
+    book:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 4h9a4 4 0 0 1 4 4v12H9a4 4 0 0 0-4 4V4Z"/></svg>',
+    sos:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3v18M3 12h18M6 6l12 12M18 6 6 18"/></svg>'
+  };
+  return icons[name]||icons.spark;
+}
+function applySectionIcons(){
+  const map={
+    'ocd-sec-what':'brain','ocd-sec-types':'list','ocd-sec-symptoms':'search','ocd-sec-treatment':'heart','ocd-sec-tips':'spark','ocd-sec-stories':'book','ocd-sec-community':'home','ocd-sec-faq':'search','ocd-sec-crisis':'sos',
+    'aut-sec-start':'home','aut-sec-first-aid':'sos','aut-sec-what':'spark','aut-sec-myths':'search','aut-sec-chars':'list','aut-sec-sensory':'wave','aut-sec-daily':'home','aut-sec-hygiene':'heart','aut-sec-communication':'book','aut-sec-tools':'tools','aut-sec-request-tools':'book','aut-sec-burnout':'wave','aut-sec-overwhelm':'wave','aut-sec-special-interests':'heart'
+  };
+  Object.entries(map).forEach(([id,icon])=>{
+    const el=document.querySelector(`#${id} .sec-icon-wrap`);
+    if(el)el.innerHTML=iconSvg(icon);
+  });
+}
+
+function renderOCDCycle(){
+  const wrap=document.getElementById('ocd-cycle-visual');if(!wrap)return;
+  const steps=lang==='en'
+    ? [['01','Trigger','Something sparks uncertainty or distress.'],['02','Intrusive thought','A thought, image, urge, or doubt appears.'],['03','Anxiety','The body treats the doubt like danger.'],['04','Compulsion','Checking, washing, asking, reviewing, avoiding.'],['05','Relief','The anxiety drops for a short moment.'],['06','Loop strengthens','The brain learns the ritual was needed.']]
+    : [['01','Trigger','Iets roept onzekerheid of spanning op.'],['02','Opdringerige gedachte','Een gedachte, beeld, drang of twijfel verschijnt.'],['03','Angst','Het lichaam behandelt twijfel als gevaar.'],['04','Dwang','Controleren, wassen, vragen, herhalen, vermijden.'],['05','Opluchting','De spanning zakt heel even.'],['06','Lus wordt sterker','Het brein leert dat het ritueel nodig was.']];
+  wrap.innerHTML=`<div class="sub-lbl">${lang==='en'?'The OCD cycle':'De OCS-cyclus'}</div><div class="ocd-cycle">${steps.map(s=>`<div class="cycle-step"><div class="cycle-num">${s[0]}</div><div class="cycle-title">${s[1]}</div><div class="cycle-body">${s[2]}</div></div>`).join('')}</div>`;
+}
+
+function renderPathMap(){
+  const wrap=document.getElementById('aut-path-map');if(!wrap)return;
+  const paths=AUT_HUB[lang].start;
+  const icons=['search','sos','book','tools','heart','wave'];
+  wrap.innerHTML=paths.map((p,i)=>`<div class="path-node" onclick="scrollSec('${p.sec}')"><div class="path-icon">${iconSvg(icons[i])}</div><div class="path-title">${p.t}</div><div class="path-body">${p.b}</div></div>`).join('');
+}
+
+function renderFirstAidVisual(){
+  const wrap=document.getElementById('first-aid-visual');if(!wrap)return;
+  const steps=lang==='en'
+    ? ['Lower input','Use fewer words','Pick one next step']
+    : ['Minder prikkels','Minder woorden','Kies een stap'];
+  wrap.innerHTML=`<div class="calm-rings" aria-hidden="true"></div><div class="first-aid-steps">${steps.map((s,i)=>`<div class="first-aid-step"><span>${i+1}</span><span>${s}</span></div>`).join('')}</div>`;
 }
 
 function pageTitle(page,section=''){
@@ -1771,7 +1886,7 @@ function updateSaveButton(){
   const btn=document.getElementById('savePageBtn');if(!btn)return;
   const saved=isSavedTarget();
   btn.classList.toggle('saved',saved);
-  btn.textContent=lang==='en'?(saved?'Saved':'Save page'):(saved?'Opgeslagen':'Pagina opslaan');
+  btn.innerHTML=`<span class="save-icon" aria-hidden="true">${saved?'★':'☆'}</span><span class="save-text">${lang==='en'?(saved?'Saved':'Save page'):(saved?'Opgeslagen':'Pagina opslaan')}</span>`;
 }
 function toggleSaveCurrent(){
   const target=getCurrentSaveTarget();
@@ -1798,11 +1913,11 @@ function removeSavedItem(key){
 function renderSavedSections(){
   const wrap=document.getElementById('savedSectionsList');if(!wrap)return;
   if(!storageAllowed()){
-    wrap.innerHTML=`<div class="empty-state">${lang==='en'?'Turn on local saving to keep saved pages on this device.':"Zet lokaal opslaan aan om pagina's op dit apparaat te bewaren."}</div>`;
+    wrap.innerHTML=`<div class="empty-state" data-illu="☆">${lang==='en'?'Turn on local saving to keep saved pages on this device.':"Zet lokaal opslaan aan om pagina's op dit apparaat te bewaren."}</div>`;
     return;
   }
   if(!savedSections.length){
-    wrap.innerHTML=`<div class="empty-state">${lang==='en'?'No saved pages yet. Use Save page from the top bar when something feels useful.':"Nog geen opgeslagen pagina's. Gebruik Pagina opslaan bovenaan wanneer iets nuttig voelt."}</div>`;
+    wrap.innerHTML=`<div class="empty-state" data-illu="☆">${lang==='en'?'No saved pages yet. Use Save page from the top bar when something feels useful.':"Nog geen opgeslagen pagina's. Gebruik Pagina opslaan bovenaan wanneer iets nuttig voelt."}</div>`;
     return;
   }
   wrap.innerHTML=`<div class="saved-list">${savedSections.map(item=>`
@@ -1827,14 +1942,14 @@ function renderToolbox(){
     const hasCalm=Object.values(calmPlan).some(v=>v);
     calm.innerHTML=hasCalm
       ? `<div class="support-preview">${document.getElementById('calmPreview')?.innerHTML||''}</div><div class="mini-actions"><button class="btn-primary" onclick="showPage('calm-plan',null)">${lang==='en'?'Edit Calm Plan':'Rustplan bewerken'}</button></div>`
-      : `<div class="empty-state">${lang==='en'?'Your Calm Plan is empty for now.':'Je Rustplan is nu nog leeg.'}</div><div class="mini-actions"><button class="btn-primary" onclick="showPage('calm-plan',null)">${lang==='en'?'Create Calm Plan':'Maak Rustplan'}</button></div>`;
+      : `<div class="empty-state" data-illu="♡">${lang==='en'?'Your Calm Plan is empty for now.':'Je Rustplan is nu nog leeg.'}</div><div class="mini-actions"><button class="btn-primary" onclick="showPage('calm-plan',null)">${lang==='en'?'Create Calm Plan':'Maak Rustplan'}</button></div>`;
   }
   const grid=document.getElementById('toolboxToolsGrid');
   if(grid){
     const labels=lang==='en'
-      ? [['Sensory profile','sensory'],['Support card','support'],['Autism card','id'],['Special interest card','interest'],['Accommodation request','accommodation'],['Boundary script','boundary'],['Autism explanation','explain']]
-      : [['Sensorisch profiel','sensory'],['Steunkaart','support'],['Autismekaart','id'],['Speciale interessekaart','interest'],['Aanpassingsverzoek','accommodation'],['Grens-script','boundary'],['Autisme-uitleg','explain']];
-    grid.innerHTML=labels.map(([title,key])=>`<div class="toolbox-card"><div class="toolbox-card-title">${title}</div><div class="toolbox-card-text">${escapeHtml(previewValue(autismTools.previews?.[key],lang==='en'?'Not created yet.':'Nog niet gemaakt.'))}</div></div>`).join('');
+      ? [['Sensory profile','sensory','≋'],['Support card','support','+'],['Autism card','id','ID'],['Special interest card','interest','★'],['Accommodation request','accommodation','✉'],['Boundary script','boundary','|'],['Autism explanation','explain','Aa']]
+      : [['Sensorisch profiel','sensory','≋'],['Steunkaart','support','+'],['Autismekaart','id','ID'],['Speciale interessekaart','interest','★'],['Aanpassingsverzoek','accommodation','✉'],['Grens-script','boundary','|'],['Autisme-uitleg','explain','Aa']];
+    grid.innerHTML=labels.map(([title,key,illu])=>`<div class="toolbox-card" data-illu="${illu}"><div class="toolbox-card-kicker">${lang==='en'?'Tool':'Tool'}</div><div class="toolbox-card-title">${title}</div><div class="toolbox-card-text">${escapeHtml(previewValue(autismTools.previews?.[key],lang==='en'?'Not created yet.':'Nog niet gemaakt.'))}</div></div>`).join('');
   }
 }
 function getSearchItems(){
@@ -2457,6 +2572,8 @@ const AUT_RES={
 // ── RENDER ────────────────────────────────────────────────────
 function renderOCDHome(){
   const d=OCD_D[lang];const types=OCD_TYPES[lang];
+  applySectionIcons();
+  renderOCDCycle();
   document.getElementById('ocd-types-grid').innerHTML=types.map(t=>`<div class="card" onclick="openOCDType('${t.id}')"><span class="card-em">${t.emoji}</span><div class="card-title">${t.title}</div><div class="card-body">${t.short}</div><div class="card-more">${lang==='en'?'Read full guide →':'Lees volledige gids →'}</div></div>`).join('');
   document.getElementById('ocd-pills-obs').innerHTML=d.obs.map(p=>`<span class="pill po">${p}</span>`).join('');
   document.getElementById('ocd-pills-comp').innerHTML=d.comp.map(p=>`<span class="pill pc">${p}</span>`).join('');
@@ -2482,6 +2599,9 @@ function renderAutismHome(){
   const d=AUT_D[lang];
   const e=AUT_EXT[lang];
   const h=AUT_HUB[lang];
+  applySectionIcons();
+  renderPathMap();
+  renderFirstAidVisual();
   document.getElementById('aut-start-grid').innerHTML=h.start.map(c=>`<div class="info-card start-card" onclick="scrollSec('${c.sec}')"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-first-aid-list').innerHTML=h.firstAid.map(item=>`<li>${item}</li>`).join('');
   document.getElementById('aut-pills-social').innerHTML=d.social.map(p=>`<span class="pill po">${p}</span>`).join('');
@@ -2498,7 +2618,7 @@ function renderAutismHome(){
   document.getElementById('aut-masking-grid').innerHTML=e.masking.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-self-diagnosis-grid').innerHTML=e.selfDiagnosis.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-research-checklist').innerHTML=h.researchChecklist.map((item,i)=>`<label class="check-chip"><input type="checkbox"><span>${i+1}. ${item}</span></label>`).join('');
-  document.getElementById('aut-overwhelm-grid').innerHTML=e.overwhelm.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
+  document.getElementById('aut-overwhelm-grid').innerHTML=e.overwhelm.map(c=>infoCard(c)).join('');
   document.getElementById('aut-overwhelm-needs').innerHTML=e.overwhelmNeeds.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
   document.getElementById('aut-burnout-grid').innerHTML=h.burnout.map(c=>infoCard(c)).join('');
   document.getElementById('aut-life-grid').innerHTML=e.life.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
@@ -2521,8 +2641,21 @@ function renderAutismHome(){
   document.getElementById('aut-story-grid').innerHTML=d.stories.map(s=>`<div class="story-card"><div class="story-text">${s.text}</div><div class="story-name">${s.name}</div><div class="story-tag">${lang==='en'?'Autism':'Autisme'}</div></div>`).join('');
   document.getElementById('aut-faq-list').innerHTML=d.faq.map(f=>`<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">${f.q}<span class="faq-arr">▾</span></div><div class="faq-a">${f.a}</div></div>`).join('');
 }
+function cardIllustration(c){
+  const text=`${c.k||''} ${c.t||''}`.toLowerCase();
+  if(text.includes('meltdown'))return '!';
+  if(text.includes('shutdown'))return '…';
+  if(text.includes('burn'))return '▾';
+  if(text.includes('mask'))return '◐';
+  if(text.includes('sensory')||text.includes('sound')||text.includes('geluid'))return '≋';
+  if(text.includes('joy')||text.includes('vreugde'))return '★';
+  if(text.includes('support')||text.includes('steun'))return '+';
+  if(text.includes('trauma'))return '◇';
+  return '';
+}
 function infoCard(c,cls=''){
-  return `<div class="info-card ${cls}"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`;
+  const illu=cardIllustration(c);
+  return `<div class="info-card ${cls}" ${illu?`data-illu="${illu}"`:''}><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`;
 }
 function renderAutismTools(){
   const h=AUT_HUB[lang];
@@ -2571,7 +2704,14 @@ function sensoryCatLabel(cat){
 function generateSensoryProfile(){
   const h=AUT_HUB[lang],cats=Object.keys(h.sensoryTool);
   const lines=cats.map(cat=>`${sensoryCatLabel(cat)}: ${checkedSensory(cat).join(', ')||'-'}`);
-  document.getElementById('aut-sensory-profile').textContent=(lang==='en'?'My sensory profile':'Mijn sensorisch profiel')+'\n\n'+lines.join('\n');
+  const profile=document.getElementById('aut-sensory-profile');
+  profile.textContent=(lang==='en'?'My sensory profile':'Mijn sensorisch profiel')+'\n\n'+lines.join('\n');
+  const max=Math.max(...cats.map(cat=>h.sensoryTool[cat].length),1);
+  profile.innerHTML=`<strong>${lang==='en'?'My sensory profile':'Mijn sensorisch profiel'}</strong><div class="sensory-map">${cats.map(cat=>{
+    const items=checkedSensory(cat);
+    const pct=Math.round((items.length/max)*100);
+    return `<div class="sensory-zone"><div class="sensory-zone-title">${sensoryCatLabel(cat)}</div><div class="sensory-meter"><span style="width:${pct}%"></span></div><div class="sensory-zone-list">${escapeHtml(items.join(', ')||'-')}</div></div>`;
+  }).join('')}</div>`;
   if(storageAllowed())writeAutismTools();
 }
 function fieldValue(prefix,id){
@@ -2669,11 +2809,14 @@ function renderAutQuiz(){
 }
 function renderOCDResources(){
   const r=OCD_RES[lang];
-  document.getElementById('ocd-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>`<div class="res-card"><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`).join('')}</div></div>`).join('');
+  document.getElementById('ocd-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,'OCD')).join('')}</div></div>`).join('');
 }
 function renderAutResources(){
   const r=AUT_RES[lang];
-  document.getElementById('aut-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>`<div class="res-card"><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`).join('')}</div></div>`).join('');
+  document.getElementById('aut-resources-content').innerHTML=r.sections.map(s=>`<div class="section" style="margin-bottom:1rem"><div class="sec-hd"><div class="sec-icon-wrap" style="font-size:.9rem">${s.icon}</div><h2>${s.title}</h2></div><div class="divider"></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">${s.items.map(item=>resourceCard(item,s.title,lang==='en'?'Autism':'Autisme')).join('')}</div></div>`).join('');
+}
+function resourceCard(item,kind,topicLabel){
+  return `<div class="res-card"><div class="res-badges"><span class="res-badge">${kind}</span><span class="res-badge">${topicLabel}</span></div><div class="res-name">${item.name}</div><div class="res-author">${item.author}</div><div class="res-desc">${item.desc}</div></div>`;
 }
 function selQ(tp,qi,vi,btn){
   const arr=tp==='ocd'?ocdQuizAnswers:autQuizAnswers;
