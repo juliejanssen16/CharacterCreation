@@ -658,7 +658,6 @@ body.low-stim .footer-wordmark{-webkit-text-stroke:1px rgba(255,255,255,.48)}
         <div class="divider"></div>
         <p data-en="Choose the path that fits this moment. You do not have to read everything in order." data-nl="Kies wat past bij dit moment. Je hoeft niet alles op volgorde te lezen.">Choose the path that fits this moment. You do not have to read everything in order.</p>
         <div class="path-map" id="aut-path-map"></div>
-        <div class="info-grid" id="aut-start-grid"></div>
       </div>
 
       <div class="section" id="aut-sec-first-aid">
@@ -2602,7 +2601,6 @@ function renderAutismHome(){
   applySectionIcons();
   renderPathMap();
   renderFirstAidVisual();
-  document.getElementById('aut-start-grid').innerHTML=h.start.map(c=>`<div class="info-card start-card" onclick="scrollSec('${c.sec}')"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-first-aid-list').innerHTML=h.firstAid.map(item=>`<li>${item}</li>`).join('');
   document.getElementById('aut-pills-social').innerHTML=d.social.map(p=>`<span class="pill po">${p}</span>`).join('');
   document.getElementById('aut-pills-sensory').innerHTML=d.sensory.map(p=>`<span class="pill pp">${p}</span>`).join('');
