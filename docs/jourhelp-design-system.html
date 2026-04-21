@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JourHelp Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ui-ink:#25262d;
+      --ui-text:#525250;
+      --ui-muted:#9c9b99;
+      --ui-border:#e8e8e6;
+      --ui-border-strong:#e6c1cf;
+      --ui-bg:#fff;
+      --ui-bg-subtle:#f7f7f6;
+      --ui-sidebar:#f7f7f5;
+      --ui-bg-warm:#fff7fa;
+      --ui-surface:#fff;
+      --ui-accent:#ffb7ce;
+      --ui-accent-ink:#7a4a5a;
+      --ui-focus:rgba(255,183,206,.24);
+      --ui-code:#25262d;
+      --ui-code-text:#fff9fb;
+      --chip-blue:#1d4ed8;
+      --chip-blue-bg:rgba(29,78,216,.06);
+      --chip-blue-border:rgba(29,78,216,.18);
+      --chip-green:#047857;
+      --chip-green-bg:rgba(4,120,87,.06);
+      --chip-green-border:rgba(4,120,87,.18);
+      --chip-purple:#7a4a5a;
+      --chip-purple-bg:rgba(122,74,90,.08);
+      --chip-purple-border:rgba(122,74,90,.18);
+      --font-sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --font-mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      --sidebar-w:292px;
+      --header-h:72px;
+      --doc-max:1240px;
+      --doc-pad:52px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:136px}
+    body{margin:0;background:var(--ui-bg);color:var(--ui-text);font:400 15px/1.65 var(--font-sans);-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    code,pre{font-family:var(--font-mono)}
+    p{margin:0 0 12px}
+
+    .top{position:fixed;inset:0 0 auto 0;min-height:var(--header-h);background:var(--ui-ink);color:#fff;z-index:50;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:18px 28px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .top h1{margin:0;font:700 20px/1 var(--font-sans);letter-spacing:-.02em}
+    .tag{display:inline-flex;align-items:center;justify-content:center;margin-left:12px;padding:4px 8px;border-radius:999px;font:500 11px/1 var(--font-mono);letter-spacing:.05em;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75)}
+    .top-meta{font:400 12px/1.45 var(--font-mono);color:rgba(255,255,255,.58);text-align:right;max-width:420px}
+    .top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .top-copy-btn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;font:600 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}
+    .top-copy-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.24)}
+    .top-copy-note{font:400 11px/1.5 var(--font-mono);color:rgba(255,255,255,.5);margin-top:10px}
+
+    .app{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);min-height:100vh}
+    .sidebar{position:sticky;top:118px;height:calc(100vh - 118px);overflow:auto;background:var(--ui-sidebar);border-right:1px solid var(--ui-border);padding:24px 0 40px;margin-top:118px}
+    .search-wrap{padding:0 22px 18px;border-bottom:1px solid var(--ui-border);margin-bottom:14px}
+    .search-label,.side-label{display:block;font:600 10px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ui-muted)}
+    .search-label{margin-bottom:8px}
+    .search-input{width:100%;height:42px;padding:0 14px;border:1px solid var(--ui-border);border-radius:10px;background:#fff;color:var(--ui-ink);font:400 14px/1 var(--font-sans);outline:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+    .search-input:focus{border-color:var(--ui-border-strong);box-shadow:0 0 0 4px var(--ui-focus);transform:translateY(-1px)}
+    .search-hint{margin-top:8px;font:400 11px/1.5 var(--font-mono);color:var(--ui-muted)}
+    .side-label{padding:0 22px 10px;margin-top:14px}
+    .sidebar a{display:block;padding:9px 22px;color:var(--ui-text);font:400 14px/1.35 var(--font-sans);border-left:2px solid transparent;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+    .sidebar a:hover{background:rgba(0,0,0,.04);border-left-color:var(--ui-border);color:var(--ui-ink);transform:translateX(3px)}
+
+    .main{margin-top:118px;min-width:0;background:var(--ui-surface)}
+    .hero{background:linear-gradient(180deg,#fff 0%,#fbfbfa 100%);border-bottom:1px solid var(--ui-border)}
+    .hero-inner{max-width:var(--doc-max);padding:56px var(--doc-pad) 54px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 12px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ui-accent-ink);margin-bottom:18px}
+    .eyebrow::before{content:"";width:24px;height:1.5px;background:var(--ui-accent)}
+    .hero h2{margin:0;font:700 clamp(36px,4vw,60px)/1.02 var(--font-sans);color:var(--ui-ink);letter-spacing:-.03em;max-width:900px}
+    .hero p{margin:18px 0 0;max-width:840px;font:400 18px/1.7 var(--font-sans);color:var(--ui-text)}
+
+    .section{max-width:var(--doc-max);padding:54px var(--doc-pad);border-bottom:1px solid var(--ui-border)}
+    .section-head{margin-bottom:26px}
+    .section-num{font:500 12px/1 var(--font-mono);letter-spacing:.12em;color:var(--ui-accent-ink);text-transform:uppercase;margin-bottom:10px}
+    .section h3{margin:0;font:700 30px/1.08 var(--font-sans);color:var(--ui-ink);letter-spacing:-.02em}
+    .section-desc{margin-top:10px;max-width:900px;font:400 15px/1.7 var(--font-sans);color:var(--ui-muted)}
+    .subhead{font:600 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ui-muted);margin:28px 0 12px}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--ui-surface);border:1px solid var(--ui-border);border-radius:12px;padding:18px;min-width:0;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(37,38,45,.06);border-color:var(--ui-border-strong);background:#fffafd}
+    .card h4{margin:0 0 10px;font:600 18px/1.2 var(--font-sans);color:var(--ui-ink);letter-spacing:0}
+    .callout{background:var(--ui-bg-subtle);border:1px solid var(--ui-border);border-radius:14px;padding:18px 20px;margin:18px 0 0}
+    .callout strong{color:var(--ui-ink)}
+
+    table{width:100%;border-collapse:collapse;border:1px solid var(--ui-border);border-radius:10px;overflow:hidden;background:#fff}
+    th{text-align:left;padding:12px 14px;background:var(--ui-bg-subtle);border-bottom:1px solid var(--ui-border);font:600 11px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ui-muted);vertical-align:top}
+    td{padding:12px 14px;border-bottom:1px solid var(--ui-border);font:400 14px/1.55 var(--font-sans);color:var(--ui-text);vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#fffafd}
+
+    .token,.klass,.element,.value{font:500 12px/1.2 var(--font-mono);border-radius:6px;padding:3px 8px;display:inline-block;white-space:nowrap}
+    .token{color:var(--chip-blue);background:var(--chip-blue-bg);border:1px solid var(--chip-blue-border)}
+    .klass{color:var(--chip-green);background:var(--chip-green-bg);border:1px solid var(--chip-green-border)}
+    .element{color:var(--chip-purple);background:var(--chip-purple-bg);border:1px solid var(--chip-purple-border)}
+    .value{font-weight:400;color:var(--ui-muted);background:var(--ui-bg-subtle);border:1px solid var(--ui-border)}
+    .rules,.spec-list{display:grid;gap:10px;margin:0;padding-left:18px}
+    pre{margin:10px 0 0;padding:14px 16px;background:var(--ui-code);color:var(--ui-code-text);border-radius:10px;overflow:auto;font:400 12px/1.6 var(--font-mono)}
+
+    .color-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px}
+    .swatch-card{background:#fff;border:1px solid var(--ui-border);border-radius:14px;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s}
+    .swatch-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(37,38,45,.06);border-color:var(--ui-border-strong)}
+    .swatch-preview{height:78px;border-bottom:1px solid var(--ui-border)}
+    .swatch-meta{padding:14px}
+    .swatch-name{font:800 12px/1.3 var(--font-mono);color:var(--ui-ink)}
+    .swatch-hex{margin-top:6px;font:500 12px/1.2 var(--font-mono);color:var(--ui-muted)}
+    .swatch-use{margin-top:8px;font:400 13px/1.5 var(--font-sans);color:var(--ui-text)}
+    .color-preview{width:44px;height:28px;border-radius:8px;border:1px solid rgba(0,0,0,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.24)}
+
+    .preview-panel{background:var(--ui-bg-subtle);border:1px solid var(--ui-border);border-radius:14px;padding:18px;margin-top:18px}
+    .preview-title{font:600 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ui-muted);margin-bottom:14px}
+    .component-preview{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .preview-btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:4px;font:500 16px/1 var(--font-sans);border:none;cursor:default}
+    .preview-btn.primary{background:var(--ui-accent);color:#5f3443}
+    .preview-btn.ghost{background:transparent;color:#161616;border:1.5px solid rgba(0,0,0,.14)}
+    .preview-btn.soft{background:var(--ui-bg-warm);color:var(--ui-accent-ink)}
+    .preview-label{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--ui-accent-ink)}
+    .preview-label:before{content:"";width:24px;height:1.5px;background:var(--ui-accent)}
+    .jh-shell{background:#fff9fb;border:1px solid var(--ui-border);border-radius:8px;overflow:hidden}
+    .jh-topnav{height:58px;display:flex;align-items:center;gap:12px;padding:0 18px;background:#fff;border-bottom:1px solid var(--ui-border)}
+    .jh-logo{width:130px;height:26px;border-radius:6px;background:linear-gradient(135deg,#ffb7ce,#ffe1eb)}
+    .jh-tab{padding:6px 12px;border-radius:6px;background:#fff1f6;color:var(--ui-ink);font-size:12px;font-weight:800}
+    .jh-search{margin-left:auto;width:210px;height:34px;border:1px solid var(--ui-border);border-radius:6px;background:#fff}
+    .jh-content{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px}
+    .jh-hero{background:linear-gradient(135deg,#fff,#fff7fa);border:1px solid var(--ui-border);border-radius:8px;padding:20px}
+    .jh-hero strong{display:block;color:var(--ui-ink);font-size:22px;line-height:1.1;letter-spacing:-.03em;margin-bottom:8px}
+    .jh-hero span,.jh-card span{display:block;color:var(--ui-text);font-size:13px;line-height:1.6}
+    .jh-card{background:#fff;border:1px solid var(--ui-border);border-radius:8px;padding:16px}
+    .jh-card b{display:block;color:var(--ui-ink);margin-bottom:6px}
+    .lowstim-preview{background:#f7f7f8;border-color:#e4e4e7}
+    .lowstim-preview .jh-topnav,.lowstim-preview .jh-card{border-color:#e4e4e7}
+    .lowstim-preview .jh-logo,.lowstim-preview .jh-tab{background:#f1f2f3;color:#202124}
+    .type-preview{display:grid;gap:0}
+    .type-row{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start;padding:18px 0;border-bottom:1px solid var(--ui-border)}
+    .type-row:first-child{padding-top:0}
+    .type-row:last-child{border-bottom:none;padding-bottom:0}
+    .type-meta{display:grid;gap:8px;align-content:start}
+    .type-note{font:500 12px/1.45 var(--font-mono);color:var(--ui-muted)}
+    .type-sample{color:var(--ui-ink);min-width:0}
+    .type-sample.hero-title{font:700 57px/1.02 var(--font-sans);letter-spacing:-.03em}
+    .type-sample.section-title{font:700 32px/1.08 var(--font-sans);letter-spacing:-.02em}
+    .type-sample.body-copy{font:400 18px/1.75 var(--font-sans);color:var(--ui-text);max-width:780px}
+    .type-sample.functional{font:700 43px/1.06 var(--font-sans);letter-spacing:-.03em}
+    .space-table th:first-child,.space-table td:first-child{width:128px}
+    .space-demo{display:flex;align-items:center;gap:10px}
+    .space-demo-track{width:112px;height:18px;display:flex;align-items:center}
+    .space-demo-bar{height:10px;background:var(--ui-accent);border-radius:999px;min-width:4px}
+    .space-demo-size{font:500 11px/1 var(--font-mono);color:var(--ui-muted)}
+    .class-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+    .class-box{background:#fff;border:1px solid var(--ui-border);border-radius:8px;padding:18px}
+    .class-box h4{margin:0 0 12px;font:800 18px/1.2 var(--font-sans);color:var(--ui-ink)}
+    .class-list{display:grid;gap:8px}
+    .class-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--ui-border)}
+    .class-item:last-child{border-bottom:none;padding-bottom:0}
+    .class-note{font:400 13px/1.5 var(--font-sans);color:var(--ui-muted)}
+    .class-table td:first-child{width:220px}
+    .class-table td:nth-child(2){width:260px}
+    .token-preview-strip{display:flex;flex-wrap:wrap;gap:10px}
+    .is-hidden-by-search{display:none !important}
+
+    @media (max-width:1180px){.grid-3,.class-index{grid-template-columns:1fr 1fr}}
+    @media (max-width:980px){
+      .app{grid-template-columns:1fr}
+      .sidebar{display:none}
+      .top{padding:18px}
+      .top-meta{display:none}
+      .hero-inner,.section{padding-left:22px;padding-right:22px}
+      .grid-2,.grid-3,.class-index,.jh-content{grid-template-columns:1fr}
+      .jh-search{display:none}
+    }
+    @media (max-width:620px){
+      .top{position:static}
+      .main{margin-top:0}
+      .top-actions{gap:8px}
+      .top-copy-btn{width:100%}
+      .type-row{grid-template-columns:1fr}
+      .section{padding-top:36px;padding-bottom:36px}
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>JourHelp Design System <span class="tag">Canonical</span></h1>
+      <div class="top-actions">
+        <button class="top-copy-btn" type="button" id="copy-variables-json">Copy JSON variables</button>
+        <button class="top-copy-btn" type="button" id="copy-classes-json">Copy JSON classes</button>
+      </div>
+      <div class="top-copy-note">Voor snelle import, documentatie of refactor naar een tokenlaag.</div>
+    </div>
+    <div class="top-meta">
+      Canonieke designrichtlijnen voor JourHelp<br>
+      Opgezet voor rustige neurodivergentie-informatie, tools, research en support flows
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="search-wrap">
+        <label class="search-label" for="doc-search">Zoeken</label>
+        <input id="doc-search" class="search-input" type="search" placeholder="Zoek op token, class, sectie of component">
+        <div class="search-hint">Filtert live op navigatie, secties en class reference.</div>
+      </div>
+
+      <div class="side-group">
+        <div class="side-label">Overzicht</div>
+        <a href="#doel">01 · Doel en scope</a>
+        <a href="#principes">02 · Basisprincipes</a>
+        <a href="#architectuur">03 · Systeemarchitectuur</a>
+      </div>
+      <div class="side-group">
+        <div class="side-label">Foundations</div>
+        <a href="#kleuren">04 · Kleuren</a>
+        <a href="#typografie">05 · Typografie</a>
+        <a href="#spacing">06 · Spacing</a>
+        <a href="#radius-motion">07 · Radius, motion en shadow</a>
+      </div>
+      <div class="side-group">
+        <div class="side-label">Patterns</div>
+        <a href="#layout">08 · Layout en sectieritme</a>
+        <a href="#componenten">09 · Componenten</a>
+        <a href="#forms">10 · Formulieren</a>
+        <a href="#functioneel">11 · Functionele schermen</a>
+      </div>
+      <div class="side-group">
+        <div class="side-label">Implementatie</div>
+        <a href="#class-reference">12 · Class reference</a>
+        <a href="#iconen">13 · Iconen</a>
+        <a href="#starter">14 · Starter tokens</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="eyebrow">JourHelp design system</div>
+          <h2>De canonieke specificatie voor de rustige JourHelp interface.</h2>
+          <p>Dit document legt de foundations, componenten en gebruiksregels van JourHelp vast. Bij conflict tussen losse implementaties en dit document geldt dit document als bron van waarheid voor toekomstige UI-keuzes.</p>
+        </div>
+      </section>
+
+      <section id="doel" class="section">
+        <div class="section-head">
+          <div class="section-num">01 · Doel en scope</div>
+          <h3>Een gedeelde bron van waarheid</h3>
+          <div class="section-desc">JourHelp is een calm-first informatiesite en toolbox rond autisme, OCD, neurodivergentie, ondersteuning en zelfbegrip. Dit design system beschrijft hoe die ervaring visueel, interactief en technisch consistent blijft.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Wat dit document definieert</h4>
+            <p>Kleur, typografie, spacing, radius, motion, componentregels, toolpatronen, states, accessibility en class-namen.</p>
+          </div>
+          <div class="card">
+            <h4>Waarvoor het wordt gebruikt</h4>
+            <p>Consistent ontwerpen, sneller bouwen, minder ad-hoc CSS en duidelijker reviewen van nieuwe JourHelp-secties.</p>
+          </div>
+          <div class="card">
+            <h4>Wat buiten scope blijft</h4>
+            <p>Medische inhoudelijke validatie, definitieve copywriting en toekomstige backend-architectuur.</p>
+          </div>
+        </div>
+        <div class="callout"><strong>Norm:</strong> UI-keuzes moeten rust, voorspelbaarheid en respectvolle neurodiversiteitstaal ondersteunen.</div>
+      </section>
+
+      <section id="principes" class="section">
+        <div class="section-head">
+          <div class="section-num">02 · Basisprincipes</div>
+          <h3>Calm-first, duidelijk en veilig</h3>
+          <div class="section-desc">Elke systeemkeuze moet helpen om informatie minder overweldigend te maken.</div>
+        </div>
+        <div class="preview-panel">
+          <div class="preview-title">Preview</div>
+          <div class="component-preview">
+            <span class="preview-btn primary">Start here</span>
+            <span class="preview-btn ghost">Save page</span>
+            <span class="preview-label">Low stimulation ready</span>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Principe</th><th>Voorbeeld</th><th>Waarom</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rust boven expressie</td><td><span class="token">--color-background-page</span></td><td>Het canvas blijft zacht en leesbaar, ook bij lange content.</td></tr>
+            <tr><td>Semantische tokens</td><td><span class="token">--color-text-muted</span></td><td>Tokens beschrijven rol en toepassing, niet alleen kleur.</td></tr>
+            <tr><td>T-shirt spacing</td><td><span class="token">--space-md</span></td><td>Een compacte schaal met vaste sprongen leest sneller in code en documentatie.</td></tr>
+            <tr><td>Prikkelarm als eerste klas state</td><td><span class="klass">body.low-stim</span></td><td>Low stimulation is een echte systeemvariant, geen extraatje.</td></tr>
+            <tr><td>Privacy by design</td><td><span class="klass">.storage-consent</span></td><td>Lokale opslag blijft optioneel, zichtbaar en begrijpelijk.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="architectuur" class="section">
+        <div class="section-head">
+          <div class="section-num">03 · Systeemarchitectuur</div>
+          <h3>Foundations, componenten, patronen</h3>
+          <div class="section-desc">JourHelp is opgebouwd uit een zachte tokenlaag, herbruikbare componenten en samengestelde gebruikersflows.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Foundations</h4>
+            <p>Kleuren, typografie, spacing, radius, borders, shadows en motion.</p>
+          </div>
+          <div class="card">
+            <h4>Componenten</h4>
+            <p>Topnav, mega menu, buttons, cards, pills, FAQ, search, forms, saved items en study cards.</p>
+          </div>
+          <div class="card">
+            <h4>Patronen</h4>
+            <p>Autism/OCD guides, toolbox, calm plan, glossary, recent studies, quizzes en overwhelm reset.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kleuren" class="section">
+        <div class="section-head">
+          <div class="section-num">04 · Kleuren</div>
+          <h3>Kleurentokens</h3>
+          <div class="section-desc">Kleuren worden benoemd op rol. De huidige JourHelp-stijl gebruikt zachte roze surfaces, hoge leesbaarheid en een aparte grijze low-stim variant.</div>
+        </div>
+        <div class="color-grid">
+          <div class="swatch-card"><div class="swatch-preview" style="background:#ffb7ce"></div><div class="swatch-meta"><div class="swatch-name">--color-accent</div><div class="swatch-hex">#ffb7ce</div><div class="swatch-use">Primaire zachte actie, accentlijn en highlights.</div></div></div>
+          <div class="swatch-card"><div class="swatch-preview" style="background:#7a4a5a"></div><div class="swatch-meta"><div class="swatch-name">--color-accent-ink</div><div class="swatch-hex">#7a4a5a</div><div class="swatch-use">Accenttekst, badges en rustige nadruk.</div></div></div>
+          <div class="swatch-card"><div class="swatch-preview" style="background:#fff9fb"></div><div class="swatch-meta"><div class="swatch-name">--color-background-page</div><div class="swatch-hex">#fff9fb</div><div class="swatch-use">Hoofdcanvas van de site.</div></div></div>
+          <div class="swatch-card"><div class="swatch-preview" style="background:#fff1f6"></div><div class="swatch-meta"><div class="swatch-name">--color-surface-soft</div><div class="swatch-hex">#fff1f6</div><div class="swatch-use">Hover, chips, soft panels en secondary states.</div></div></div>
+          <div class="swatch-card"><div class="swatch-preview" style="background:#25262d"></div><div class="swatch-meta"><div class="swatch-name">--color-text-primary</div><div class="swatch-hex">#25262d</div><div class="swatch-use">Koppen en belangrijke UI.</div></div></div>
+          <div class="swatch-card"><div class="swatch-preview" style="background:#f7f7f8"></div><div class="swatch-meta"><div class="swatch-name">--color-lowstim-bg</div><div class="swatch-hex">#f7f7f8</div><div class="swatch-use">Prikkelarme canvasvariant.</div></div></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr><th>Preview</th><th>Categorie</th><th>Token</th><th>Waarde</th><th>Gebruik</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="color-preview" style="background:#ffb7ce"></div></td><td>Accent</td><td><span class="token">--color-accent</span></td><td><span class="value">#ffb7ce</span></td><td>Primaire actie, reading progress, links met zachte nadruk.</td></tr>
+            <tr><td><div class="color-preview" style="background:#7a4a5a"></div></td><td>Accent</td><td><span class="token">--color-accent-ink</span></td><td><span class="value">#7a4a5a</span></td><td>Accenttekst, badges, labels en iconen.</td></tr>
+            <tr><td><div class="color-preview" style="background:#fff9fb"></div></td><td>Background</td><td><span class="token">--color-background-page</span></td><td><span class="value">#fff9fb</span></td><td>Hoofdachtergrond.</td></tr>
+            <tr><td><div class="color-preview" style="background:#ffffff"></div></td><td>Surface</td><td><span class="token">--color-surface</span></td><td><span class="value">#ffffff</span></td><td>Cards, navigatie en contentpanelen.</td></tr>
+            <tr><td><div class="color-preview" style="background:#fff1f6"></div></td><td>Surface</td><td><span class="token">--color-surface-soft</span></td><td><span class="value">#fff1f6</span></td><td>Secondary panels, hoverstates en chips.</td></tr>
+            <tr><td><div class="color-preview" style="background:#fff7fa"></div></td><td>Surface</td><td><span class="token">--color-surface-warm</span></td><td><span class="value">#fff7fa</span></td><td>Toolbox, notes, disclaimers en gentle callouts.</td></tr>
+            <tr><td><div class="color-preview" style="background:#25262d"></div></td><td>Text</td><td><span class="token">--color-text-primary</span></td><td><span class="value">#25262d</span></td><td>Koppen en belangrijkste UI.</td></tr>
+            <tr><td><div class="color-preview" style="background:#5d626f"></div></td><td>Text</td><td><span class="token">--color-text-secondary</span></td><td><span class="value">#5d626f</span></td><td>Bodytekst en gewone labels.</td></tr>
+            <tr><td><div class="color-preview" style="background:#8c909b"></div></td><td>Text</td><td><span class="token">--color-text-muted</span></td><td><span class="value">#8c909b</span></td><td>Meta, sublabels, hints en empty-state details.</td></tr>
+            <tr><td><div class="color-preview" style="background:#f1dce5"></div></td><td>Border</td><td><span class="token">--color-border</span></td><td><span class="value">#f1dce5</span></td><td>Standaard borders en dividers.</td></tr>
+            <tr><td><div class="color-preview" style="background:#e6c1cf"></div></td><td>Border</td><td><span class="token">--color-border-strong</span></td><td><span class="value">#e6c1cf</span></td><td>Hover, focus en actiegrenzen.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="typografie" class="section">
+        <div class="section-head">
+          <div class="section-num">05 · Typografie</div>
+          <h3>Typografie</h3>
+          <div class="section-desc">JourHelp gebruikt Inter met twee schalen: een rustige comfort scale voor body en UI, en een iets expressievere display scale voor heroes en grotere sectiekoppen.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Font families</h4>
+            <ul class="rules">
+              <li><span class="token">--font-family-base</span> -> Inter</li>
+              <li><span class="token">--font-family-mono</span> -> system mono</li>
+              <li><span class="token">--font-family-display</span> -> Inter</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Body en UI schaal</h4>
+            <ul class="rules">
+              <li><span class="value">Comfort scale · basis 15px</span></li>
+              <li><span class="token">--font-size-xs</span> -> 11px</li>
+              <li><span class="token">--font-size-sm</span> -> 12px</li>
+              <li><span class="token">--font-size-md</span> -> 15px</li>
+              <li><span class="token">--font-size-lg</span> -> 18px</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Display schaal</h4>
+            <ul class="rules">
+              <li><span class="value">Soft display · gecontroleerde sprongen</span></li>
+              <li><span class="token">--font-size-2xl</span> -> 24px</li>
+              <li><span class="token">--font-size-3xl</span> -> 32px</li>
+              <li><span class="token">--font-size-4xl</span> -> 43px</li>
+              <li><span class="token">--font-size-5xl</span> -> 57px</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:18px;">
+          <div class="callout" style="margin:0;">
+            <strong>Body en UI - comfort scale</strong><br>
+            Body en UI blijven bewust compact. JourHelp bevat lange gidsen, tools en veel microcopy; de schaal moet scannen makkelijk maken zonder de pagina zwaar te laten voelen.
+          </div>
+          <div class="callout" style="margin:0;">
+            <strong>Display - soft display</strong><br>
+            Grote koppen krijgen meer presence, maar blijven stiller dan een marketingbrand. De displaylaag gebruikt Inter zelf zodat de site persoonlijk en helder blijft.
+          </div>
+        </div>
+        <div class="preview-panel">
+          <div class="preview-title">Preview</div>
+          <div class="type-preview">
+            <div class="type-row">
+              <div class="type-meta"><span class="element">Hero h1</span><span class="token">--font-size-5xl</span><div class="type-note">Display schaal · soft display</div></div>
+              <div class="type-sample hero-title">A softer place to understand your brain</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta"><span class="element">Section h2</span><span class="token">--font-size-3xl</span><div class="type-note">Display schaal · guide headings</div></div>
+              <div class="type-sample section-title">Overwhelm, masking and support needs</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta"><span class="element">Body</span><span class="token">--font-size-md</span><div class="type-note">Body/UI schaal · comfort scale</div></div>
+              <div class="type-sample body-copy">JourHelp content moet rustig, herkenbaar en praktisch blijven. Bodytekst krijgt extra line-height zodat lange uitleg beter te verwerken is.</div>
+            </div>
+            <div class="type-row">
+              <div class="type-meta"><span class="element">Functionele paginakop</span><span class="token">--font-size-3xl</span><div class="type-note">Toolbox, calm plan en glossary</div></div>
+              <div class="type-sample functional">My calm plan</div>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Element</th><th>Token</th><th>Waarde</th><th>Gebruik</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="element">Base</span></td><td><span class="token">--font-family-base</span></td><td><span class="value">Inter, system-ui, sans-serif</span></td><td>Alle UI en content.</td></tr>
+            <tr><td><span class="element">Hero h1</span></td><td><span class="token">--font-size-5xl</span></td><td><span class="value">57px / responsive clamp</span></td><td>Grootste JourHelp introducties.</td></tr>
+            <tr><td><span class="element">h1</span></td><td><span class="token">--font-size-4xl</span></td><td><span class="value">43px / responsive clamp</span></td><td>Routepagina's en grote toolpagina's.</td></tr>
+            <tr><td><span class="element">h2</span></td><td><span class="token">--font-size-3xl</span></td><td><span class="value">32px / responsive clamp</span></td><td>Sectiekoppen in documentatie en toekomstige pages.</td></tr>
+            <tr><td><span class="element">Body</span></td><td><span class="token">--font-size-md</span></td><td><span class="value">15px</span></td><td>Lopende content in guides.</td></tr>
+            <tr><td><span class="element">Label</span></td><td><span class="token">--font-size-xs</span></td><td><span class="value">11px</span></td><td>Uppercase labels, badges en meta.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="spacing" class="section">
+        <div class="section-head">
+          <div class="section-num">06 · Spacing</div>
+          <h3>Spacing</h3>
+          <div class="section-desc">Spacing gebruikt een T-shirt scale met voorspelbare sprongen. Daardoor blijven componenten en toekomstige refactors leesbaar en consistent.</div>
+        </div>
+        <table class="space-table">
+          <thead>
+            <tr><th>Preview</th><th>Token</th><th>Waarde</th><th>Gebruik</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:8px"></div></div><span class="space-demo-size">8px</span></div></td><td><span class="token">--space-xs</span></td><td><span class="value">8px</span></td><td>Icon gaps, labels en kleine chips.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:16px"></div></div><span class="space-demo-size">16px</span></div></td><td><span class="token">--space-sm</span></td><td><span class="value">16px</span></td><td>Standaard kleine spacing en compacte rows.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:24px"></div></div><span class="space-demo-size">24px</span></div></td><td><span class="token">--space-md</span></td><td><span class="value">24px</span></td><td>Card insets, tool boxes en menu grids.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:32px"></div></div><span class="space-demo-size">32px</span></div></td><td><span class="token">--space-lg</span></td><td><span class="value">32px</span></td><td>Section padding en crisis boxes.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:40px"></div></div><span class="space-demo-size">40px</span></div></td><td><span class="token">--space-xl</span></td><td><span class="value">40px</span></td><td>Ruimere internal spacing.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:48px"></div></div><span class="space-demo-size">48px</span></div></td><td><span class="token">--space-2xl</span></td><td><span class="value">48px</span></td><td>Hero internal top/bottom.</td></tr>
+            <tr><td><div class="space-demo"><div class="space-demo-track"><div class="space-demo-bar" style="width:64px"></div></div><span class="space-demo-size">64px</span></div></td><td><span class="token">--space-4xl</span></td><td><span class="value">64px</span></td><td>Grote document- of future page spacing.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout"><strong>Richtlijn:</strong> houd component-spacing binnen deze T-shirt tokens. Grotere verticale ritmes horen thuis in section-aliasen, bijvoorbeeld <span class="token">--section-space-lg</span>.</div>
+      </section>
+
+      <section id="radius-motion" class="section">
+        <div class="section-head">
+          <div class="section-num">07 · Radius, motion en shadow</div>
+          <h3>Verfijning en gedrag</h3>
+          <div class="section-desc">JourHelp gebruikt kleine radius, subtiele borders en beperkte motion. Low stimulation schakelt transities en animaties uit.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Radius</h4>
+            <ul class="rules">
+              <li><span class="token">--radius-sm</span> -> 6px voor buttons, inputs en pills.</li>
+              <li><span class="token">--radius-md</span> -> 8px voor cards en sections.</li>
+              <li><span class="token">--radius-pill</span> -> 999px voor study links.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Motion</h4>
+            <ul class="rules">
+              <li><span class="token">--motion-fast</span> -> .12s voor nav en buttons.</li>
+              <li><span class="token">--motion-standard</span> -> .15s voor cards en search.</li>
+              <li><span class="klass">body.low-stim *</span> -> transition none.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Shadow</h4>
+            <ul class="rules">
+              <li><span class="token">--shadow-sm</span> -> 0 1px 2px rgba(31,35,33,.035)</li>
+              <li><span class="token">--shadow-md</span> -> 0 5px 18px rgba(31,35,33,.06)</li>
+              <li>Gebruik shadow spaarzaam; borders dragen de meeste hierarchie.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="layout" class="section">
+        <div class="section-head">
+          <div class="section-num">08 · Layout en sectieritme</div>
+          <h3>Compacte documentlayout</h3>
+          <div class="section-desc">De site gebruikt een sticky topnav, een tweede menu-row, een gecentreerd contentgebied en secties als afzonderlijke leesblokken.</div>
+        </div>
+        <div class="preview-panel">
+          <div class="preview-title">JourHelp shell preview</div>
+          <div class="jh-shell">
+            <div class="jh-topnav">
+              <div class="jh-logo"></div>
+              <div class="jh-tab">Autism</div>
+              <div class="jh-tab">OCD</div>
+              <div class="jh-search"></div>
+            </div>
+            <div class="jh-content">
+              <div class="jh-hero"><strong>Understand your needs with less noise.</strong><span>Hero blocks introduce a topic gently and offer direct next steps.</span></div>
+              <div class="jh-card"><b>Section card</b><span>Content is split into bordered blocks with clear headings, pills and practical tools.</span></div>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Pattern</th><th>Class</th><th>Regel</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Top navigation</td><td><span class="klass">.topnav</span> + <span class="klass">.menu-row</span></td><td>Sticky, compact, search and tools always near the top.</td></tr>
+            <tr><td>Content width</td><td><span class="klass">.content-area</span></td><td>Max-width 1040px, centered, generous mobile padding.</td></tr>
+            <tr><td>Primary sections</td><td><span class="klass">.section</span></td><td>Bordered white panels, 8px radius, 2rem padding desktop.</td></tr>
+            <tr><td>Detail sections</td><td><span class="klass">.detail-section</span></td><td>Slightly smaller panels for nested guide content.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="componenten" class="section">
+        <div class="section-head">
+          <div class="section-num">09 · Componenten</div>
+          <h3>Componentregels</h3>
+          <div class="section-desc">Componenten blijven klein, voorspelbaar en tekstgericht. Hoverstates veranderen vooral border en surface.</div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Component</th><th>Class</th><th>Tokens</th><th>Regel</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Primary button</td><td><span class="klass">.btn-primary</span></td><td><span class="token">--color-accent</span>, <span class="token">--radius-sm</span></td><td>Alleen gebruiken voor duidelijke acties zoals save, generate of next.</td></tr>
+            <tr><td>Ghost button</td><td><span class="klass">.btn-ghost</span></td><td><span class="token">--color-border-strong</span>, <span class="token">--color-text-secondary</span></td><td>Secondary acties, instellingen en annuleren.</td></tr>
+            <tr><td>Info card</td><td><span class="klass">.info-card</span></td><td><span class="token">--color-surface</span>, <span class="token">--color-border</span></td><td>Compacte uitlegkaarten binnen lange gidsen.</td></tr>
+            <tr><td>Study card</td><td><span class="klass">.study-card</span></td><td><span class="token">--color-surface</span>, <span class="token">--radius-lg</span></td><td>Research moet meer lucht krijgen dan gewone cards.</td></tr>
+            <tr><td>FAQ item</td><td><span class="klass">.faq-item</span></td><td><span class="token">--motion-standard</span>, <span class="token">--color-border</span></td><td>Accordion met duidelijke vraag, rustige answer reveal.</td></tr>
+            <tr><td>Glossary card</td><td><span class="klass">.glossary-card</span></td><td><span class="token">--color-surface-soft</span></td><td>Termen moeten scanbaar zijn met korte definities.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="forms" class="section">
+        <div class="section-head">
+          <div class="section-num">10 · Formulieren</div>
+          <h3>Heldere en taakgerichte inputs</h3>
+          <div class="section-desc">JourHelp formulieren zijn functioneel, leesbaar en visueel rustig. Labels, focus, errors en previews moeten altijd direct herkenbaar zijn.</div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h4>Form rules</h4>
+            <ul class="rules">
+              <li>Labels staan altijd boven het veld.</li>
+              <li>De basisinput gebruikt een lichte border en witte surface.</li>
+              <li>Focus gebruikt de JourHelp accentborder plus een zachte ring.</li>
+              <li>Errors en missing-input states blijven kort, concreet en niet beschamend.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Belangrijkste tokens</h4>
+            <ul class="rules">
+              <li><span class="token">--color-border</span></li>
+              <li><span class="token">--color-border-strong</span></li>
+              <li><span class="token">--color-focus-ring</span></li>
+              <li><span class="token">--radius-sm</span></li>
+            </ul>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Class</th><th>Tokens</th><th>Vaste waardes</th><th>Rol</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="klass">.tool-field</span></td><td><span class="token">--space-xs</span>, <span class="token">--font-size-sm</span></td><td><span class="value">display: grid</span>, <span class="value">gap: .35rem</span></td><td>Basiseenheid voor tool label plus input of textarea.</td></tr>
+            <tr><td><span class="klass">.tool-field input</span></td><td><span class="token">--color-border</span>, <span class="token">--radius-sm</span></td><td><span class="value">padding: .65rem</span>, <span class="value">line-height: 1.6</span></td><td>Standaard invoerveld voor support tools.</td></tr>
+            <tr><td><span class="klass">.tool-field textarea</span></td><td><span class="token">--font-family-base</span></td><td><span class="value">min-height: 72px</span>, <span class="value">resize: vertical</span></td><td>Langere input voor behoeften, scripts en calm plan.</td></tr>
+            <tr><td><span class="klass">.calm-field</span></td><td><span class="token">--color-border</span>, <span class="token">--color-focus-ring</span></td><td><span class="value">padding: .75rem</span></td><td>Calm plan inputpatroon met rustige focusstate.</td></tr>
+            <tr><td><span class="klass">.check-chip</span></td><td><span class="token">--color-surface</span>, <span class="token">--color-border</span></td><td><span class="value">display: flex</span>, <span class="value">padding: .55rem .65rem</span></td><td>Checklist-item voor self-diagnosis research paths.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="functioneel" class="section">
+        <div class="section-head">
+          <div class="section-num">11 · Functionele schermen</div>
+          <h3>Rust boven expressie</h3>
+          <div class="section-desc">Op functionele schermen zoals toolbox, calm plan, glossary, recent studies en overwhelm reset staat taakgerichtheid centraal.</div>
+        </div>
+        <div class="callout"><strong>Richtlijn:</strong> functionele schermen gebruiken minder hero-expressie en meer duidelijke task panels, previews, saved states en empty states.</div>
+        <div class="grid-2">
+          <div class="preview-panel">
+            <div class="preview-title">Default</div>
+            <div class="jh-shell">
+              <div class="jh-topnav"><div class="jh-logo"></div><div class="jh-tab">Low stimulation</div></div>
+              <div class="jh-content"><div class="jh-card"><b>Soft state</b><span>Roze accent, subtiele borders en zachte hoverstates.</span></div></div>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="preview-title">Low stimulation</div>
+            <div class="jh-shell lowstim-preview">
+              <div class="jh-topnav"><div class="jh-logo"></div><div class="jh-tab">Low stimulation</div></div>
+              <div class="jh-content"><div class="jh-card"><b>Reduced state</b><span>Grijze tokens, geen animaties en minder visuele warmte.</span></div></div>
+            </div>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Class</th><th>Context</th><th>Rol</th><th>Regel</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="klass">.toolbox-card</span></td><td>Toolbox</td><td>Saved tool or summary card.</td><td>Compact, readable and useful without extra explanation.</td></tr>
+            <tr><td><span class="klass">.saved-item</span></td><td>Saved sections</td><td>Saved page/section row.</td><td>Actions stay small; title and meta stay scannable.</td></tr>
+            <tr><td><span class="klass">.empty-state</span></td><td>Toolbox / search</td><td>Explains missing content gently.</td><td>Never shame the user for not having data yet.</td></tr>
+            <tr><td><span class="klass">.overwhelm-overlay</span></td><td>Regulation flow</td><td>Full-screen low-demand reset.</td><td>High clarity, limited choices, no dense text.</td></tr>
+            <tr><td><span class="klass">body.low-stim</span></td><td>Global state</td><td>Reduced stimulation variant.</td><td>Neutral colors, no animation, less visual warmth.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="class-reference" class="section">
+        <div class="section-head">
+          <div class="section-num">12 · Class reference</div>
+          <h3>Canonieke class-specificatie</h3>
+          <div class="section-desc">Deze referentie groepeert de classes die in de huidige JourHelp-site terugkomen of als canonieke naam aangehouden moeten worden.</div>
+        </div>
+        <div class="class-index">
+          <div class="class-box">
+            <h4>Shell en navigatie</h4>
+            <div class="class-list">
+              <div class="class-item"><span class="klass">.topnav</span><div class="class-note">Sticky bovenste navigatie met brand, topic tabs en utilities.</div></div>
+              <div class="class-item"><span class="klass">.menu-row</span><div class="class-note">Tweede sticky laag met mega menu, share, save en search.</div></div>
+              <div class="class-item"><span class="klass">.mega-menu</span><div class="class-note">Grote navigatie-overlay voor routes en secties.</div></div>
+              <div class="class-item"><span class="klass">.global-search</span><div class="class-note">Zoekinput voor routes, glossary en resources.</div></div>
+            </div>
+          </div>
+          <div class="class-box">
+            <h4>Content</h4>
+            <div class="class-list">
+              <div class="class-item"><span class="klass">.hero</span><div class="class-note">Introductieblok voor hoofdpagina's.</div></div>
+              <div class="class-item"><span class="klass">.section</span><div class="class-note">Standaard contentpaneel voor guides.</div></div>
+              <div class="class-item"><span class="klass">.info-card</span><div class="class-note">Kleine uitlegkaart binnen grids.</div></div>
+              <div class="class-item"><span class="klass">.gentle-note</span><div class="class-note">Zachte disclaimer of contextnote.</div></div>
+            </div>
+          </div>
+          <div class="class-box">
+            <h4>Tools en states</h4>
+            <div class="class-list">
+              <div class="class-item"><span class="klass">.tool-box</span><div class="class-note">Wrapper voor generators en support tools.</div></div>
+              <div class="class-item"><span class="klass">.tool-preview</span><div class="class-note">Outputblok voor gegenereerde tekst.</div></div>
+              <div class="class-item"><span class="klass">.overwhelm-overlay</span><div class="class-note">Full-screen overwhelm reset flow.</div></div>
+              <div class="class-item"><span class="klass">.storage-consent</span><div class="class-note">Consent banner voor lokale opslag.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="subhead">Uitgebreide class mapping</div>
+        <table class="class-table">
+          <thead>
+            <tr><th>Class</th><th>Context</th><th>Rol in het systeem</th><th>Tokens / waarden</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="klass">.btn-primary</span></td><td>Actions</td><td>Primaire actieknop.</td><td><span class="token">--color-accent</span>, <span class="value">font-weight: 800</span></td></tr>
+            <tr><td><span class="klass">.btn-ghost</span></td><td>Actions</td><td>Secundaire rustige knop.</td><td><span class="token">--color-border-strong</span>, <span class="token">--color-text-secondary</span></td></tr>
+            <tr><td><span class="klass">.card</span></td><td>Guides</td><td>Klikbare route- of typecard.</td><td><span class="token">--color-surface</span>, <span class="token">--radius-md</span></td></tr>
+            <tr><td><span class="klass">.study-card</span></td><td>Recent studies</td><td>Research item met title, source, preview en actions.</td><td><span class="value">min-height: 230px</span>, <span class="token">--color-border</span></td></tr>
+            <tr><td><span class="klass">.quiz-opt</span></td><td>Quizzes</td><td>Compact antwoordbutton.</td><td><span class="value">padding: 4px 13px</span>, <span class="token">--radius-sm</span></td></tr>
+            <tr><td><span class="klass">.saved-item</span></td><td>Toolbox</td><td>Opgeslagen pagina/sectie in toolbox.</td><td><span class="token">--color-surface-soft</span></td></tr>
+            <tr><td><span class="klass">.glossary-card</span></td><td>Glossary</td><td>Term + definitie + mini actions.</td><td><span class="token">--color-surface-soft</span></td></tr>
+            <tr><td><span class="klass">.crisis-box</span></td><td>Safety</td><td>Crisisblok met accentborder.</td><td><span class="value">border-left: 3px</span>, <span class="token">--color-accent</span></td></tr>
+            <tr><td><span class="klass">body.low-stim</span></td><td>Global state</td><td>Prikkelarme variant.</td><td><span class="token">--color-lowstim-bg</span>, <span class="value">transition: none</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="iconen" class="section">
+        <div class="section-head">
+          <div class="section-num">13 · Iconen</div>
+          <h3>Iconenset en symbolen</h3>
+          <div class="section-desc">JourHelp gebruikt iconen spaarzaam. Symbolen moeten navigatie verduidelijken, niet decoreren of extra prikkels toevoegen.</div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h4>Navigatie-iconen</h4>
+            <p>Kleine iconen in menu's, section headers en path nodes moeten herkenbaar blijven bij 16-24px.</p>
+          </div>
+          <div class="card">
+            <h4>Tool-iconen</h4>
+            <p>Gebruik iconen alleen wanneer ze een actie verduidelijken, zoals save, share, copy, search of reset.</p>
+          </div>
+          <div class="card">
+            <h4>Accessibility</h4>
+            <p>Icon-only buttons krijgen altijd een aria-label. Decoratieve iconen gebruiken aria-hidden.</p>
+          </div>
+        </div>
+        <div class="subhead">Constructieregels</div>
+        <ul class="rules">
+          <li>Gebruik lijniconen of eenvoudige symbols met <span class="value">currentColor</span>.</li>
+          <li>Gebruik vaste maatvoering: <span class="value">16px</span> voor inline nav, <span class="value">24px</span> voor tools, <span class="value">34px</span> voor path nodes.</li>
+          <li>Iconen nemen de kleur van de context over: <span class="token">--color-text-secondary</span> of <span class="token">--color-accent-ink</span>.</li>
+          <li>Gebruik geen complexe illustratie-iconen in dense guide content.</li>
+        </ul>
+      </section>
+
+      <section id="starter" class="section">
+        <div class="section-head">
+          <div class="section-num">14 · Starter tokens</div>
+          <h3>Starter set</h3>
+          <div class="section-desc">Onderstaande basisset is het minimale startpunt voor een opgeschoonde CSS-tokenlaag.</div>
+        </div>
+        <div class="preview-panel">
+          <div class="preview-title">Preview</div>
+          <div class="token-preview-strip">
+            <span class="token">--color-accent</span>
+            <span class="token">--color-background-page</span>
+            <span class="token">--font-family-base</span>
+            <span class="token">--space-md</span>
+            <span class="token">--shadow-md</span>
+          </div>
+        </div>
+        <pre>:root {
+  --color-accent: #ffb7ce;
+  --color-accent-ink: #7a4a5a;
+  --color-background-page: #fff9fb;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fff1f6;
+  --color-surface-warm: #fff7fa;
+  --color-text-primary: #25262d;
+  --color-text-secondary: #5d626f;
+  --color-text-muted: #8c909b;
+  --color-border: #f1dce5;
+  --color-border-strong: #e6c1cf;
+  --color-focus-ring: rgba(255,183,206,.24);
+
+  --color-lowstim-accent: #374151;
+  --color-lowstim-bg: #f7f7f8;
+  --color-lowstim-surface-soft: #f1f2f3;
+
+  --font-family-base: 'Inter', system-ui, sans-serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 43px;
+  --font-size-5xl: 57px;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-2xl: 48px;
+  --space-4xl: 64px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(31,35,33,.035);
+  --shadow-md: 0 5px 18px rgba(31,35,33,.06);
+  --motion-fast: .12s;
+  --motion-standard: .15s;
+}</pre>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const jourhelpVariables = {
+      variables: [
+        { id: "jhv001", name: "color-accent", value: "#ffb7ce" },
+        { id: "jhv002", name: "color-accent-ink", value: "#7a4a5a" },
+        { id: "jhv003", name: "color-background-page", value: "#fff9fb" },
+        { id: "jhv004", name: "color-surface", value: "#ffffff" },
+        { id: "jhv005", name: "color-surface-soft", value: "#fff1f6" },
+        { id: "jhv006", name: "color-surface-warm", value: "#fff7fa" },
+        { id: "jhv007", name: "color-text-primary", value: "#25262d" },
+        { id: "jhv008", name: "color-text-secondary", value: "#5d626f" },
+        { id: "jhv009", name: "color-text-muted", value: "#8c909b" },
+        { id: "jhv010", name: "color-border", value: "#f1dce5" },
+        { id: "jhv011", name: "color-border-strong", value: "#e6c1cf" },
+        { id: "jhv012", name: "color-focus-ring", value: "rgba(255,183,206,.24)" },
+        { id: "jhv013", name: "color-lowstim-accent", value: "#374151" },
+        { id: "jhv014", name: "color-lowstim-bg", value: "#f7f7f8" },
+        { id: "jhv015", name: "font-family-base", value: "'Inter', system-ui, sans-serif" },
+        { id: "jhv016", name: "font-size-xs", value: "11px" },
+        { id: "jhv017", name: "font-size-sm", value: "12px" },
+        { id: "jhv018", name: "font-size-md", value: "15px" },
+        { id: "jhv019", name: "font-size-lg", value: "18px" },
+        { id: "jhv020", name: "font-size-3xl", value: "32px" },
+        { id: "jhv021", name: "font-size-4xl", value: "43px" },
+        { id: "jhv022", name: "font-size-5xl", value: "57px" },
+        { id: "jhv023", name: "space-xs", value: "8px" },
+        { id: "jhv024", name: "space-sm", value: "16px" },
+        { id: "jhv025", name: "space-md", value: "24px" },
+        { id: "jhv026", name: "space-lg", value: "32px" },
+        { id: "jhv027", name: "space-xl", value: "40px" },
+        { id: "jhv028", name: "space-2xl", value: "48px" },
+        { id: "jhv029", name: "space-4xl", value: "64px" },
+        { id: "jhv030", name: "radius-sm", value: "6px" },
+        { id: "jhv031", name: "radius-md", value: "8px" },
+        { id: "jhv032", name: "shadow-md", value: "0 5px 18px rgba(31,35,33,.06)" }
+      ],
+      categories: ["color", "font", "radius", "shadow", "state"]
+    };
+
+    const jourhelpClasses = {
+      globalClasses: [
+        { id: "jhcls01", name: "topnav", role: "Sticky global navigation" },
+        { id: "jhcls02", name: "menu-row", role: "Secondary sticky utility row" },
+        { id: "jhcls03", name: "hero", role: "Primary topic introduction" },
+        { id: "jhcls04", name: "section", role: "Main content panel" },
+        { id: "jhcls05", name: "btn-primary", role: "Primary action button" },
+        { id: "jhcls06", name: "btn-ghost", role: "Secondary action button" },
+        { id: "jhcls07", name: "info-card", role: "Compact explanation card" },
+        { id: "jhcls08", name: "tool-field", role: "Form field wrapper" },
+        { id: "jhcls09", name: "tool-preview", role: "Generated text preview" },
+        { id: "jhcls10", name: "study-card", role: "Recent research card" },
+        { id: "jhcls11", name: "glossary-card", role: "Glossary term card" },
+        { id: "jhcls12", name: "overwhelm-overlay", role: "Full-screen regulation flow" },
+        { id: "jhcls13", name: "storage-consent", role: "Local storage consent banner" }
+      ],
+      categories: ["shell", "content", "actions", "forms", "functional screens", "states"]
+    };
+
+    async function copyText(text, button) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (error) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+      }
+      if (button) {
+        const original = button.textContent;
+        button.textContent = "Copied";
+        setTimeout(() => button.textContent = original, 1400);
+      }
+    }
+
+    document.getElementById("copy-variables-json")?.addEventListener("click", (event) => {
+      copyText(JSON.stringify(jourhelpVariables, null, 2), event.currentTarget);
+    });
+
+    document.getElementById("copy-classes-json")?.addEventListener("click", (event) => {
+      copyText(JSON.stringify(jourhelpClasses, null, 2), event.currentTarget);
+    });
+
+    const searchInput = document.getElementById("doc-search");
+    const navLinks = Array.from(document.querySelectorAll(".sidebar .side-group a"));
+    const sections = Array.from(document.querySelectorAll(".main .section"));
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        const q = searchInput.value.trim().toLowerCase();
+        navLinks.forEach(link => {
+          const target = document.querySelector(link.getAttribute("href"));
+          const hay = ((link.textContent || "") + " " + (target?.textContent || "")).toLowerCase();
+          link.classList.toggle("is-hidden-by-search", Boolean(q) && !hay.includes(q));
+        });
+        sections.forEach(section => {
+          const hay = (section.textContent || "").toLowerCase();
+          section.classList.toggle("is-hidden-by-search", Boolean(q) && !hay.includes(q));
+        });
+      });
+    }
+  </script>
+</body>
+</html>
