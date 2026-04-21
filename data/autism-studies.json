@@ -1,0 +1,106 @@
+{
+  "updatedAt": "2026-04-21T13:18:56Z",
+  "source": "PubMed / NCBI",
+  "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
+  "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
+  "studies": [
+    {
+      "pmid": "41980792",
+      "title": "Delayed diagnosis of congenital duodenal obstruction in early adolescence in a patient with Down syndrome and autism spectrum disorder.",
+      "journal": "BMJ case reports",
+      "authors": "Sako I, Maekawa T, Iijima H et al.",
+      "published": "2026-04-14",
+      "preview": "Congenital duodenal obstruction (CDO) is a recognised anomaly frequently associated with Down syndrome (DS). While complete obstruction is typically diagnosed in the neonatal period, incomplete obstruction may present with milder, non-specific symptoms, often delaying diagnosis.We report a boy in early adolescence w...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
+    },
+    {
+      "pmid": "41955613",
+      "title": "Evaluating Public Sentiment on Attention-Deficit/Hyperactivity Disorder and Autism Spectrum Disorder Compared With Other Mental Health Disorders From Posts on X (Formerly Known as Twitter): Longitudinal Analysis.",
+      "journal": "JMIR infodemiology",
+      "authors": "Tiosso Batistetti V, Sanchez FG, Varaona A et al.",
+      "published": "2026-04-09",
+      "preview": "Neurodevelopmental disorders, especially attention-deficit/hyperactivity disorder (ADHD) and autism spectrum disorder (ASD), have seen a marked rise in public attention, yet research on public opinion remains limited. Social media analysis offers real-time, unfiltered insights into public perceptions, enabling empir...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41955613/"
+    },
+    {
+      "pmid": "41988871",
+      "title": "Effect of Aquatic Training Versus Land Exercises on Motor Function in Children With Autism Spectrum Disorder: A Randomized Controlled Trial.",
+      "journal": "Physiotherapy research international : the journal for researchers and clinicians in physical therapy",
+      "authors": "Albadry ES, Ibrahim NM, Othman AA et al.",
+      "published": "2026-04-01",
+      "preview": "Autism Spectrum disorder (ASD) is a neurodevelopmental condition characterized by intensely repetitive and limited behaviors as well as deficiencies in perceptuo-motor processing and interpersonal interaction capabilities. The objective of this paper is to evaluate the effectiveness of aquatic training (AT) versus l...",
+      "tags": [
+        "quality of life",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41988871/"
+    },
+    {
+      "pmid": "41926990",
+      "title": "Communication Strategies to Support Self-Advocacy in Transgender Youth With Autism Spectrum Disorder: A Literature Review.",
+      "journal": "Pediatric annals",
+      "authors": "Stern AP, Sullivan J",
+      "published": "2026-04-01",
+      "preview": "This literature review examines effective communication strategies for clinicians supporting youth with co-occurring autism spectrum disorder (ASD) and transgender and gender-diverse (TGD) identities, with the goal of enhancing self-advocacy related to gender identity and mental health. Approximately 11% of individu...",
+      "tags": [
+        "identity",
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41926990/"
+    },
+    {
+      "pmid": "41944793",
+      "title": "Prevalence, Expression, Assessment, Mechanisms, and Management of Pain in Autistic Children: A Scoping Review.",
+      "journal": "A&A practice",
+      "authors": "Kumar J, Hartzell C, Abelson E et al.",
+      "published": "2026-04-01",
+      "preview": "Autism spectrum disorder is a neurodivergent condition affecting communication, social interaction, and behavior, and is characterized by sensory-processing abnormalities. There is a high incidence of chronic pain in autistic children, and pain can also be a presenting symptom of autism.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41944793/"
+    },
+    {
+      "pmid": "41960881",
+      "title": "Analysis of Task Demand Effects on Visual and Auditory Mismatch Negativity (MMN) Across Autistic and Schizotypal Traits.",
+      "journal": "The European journal of neuroscience",
+      "authors": "Mazer P, Pasion R, Rao ZK et al.",
+      "published": "2026-04-01",
+      "preview": "Mismatch negativity (MMN) is an event-related potential component elicited by violations of sensory predictions and is widely interpreted, within the predictive processing framework, as a neural correlate of prediction error. Disruptions in prediction error signalling have been proposed as a potential mechanism unde...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41960881/"
+    },
+    {
+      "pmid": "41880781",
+      "title": "\"I've got to fix this\": Mothers' challenges when experiencing feeding difficulty in their autistic children during infancy.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Campbell AA, Barroso J, Weitlauf A et al.",
+      "published": "2026-04-01",
+      "preview": "Mothers of infants often experience heightened stress while establishing feeding habits and routines. When those routines are complicated by feeding challenges later recognized as associated with autism, the emotional and caregiving strain can be substantial.",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41880781/"
+    },
+    {
+      "pmid": "41841515",
+      "title": "Estimating the direct health and broader societal costs of caring for autistic children and adolescents - Preliminary findings from a tertiary care centre in urban India.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Sakhardande KA, Dash SS, Ramamoorthy D et al.",
+      "published": "2026-04-01",
+      "preview": "Autistic individuals across the spectrum have diverse rehabilitation and support needs. Systematic data on the cost of care for autism is unavailable in low- and middle-income countries, yet such information is essential to understand the financial burden on families.",
+      "tags": [
+        "support needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41841515/"
+    }
+  ]
+}

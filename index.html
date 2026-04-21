@@ -284,6 +284,22 @@ body.low-stim .discord-card,body.low-stim .support-card{background:var(--surface
 .first-aid-list{list-style:none;display:grid;gap:.5rem;margin-top:.7rem}
 .first-aid-list li{font-size:.82rem;color:var(--text2);line-height:1.65;display:flex;gap:.55rem;align-items:flex-start}
 .first-aid-list li::before{content:'✓';color:#059669;font-weight:900;flex-shrink:0}
+.study-meta-row{display:flex;flex-wrap:wrap;gap:.45rem;margin:.85rem 0 1rem}
+.study-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin-top:1rem}
+.study-card{border:1px solid var(--border);border-radius:18px;background:#fff;padding:1.15rem;display:flex;flex-direction:column;gap:.62rem;min-height:230px}
+.study-card:hover{border-color:var(--border2);background:#fff8fb}
+.study-card-top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start}
+.study-date{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);white-space:nowrap}
+.study-title{font-size:.92rem;font-weight:850;line-height:1.35;color:var(--text);letter-spacing:-.02em}
+.study-source{font-size:.74rem;color:var(--p-strong);font-weight:800;line-height:1.45}
+.study-preview{font-size:.78rem;color:var(--text2);line-height:1.65;flex:1}
+.study-actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.2rem}
+.study-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text2);font-size:.72rem;font-weight:850;text-decoration:none;padding:.42rem .7rem}
+.study-link:hover{background:var(--surface2);border-color:var(--border2);color:var(--p-strong)}
+.study-status{font-size:.78rem;color:var(--text2);line-height:1.65;background:#fff;border:1px solid var(--border);border-radius:18px;padding:1rem;margin-top:.85rem}
+.study-method{font-size:.72rem;color:var(--text3);line-height:1.6;margin-top:.7rem;max-width:820px}
+.study-disclaimer{border-left:3px solid var(--p);background:#fff8fb;border-radius:0 16px 16px 0;padding:1rem 1.1rem;margin:1rem 0;font-size:.8rem;color:var(--text2);line-height:1.75;max-width:860px}
+.study-report-btn{cursor:pointer}
 
 /* ── GLOSSARY ── */
 .glossary-tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:.85rem 0 1rem}
@@ -1390,6 +1406,17 @@ body.low-stim .footer-wordmark{color:#f1f2f3;-webkit-text-stroke:0}
         <div class="small-note" data-en="This checklist is for reflection and education. It does not replace clinical assessment." data-nl="Deze checklist is voor reflectie en educatie. Het vervangt geen klinisch onderzoek.">This checklist is for reflection and education. It does not replace clinical assessment.</div>
       </div>
 
+      <div class="section" id="aut-sec-studies">
+        <div class="sec-hd"><div class="sec-icon-wrap">↻</div><h2 data-en="Recent Autism Studies" data-nl="Recente Autisme Studies">Recent Autism Studies</h2></div>
+        <div class="divider"></div>
+        <p data-en="A weekly refreshed reading list from PubMed. JourHelp highlights peer-reviewed research that supports understanding, accommodations, sensory needs, masking, burnout, diagnosis, communication, and quality of life." data-nl="Een wekelijks vernieuwde leeslijst uit PubMed. JourHelp toont peer-reviewed onderzoek dat begrip, aanpassingen, prikkelbehoeften, masking, burn-out, diagnostiek, communicatie en kwaliteit van leven ondersteunt.">A weekly refreshed reading list from PubMed. JourHelp highlights peer-reviewed research that supports understanding, accommodations, sensory needs, masking, burnout, diagnosis, communication, and quality of life.</p>
+        <div class="study-disclaimer" data-en="Disclaimer: These links are automatically gathered from PubMed and are shown for education and awareness only. JourHelp does not endorse every conclusion, method, author, organisation, or wording in each article. Research can contain outdated, clinical, or harmful framing even when the topic is useful. Please use your own judgement, speak with qualified professionals for medical decisions, and report anything that feels inaccurate, unsafe, dehumanising, cure-focused, or misaligned with JourHelp." data-nl="Disclaimer: Deze links worden automatisch verzameld uit PubMed en zijn alleen bedoeld voor educatie en bewustwording. JourHelp onderschrijft niet automatisch elke conclusie, methode, auteur, organisatie of formulering in elk artikel. Onderzoek kan verouderde, klinische of schadelijke framing bevatten, zelfs wanneer het onderwerp nuttig is. Gebruik je eigen oordeel, bespreek medische beslissingen met gekwalificeerde professionals en meld alles wat onjuist, onveilig, ontmenselijkend, cure-gericht of niet passend bij JourHelp voelt.">Disclaimer: These links are automatically gathered from PubMed and are shown for education and awareness only. JourHelp does not endorse every conclusion, method, author, organisation, or wording in each article. Research can contain outdated, clinical, or harmful framing even when the topic is useful. Please use your own judgement, speak with qualified professionals for medical decisions, and report anything that feels inaccurate, unsafe, dehumanising, cure-focused, or misaligned with JourHelp.</div>
+        <div class="study-meta-row" id="aut-studies-meta"></div>
+        <div class="study-grid" id="aut-studies-grid"></div>
+        <div class="study-status" id="aut-studies-status" data-en="Loading recent studies..." data-nl="Recente studies laden...">Loading recent studies...</div>
+        <div class="study-method" data-en="Source policy: peer-reviewed PubMed records only, with filters that avoid cure-focused, vaccine-causation, prenatal-screening, and dehumanising framing. This is educational, not medical advice." data-nl="Bronbeleid: alleen peer-reviewed PubMed-records, met filters die cure-gerichte, vaccin-oorzaak, prenatale-screening en ontmenselijkende framing vermijden. Dit is educatief, geen medisch advies.">Source policy: peer-reviewed PubMed records only, with filters that avoid cure-focused, vaccine-causation, prenatal-screening, and dehumanising framing. This is educational, not medical advice.</div>
+      </div>
+
       <div class="section" id="aut-sec-overwhelm">
         <div class="sec-hd"><div class="sec-icon-wrap">🌊</div><h2 data-en="Meltdowns, Shutdowns & Burnout" data-nl="Meltdowns, Shutdowns & Burn-out">Meltdowns, Shutdowns & Burnout</h2></div>
         <div class="divider"></div>
@@ -1987,6 +2014,7 @@ let pendingGlossarySlug='';
 let overwhelmIndex=0;
 let lowStim=false;
 let cookieMode='first';
+let autismStudiesData=null;
 
 const PAGE_SLUGS={
   'autism-home':'autism',
@@ -2006,7 +2034,7 @@ const PAGE_SLUGS={
   'ocd-type':'ocd-type'
 };
 const SECTION_SLUGS={
-  'aut-sec-start':'start-here','aut-sec-first-aid':'overwhelm-first-aid','aut-sec-what':'what-is-autism','aut-sec-myths':'myths-vs-reality','aut-sec-chars':'characteristics','aut-sec-sensory':'sensory-processing','aut-sec-daily':'daily-life','aut-sec-hygiene':'hygiene','aut-sec-communication':'communication','aut-sec-women':'women-and-girls','aut-sec-diagnosis':'diagnosis-and-masking','aut-sec-self-diagnosis':'self-diagnosis','aut-sec-research-checklist':'research-checklist','aut-sec-overwhelm':'overwhelm-and-burnout','aut-sec-burnout':'burnout-guide','aut-sec-life':'life-stages','aut-sec-support':'support','aut-sec-tools':'support-tools','aut-sec-request-tools':'words-and-requests','aut-sec-late':'late-identified','aut-sec-relationships':'relationships','aut-sec-accommodations':'accommodations','aut-sec-supporters':'for-supporters','aut-sec-supporter-mistakes':'supporter-mistakes','aut-sec-overlap':'overlap','aut-sec-trauma':'trauma-and-misunderstood','aut-sec-autistic-joy':'autistic-joy','aut-sec-special-interests':'special-interests','aut-sec-autism-glossary':'mini-glossary','aut-sec-signs':'you-might-be-autistic-if','aut-sec-tips':'self-care-tips','aut-sec-stories':'stories','aut-sec-community':'community','aut-sec-faq':'faq',
+  'aut-sec-start':'start-here','aut-sec-first-aid':'overwhelm-first-aid','aut-sec-what':'what-is-autism','aut-sec-myths':'myths-vs-reality','aut-sec-chars':'characteristics','aut-sec-sensory':'sensory-processing','aut-sec-daily':'daily-life','aut-sec-hygiene':'hygiene','aut-sec-communication':'communication','aut-sec-women':'women-and-girls','aut-sec-diagnosis':'diagnosis-and-masking','aut-sec-self-diagnosis':'self-diagnosis','aut-sec-research-checklist':'research-checklist','aut-sec-studies':'recent-studies','aut-sec-overwhelm':'overwhelm-and-burnout','aut-sec-burnout':'burnout-guide','aut-sec-life':'life-stages','aut-sec-support':'support','aut-sec-tools':'support-tools','aut-sec-request-tools':'words-and-requests','aut-sec-late':'late-identified','aut-sec-relationships':'relationships','aut-sec-accommodations':'accommodations','aut-sec-supporters':'for-supporters','aut-sec-supporter-mistakes':'supporter-mistakes','aut-sec-overlap':'overlap','aut-sec-trauma':'trauma-and-misunderstood','aut-sec-autistic-joy':'autistic-joy','aut-sec-special-interests':'special-interests','aut-sec-autism-glossary':'mini-glossary','aut-sec-signs':'you-might-be-autistic-if','aut-sec-tips':'self-care-tips','aut-sec-stories':'stories','aut-sec-community':'community','aut-sec-faq':'faq',
   'ocd-sec-what':'what-is-ocd','ocd-sec-types':'types','ocd-sec-symptoms':'symptoms','ocd-sec-treatment':'treatment','ocd-sec-tips':'tips-and-coping','ocd-sec-stories':'stories','ocd-sec-community':'community','ocd-sec-faq':'faq','ocd-sec-crisis':'crisis-help'
 };
 const PAGE_BY_SLUG=Object.fromEntries(Object.entries(PAGE_SLUGS).map(([page,slug])=>[slug,page]));
@@ -2551,7 +2579,7 @@ function iconSvg(name){
 function applySectionIcons(){
   const map={
     'ocd-sec-what':'brain','ocd-sec-types':'list','ocd-sec-symptoms':'search','ocd-sec-treatment':'heart','ocd-sec-tips':'spark','ocd-sec-stories':'book','ocd-sec-community':'home','ocd-sec-faq':'search','ocd-sec-crisis':'sos',
-    'aut-sec-start':'home','aut-sec-first-aid':'sos','aut-sec-what':'spark','aut-sec-myths':'search','aut-sec-chars':'list','aut-sec-sensory':'wave','aut-sec-daily':'home','aut-sec-hygiene':'heart','aut-sec-communication':'book','aut-sec-tools':'tools','aut-sec-request-tools':'book','aut-sec-burnout':'wave','aut-sec-overwhelm':'wave','aut-sec-special-interests':'heart','aut-sec-supporters':'heart','aut-sec-overlap':'search'
+    'aut-sec-start':'home','aut-sec-first-aid':'sos','aut-sec-what':'spark','aut-sec-myths':'search','aut-sec-chars':'list','aut-sec-sensory':'wave','aut-sec-daily':'home','aut-sec-hygiene':'heart','aut-sec-communication':'book','aut-sec-studies':'book','aut-sec-tools':'tools','aut-sec-request-tools':'book','aut-sec-burnout':'wave','aut-sec-overwhelm':'wave','aut-sec-special-interests':'heart','aut-sec-supporters':'heart','aut-sec-overlap':'search'
   };
   Object.entries(map).forEach(([id,icon])=>{
     const el=document.querySelector(`#${id} .sec-icon-wrap`);
@@ -2809,6 +2837,7 @@ function getMainLinks(){
     {page:'autism-home',en:'Diagnosis & Masking',nl:'Diagnose & Masking',sec:'aut-sec-diagnosis'},
     {page:'autism-home',en:'Self-Diagnosis',nl:'Zelfdiagnose',sec:'aut-sec-self-diagnosis'},
     {page:'autism-home',en:'Research Checklist',nl:'Research Checklist',sec:'aut-sec-research-checklist'},
+    {page:'autism-home',en:'Recent Studies',nl:'Recente Studies',sec:'aut-sec-studies'},
     {page:'autism-home',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out',sec:'aut-sec-overwhelm'},
     {page:'autism-home',en:'Burnout Guide',nl:'Burn-out Gids',sec:'aut-sec-burnout'},
     {page:'autism-home',en:'Life Stages',nl:'Levensfasen',sec:'aut-sec-life'},
@@ -2874,6 +2903,7 @@ function buildMegaMenu(){
         {page:'autism-home',sec:'aut-sec-daily',en:'Daily Life',nl:'Dagelijks Leven'},
         {page:'autism-home',sec:'aut-sec-women',en:'Women & Girls',nl:'Vrouwen & Meiden'},
         {page:'autism-home',sec:'aut-sec-self-diagnosis',en:'Self-Diagnosis',nl:'Zelfdiagnose'},
+        {page:'autism-home',sec:'aut-sec-studies',en:'Recent Studies',nl:'Recente Studies'},
         {page:'autism-home',sec:'aut-sec-tools',en:'Support Tools',nl:'Steuntools'},
         {page:'autism-home',sec:'aut-sec-request-tools',en:'Words & Requests',nl:'Woorden & Verzoeken'},
         {page:'autism-home',sec:'aut-sec-overwhelm',en:'Overwhelm & Burnout',nl:'Overweldiging & Burn-out'},
@@ -3404,6 +3434,7 @@ function renderAutismHome(){
   document.getElementById('aut-masking-grid').innerHTML=e.masking.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-self-diagnosis-grid').innerHTML=e.selfDiagnosis.map(c=>`<div class="info-card"><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`).join('');
   document.getElementById('aut-research-checklist').innerHTML=h.researchChecklist.map((item,i)=>`<label class="check-chip"><input type="checkbox"><span>${i+1}. ${item}</span></label>`).join('');
+  renderAutismStudies();
   document.getElementById('aut-overwhelm-grid').innerHTML=e.overwhelm.map(c=>infoCard(c)).join('');
   document.getElementById('aut-overwhelm-needs').innerHTML=e.overwhelmNeeds.map(c=>`<div class="need-card"><strong>${c.t}</strong><span>${c.b}</span></div>`).join('');
   document.getElementById('aut-burnout-grid').innerHTML=h.burnout.map(c=>infoCard(c)).join('');
@@ -3442,6 +3473,91 @@ function cardIllustration(c){
 function infoCard(c,cls=''){
   const illu=cardIllustration(c);
   return `<div class="info-card ${cls}" ${illu?`data-illu="${illu}"`:''}><div class="info-kicker">${c.k}</div><div class="info-title">${c.t}</div><div class="info-body">${c.b}</div></div>`;
+}
+async function loadAutismStudies(){
+  try{
+    const response=await fetch('data/autism-studies.json',{cache:'no-cache'});
+    if(!response.ok)throw new Error('Could not load studies');
+    autismStudiesData=await response.json();
+  }catch{
+    autismStudiesData={updatedAt:'',source:'PubMed',studies:[]};
+  }
+  renderAutismStudies();
+}
+function formatStudyDate(value){
+  if(!value)return lang==='en'?'Recent':'Recent';
+  const date=new Date(`${value}T00:00:00Z`);
+  if(Number.isNaN(date.getTime()))return value;
+  return date.toLocaleDateString(lang==='nl'?'nl-NL':'en-US',{year:'numeric',month:'short',day:'numeric'});
+}
+function reportStudy(index){
+  const study=autismStudiesData?.studies?.[index];
+  if(!study)return;
+  const subject=encodeURIComponent(`JourHelp article report: ${study.pmid||study.title||'autism study'}`);
+  const body=encodeURIComponent([
+    lang==='en'?'I want to report this article from the Recent Autism Studies section.':'Ik wil dit artikel uit de sectie Recente Autisme Studies melden.',
+    '',
+    `Title: ${study.title||'-'}`,
+    `PMID: ${study.pmid||'-'}`,
+    `Journal: ${study.journal||'-'}`,
+    `Published: ${study.published||'-'}`,
+    `URL: ${study.url||'-'}`,
+    `Tags: ${(study.tags||[]).join(', ')||'-'}`,
+    '',
+    lang==='en'?'Reason for report:':'Reden van melding:',
+    '- ',
+    '',
+    lang==='en'?'What feels concerning or misaligned with JourHelp?':'Wat voelt zorgelijk of niet passend bij JourHelp?',
+    '- ',
+    '',
+    `Page: ${window.location.href}`
+  ].join('\n'));
+  window.location.href=`mailto:jourhelp@icloud.com?subject=${subject}&body=${body}`;
+}
+function renderAutismStudies(){
+  const grid=document.getElementById('aut-studies-grid');
+  const status=document.getElementById('aut-studies-status');
+  const meta=document.getElementById('aut-studies-meta');
+  if(!grid||!status||!meta)return;
+  if(!autismStudiesData){
+    grid.innerHTML='';
+    meta.innerHTML='';
+    status.style.display='block';
+    status.textContent=lang==='en'?'Loading recent studies...':'Recente studies laden...';
+    return;
+  }
+  const studies=Array.isArray(autismStudiesData.studies)?autismStudiesData.studies:[];
+  const updated=autismStudiesData.updatedAt?formatStudyDate(autismStudiesData.updatedAt.slice(0,10)):'';
+  meta.innerHTML=[
+    `<span class="res-badge">${escapeHtml(autismStudiesData.source||'PubMed')}</span>`,
+    updated?`<span class="res-badge">${lang==='en'?'Updated':'Bijgewerkt'} ${updated}</span>`:'',
+    `<span class="res-badge">${lang==='en'?'Weekly refresh':'Wekelijkse update'}</span>`
+  ].filter(Boolean).join('');
+  if(!studies.length){
+    grid.innerHTML='';
+    status.style.display='block';
+    status.textContent=lang==='en'
+      ? 'No studies are available yet. The weekly updater will fill this section after the next successful run.'
+      : 'Er zijn nog geen studies beschikbaar. De wekelijkse updater vult deze sectie na de volgende succesvolle run.';
+    return;
+  }
+  status.style.display='none';
+  grid.innerHTML=studies.map((study,index)=>{
+    const title=escapeHtml(study.title||'Untitled study');
+    const preview=escapeHtml(study.preview||study.abstract||'');
+    const journal=escapeHtml(study.journal||'Journal');
+    const authors=escapeHtml(study.authors||'');
+    const url=escapeAttr(study.url||`https://pubmed.ncbi.nlm.nih.gov/${study.pmid||''}/`);
+    const pmid=escapeHtml(study.pmid||'');
+    const labels=(study.tags||[]).slice(0,3).map(tag=>`<span class="res-badge">${escapeHtml(tag)}</span>`).join('');
+    return `<article class="study-card">
+      <div class="study-card-top"><div>${labels}</div><div class="study-date">${formatStudyDate(study.published||'')}</div></div>
+      <div class="study-title">${title}</div>
+      <div class="study-source">${journal}${authors?` · ${authors}`:''}</div>
+      <div class="study-preview">${preview}</div>
+      <div class="study-actions"><a class="study-link" href="${url}" target="_blank" rel="noopener">${lang==='en'?'Open study':'Open studie'}</a><button class="study-link study-report-btn" type="button" onclick="reportStudy(${index})">${lang==='en'?'Report article':'Meld artikel'}</button>${pmid?`<span class="study-link">PMID ${pmid}</span>`:''}</div>
+    </article>`;
+  }).join('');
 }
 function renderAutismTools(){
   const h=AUT_HUB[lang];
@@ -3695,6 +3811,7 @@ const var_pk='#db2777';
 
 buildSidebar();
 renderOCDHome();renderAutismHome();
+loadAutismStudies();
 renderOCDQuiz();renderAutQuiz();
 renderOCDResources();renderAutResources();
 renderOCDCompare();renderSupporterView();renderOverlapGuide();
