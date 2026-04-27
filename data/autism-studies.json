@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-21T13:18:56Z",
+  "updatedAt": "2026-04-27T07:52:09Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
@@ -91,16 +91,18 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/41880781/"
     },
     {
-      "pmid": "41841515",
-      "title": "Estimating the direct health and broader societal costs of caring for autistic children and adolescents - Preliminary findings from a tertiary care centre in urban India.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Sakhardande KA, Dash SS, Ramamoorthy D et al.",
-      "published": "2026-04-01",
-      "preview": "Autistic individuals across the spectrum have diverse rehabilitation and support needs. Systematic data on the cost of care for autism is unavailable in low- and middle-income countries, yet such information is essential to understand the financial burden on families.",
+      "pmid": "41943443",
+      "title": "Exploring Vocational Training Interventions for Adults With Autism Spectrum Disorders: A Scoping Review.",
+      "journal": "Occupational therapy international",
+      "authors": "Herlitasari HA, Fajariani D, Miyamoto R",
+      "published": "2026-01-01",
+      "preview": "Adults with autism spectrum disorder (ASD) continue to face substantial barriers to obtaining and sustaining employment, including challenges related to social communication, understanding workplace expectations, and navigating job interviews, which contribute to underemployment and reduced quality of life. This sco...",
       "tags": [
-        "support needs"
+        "autistic adults",
+        "work and study",
+        "quality of life"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41841515/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41943443/"
     }
   ]
 }
