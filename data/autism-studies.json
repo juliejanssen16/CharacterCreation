@@ -1,9 +1,85 @@
 {
-  "updatedAt": "2026-04-27T07:52:09Z",
+  "updatedAt": "2026-05-04T08:01:05Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "41928549",
+      "title": "Overlapping And Differentiating Clinical Features of Autism and Borderline Personality Disorder in Women and People Assigned Female at Birth: A Cross-Sectional Study.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Barnicot K, Thompson E, Turner S et al.",
+      "published": "2026-05-01",
+      "preview": "Previous research has suggested potential phenotypic similarities between autism and borderline personality disorder (BPD). We aimed to identify overlapping and differentiating characteristics of the two diagnostic groups in women and people assigned female at birth (PAFAB).",
+      "tags": [
+        "masking",
+        "identity",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41928549/"
+    },
+    {
+      "pmid": "41906351",
+      "title": "'A New Pace of Life': A Mixed-Methods Exploration of Retirement Plans, Preparations and Experiences in Middle-Aged and Older Autistic and Non-Autistic Adults.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Kowalczyk Z, Fadzil AHA, Ward I et al.",
+      "published": "2026-05-01",
+      "preview": "Retirement is a major life change affecting routines, finances and wellbeing. Autistic adults may face extra challenges during this transition due to employment barriers, limited support and planning difficulties.",
+      "tags": [
+        "autistic adults",
+        "work and study"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41906351/"
+    },
+    {
+      "pmid": "41933479",
+      "title": "Assessing Social Identity in Autistic Individuals: Evaluating A Self-Report Questionnaire in the Netherlands.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Krijnen LJ, Rippe RC, Begeer S et al.",
+      "published": "2026-05-01",
+      "preview": "People with autism often face mental health difficulties at rates far exceeding those of the general population. How autistic individuals relate to their autism classification and the autistic community, also known as social identity , may form a protective factor for mental health.",
+      "tags": [
+        "identity",
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41933479/"
+    },
+    {
+      "pmid": "41910582",
+      "title": "A Feasibility Trial of a Telehealth-Adapted Ayres Sensory Integration® Intervention for Autistic Children.",
+      "journal": "The American journal of occupational therapy : official publication of the American Occupational Therapy Association",
+      "authors": "Schiano NR, Sivori TT, Dumont RL et al.",
+      "published": "2026-05-01",
+      "preview": "Families of autistic children with sensory needs who live in rural areas and places where in-person visits are not possible may benefit from additional therapy delivery options. To assess parents' and therapists' acceptability of a telehealth delivery of occupational therapy using Ayres Sensory Integration® (OT-ASI)...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41910582/"
+    },
+    {
+      "pmid": "42063232",
+      "title": "Cerebral Cortex Morphometry and Relaxometry in Male Children With Fragile X Syndrome and Autism.",
+      "journal": "Brain and behavior",
+      "authors": "Guerrero-Gonzalez JM, Lowe AK, Kecskemeti SR et al.",
+      "published": "2026-05-01",
+      "preview": "An estimated 30%-50% of male individuals with fragile X syndrome (FXS) meet criteria for autism spectrum disorder (ASD), indicating phenotypic overlap but potentially distinct neurobiology. Here, we aimed to characterize shared and divergent cortical features between FXS and ASD.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42063232/"
+    },
+    {
+      "pmid": "41928551",
+      "title": "Predictors of Parent Engagement in Part C Early Intervention for Autism: The Role of Single Parenthood and Initial Motivation.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Tokish H, Ingersoll B, RISE Research Network",
+      "published": "2026-05-01",
+      "preview": "Parent engagement in early intervention supports child progress but is variable in community settings and understudied in autism populations. Prior studies have examined attendance and homework completion rather than parent participation engagement-active, independent, and responsive contribution to treatment-and it...",
+      "tags": [
+        "identity"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41928551/"
+    },
     {
       "pmid": "41980792",
       "title": "Delayed diagnosis of congenital duodenal obstruction in early adolescence in a patient with Down syndrome and autism spectrum disorder.",
@@ -27,82 +103,6 @@
         "mental health"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/41955613/"
-    },
-    {
-      "pmid": "41988871",
-      "title": "Effect of Aquatic Training Versus Land Exercises on Motor Function in Children With Autism Spectrum Disorder: A Randomized Controlled Trial.",
-      "journal": "Physiotherapy research international : the journal for researchers and clinicians in physical therapy",
-      "authors": "Albadry ES, Ibrahim NM, Othman AA et al.",
-      "published": "2026-04-01",
-      "preview": "Autism Spectrum disorder (ASD) is a neurodevelopmental condition characterized by intensely repetitive and limited behaviors as well as deficiencies in perceptuo-motor processing and interpersonal interaction capabilities. The objective of this paper is to evaluate the effectiveness of aquatic training (AT) versus l...",
-      "tags": [
-        "quality of life",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41988871/"
-    },
-    {
-      "pmid": "41926990",
-      "title": "Communication Strategies to Support Self-Advocacy in Transgender Youth With Autism Spectrum Disorder: A Literature Review.",
-      "journal": "Pediatric annals",
-      "authors": "Stern AP, Sullivan J",
-      "published": "2026-04-01",
-      "preview": "This literature review examines effective communication strategies for clinicians supporting youth with co-occurring autism spectrum disorder (ASD) and transgender and gender-diverse (TGD) identities, with the goal of enhancing self-advocacy related to gender identity and mental health. Approximately 11% of individu...",
-      "tags": [
-        "identity",
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41926990/"
-    },
-    {
-      "pmid": "41944793",
-      "title": "Prevalence, Expression, Assessment, Mechanisms, and Management of Pain in Autistic Children: A Scoping Review.",
-      "journal": "A&A practice",
-      "authors": "Kumar J, Hartzell C, Abelson E et al.",
-      "published": "2026-04-01",
-      "preview": "Autism spectrum disorder is a neurodivergent condition affecting communication, social interaction, and behavior, and is characterized by sensory-processing abnormalities. There is a high incidence of chronic pain in autistic children, and pain can also be a presenting symptom of autism.",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41944793/"
-    },
-    {
-      "pmid": "41960881",
-      "title": "Analysis of Task Demand Effects on Visual and Auditory Mismatch Negativity (MMN) Across Autistic and Schizotypal Traits.",
-      "journal": "The European journal of neuroscience",
-      "authors": "Mazer P, Pasion R, Rao ZK et al.",
-      "published": "2026-04-01",
-      "preview": "Mismatch negativity (MMN) is an event-related potential component elicited by violations of sensory predictions and is widely interpreted, within the predictive processing framework, as a neural correlate of prediction error. Disruptions in prediction error signalling have been proposed as a potential mechanism unde...",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41960881/"
-    },
-    {
-      "pmid": "41880781",
-      "title": "\"I've got to fix this\": Mothers' challenges when experiencing feeding difficulty in their autistic children during infancy.",
-      "journal": "Research in developmental disabilities",
-      "authors": "Campbell AA, Barroso J, Weitlauf A et al.",
-      "published": "2026-04-01",
-      "preview": "Mothers of infants often experience heightened stress while establishing feeding habits and routines. When those routines are complicated by feeding challenges later recognized as associated with autism, the emotional and caregiving strain can be substantial.",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41880781/"
-    },
-    {
-      "pmid": "41943443",
-      "title": "Exploring Vocational Training Interventions for Adults With Autism Spectrum Disorders: A Scoping Review.",
-      "journal": "Occupational therapy international",
-      "authors": "Herlitasari HA, Fajariani D, Miyamoto R",
-      "published": "2026-01-01",
-      "preview": "Adults with autism spectrum disorder (ASD) continue to face substantial barriers to obtaining and sustaining employment, including challenges related to social communication, understanding workplace expectations, and navigating job interviews, which contribute to underemployment and reduced quality of life. This sco...",
-      "tags": [
-        "autistic adults",
-        "work and study",
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41943443/"
     }
   ]
 }
