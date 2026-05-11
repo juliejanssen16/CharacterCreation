@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-05-04T08:01:05Z",
+  "updatedAt": "2026-05-11T08:15:17Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42097826",
+      "title": "Sensory processing differences and behavioural problems in children with autism: a retrospective study using statistical modelling and multi-output machine learning.",
+      "journal": "BMJ paediatrics open",
+      "authors": "Yan C, Xu J, Duan K et al.",
+      "published": "2026-05-07",
+      "preview": "Sensory processing differences (SPDs) are common in children with autism, yet their specific contributions to behavioural problems remain insufficiently explored. To examine how SPDs relate to behavioural problems in children with autism and to identify key sensory predictors and sensory-based subtypes associated wi...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42097826/"
+    },
     {
       "pmid": "41928549",
       "title": "Overlapping And Differentiating Clinical Features of Autism and Borderline Personality Disorder in Women and People Assigned Female at Birth: A Cross-Sectional Study.",
@@ -91,18 +103,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
-    },
-    {
-      "pmid": "41955613",
-      "title": "Evaluating Public Sentiment on Attention-Deficit/Hyperactivity Disorder and Autism Spectrum Disorder Compared With Other Mental Health Disorders From Posts on X (Formerly Known as Twitter): Longitudinal Analysis.",
-      "journal": "JMIR infodemiology",
-      "authors": "Tiosso Batistetti V, Sanchez FG, Varaona A et al.",
-      "published": "2026-04-09",
-      "preview": "Neurodevelopmental disorders, especially attention-deficit/hyperactivity disorder (ADHD) and autism spectrum disorder (ASD), have seen a marked rise in public attention, yet research on public opinion remains limited. Social media analysis offers real-time, unfiltered insights into public perceptions, enabling empir...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41955613/"
     }
   ]
 }
