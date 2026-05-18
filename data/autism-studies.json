@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-05-11T08:15:17Z",
+  "updatedAt": "2026-05-18T08:27:19Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42141075",
+      "title": "Consistently longer silent gaps in autistic speaker pairs across three conversational contexts.",
+      "journal": "Scientific reports",
+      "authors": "Wehrle S, Spaniol M, Vogeley K et al.",
+      "published": "2026-05-15",
+      "preview": "We investigated the timing of turn-taking in matched autistic compared to non-autistic pairs of adult speakers. Turn-taking-the organisation of who speaks when-is the fundamental mechanism of communicative interaction, and has been found to be remarkably fast and robust across different groups of speakers.",
+      "tags": [
+        "autistic adults"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42141075/"
+    },
     {
       "pmid": "42097826",
       "title": "Sensory processing differences and behavioural problems in children with autism: a retrospective study using statistical modelling and multi-output machine learning.",
@@ -15,33 +27,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42097826/"
-    },
-    {
-      "pmid": "41928549",
-      "title": "Overlapping And Differentiating Clinical Features of Autism and Borderline Personality Disorder in Women and People Assigned Female at Birth: A Cross-Sectional Study.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Barnicot K, Thompson E, Turner S et al.",
-      "published": "2026-05-01",
-      "preview": "Previous research has suggested potential phenotypic similarities between autism and borderline personality disorder (BPD). We aimed to identify overlapping and differentiating characteristics of the two diagnostic groups in women and people assigned female at birth (PAFAB).",
-      "tags": [
-        "masking",
-        "identity",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41928549/"
-    },
-    {
-      "pmid": "41906351",
-      "title": "'A New Pace of Life': A Mixed-Methods Exploration of Retirement Plans, Preparations and Experiences in Middle-Aged and Older Autistic and Non-Autistic Adults.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Kowalczyk Z, Fadzil AHA, Ward I et al.",
-      "published": "2026-05-01",
-      "preview": "Retirement is a major life change affecting routines, finances and wellbeing. Autistic adults may face extra challenges during this transition due to employment barriers, limited support and planning difficulties.",
-      "tags": [
-        "autistic adults",
-        "work and study"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41906351/"
     },
     {
       "pmid": "41933479",
@@ -57,18 +42,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/41933479/"
     },
     {
-      "pmid": "41910582",
-      "title": "A Feasibility Trial of a Telehealth-Adapted Ayres Sensory Integration® Intervention for Autistic Children.",
-      "journal": "The American journal of occupational therapy : official publication of the American Occupational Therapy Association",
-      "authors": "Schiano NR, Sivori TT, Dumont RL et al.",
-      "published": "2026-05-01",
-      "preview": "Families of autistic children with sensory needs who live in rural areas and places where in-person visits are not possible may benefit from additional therapy delivery options. To assess parents' and therapists' acceptability of a telehealth delivery of occupational therapy using Ayres Sensory Integration® (OT-ASI)...",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41910582/"
-    },
-    {
       "pmid": "42063232",
       "title": "Cerebral Cortex Morphometry and Relaxometry in Male Children With Fragile X Syndrome and Autism.",
       "journal": "Brain and behavior",
@@ -81,18 +54,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42063232/"
     },
     {
-      "pmid": "41928551",
-      "title": "Predictors of Parent Engagement in Part C Early Intervention for Autism: The Role of Single Parenthood and Initial Motivation.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Tokish H, Ingersoll B, RISE Research Network",
-      "published": "2026-05-01",
-      "preview": "Parent engagement in early intervention supports child progress but is variable in community settings and understudied in autism populations. Prior studies have examined attendance and homework completion rather than parent participation engagement-active, independent, and responsive contribution to treatment-and it...",
-      "tags": [
-        "identity"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41928551/"
-    },
-    {
       "pmid": "41980792",
       "title": "Delayed diagnosis of congenital duodenal obstruction in early adolescence in a patient with Down syndrome and autism spectrum disorder.",
       "journal": "BMJ case reports",
@@ -103,6 +64,43 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
+    },
+    {
+      "pmid": "41955613",
+      "title": "Evaluating Public Sentiment on Attention-Deficit/Hyperactivity Disorder and Autism Spectrum Disorder Compared With Other Mental Health Disorders From Posts on X (Formerly Known as Twitter): Longitudinal Analysis.",
+      "journal": "JMIR infodemiology",
+      "authors": "Tiosso Batistetti V, Sanchez FG, Varaona A et al.",
+      "published": "2026-04-09",
+      "preview": "Neurodevelopmental disorders, especially attention-deficit/hyperactivity disorder (ADHD) and autism spectrum disorder (ASD), have seen a marked rise in public attention, yet research on public opinion remains limited. Social media analysis offers real-time, unfiltered insights into public perceptions, enabling empir...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41955613/"
+    },
+    {
+      "pmid": "41988871",
+      "title": "Effect of Aquatic Training Versus Land Exercises on Motor Function in Children With Autism Spectrum Disorder: A Randomized Controlled Trial.",
+      "journal": "Physiotherapy research international : the journal for researchers and clinicians in physical therapy",
+      "authors": "Albadry ES, Ibrahim NM, Othman AA et al.",
+      "published": "2026-04-01",
+      "preview": "Autism Spectrum disorder (ASD) is a neurodevelopmental condition characterized by intensely repetitive and limited behaviors as well as deficiencies in perceptuo-motor processing and interpersonal interaction capabilities. The objective of this paper is to evaluate the effectiveness of aquatic training (AT) versus l...",
+      "tags": [
+        "quality of life",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41988871/"
+    },
+    {
+      "pmid": "41944793",
+      "title": "Prevalence, Expression, Assessment, Mechanisms, and Management of Pain in Autistic Children: A Scoping Review.",
+      "journal": "A&A practice",
+      "authors": "Kumar J, Hartzell C, Abelson E et al.",
+      "published": "2026-04-01",
+      "preview": "Autism spectrum disorder is a neurodivergent condition affecting communication, social interaction, and behavior, and is characterized by sensory-processing abnormalities. There is a high incidence of chronic pain in autistic children, and pain can also be a presenting symptom of autism.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41944793/"
     }
   ]
 }
