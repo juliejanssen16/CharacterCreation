@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-18T08:27:19Z",
+  "updatedAt": "2026-05-25T08:36:17Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
@@ -29,19 +29,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42097826/"
     },
     {
-      "pmid": "41933479",
-      "title": "Assessing Social Identity in Autistic Individuals: Evaluating A Self-Report Questionnaire in the Netherlands.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Krijnen LJ, Rippe RC, Begeer S et al.",
-      "published": "2026-05-01",
-      "preview": "People with autism often face mental health difficulties at rates far exceeding those of the general population. How autistic individuals relate to their autism classification and the autistic community, also known as social identity , may form a protective factor for mental health.",
-      "tags": [
-        "identity",
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41933479/"
-    },
-    {
       "pmid": "42063232",
       "title": "Cerebral Cortex Morphometry and Relaxometry in Male Children With Fragile X Syndrome and Autism.",
       "journal": "Brain and behavior",
@@ -66,18 +53,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
     },
     {
-      "pmid": "41955613",
-      "title": "Evaluating Public Sentiment on Attention-Deficit/Hyperactivity Disorder and Autism Spectrum Disorder Compared With Other Mental Health Disorders From Posts on X (Formerly Known as Twitter): Longitudinal Analysis.",
-      "journal": "JMIR infodemiology",
-      "authors": "Tiosso Batistetti V, Sanchez FG, Varaona A et al.",
-      "published": "2026-04-09",
-      "preview": "Neurodevelopmental disorders, especially attention-deficit/hyperactivity disorder (ADHD) and autism spectrum disorder (ASD), have seen a marked rise in public attention, yet research on public opinion remains limited. Social media analysis offers real-time, unfiltered insights into public perceptions, enabling empir...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41955613/"
-    },
-    {
       "pmid": "41988871",
       "title": "Effect of Aquatic Training Versus Land Exercises on Motor Function in Children With Autism Spectrum Disorder: A Randomized Controlled Trial.",
       "journal": "Physiotherapy research international : the journal for researchers and clinicians in physical therapy",
@@ -91,16 +66,40 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/41988871/"
     },
     {
-      "pmid": "41944793",
-      "title": "Prevalence, Expression, Assessment, Mechanisms, and Management of Pain in Autistic Children: A Scoping Review.",
-      "journal": "A&A practice",
-      "authors": "Kumar J, Hartzell C, Abelson E et al.",
-      "published": "2026-04-01",
-      "preview": "Autism spectrum disorder is a neurodivergent condition affecting communication, social interaction, and behavior, and is characterized by sensory-processing abnormalities. There is a high incidence of chronic pain in autistic children, and pain can also be a presenting symptom of autism.",
+      "pmid": "42098595",
+      "title": "Understanding the impact of prior depressive and anxiety symptoms and autism diagnosis on menopause symptoms.",
+      "journal": "Women's health (London, England)",
+      "authors": "Charlton RA, Fahey N, Mandy W et al.",
+      "published": "2026-01-01",
+      "preview": "BackgroundThere is growing awareness from qualitative research studies that menopause may be particularly challenging for autistic people. Research in the general population suggests that preexisting conditions may be a risk factor for negative experiences during menopause.",
       "tags": [
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41944793/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42098595/"
+    },
+    {
+      "pmid": "42118759",
+      "title": "Developmental changes in audio-visual speech integration during the first year of life in infants at elevated and typical likelihood of autism.",
+      "journal": "PloS one",
+      "authors": "Capelli E, Cassa MI, Riboldi EM et al.",
+      "published": "2026-01-01",
+      "preview": "Infants' ability to integrate auditory and visual information, i.e., audiovisual integration (AVI), emerges during the first year and is crucial for effective communication and early development. However, there is limited longitudinal research on how AVI develops across the first year of life, particularly in infant...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42118759/"
+    },
+    {
+      "pmid": "42046185",
+      "title": "Exploring Occupational Therapists' Sleep Intervention Approaches and Perspectives for Children With Autism Spectrum Disorder: A Malaysian Qualitative Study.",
+      "journal": "Occupational therapy international",
+      "authors": "Abu Bakar MRR, Dahlan A, Zaini ZI et al.",
+      "published": "2026-01-01",
+      "preview": "Children with autism spectrum disorder (ASD) frequently experience significant sleep disturbances, adversely affecting their health and family well-being. Despite the high prevalence, limited research exists on sleep interventions employed by pediatric occupational therapists (OTs) in Malaysia.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42046185/"
     }
   ]
 }
