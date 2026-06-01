@@ -1,105 +1,117 @@
 {
-  "updatedAt": "2026-05-25T08:36:17Z",
+  "updatedAt": "2026-06-01T08:56:11Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
     {
-      "pmid": "42141075",
-      "title": "Consistently longer silent gaps in autistic speaker pairs across three conversational contexts.",
-      "journal": "Scientific reports",
-      "authors": "Wehrle S, Spaniol M, Vogeley K et al.",
-      "published": "2026-05-15",
-      "preview": "We investigated the timing of turn-taking in matched autistic compared to non-autistic pairs of adult speakers. Turn-taking-the organisation of who speaks when-is the fundamental mechanism of communicative interaction, and has been found to be remarkably fast and robust across different groups of speakers.",
+      "pmid": "42109126",
+      "title": "Beyond Exhaustion: Shame, Identity Disruption, and Functional Collapse in Autistic Burnout.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Clarey MM, Ireland MJ, Abel S et al.",
+      "published": "2026-06-01",
+      "preview": "Autistic burnout is typically defined as chronic exhaustion with functional impacts on everyday life. It appears common across work, study, and relationships, yet its emotional and relational dimensions remain underexamined.",
       "tags": [
-        "autistic adults"
+        "autistic adults",
+        "burnout",
+        "identity",
+        "lived experience"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42141075/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42109126/"
     },
     {
-      "pmid": "42097826",
-      "title": "Sensory processing differences and behavioural problems in children with autism: a retrospective study using statistical modelling and multi-output machine learning.",
-      "journal": "BMJ paediatrics open",
-      "authors": "Yan C, Xu J, Duan K et al.",
-      "published": "2026-05-07",
-      "preview": "Sensory processing differences (SPDs) are common in children with autism, yet their specific contributions to behavioural problems remain insufficiently explored. To examine how SPDs relate to behavioural problems in children with autism and to identify key sensory predictors and sensory-based subtypes associated wi...",
+      "pmid": "42076791",
+      "title": "Participatory Development and Psychometric Evaluation of the Introspective Predictive Processing Inventory: A Self-Report Measure for Autistic and Non-Autistic Adults.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Roos M, Storm H, Zimmer L et al.",
+      "published": "2026-06-01",
+      "preview": "Traditional self-report autism measures are often constructed from an \"outside view\" by non-autistic researchers rather than reflecting authentic autistic experiences. Predictive processing theory offers a framework for understanding autism, but comprehensive tools assessing the subjective manifestations of predicti...",
       "tags": [
-        "sensory needs"
+        "autistic adults",
+        "lived experience",
+        "participatory research",
+        "quality of life"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42097826/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42076791/"
     },
     {
-      "pmid": "42063232",
-      "title": "Cerebral Cortex Morphometry and Relaxometry in Male Children With Fragile X Syndrome and Autism.",
-      "journal": "Brain and behavior",
-      "authors": "Guerrero-Gonzalez JM, Lowe AK, Kecskemeti SR et al.",
-      "published": "2026-05-01",
-      "preview": "An estimated 30%-50% of male individuals with fragile X syndrome (FXS) meet criteria for autism spectrum disorder (ASD), indicating phenotypic overlap but potentially distinct neurobiology. Here, we aimed to characterize shared and divergent cortical features between FXS and ASD.",
+      "pmid": "42028799",
+      "title": "Autistic Traits and Camouflaging: A Meta-Analysis.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Greig L, Coundouris SP, Henry JD",
+      "published": "2026-06-01",
+      "preview": "Autistic people sometimes camouflage their behaviour to appear non-autistic. This meta-analysis rigorously tests the relationship between autistic traits and camouflaging, examining contributing person- and study-level variables.",
       "tags": [
-        "sensory needs"
+        "masking",
+        "mental health",
+        "neurodiversity"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42063232/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42028799/"
     },
     {
-      "pmid": "41980792",
-      "title": "Delayed diagnosis of congenital duodenal obstruction in early adolescence in a patient with Down syndrome and autism spectrum disorder.",
-      "journal": "BMJ case reports",
-      "authors": "Sako I, Maekawa T, Iijima H et al.",
-      "published": "2026-04-14",
-      "preview": "Congenital duodenal obstruction (CDO) is a recognised anomaly frequently associated with Down syndrome (DS). While complete obstruction is typically diagnosed in the neonatal period, incomplete obstruction may present with milder, non-specific symptoms, often delaying diagnosis.We report a boy in early adolescence w...",
+      "pmid": "42129634",
+      "title": "Longitudinal Association Between Social Support and Quality of Life Among Middle-Aged and Older Autistic Adults.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Song W, McQuaid GA, Charlton RA et al.",
+      "published": "2026-06-01",
+      "preview": "Social support is positively associated with quality of life (QoL) in autistic people, yet almost all evidence is cross-sectional and focused on younger adults. We examined 2-year longitudinal survey data from 209 autistic adults aged ⩾40 years living in the United States, all recruited via the Research Match servic...",
       "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
-    },
-    {
-      "pmid": "41988871",
-      "title": "Effect of Aquatic Training Versus Land Exercises on Motor Function in Children With Autism Spectrum Disorder: A Randomized Controlled Trial.",
-      "journal": "Physiotherapy research international : the journal for researchers and clinicians in physical therapy",
-      "authors": "Albadry ES, Ibrahim NM, Othman AA et al.",
-      "published": "2026-04-01",
-      "preview": "Autism Spectrum disorder (ASD) is a neurodevelopmental condition characterized by intensely repetitive and limited behaviors as well as deficiencies in perceptuo-motor processing and interpersonal interaction capabilities. The objective of this paper is to evaluate the effectiveness of aquatic training (AT) versus l...",
-      "tags": [
+        "autistic adults",
+        "identity",
         "quality of life",
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41988871/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42129634/"
     },
     {
-      "pmid": "42098595",
-      "title": "Understanding the impact of prior depressive and anxiety symptoms and autism diagnosis on menopause symptoms.",
-      "journal": "Women's health (London, England)",
-      "authors": "Charlton RA, Fahey N, Mandy W et al.",
-      "published": "2026-01-01",
-      "preview": "BackgroundThere is growing awareness from qualitative research studies that menopause may be particularly challenging for autistic people. Research in the general population suggests that preexisting conditions may be a risk factor for negative experiences during menopause.",
+      "pmid": "42100952",
+      "title": "Extending the Minority Stress Model of Autism: Internalized Stigma and Loneliness as Predictors of Stress and Life Satisfaction.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Asselt AV, Roke Y, Begeer S et al.",
+      "published": "2026-06-01",
+      "preview": "Autistic people's minority status makes them more vulnerable to minority stressors, such as stigmatization and victimization, which are linked to greater stress and lower life satisfaction. The Psychological Mediation Framework (PMF) proposes that cognitive, affective, and social-psychological processes help explain...",
       "tags": [
-        "sensory needs"
+        "autistic adults",
+        "mental health"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42098595/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42100952/"
     },
     {
-      "pmid": "42118759",
-      "title": "Developmental changes in audio-visual speech integration during the first year of life in infants at elevated and typical likelihood of autism.",
-      "journal": "PloS one",
-      "authors": "Capelli E, Cassa MI, Riboldi EM et al.",
-      "published": "2026-01-01",
-      "preview": "Infants' ability to integrate auditory and visual information, i.e., audiovisual integration (AVI), emerges during the first year and is crucial for effective communication and early development. However, there is limited longitudinal research on how AVI develops across the first year of life, particularly in infant...",
+      "pmid": "42066383",
+      "title": "Unpacking the daily dynamics of parenting strain: A 15-day diary study of caregiving role overload, depressive symptoms, and parental burnout among parents of autistic children.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Wang L, Hua M, Xie Q et al.",
+      "published": "2026-06-01",
+      "preview": "To explore the day-to-day dynamics between daily caregiving role overload and daily depressive symptoms among parents of autistic children, and to examine gender differences in these variables' average levels and day-to-day dynamics, as well as whether such differences help explain parental burnout. We recruited par...",
       "tags": [
-        "sensory needs"
+        "burnout",
+        "mental health"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42118759/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42066383/"
     },
     {
-      "pmid": "42046185",
-      "title": "Exploring Occupational Therapists' Sleep Intervention Approaches and Perspectives for Children With Autism Spectrum Disorder: A Malaysian Qualitative Study.",
-      "journal": "Occupational therapy international",
-      "authors": "Abu Bakar MRR, Dahlan A, Zaini ZI et al.",
-      "published": "2026-01-01",
-      "preview": "Children with autism spectrum disorder (ASD) frequently experience significant sleep disturbances, adversely affecting their health and family well-being. Despite the high prevalence, limited research exists on sleep interventions employed by pediatric occupational therapists (OTs) in Malaysia.",
+      "pmid": "42052873",
+      "title": "Social Isolation or Autistic Homophily: An Exploration of the Social Networks of Autistic College Students.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Wolford GW, Varela G, Freeland RE et al.",
+      "published": "2026-06-01",
+      "preview": "Our understanding of autistic socialization using social network analysis has focused on autistic children and understanding support systems. The purpose of this study is to examine autistic friendship networks in adulthood without focusing on support systems.",
       "tags": [
-        "sensory needs"
+        "autistic adults"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42046185/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42052873/"
+    },
+    {
+      "pmid": "42077026",
+      "title": "Daily Mindfulness and Depressive Symptoms Among Parents of Autistic Children: A Dynamic Structural Equation Modelling Study.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Wang L, Hua M, Hu X et al.",
+      "published": "2026-06-01",
+      "preview": "Elevated depressive symptoms among parents of autistic children are well documented and associated with poorer mental health. Mindfulness has been identified as a protective factor against mental health difficulties, but its day-to-day associations with depressive symptoms in this population remain unclear.",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42077026/"
     }
   ]
 }
