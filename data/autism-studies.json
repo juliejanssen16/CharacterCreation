@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-01T08:56:11Z",
+  "updatedAt": "2026-06-08T08:39:41Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
@@ -33,20 +33,6 @@
         "quality of life"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42076791/"
-    },
-    {
-      "pmid": "42028799",
-      "title": "Autistic Traits and Camouflaging: A Meta-Analysis.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Greig L, Coundouris SP, Henry JD",
-      "published": "2026-06-01",
-      "preview": "Autistic people sometimes camouflage their behaviour to appear non-autistic. This meta-analysis rigorously tests the relationship between autistic traits and camouflaging, examining contributing person- and study-level variables.",
-      "tags": [
-        "masking",
-        "mental health",
-        "neurodiversity"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42028799/"
     },
     {
       "pmid": "42129634",
@@ -112,6 +98,18 @@
         "mental health"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42077026/"
+    },
+    {
+      "pmid": "42068888",
+      "title": "Advantages and disadvantages of noise-cancelling headphones for autistic students in educational settings.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Herrebrøden M, Marentakis G, Dechsling A et al.",
+      "published": "2026-06-01",
+      "preview": "This perspective article explores the various advantages and disadvantages of using noise-cancelling headphones in educational settings for autistic students with auditory sensory differences. Although noise-cancelling headphones can have several advantages for autistic students in educational settings, it is import...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42068888/"
     }
   ]
 }
