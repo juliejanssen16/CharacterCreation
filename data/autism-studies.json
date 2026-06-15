@@ -1,9 +1,47 @@
 {
-  "updatedAt": "2026-06-08T08:39:41Z",
+  "updatedAt": "2026-06-15T09:15:41Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42270790",
+      "title": "Prospective memory and executive functions in adults across the wider autistic spectrum.",
+      "journal": "Scientific reports",
+      "authors": "Nürnberg D, Altgassen M",
+      "published": "2026-06-10",
+      "preview": "Prospective memory (PM) refers to the cognitive ability of remembering to execute an intended action in the future. Empirical evidence indicates reduced PM performance in autistic individuals.",
+      "tags": [
+        "autistic adults"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42270790/"
+    },
+    {
+      "pmid": "42262640",
+      "title": "Sensory Reactivity in Autism: Integrating Behavioural, Affective, Physiological, and Neural Dimensions.",
+      "journal": "Current psychiatry reports",
+      "authors": "Tavassoli T, Marco EJ, Puts N",
+      "published": "2026-06-09",
+      "preview": "The goal of this paper is to synthesise recent research on sensory reactivity differences in autism across the lifespan, using He et al.'s sensory taxonomy as an organising framework. The review aims to address how behavioural, affective, perceptual, physiological, and neural levels of processing contribute to senso...",
+      "tags": [
+        "mental health",
+        "quality of life",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42262640/"
+    },
+    {
+      "pmid": "42247163",
+      "title": "Measuring quality of life in autistic children and young people: comparing the performance of common generic health related quality of life instruments.",
+      "journal": "Quality of life research : an international journal of quality of life aspects of treatment, care and rehabilitation",
+      "authors": "Constable L, O'Loughlin R, Jones R et al.",
+      "published": "2026-06-05",
+      "preview": "To assess the comparative measurement performance of commonly used paediatric health related quality of life (HRQoL) instruments in autistic children. The sample was 510 autistic children aged 5-18 years from the Australian Paediatric Multi-Instrument Comparison study.",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42247163/"
+    },
     {
       "pmid": "42109126",
       "title": "Beyond Exhaustion: Shame, Identity Disruption, and Functional Collapse in Autistic Burnout.",
@@ -63,53 +101,16 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42100952/"
     },
     {
-      "pmid": "42066383",
-      "title": "Unpacking the daily dynamics of parenting strain: A 15-day diary study of caregiving role overload, depressive symptoms, and parental burnout among parents of autistic children.",
-      "journal": "Research in developmental disabilities",
-      "authors": "Wang L, Hua M, Xie Q et al.",
+      "pmid": "42261644",
+      "title": "Multisensory Attenuation of the Pupil Light Response in Autistic and Non-Autistic Children.",
+      "journal": "The European journal of neuroscience",
+      "authors": "Brittenham C, Vanneau T, Molholm S",
       "published": "2026-06-01",
-      "preview": "To explore the day-to-day dynamics between daily caregiving role overload and daily depressive symptoms among parents of autistic children, and to examine gender differences in these variables' average levels and day-to-day dynamics, as well as whether such differences help explain parental burnout. We recruited par...",
-      "tags": [
-        "burnout",
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42066383/"
-    },
-    {
-      "pmid": "42052873",
-      "title": "Social Isolation or Autistic Homophily: An Exploration of the Social Networks of Autistic College Students.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Wolford GW, Varela G, Freeland RE et al.",
-      "published": "2026-06-01",
-      "preview": "Our understanding of autistic socialization using social network analysis has focused on autistic children and understanding support systems. The purpose of this study is to examine autistic friendship networks in adulthood without focusing on support systems.",
-      "tags": [
-        "autistic adults"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42052873/"
-    },
-    {
-      "pmid": "42077026",
-      "title": "Daily Mindfulness and Depressive Symptoms Among Parents of Autistic Children: A Dynamic Structural Equation Modelling Study.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Wang L, Hua M, Hu X et al.",
-      "published": "2026-06-01",
-      "preview": "Elevated depressive symptoms among parents of autistic children are well documented and associated with poorer mental health. Mindfulness has been identified as a protective factor against mental health difficulties, but its day-to-day associations with depressive symptoms in this population remain unclear.",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42077026/"
-    },
-    {
-      "pmid": "42068888",
-      "title": "Advantages and disadvantages of noise-cancelling headphones for autistic students in educational settings.",
-      "journal": "Research in developmental disabilities",
-      "authors": "Herrebrøden M, Marentakis G, Dechsling A et al.",
-      "published": "2026-06-01",
-      "preview": "This perspective article explores the various advantages and disadvantages of using noise-cancelling headphones in educational settings for autistic students with auditory sensory differences. Although noise-cancelling headphones can have several advantages for autistic students in educational settings, it is import...",
+      "preview": "Autonomic responses to sensory stimuli are altered in autism, yet little is known about how multisensory input modulates these responses. This study examined whether auditory stimuli affect the pupil light reflex (PLR), a parasympathetically driven response to light, in autistic and non-autistic children.",
       "tags": [
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42068888/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42261644/"
     }
   ]
 }
