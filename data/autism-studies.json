@@ -1,9 +1,33 @@
 {
-  "updatedAt": "2026-06-15T09:15:41Z",
+  "updatedAt": "2026-06-22T09:08:04Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42320910",
+      "title": "Mood instability and mental health service use in autism and attention-deficit/hyperactivity disorder: a natural language processing analysis of CRIS electronic healthcare records from 21 906 children and adolescents.",
+      "journal": "BMJ mental health",
+      "authors": "Seker A, Kim S, Chandler S et al.",
+      "published": "2026-06-18",
+      "preview": "Children and young people (CYP) with neurodevelopmental diagnoses such as autism spectrum disorder (ASD) and attention-deficit/hyperactivity disorder (ADHD) have high child and adolescent mental health service (CAMHS) needs. Mood instability is a common and impairing emotion dysregulation-related symptom linked to i...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42320910/"
+    },
+    {
+      "pmid": "42309664",
+      "title": "Parenting behaviours and autistic children's internalizing and externalizing symptoms: a protocol of a systematic review and meta-analysis.",
+      "journal": "BMJ open",
+      "authors": "Andrews K, Masood N, Mansoor A et al.",
+      "published": "2026-06-17",
+      "preview": "Autistic children can experience elevated levels of emotional and behavioural problems, which adversely impact their psychosocial functioning. Positive parenting behaviours can significantly shape children's emotional and behavioural developmental trajectories.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42309664/"
+    },
     {
       "pmid": "42270790",
       "title": "Prospective memory and executive functions in adults across the wider autistic spectrum.",
@@ -15,6 +39,18 @@
         "autistic adults"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42270790/"
+    },
+    {
+      "pmid": "42270130",
+      "title": "Advances in supporting development in autistic children and youth.",
+      "journal": "BMJ (Clinical research ed.)",
+      "authors": "Penner M, Zwaigenbaum L, Piroddi N et al.",
+      "published": "2026-06-10",
+      "preview": "Autism is a neurodevelopmental condition with varied trajectories through the lifespan, leading to individualized patterns of strengths and challenges. Longitudinal autism cohort studies show the importance of developmental and adaptive skills starting in the early years, followed by emerging co-occurring conditions...",
+      "tags": [
+        "autism research"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42270130/"
     },
     {
       "pmid": "42262640",
@@ -43,34 +79,18 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42247163/"
     },
     {
-      "pmid": "42109126",
-      "title": "Beyond Exhaustion: Shame, Identity Disruption, and Functional Collapse in Autistic Burnout.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Clarey MM, Ireland MJ, Abel S et al.",
+      "pmid": "42135209",
+      "title": "Untangling Sex and Gender Differences in Impression Management and Associated Autism Features in French Autistic Adults.",
+      "journal": "Autism research : official journal of the International Society for Autism Research",
+      "authors": "Ai W, Anchordoqui A, Bogdanova O et al.",
       "published": "2026-06-01",
-      "preview": "Autistic burnout is typically defined as chronic exhaustion with functional impacts on everyday life. It appears common across work, study, and relationships, yet its emotional and relational dimensions remain underexamined.",
+      "preview": "Some autistic individuals camouflage their behavioral differences, a phenomenon that overlaps with general impression management (IM). Few studies have examined IM in autistic people, particularly outside English-speaking countries.",
       "tags": [
         "autistic adults",
-        "burnout",
-        "identity",
-        "lived experience"
+        "masking",
+        "identity"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42109126/"
-    },
-    {
-      "pmid": "42076791",
-      "title": "Participatory Development and Psychometric Evaluation of the Introspective Predictive Processing Inventory: A Self-Report Measure for Autistic and Non-Autistic Adults.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Roos M, Storm H, Zimmer L et al.",
-      "published": "2026-06-01",
-      "preview": "Traditional self-report autism measures are often constructed from an \"outside view\" by non-autistic researchers rather than reflecting authentic autistic experiences. Predictive processing theory offers a framework for understanding autism, but comprehensive tools assessing the subjective manifestations of predicti...",
-      "tags": [
-        "autistic adults",
-        "lived experience",
-        "participatory research",
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42076791/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42135209/"
     },
     {
       "pmid": "42129634",
@@ -86,31 +106,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42129634/"
-    },
-    {
-      "pmid": "42100952",
-      "title": "Extending the Minority Stress Model of Autism: Internalized Stigma and Loneliness as Predictors of Stress and Life Satisfaction.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Asselt AV, Roke Y, Begeer S et al.",
-      "published": "2026-06-01",
-      "preview": "Autistic people's minority status makes them more vulnerable to minority stressors, such as stigmatization and victimization, which are linked to greater stress and lower life satisfaction. The Psychological Mediation Framework (PMF) proposes that cognitive, affective, and social-psychological processes help explain...",
-      "tags": [
-        "autistic adults",
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42100952/"
-    },
-    {
-      "pmid": "42261644",
-      "title": "Multisensory Attenuation of the Pupil Light Response in Autistic and Non-Autistic Children.",
-      "journal": "The European journal of neuroscience",
-      "authors": "Brittenham C, Vanneau T, Molholm S",
-      "published": "2026-06-01",
-      "preview": "Autonomic responses to sensory stimuli are altered in autism, yet little is known about how multisensory input modulates these responses. This study examined whether auditory stimuli affect the pupil light reflex (PLR), a parasympathetically driven response to light, in autistic and non-autistic children.",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42261644/"
     }
   ]
 }
