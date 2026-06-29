@@ -1,9 +1,33 @@
 {
-  "updatedAt": "2026-06-22T09:08:04Z",
+  "updatedAt": "2026-06-29T08:43:09Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42336795",
+      "title": "Mealtime behaviours, diet quality and parental stress in children with autism spectrum disorder: a cross-sectional study from Türkiye.",
+      "journal": "BMJ paediatrics open",
+      "authors": "Özyildirim C, Karaçil Ermumcu MS, Mutlu ME et al.",
+      "published": "2026-06-23",
+      "preview": "Feeding difficulties in children with Autism Spectrum Disorder (ASD) are prevalent, adversely affecting both the child's nutritional status and the family's psychosocial well-being. This study aimed to examine the interrelationships between mealtime behaviours, diet quality and parental stress in children with ASD.",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42336795/"
+    },
+    {
+      "pmid": "42356394",
+      "title": "Elimination Diets, Not Food Selectivity, Are Associated with Reduced Nutritional Status in Children with Autism Spectrum Disorder.",
+      "journal": "Nutrients",
+      "authors": "Grębska P, Fedorczak A, Pytrus T et al.",
+      "published": "2026-06-20",
+      "preview": "Background/Objectives: Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by deficits in social communication, restricted and repetitive behaviors, and sensory processing abnormalities, including food selectivity. Due to the lack of effective causal therapies, alternative approaches such...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42356394/"
+    },
     {
       "pmid": "42320910",
       "title": "Mood instability and mental health service use in autism and attention-deficit/hyperactivity disorder: a natural language processing analysis of CRIS electronic healthcare records from 21 906 children and adolescents.",
@@ -77,35 +101,6 @@
         "quality of life"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42247163/"
-    },
-    {
-      "pmid": "42135209",
-      "title": "Untangling Sex and Gender Differences in Impression Management and Associated Autism Features in French Autistic Adults.",
-      "journal": "Autism research : official journal of the International Society for Autism Research",
-      "authors": "Ai W, Anchordoqui A, Bogdanova O et al.",
-      "published": "2026-06-01",
-      "preview": "Some autistic individuals camouflage their behavioral differences, a phenomenon that overlaps with general impression management (IM). Few studies have examined IM in autistic people, particularly outside English-speaking countries.",
-      "tags": [
-        "autistic adults",
-        "masking",
-        "identity"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42135209/"
-    },
-    {
-      "pmid": "42129634",
-      "title": "Longitudinal Association Between Social Support and Quality of Life Among Middle-Aged and Older Autistic Adults.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Song W, McQuaid GA, Charlton RA et al.",
-      "published": "2026-06-01",
-      "preview": "Social support is positively associated with quality of life (QoL) in autistic people, yet almost all evidence is cross-sectional and focused on younger adults. We examined 2-year longitudinal survey data from 209 autistic adults aged ⩾40 years living in the United States, all recruited via the Research Match servic...",
-      "tags": [
-        "autistic adults",
-        "identity",
-        "quality of life",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42129634/"
     }
   ]
 }
