@@ -1,9 +1,71 @@
 {
-  "updatedAt": "2026-06-29T08:43:09Z",
+  "updatedAt": "2026-07-06T08:35:44Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42213014",
+      "title": "Assessing School-Based Speech-Language Pathologists' Perspectives on Neurodiversity-Affirming Practices for Autistic Students.",
+      "journal": "Language, speech, and hearing services in schools",
+      "authors": "DeMonte KH, Lugo-Neris MJ, Perry BJ",
+      "published": "2026-07-02",
+      "preview": "The purpose of this study was to examine current school-based speech-language pathologists' (SLPs') perspectives on neurodiversity-affirming (ND-affirming) practices for autistic students and how their current clinical practices align with ND-affirming practices. A total of 150 school-based SLPs completed an origina...",
+      "tags": [
+        "neurodiversity"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42213014/"
+    },
+    {
+      "pmid": "42257266",
+      "title": "Exploring Patterns of Self-Harm in Autistic Adults Using the Card Sort Task for Self-Harm.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Pelton M, Newell V, French B et al.",
+      "published": "2026-07-01",
+      "preview": "Autistic adults self-harm more often than non-autistic adults, but there are no tools to assess patterns of self-harm in autistic people. This study aimed to (1) review the accessibility of a novel visual task - the Card Sort Task for Self-Harm (CaTS) - to explore self-harm with autistic adults and (2) to pilot the...",
+      "tags": [
+        "autistic adults",
+        "communication",
+        "lived experience"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42257266/"
+    },
+    {
+      "pmid": "42301263",
+      "title": "Interventions for Adolescent Students With Autism and Co-Occurring Mental Health Disorders.",
+      "journal": "NASN school nurse (Print)",
+      "authors": "Thaller J, McIntosh C, Wendel J et al.",
+      "published": "2026-07-01",
+      "preview": "School nurses are often the forward-facing health care practitioner for youth, simultaneously managing mental health and medical care for their students while also interacting with students' families and navigating consequences of family dynamics, including health literacy, social support, and financial issues. Thus...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42301263/"
+    },
+    {
+      "pmid": "42281150",
+      "title": "A Randomized Controlled Trial of Yizhi Kaiqiao Formula Combined With Repetitive Transcranial Magnetic Stimulation on Neurocognitive and Social Outcomes in Preschool Children With Autism Spectrum Disorder.",
+      "journal": "Developmental neurobiology",
+      "authors": "Yin D, Fan L, Huang K et al.",
+      "published": "2026-07-01",
+      "preview": "This paper aimed to unravel the effects of Yizhi Kaiqiao formula combined with repetitive transcranial magnetic stimulation (rTMS) on neurocognitive function and social outcomes in preschool children with autism spectrum disorder (ASD). In this randomized controlled trial, 178 preschool children with ASD recruited b...",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42281150/"
+    },
+    {
+      "pmid": "42380932",
+      "title": "Developing a consensus research definition for profound autism using a modified Delphi method.",
+      "journal": "Molecular autism",
+      "authors": "Siegel M, Lord CL, Tager-Flusberg H et al.",
+      "published": "2026-06-30",
+      "preview": "The diagnostic term, autism spectrum disorder, encompasses the full range of impairments associated with the autism spectrum, a significant change from earlier DSM definitions that identified various subtypes of autism. However, the majority of autism-related research and cultural representations in recent years has...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42380932/"
+    },
     {
       "pmid": "42336795",
       "title": "Mealtime behaviours, diet quality and parental stress in children with autism spectrum disorder: a cross-sectional study from Türkiye.",
@@ -39,68 +101,6 @@
         "mental health"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42320910/"
-    },
-    {
-      "pmid": "42309664",
-      "title": "Parenting behaviours and autistic children's internalizing and externalizing symptoms: a protocol of a systematic review and meta-analysis.",
-      "journal": "BMJ open",
-      "authors": "Andrews K, Masood N, Mansoor A et al.",
-      "published": "2026-06-17",
-      "preview": "Autistic children can experience elevated levels of emotional and behavioural problems, which adversely impact their psychosocial functioning. Positive parenting behaviours can significantly shape children's emotional and behavioural developmental trajectories.",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42309664/"
-    },
-    {
-      "pmid": "42270790",
-      "title": "Prospective memory and executive functions in adults across the wider autistic spectrum.",
-      "journal": "Scientific reports",
-      "authors": "Nürnberg D, Altgassen M",
-      "published": "2026-06-10",
-      "preview": "Prospective memory (PM) refers to the cognitive ability of remembering to execute an intended action in the future. Empirical evidence indicates reduced PM performance in autistic individuals.",
-      "tags": [
-        "autistic adults"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42270790/"
-    },
-    {
-      "pmid": "42270130",
-      "title": "Advances in supporting development in autistic children and youth.",
-      "journal": "BMJ (Clinical research ed.)",
-      "authors": "Penner M, Zwaigenbaum L, Piroddi N et al.",
-      "published": "2026-06-10",
-      "preview": "Autism is a neurodevelopmental condition with varied trajectories through the lifespan, leading to individualized patterns of strengths and challenges. Longitudinal autism cohort studies show the importance of developmental and adaptive skills starting in the early years, followed by emerging co-occurring conditions...",
-      "tags": [
-        "autism research"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42270130/"
-    },
-    {
-      "pmid": "42262640",
-      "title": "Sensory Reactivity in Autism: Integrating Behavioural, Affective, Physiological, and Neural Dimensions.",
-      "journal": "Current psychiatry reports",
-      "authors": "Tavassoli T, Marco EJ, Puts N",
-      "published": "2026-06-09",
-      "preview": "The goal of this paper is to synthesise recent research on sensory reactivity differences in autism across the lifespan, using He et al.'s sensory taxonomy as an organising framework. The review aims to address how behavioural, affective, perceptual, physiological, and neural levels of processing contribute to senso...",
-      "tags": [
-        "mental health",
-        "quality of life",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42262640/"
-    },
-    {
-      "pmid": "42247163",
-      "title": "Measuring quality of life in autistic children and young people: comparing the performance of common generic health related quality of life instruments.",
-      "journal": "Quality of life research : an international journal of quality of life aspects of treatment, care and rehabilitation",
-      "authors": "Constable L, O'Loughlin R, Jones R et al.",
-      "published": "2026-06-05",
-      "preview": "To assess the comparative measurement performance of commonly used paediatric health related quality of life (HRQoL) instruments in autistic children. The sample was 510 autistic children aged 5-18 years from the Australian Paediatric Multi-Instrument Comparison study.",
-      "tags": [
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42247163/"
     }
   ]
 }
