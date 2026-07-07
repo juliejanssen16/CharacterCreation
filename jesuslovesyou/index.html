@@ -261,11 +261,14 @@
     background:var(--rosedeep);
     color:#fff;
     text-decoration:none;
+    border:none;
     border-radius:999px;
+    font-family:'Jost', sans-serif;
     font-size:0.85rem;
     letter-spacing:0.08em;
     text-transform:uppercase;
     font-weight:500;
+    cursor:pointer;
     transition:transform 0.25s ease, box-shadow 0.25s ease;
     box-shadow:0 12px 24px -10px rgba(217,102,143,0.55);
   }
@@ -273,6 +276,37 @@
   .cta:hover{
     transform:translateY(-2px);
     box-shadow:0 16px 30px -10px rgba(217,102,143,0.6);
+  }
+
+  .pray-form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.9rem;
+  }
+
+  .pray-input{
+    display:none;
+    width:100%;
+    max-width:280px;
+    padding:0.85rem 1.1rem;
+    border:1px solid rgba(217,102,143,0.35);
+    border-radius:999px;
+    background:#fff;
+    color:var(--plum);
+    font-family:'Jost', sans-serif;
+    font-size:0.95rem;
+    text-align:center;
+    outline:none;
+  }
+
+  .pray-input.show{
+    display:block;
+  }
+
+  .pray-input:focus{
+    border-color:var(--rosedeep);
+    box-shadow:0 0 0 3px rgba(217,102,143,0.15);
   }
 
   /* ---------- Footer ---------- */
@@ -380,7 +414,11 @@
     <h2>Come as you are</h2>
     <p>If something in you is saying yes — even quietly — that's enough to start. You could pray something like this, in your own words:</p>
     <p class="prayer">"Jesus, thank You for loving me first. I open my heart to You — just as I am. Be near to me."</p>
-    <a class="cta" href="#" onclick="return false;">This is my prayer too</a>
+
+    <form class="pray-form" id="prayForm" novalidate>
+      <input type="text" id="prayName" class="pray-input" placeholder="Your first name" aria-label="Your first name" autocomplete="given-name">
+      <button type="submit" class="cta" id="prayBtn">Pray for me</button>
+    </form>
   </div>
 
   <footer>
@@ -388,6 +426,35 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var form = document.getElementById('prayForm');
+  var input = document.getElementById('prayName');
+  var revealed = false;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if(!revealed){
+      revealed = true;
+      input.classList.add('show');
+      input.focus();
+      return;
+    }
+
+    var name = input.value.trim();
+    if(!name){
+      input.focus();
+      return;
+    }
+
+    var subject = encodeURIComponent('Pray for ' + name);
+    var body = encodeURIComponent(name + ' has asked for prayer on jourhelp.nl/jesuslovesyou.');
+    window.location.href = 'mailto:jourhelp@icloud.com?subject=' + subject + '&body=' + body;
+  });
+})();
+</script>
 
 </body>
 </html>
