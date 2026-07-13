@@ -1,20 +1,20 @@
 {
-  "updatedAt": "2026-07-06T08:35:44Z",
+  "updatedAt": "2026-07-13T10:31:02Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
     {
-      "pmid": "42213014",
-      "title": "Assessing School-Based Speech-Language Pathologists' Perspectives on Neurodiversity-Affirming Practices for Autistic Students.",
-      "journal": "Language, speech, and hearing services in schools",
-      "authors": "DeMonte KH, Lugo-Neris MJ, Perry BJ",
-      "published": "2026-07-02",
-      "preview": "The purpose of this study was to examine current school-based speech-language pathologists' (SLPs') perspectives on neurodiversity-affirming (ND-affirming) practices for autistic students and how their current clinical practices align with ND-affirming practices. A total of 150 school-based SLPs completed an origina...",
+      "pmid": "42430199",
+      "title": "Large Language Model-Assisted Annotation Framework for Cross-Platform Analysis of Online Autism Communities: Implications for Parent Education and Digital Support.",
+      "journal": "Journal of medical Internet research",
+      "authors": "Xu Y, Ma J, Hu Y et al.",
+      "published": "2026-07-10",
+      "preview": "Online health communities (OHCs) are important channels for families of children with autism spectrum disorder to obtain health information and psychosocial support. Differences between an open forum platform and the physician-patient consultation platforms may shape caregiver decisions, yet comparative evidence fro...",
       "tags": [
-        "neurodiversity"
+        "identity"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42213014/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42430199/"
     },
     {
       "pmid": "42257266",
@@ -29,6 +29,31 @@
         "lived experience"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42257266/"
+    },
+    {
+      "pmid": "42411856",
+      "title": "Management of Comorbid Autism Spectrum Disorder, Attention-Deficit/Hyperactivity Disorder, and Anxiety in Pediatric PMHNP Practice.",
+      "journal": "Journal of psychosocial nursing and mental health services",
+      "authors": "Basnet D, Beauvois L",
+      "published": "2026-07-01",
+      "preview": "Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by deficits in social communication and restricted, repetitive behaviors, frequently accompanied by comorbid psychiatric conditions, such as anxiety and attention-deficit/hyperactivity disorder. Symptom overlap complicates diagnosis, wher...",
+      "tags": [
+        "mental health",
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42411856/"
+    },
+    {
+      "pmid": "42406049",
+      "title": "From Early Childhood to Adulthood: Implementing Neuroaffirming Health Care for Autistic Individuals.",
+      "journal": "Pediatric annals",
+      "authors": "Acharya K, Bauer SC, Rottier H",
+      "published": "2026-07-01",
+      "preview": "In health care, autism is viewed through the medical model. This approach may lead to adverse health care experiences and outcomes for autistic individuals.",
+      "tags": [
+        "neurodiversity"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42406049/"
     },
     {
       "pmid": "42301263",
@@ -77,30 +102,6 @@
         "quality of life"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42336795/"
-    },
-    {
-      "pmid": "42356394",
-      "title": "Elimination Diets, Not Food Selectivity, Are Associated with Reduced Nutritional Status in Children with Autism Spectrum Disorder.",
-      "journal": "Nutrients",
-      "authors": "Grębska P, Fedorczak A, Pytrus T et al.",
-      "published": "2026-06-20",
-      "preview": "Background/Objectives: Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by deficits in social communication, restricted and repetitive behaviors, and sensory processing abnormalities, including food selectivity. Due to the lack of effective causal therapies, alternative approaches such...",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42356394/"
-    },
-    {
-      "pmid": "42320910",
-      "title": "Mood instability and mental health service use in autism and attention-deficit/hyperactivity disorder: a natural language processing analysis of CRIS electronic healthcare records from 21 906 children and adolescents.",
-      "journal": "BMJ mental health",
-      "authors": "Seker A, Kim S, Chandler S et al.",
-      "published": "2026-06-18",
-      "preview": "Children and young people (CYP) with neurodevelopmental diagnoses such as autism spectrum disorder (ASD) and attention-deficit/hyperactivity disorder (ADHD) have high child and adolescent mental health service (CAMHS) needs. Mood instability is a common and impairing emotion dysregulation-related symptom linked to i...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42320910/"
     }
   ]
 }
