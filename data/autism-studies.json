@@ -1,9 +1,23 @@
 {
-  "updatedAt": "2026-07-13T10:31:02Z",
+  "updatedAt": "2026-07-20T10:15:59Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42467809",
+      "title": "Attention-deficit/hyperactivity disorder, autism spectrum disorder, and HIV: implications for risk, outcomes, and care for neurodivergent people.",
+      "journal": "Topics in antiviral medicine",
+      "authors": "Relyea Ashley HM, Stuart SK, Eaton EF",
+      "published": "2026-07-16",
+      "preview": "Neurodivergence, including autism spectrum disorder (ASD) and attention-deficit/hyperactivity disorder (ADHD), is increasingly recognized as an important factor influencing health across the lifespan. Although ASD and ADHD are diagnosed categorically using standardized criteria based on the Diagnostic and Statistica...",
+      "tags": [
+        "neurodiversity",
+        "sensory needs",
+        "support needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42467809/"
+    },
     {
       "pmid": "42430199",
       "title": "Large Language Model-Assisted Annotation Framework for Cross-Platform Analysis of Online Autism Communities: Implications for Parent Education and Digital Support.",
@@ -17,18 +31,41 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42430199/"
     },
     {
-      "pmid": "42257266",
-      "title": "Exploring Patterns of Self-Harm in Autistic Adults Using the Card Sort Task for Self-Harm.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Pelton M, Newell V, French B et al.",
-      "published": "2026-07-01",
-      "preview": "Autistic adults self-harm more often than non-autistic adults, but there are no tools to assess patterns of self-harm in autistic people. This study aimed to (1) review the accessibility of a novel visual task - the Card Sort Task for Self-Harm (CaTS) - to explore self-harm with autistic adults and (2) to pilot the...",
+      "pmid": "42450246",
+      "title": "Subcortical Dendritic Scaffolding in Autism Spectrum Disorder: A Testable ANK2-SCN2A-SHANK Framework.",
+      "journal": "International journal of molecular sciences",
+      "authors": "Salcedo SC, Rodriguez ABL, Petrinovic MM et al.",
+      "published": "2026-07-03",
+      "preview": "The autism spectrum disorder-associated SCN2A , ANK2 , and SHANK -family genes encode molecularly distinct proteins that converge functionally on dendritic integration. Recent work established that ankyrin-B, encoded by ANK2 , acts as an obligate dendritic scaffold for NaV1.2, encoded by SCN2A , in neocortical pyram...",
       "tags": [
-        "autistic adults",
-        "communication",
-        "lived experience"
+        "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42257266/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42450246/"
+    },
+    {
+      "pmid": "42304759",
+      "title": "The Network Model of Mentalization, Social Vulnerability, and the Self in Autism: A Comparison With Neurotypical Adults.",
+      "journal": "Autism research : official journal of the International Society for Autism Research",
+      "authors": "Holka S, Sörnyei D, Vass Á et al.",
+      "published": "2026-07-01",
+      "preview": "Autism spectrum disorder (ASD) is characterized by alterations in social understanding and self-related experience that overlap with broader dimensions of psychosocial vulnerability. These domains are tightly interconnected, motivating the use of analytic approaches that can capture their organization as complex ass...",
+      "tags": [
+        "autistic adults"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42304759/"
+    },
+    {
+      "pmid": "42438230",
+      "title": "Assessment of the Efficacy of Quercetin in Adult Patients With Autism Spectrum Disorder: A Randomized, Triple-Blind, Placebo-Controlled Trial.",
+      "journal": "Human psychopharmacology",
+      "authors": "Rezaeifar A, Motamed M, Mohebbi N",
+      "published": "2026-07-01",
+      "preview": "This randomized, triple-blind, placebo-controlled clinical trial evaluated the efficacy and safety of quercetin in adults with autism spectrum disorder (ASD). Fifty-two adults with ASD were randomly assigned to receive either quercetin or placebo for 60 days.",
+      "tags": [
+        "mental health",
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42438230/"
     },
     {
       "pmid": "42411856",
@@ -66,42 +103,6 @@
         "mental health"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42301263/"
-    },
-    {
-      "pmid": "42281150",
-      "title": "A Randomized Controlled Trial of Yizhi Kaiqiao Formula Combined With Repetitive Transcranial Magnetic Stimulation on Neurocognitive and Social Outcomes in Preschool Children With Autism Spectrum Disorder.",
-      "journal": "Developmental neurobiology",
-      "authors": "Yin D, Fan L, Huang K et al.",
-      "published": "2026-07-01",
-      "preview": "This paper aimed to unravel the effects of Yizhi Kaiqiao formula combined with repetitive transcranial magnetic stimulation (rTMS) on neurocognitive function and social outcomes in preschool children with autism spectrum disorder (ASD). In this randomized controlled trial, 178 preschool children with ASD recruited b...",
-      "tags": [
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42281150/"
-    },
-    {
-      "pmid": "42380932",
-      "title": "Developing a consensus research definition for profound autism using a modified Delphi method.",
-      "journal": "Molecular autism",
-      "authors": "Siegel M, Lord CL, Tager-Flusberg H et al.",
-      "published": "2026-06-30",
-      "preview": "The diagnostic term, autism spectrum disorder, encompasses the full range of impairments associated with the autism spectrum, a significant change from earlier DSM definitions that identified various subtypes of autism. However, the majority of autism-related research and cultural representations in recent years has...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42380932/"
-    },
-    {
-      "pmid": "42336795",
-      "title": "Mealtime behaviours, diet quality and parental stress in children with autism spectrum disorder: a cross-sectional study from Türkiye.",
-      "journal": "BMJ paediatrics open",
-      "authors": "Özyildirim C, Karaçil Ermumcu MS, Mutlu ME et al.",
-      "published": "2026-06-23",
-      "preview": "Feeding difficulties in children with Autism Spectrum Disorder (ASD) are prevalent, adversely affecting both the child's nutritional status and the family's psychosocial well-being. This study aimed to examine the interrelationships between mealtime behaviours, diet quality and parental stress in children with ASD.",
-      "tags": [
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42336795/"
     }
   ]
 }
