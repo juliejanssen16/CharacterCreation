@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T10:15:59Z",
+  "updatedAt": "2026-07-27T10:47:03Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
@@ -43,18 +43,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42450246/"
     },
     {
-      "pmid": "42304759",
-      "title": "The Network Model of Mentalization, Social Vulnerability, and the Self in Autism: A Comparison With Neurotypical Adults.",
-      "journal": "Autism research : official journal of the International Society for Autism Research",
-      "authors": "Holka S, Sörnyei D, Vass Á et al.",
-      "published": "2026-07-01",
-      "preview": "Autism spectrum disorder (ASD) is characterized by alterations in social understanding and self-related experience that overlap with broader dimensions of psychosocial vulnerability. These domains are tightly interconnected, motivating the use of analytic approaches that can capture their organization as complex ass...",
-      "tags": [
-        "autistic adults"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42304759/"
-    },
-    {
       "pmid": "42438230",
       "title": "Assessment of the Efficacy of Quercetin in Adult Patients With Autism Spectrum Disorder: A Randomized, Triple-Blind, Placebo-Controlled Trial.",
       "journal": "Human psychopharmacology",
@@ -93,16 +81,28 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42406049/"
     },
     {
-      "pmid": "42301263",
-      "title": "Interventions for Adolescent Students With Autism and Co-Occurring Mental Health Disorders.",
-      "journal": "NASN school nurse (Print)",
-      "authors": "Thaller J, McIntosh C, Wendel J et al.",
+      "pmid": "42485044",
+      "title": "Computerized Adaptive Tests for Rapid and Accurate Assessment of Autism.",
+      "journal": "JAMA network open",
+      "authors": "Tseng A, Yang A, Mandocescu L et al.",
       "published": "2026-07-01",
-      "preview": "School nurses are often the forward-facing health care practitioner for youth, simultaneously managing mental health and medical care for their students while also interacting with students' families and navigating consequences of family dynamics, including health literacy, social support, and financial issues. Thus...",
+      "preview": "Extant diagnostic and screening tools struggle to accommodate the diverse features of autism spectrum disorder (ASD) while balancing psychometric properties with respondent burden. Bifactor multidimensional item response theory (MIRT)-based computerized adaptive testing (CAT) can increase accuracy and accessibility...",
       "tags": [
         "mental health"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42301263/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42485044/"
+    },
+    {
+      "pmid": "42380932",
+      "title": "Developing a consensus research definition for profound autism using a modified Delphi method.",
+      "journal": "Molecular autism",
+      "authors": "Siegel M, Lord CL, Tager-Flusberg H et al.",
+      "published": "2026-06-30",
+      "preview": "The diagnostic term, autism spectrum disorder, encompasses the full range of impairments associated with the autism spectrum, a significant change from earlier DSM definitions that identified various subtypes of autism. However, the majority of autism-related research and cultural representations in recent years has...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42380932/"
     }
   ]
 }
