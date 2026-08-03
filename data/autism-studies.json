@@ -1,9 +1,84 @@
 {
-  "updatedAt": "2026-07-27T10:47:03Z",
+  "updatedAt": "2026-08-03T10:47:25Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42478670",
+      "title": "Understanding Autistic Adults' Psychological Experiences of Anxiety Problems: A Qualitative Interview Study.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Roberts-Davis RJ, Happé FG, Lau-Zhu A",
+      "published": "2026-08-01",
+      "preview": "Our understanding of psychological experiences of anxiety in autism could be improved if it were shaped by autistic individuals. However, anxiety research in autism often begins with cognitive conceptualisations drawn from neurotypical or non-autistic individuals.",
+      "tags": [
+        "autistic adults",
+        "lived experience",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42478670/"
+    },
+    {
+      "pmid": "42389848",
+      "title": "Specialist Resource Centres as Protective Microsystems: A Qualitative Comparative Case Study of Autistic Pupils' Experiences in Mainstream Secondary Schools.",
+      "journal": "Autism : the international journal of research and practice",
+      "authors": "Boddy A, Cook A",
+      "published": "2026-08-01",
+      "preview": "Autistic pupils in mainstream secondary schools face significant barriers to academic progress, social engagement, and mental wellbeing, with parents consistently reporting that their children's autism-related needs are not being met. This qualitative comparative case study examined what shapes the educational exper...",
+      "tags": [
+        "mental health",
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42389848/"
+    },
+    {
+      "pmid": "42399210",
+      "title": "Cybernetic Dynamics of Autistic Traits: A Temporal Network Analysis Approach to Plasticity, Stability, and Future-Oriented Adaptations.",
+      "journal": "International journal of psychology : Journal international de psychologie",
+      "authors": "Zhao X, Ma S, Xu X et al.",
+      "published": "2026-08-01",
+      "preview": "Built upon the core tenets of Cybernetic Big Five Theory, the present research explores how Autistic Traits operate dynamically within a unified network encompassing personality meta-traits (Plasticity and Stability) and multiple facets of prospective cognition. Based on three-wave longitudinal data of 570 non-clini...",
+      "tags": [
+        "masking"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42399210/"
+    },
+    {
+      "pmid": "42485738",
+      "title": "South Korean immigrant parent and sibling perspectives on physical activity participation among adults with autism spectrum disorder.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Lee SH, Park SY",
+      "published": "2026-08-01",
+      "preview": "Although physical activity (PA) participation can promote physical health, social interaction, behavioral regulation, and overall quality of life among adults with autism spectrum disorder (ASD), South Korean immigrant parents and siblings may face distinctive challenges in supporting PA participation due to caregiv...",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42485738/"
+    },
+    {
+      "pmid": "42468411",
+      "title": "Effects of group-based music therapy combined with speech therapy on language and social skills in preschool children with autism spectrum disorder: An exploratory randomized controlled trial.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Liu CE, Chen PY, Lai TJ et al.",
+      "published": "2026-08-01",
+      "preview": "Autism spectrum disorder (ASD) is characterized by early difficulties in language and social communication. While speech therapy is a core early intervention, music therapy has been increasingly applied to support social-emotional development.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42468411/"
+    },
+    {
+      "pmid": "42522203",
+      "title": "A Systematic Review of the Risk and Protective Factors for Suicide in Autism Spectrum Disorder.",
+      "journal": "The Spanish journal of psychology",
+      "authors": "Tubío-Fungueiriño M, Cruz S, Conde-Pumpido-Zubizarreta S et al.",
+      "published": "2026-07-29",
+      "preview": "The shorter lifespan and increased prevalence of physical and psychiatric comorbidities in autistic people is a challenge for mental health. There is a high risk of suicide-related behaviors in autism, which are related to mental health issues, social isolation, and other factors.",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42522203/"
+    },
     {
       "pmid": "42467809",
       "title": "Attention-deficit/hyperactivity disorder, autism spectrum disorder, and HIV: implications for risk, outcomes, and care for neurodivergent people.",
@@ -29,80 +104,6 @@
         "identity"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42430199/"
-    },
-    {
-      "pmid": "42450246",
-      "title": "Subcortical Dendritic Scaffolding in Autism Spectrum Disorder: A Testable ANK2-SCN2A-SHANK Framework.",
-      "journal": "International journal of molecular sciences",
-      "authors": "Salcedo SC, Rodriguez ABL, Petrinovic MM et al.",
-      "published": "2026-07-03",
-      "preview": "The autism spectrum disorder-associated SCN2A , ANK2 , and SHANK -family genes encode molecularly distinct proteins that converge functionally on dendritic integration. Recent work established that ankyrin-B, encoded by ANK2 , acts as an obligate dendritic scaffold for NaV1.2, encoded by SCN2A , in neocortical pyram...",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42450246/"
-    },
-    {
-      "pmid": "42438230",
-      "title": "Assessment of the Efficacy of Quercetin in Adult Patients With Autism Spectrum Disorder: A Randomized, Triple-Blind, Placebo-Controlled Trial.",
-      "journal": "Human psychopharmacology",
-      "authors": "Rezaeifar A, Motamed M, Mohebbi N",
-      "published": "2026-07-01",
-      "preview": "This randomized, triple-blind, placebo-controlled clinical trial evaluated the efficacy and safety of quercetin in adults with autism spectrum disorder (ASD). Fifty-two adults with ASD were randomly assigned to receive either quercetin or placebo for 60 days.",
-      "tags": [
-        "mental health",
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42438230/"
-    },
-    {
-      "pmid": "42411856",
-      "title": "Management of Comorbid Autism Spectrum Disorder, Attention-Deficit/Hyperactivity Disorder, and Anxiety in Pediatric PMHNP Practice.",
-      "journal": "Journal of psychosocial nursing and mental health services",
-      "authors": "Basnet D, Beauvois L",
-      "published": "2026-07-01",
-      "preview": "Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by deficits in social communication and restricted, repetitive behaviors, frequently accompanied by comorbid psychiatric conditions, such as anxiety and attention-deficit/hyperactivity disorder. Symptom overlap complicates diagnosis, wher...",
-      "tags": [
-        "mental health",
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42411856/"
-    },
-    {
-      "pmid": "42406049",
-      "title": "From Early Childhood to Adulthood: Implementing Neuroaffirming Health Care for Autistic Individuals.",
-      "journal": "Pediatric annals",
-      "authors": "Acharya K, Bauer SC, Rottier H",
-      "published": "2026-07-01",
-      "preview": "In health care, autism is viewed through the medical model. This approach may lead to adverse health care experiences and outcomes for autistic individuals.",
-      "tags": [
-        "neurodiversity"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42406049/"
-    },
-    {
-      "pmid": "42485044",
-      "title": "Computerized Adaptive Tests for Rapid and Accurate Assessment of Autism.",
-      "journal": "JAMA network open",
-      "authors": "Tseng A, Yang A, Mandocescu L et al.",
-      "published": "2026-07-01",
-      "preview": "Extant diagnostic and screening tools struggle to accommodate the diverse features of autism spectrum disorder (ASD) while balancing psychometric properties with respondent burden. Bifactor multidimensional item response theory (MIRT)-based computerized adaptive testing (CAT) can increase accuracy and accessibility...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42485044/"
-    },
-    {
-      "pmid": "42380932",
-      "title": "Developing a consensus research definition for profound autism using a modified Delphi method.",
-      "journal": "Molecular autism",
-      "authors": "Siegel M, Lord CL, Tager-Flusberg H et al.",
-      "published": "2026-06-30",
-      "preview": "The diagnostic term, autism spectrum disorder, encompasses the full range of impairments associated with the autism spectrum, a significant change from earlier DSM definitions that identified various subtypes of autism. However, the majority of autism-related research and cultural representations in recent years has...",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42380932/"
     }
   ]
 }
