@@ -1,9 +1,71 @@
 {
-  "updatedAt": "2026-08-03T10:47:25Z",
+  "updatedAt": "2026-08-10T08:42:13Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42567865",
+      "title": "Autism in adolescence and adulthood.",
+      "journal": "Scientific reports",
+      "authors": "Denisova K, Jones CRG",
+      "published": "2026-08-07",
+      "preview": "Landmark descriptions of autism in the 1940s were based on clinical work with children. Research over the subsequent 80 years has largely focused on the experiences and needs of autistic children, with recent neuroimaging and genetic studies contributing significant insights into the developmentally driven neurobiol...",
+      "tags": [
+        "mental health",
+        "neurodiversity"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42567865/"
+    },
+    {
+      "pmid": "42473985",
+      "title": "Emerging Promise of Sulforaphane in Autism: A Comprehensive Review of Its Therapeutic Potential and Mechanisms.",
+      "journal": "ACS chemical neuroscience",
+      "authors": "Zhang X, He Q, Zhu YY et al.",
+      "published": "2026-08-05",
+      "preview": "Autism spectrum disorder (ASD) is a complex neurodevelopmental disorder that emerges in early childhood and significantly impacts the quality of life for individuals and families. Currently, there are no specific medications available for ASD.",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42473985/"
+    },
+    {
+      "pmid": "42548172",
+      "title": "Autism spectrum disorder: has it lost its meaning and is it leading to misdiagnosis?",
+      "journal": "Psychological medicine",
+      "authors": "Frith U",
+      "published": "2026-08-04",
+      "preview": "Since the 1940s, the concept of autism has undergone marked changes, and autism spectrum disorder (ASD) is a wildly heterogenous condition. At the same time, the prevalence of ASD has increased massively.",
+      "tags": [
+        "identity",
+        "masking"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42548172/"
+    },
+    {
+      "pmid": "42552003",
+      "title": "AquOTic: protocol for a type 1 hybrid effectiveness-implementation trial of an occupational therapy-based water competency intervention for children on the autism spectrum.",
+      "journal": "BMJ open",
+      "authors": "Kemp E, Juckett L, Sansone IO et al.",
+      "published": "2026-08-04",
+      "preview": "Drowning is a leading cause of unintentional death among children on the autism spectrum, emphasising the need for tailored water competency interventions. Autism-related factors such as wandering, sensory differences and limited danger awareness increase drowning risk.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42552003/"
+    },
+    {
+      "pmid": "42548071",
+      "title": "Longitudinal associations among autism and ADHD traits, social maladjustment, and mental health in school-aged children.",
+      "journal": "Psychological medicine",
+      "authors": "Hashimoto E, Ito H, Hamada M et al.",
+      "published": "2026-08-04",
+      "preview": "Neurodevelopmental disorder traits are associated with a range of psychosocial difficulties, yet the longitudinal processes linking these traits to mental health remain insufficiently explored. This study examined developmental associations among autism spectrum disorder (ASD) traits, attention-deficit/hyperactivity...",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42548071/"
+    },
     {
       "pmid": "42478670",
       "title": "Understanding Autistic Adults' Psychological Experiences of Anxiety Problems: A Qualitative Interview Study.",
@@ -17,31 +79,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42478670/"
-    },
-    {
-      "pmid": "42389848",
-      "title": "Specialist Resource Centres as Protective Microsystems: A Qualitative Comparative Case Study of Autistic Pupils' Experiences in Mainstream Secondary Schools.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Boddy A, Cook A",
-      "published": "2026-08-01",
-      "preview": "Autistic pupils in mainstream secondary schools face significant barriers to academic progress, social engagement, and mental wellbeing, with parents consistently reporting that their children's autism-related needs are not being met. This qualitative comparative case study examined what shapes the educational exper...",
-      "tags": [
-        "mental health",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42389848/"
-    },
-    {
-      "pmid": "42399210",
-      "title": "Cybernetic Dynamics of Autistic Traits: A Temporal Network Analysis Approach to Plasticity, Stability, and Future-Oriented Adaptations.",
-      "journal": "International journal of psychology : Journal international de psychologie",
-      "authors": "Zhao X, Ma S, Xu X et al.",
-      "published": "2026-08-01",
-      "preview": "Built upon the core tenets of Cybernetic Big Five Theory, the present research explores how Autistic Traits operate dynamically within a unified network encompassing personality meta-traits (Plasticity and Stability) and multiple facets of prospective cognition. Based on three-wave longitudinal data of 570 non-clini...",
-      "tags": [
-        "masking"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42399210/"
     },
     {
       "pmid": "42485738",
@@ -66,44 +103,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42468411/"
-    },
-    {
-      "pmid": "42522203",
-      "title": "A Systematic Review of the Risk and Protective Factors for Suicide in Autism Spectrum Disorder.",
-      "journal": "The Spanish journal of psychology",
-      "authors": "Tubío-Fungueiriño M, Cruz S, Conde-Pumpido-Zubizarreta S et al.",
-      "published": "2026-07-29",
-      "preview": "The shorter lifespan and increased prevalence of physical and psychiatric comorbidities in autistic people is a challenge for mental health. There is a high risk of suicide-related behaviors in autism, which are related to mental health issues, social isolation, and other factors.",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42522203/"
-    },
-    {
-      "pmid": "42467809",
-      "title": "Attention-deficit/hyperactivity disorder, autism spectrum disorder, and HIV: implications for risk, outcomes, and care for neurodivergent people.",
-      "journal": "Topics in antiviral medicine",
-      "authors": "Relyea Ashley HM, Stuart SK, Eaton EF",
-      "published": "2026-07-16",
-      "preview": "Neurodivergence, including autism spectrum disorder (ASD) and attention-deficit/hyperactivity disorder (ADHD), is increasingly recognized as an important factor influencing health across the lifespan. Although ASD and ADHD are diagnosed categorically using standardized criteria based on the Diagnostic and Statistica...",
-      "tags": [
-        "neurodiversity",
-        "sensory needs",
-        "support needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42467809/"
-    },
-    {
-      "pmid": "42430199",
-      "title": "Large Language Model-Assisted Annotation Framework for Cross-Platform Analysis of Online Autism Communities: Implications for Parent Education and Digital Support.",
-      "journal": "Journal of medical Internet research",
-      "authors": "Xu Y, Ma J, Hu Y et al.",
-      "published": "2026-07-10",
-      "preview": "Online health communities (OHCs) are important channels for families of children with autism spectrum disorder to obtain health information and psychosocial support. Differences between an open forum platform and the physician-patient consultation platforms may shape caregiver decisions, yet comparative evidence fro...",
-      "tags": [
-        "identity"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42430199/"
     }
   ]
 }
