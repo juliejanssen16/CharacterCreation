@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Are Loved — Good News</title>
+<link rel="canonical" href="https://jourhelp.nl/jesuslovesyou">
+<meta property="og:url" content="https://jourhelp.nl/jesuslovesyou">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#fff8fa;
+    --petal:#fbd9e4;
+    --rose:#f0a8c6;
+    --rosedeep:#d9668f;
+    --plum:#4a2438;
+    --plum-soft:#7a4c60;
+    --gold:#e6b877;
+    --gold-soft:#f3dcae;
+    --max:640px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(60% 40% at 50% 0%, var(--gold-soft) 0%, transparent 60%),
+      linear-gradient(180deg, var(--blush) 0%, #fff 40%, var(--petal) 100%);
+    background-attachment:fixed;
+    color:var(--plum);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:clamp(1.5rem, 6vw, 3rem) clamp(1.25rem, 6vw, 2.5rem) 4rem;
+    position:relative;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+  }
+
+  .glow{
+    position:absolute;
+    top:50%; left:50%;
+    width:min(80vw, 480px);
+    height:min(80vw, 480px);
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(230,184,119,0.35) 0%, rgba(240,168,198,0.18) 45%, transparent 72%);
+    filter:blur(6px);
+    border-radius:50%;
+    z-index:0;
+    animation:breathe 7s ease-in-out infinite;
+  }
+
+  @keyframes breathe{
+    0%, 100%{ transform:translate(-50%,-50%) scale(1); opacity:0.9; }
+    50%{ transform:translate(-50%,-50%) scale(1.08); opacity:1; }
+  }
+
+  .eyebrow{
+    position:relative; z-index:1;
+    font-size:0.78rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--rosedeep);
+    margin-bottom:1.1rem;
+    font-weight:500;
+  }
+
+  h1{
+    position:relative; z-index:1;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(2.6rem, 9vw, 4.4rem);
+    line-height:1.05;
+    margin:0 0 1rem;
+    color:var(--plum);
+  }
+
+  h1 em{
+    font-style:italic;
+    color:var(--rosedeep);
+  }
+
+  .hero-sub{
+    position:relative; z-index:1;
+    font-size:clamp(1rem, 2.6vw, 1.15rem);
+    color:var(--plum-soft);
+    max-width:32ch;
+    line-height:1.6;
+    font-weight:300;
+  }
+
+  .scroll-cue{
+    position:relative; z-index:1;
+    margin-top:2.6rem;
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--rose);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+
+  .scroll-cue::after{
+    content:"";
+    width:1px; height:28px;
+    background:linear-gradient(var(--rose), transparent);
+    animation:drip 2.2s ease-in-out infinite;
+  }
+
+  @keyframes drip{
+    0%{ opacity:0; transform:scaleY(0.4); }
+    50%{ opacity:1; transform:scaleY(1); }
+    100%{ opacity:0; transform:scaleY(0.4); }
+  }
+
+  /* ---------- Divider ---------- */
+
+  .divider{
+    display:flex;
+    justify-content:center;
+    margin:3.2rem 0;
+    opacity:0.85;
+  }
+
+  /* ---------- Verse block ---------- */
+
+  .verse-block{
+    text-align:center;
+    padding:2.2rem clamp(1rem,4vw,2rem);
+    background:rgba(255,255,255,0.55);
+    border:1px solid rgba(217,102,143,0.18);
+    border-radius:28px;
+    backdrop-filter:blur(6px);
+  }
+
+  .verse-block p{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(1.3rem, 4vw, 1.65rem);
+    line-height:1.5;
+    color:var(--plum);
+    margin:0 0 0.9rem;
+  }
+
+  .verse-ref{
+    font-family:'Jost', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--rosedeep);
+    font-weight:500;
+  }
+
+  /* ---------- Story beats ---------- */
+
+  .beats{
+    display:flex;
+    flex-direction:column;
+    gap:2.6rem;
+    margin:3.4rem 0;
+  }
+
+  .beat{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.1rem;
+    align-items:start;
+  }
+
+  .beat-mark{
+    width:38px; height:38px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold-soft), var(--rose));
+    display:flex; align-items:center; justify-content:center;
+    margin-top:0.15rem;
+  }
+
+  .beat-mark svg{ width:16px; height:16px; }
+
+  .beat h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:clamp(1.25rem, 3.4vw, 1.5rem);
+    margin:0 0 0.4rem;
+    color:var(--plum);
+  }
+
+  .beat p{
+    margin:0;
+    font-size:0.98rem;
+    line-height:1.75;
+    color:var(--plum-soft);
+    font-weight:300;
+  }
+
+  /* ---------- Invitation ---------- */
+
+  .invite{
+    text-align:center;
+    padding:2.6rem clamp(1.25rem,5vw,2.4rem);
+    background:linear-gradient(160deg, #fff 0%, var(--petal) 130%);
+    border-radius:32px;
+    box-shadow:0 20px 50px -20px rgba(217,102,143,0.35);
+  }
+
+  .invite h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(1.7rem, 5vw, 2.2rem);
+    margin:0 0 0.8rem;
+  }
+
+  .invite p{
+    font-size:0.95rem;
+    line-height:1.7;
+    color:var(--plum-soft);
+    max-width:38ch;
+    margin:0 auto 1.6rem;
+    font-weight:300;
+  }
+
+  .prayer{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.7;
+    color:var(--plum);
+    background:rgba(255,255,255,0.6);
+    border-radius:18px;
+    padding:1.3rem 1.4rem;
+    margin:0 0 1.8rem;
+  }
+
+  .cta{
+    display:inline-block;
+    padding:0.95rem 2.4rem;
+    background:var(--rosedeep);
+    color:#fff;
+    text-decoration:none;
+    border:none;
+    border-radius:999px;
+    font-family:'Jost', sans-serif;
+    font-size:0.85rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:500;
+    cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow:0 12px 24px -10px rgba(217,102,143,0.55);
+  }
+
+  .cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 30px -10px rgba(217,102,143,0.6);
+  }
+
+  .pray-form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.9rem;
+  }
+
+  .pray-input{
+    display:none;
+    width:100%;
+    max-width:280px;
+    padding:0.85rem 1.1rem;
+    border:1px solid rgba(217,102,143,0.35);
+    border-radius:999px;
+    background:#fff;
+    color:var(--plum);
+    font-family:'Jost', sans-serif;
+    font-size:0.95rem;
+    text-align:center;
+    outline:none;
+  }
+
+  .pray-input.show{
+    display:block;
+  }
+
+  .pray-input:focus{
+    border-color:var(--rosedeep);
+    box-shadow:0 0 0 3px rgba(217,102,143,0.15);
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    text-align:center;
+    margin-top:3.4rem;
+    padding-top:1.6rem;
+  }
+
+  footer p{
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    color:var(--rosedeep);
+    line-height:1.8;
+    font-weight:400;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .glow, .scroll-cue::after{ animation:none; }
+  }
+
+  @media (max-width:380px){
+    .beat{ grid-template-columns:1fr; }
+    .beat-mark{ margin-bottom:0.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <p class="eyebrow">before anything else —</p>
+    <h1>You are <em>loved.</em></h1>
+    <p class="hero-sub">Not because of what you've done. Not because of what you'll fix first. Just — loved, already, on purpose.</p>
+    <div class="scroll-cue">keep reading</div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+      <path d="M2 12 C 30 2, 40 22, 60 12 S 90 2, 118 12" stroke="#d9668f" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="60" cy="12" r="3" fill="#e6b877"/>
+    </svg>
+  </div>
+
+  <div class="verse-block">
+    <p>"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."</p>
+    <p class="verse-ref">John 3:16</p>
+  </div>
+
+  <div class="beats">
+
+    <div class="beat">
+      <div class="beat-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-9C.5 8 2 4 6 4c2.2 0 3.8 1.3 6 4 2.2-2.7 3.8-4 6-4 4 0 5.5 4 3.5 8-2.5 4.65-9.5 9-9.5 9z" fill="#d9668f"/></svg>
+      </div>
+      <div>
+        <h3>You were made on purpose</h3>
+        <p>Before you had to earn anything, you were already wanted. God's love isn't a reward for good behavior — it's where you started from.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M4 8l8-6 8 6" stroke="#d9668f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h3>But we all drift</h3>
+        <p>Every one of us pulls away sometimes — hurts others, hides, tries to fill the ache with anything but Him. That gap is real. It's not a life sentence.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#d9668f" stroke-width="2"/><path d="M12 7v5l3 3" stroke="#d9668f" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3>So Jesus closed the gap</h3>
+        <p>He didn't wait for you to clean up first. He came, lived, died, and rose again — to carry what was too heavy for you to carry alone.</p>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#d9668f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h3>And now — you're invited</h3>
+        <p>No performance required. No perfect prayer. Just a real yes, however quiet, however small.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+      <path d="M2 12 C 30 2, 40 22, 60 12 S 90 2, 118 12" stroke="#d9668f" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+      <circle cx="60" cy="12" r="3" fill="#e6b877"/>
+    </svg>
+  </div>
+
+  <div class="invite">
+    <h2>Come as you are</h2>
+    <p>If something in you is saying yes — even quietly — that's enough to start. You could pray something like this, in your own words:</p>
+    <p class="prayer">"Jesus, thank You for loving me first. I open my heart to You — just as I am. Be near to me."</p>
+
+    <form class="pray-form" id="prayForm" novalidate>
+      <input type="text" id="prayName" class="pray-input" placeholder="Your first name" aria-label="Your first name" autocomplete="given-name">
+      <button type="submit" class="cta" id="prayBtn">Pray for me</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>"For I am persuaded, that neither death, nor life... nor any other creature,<br>shall be able to separate us from the love of God."<br>— Romans 8:38–39</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('prayForm');
+  var input = document.getElementById('prayName');
+  var revealed = false;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if(!revealed){
+      revealed = true;
+      input.classList.add('show');
+      input.focus();
+      return;
+    }
+
+    var name = input.value.trim();
+    if(!name){
+      input.focus();
+      return;
+    }
+
+    var subject = encodeURIComponent('Pray for ' + name);
+    var body = encodeURIComponent(name + ' has asked for prayer on jourhelp.nl/jesuslovesyou.');
+    window.location.href = 'mailto:jourhelp@icloud.com?subject=' + subject + '&body=' + body;
+  });
+})();
+</script>
+
+</body>
+</html>

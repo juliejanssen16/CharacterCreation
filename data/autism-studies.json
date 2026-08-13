@@ -1,108 +1,108 @@
 {
-  "updatedAt": "2026-05-11T08:15:17Z",
+  "updatedAt": "2026-08-10T08:42:13Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
     {
-      "pmid": "42097826",
-      "title": "Sensory processing differences and behavioural problems in children with autism: a retrospective study using statistical modelling and multi-output machine learning.",
-      "journal": "BMJ paediatrics open",
-      "authors": "Yan C, Xu J, Duan K et al.",
-      "published": "2026-05-07",
-      "preview": "Sensory processing differences (SPDs) are common in children with autism, yet their specific contributions to behavioural problems remain insufficiently explored. To examine how SPDs relate to behavioural problems in children with autism and to identify key sensory predictors and sensory-based subtypes associated wi...",
+      "pmid": "42567865",
+      "title": "Autism in adolescence and adulthood.",
+      "journal": "Scientific reports",
+      "authors": "Denisova K, Jones CRG",
+      "published": "2026-08-07",
+      "preview": "Landmark descriptions of autism in the 1940s were based on clinical work with children. Research over the subsequent 80 years has largely focused on the experiences and needs of autistic children, with recent neuroimaging and genetic studies contributing significant insights into the developmentally driven neurobiol...",
+      "tags": [
+        "mental health",
+        "neurodiversity"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42567865/"
+    },
+    {
+      "pmid": "42473985",
+      "title": "Emerging Promise of Sulforaphane in Autism: A Comprehensive Review of Its Therapeutic Potential and Mechanisms.",
+      "journal": "ACS chemical neuroscience",
+      "authors": "Zhang X, He Q, Zhu YY et al.",
+      "published": "2026-08-05",
+      "preview": "Autism spectrum disorder (ASD) is a complex neurodevelopmental disorder that emerges in early childhood and significantly impacts the quality of life for individuals and families. Currently, there are no specific medications available for ASD.",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42473985/"
+    },
+    {
+      "pmid": "42548172",
+      "title": "Autism spectrum disorder: has it lost its meaning and is it leading to misdiagnosis?",
+      "journal": "Psychological medicine",
+      "authors": "Frith U",
+      "published": "2026-08-04",
+      "preview": "Since the 1940s, the concept of autism has undergone marked changes, and autism spectrum disorder (ASD) is a wildly heterogenous condition. At the same time, the prevalence of ASD has increased massively.",
+      "tags": [
+        "identity",
+        "masking"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42548172/"
+    },
+    {
+      "pmid": "42552003",
+      "title": "AquOTic: protocol for a type 1 hybrid effectiveness-implementation trial of an occupational therapy-based water competency intervention for children on the autism spectrum.",
+      "journal": "BMJ open",
+      "authors": "Kemp E, Juckett L, Sansone IO et al.",
+      "published": "2026-08-04",
+      "preview": "Drowning is a leading cause of unintentional death among children on the autism spectrum, emphasising the need for tailored water competency interventions. Autism-related factors such as wandering, sensory differences and limited danger awareness increase drowning risk.",
       "tags": [
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42097826/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42552003/"
     },
     {
-      "pmid": "41928549",
-      "title": "Overlapping And Differentiating Clinical Features of Autism and Borderline Personality Disorder in Women and People Assigned Female at Birth: A Cross-Sectional Study.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Barnicot K, Thompson E, Turner S et al.",
-      "published": "2026-05-01",
-      "preview": "Previous research has suggested potential phenotypic similarities between autism and borderline personality disorder (BPD). We aimed to identify overlapping and differentiating characteristics of the two diagnostic groups in women and people assigned female at birth (PAFAB).",
+      "pmid": "42548071",
+      "title": "Longitudinal associations among autism and ADHD traits, social maladjustment, and mental health in school-aged children.",
+      "journal": "Psychological medicine",
+      "authors": "Hashimoto E, Ito H, Hamada M et al.",
+      "published": "2026-08-04",
+      "preview": "Neurodevelopmental disorder traits are associated with a range of psychosocial difficulties, yet the longitudinal processes linking these traits to mental health remain insufficiently explored. This study examined developmental associations among autism spectrum disorder (ASD) traits, attention-deficit/hyperactivity...",
       "tags": [
-        "masking",
-        "identity",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41928549/"
-    },
-    {
-      "pmid": "41906351",
-      "title": "'A New Pace of Life': A Mixed-Methods Exploration of Retirement Plans, Preparations and Experiences in Middle-Aged and Older Autistic and Non-Autistic Adults.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Kowalczyk Z, Fadzil AHA, Ward I et al.",
-      "published": "2026-05-01",
-      "preview": "Retirement is a major life change affecting routines, finances and wellbeing. Autistic adults may face extra challenges during this transition due to employment barriers, limited support and planning difficulties.",
-      "tags": [
-        "autistic adults",
-        "work and study"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41906351/"
-    },
-    {
-      "pmid": "41933479",
-      "title": "Assessing Social Identity in Autistic Individuals: Evaluating A Self-Report Questionnaire in the Netherlands.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Krijnen LJ, Rippe RC, Begeer S et al.",
-      "published": "2026-05-01",
-      "preview": "People with autism often face mental health difficulties at rates far exceeding those of the general population. How autistic individuals relate to their autism classification and the autistic community, also known as social identity , may form a protective factor for mental health.",
-      "tags": [
-        "identity",
         "mental health"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41933479/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42548071/"
     },
     {
-      "pmid": "41910582",
-      "title": "A Feasibility Trial of a Telehealth-Adapted Ayres Sensory Integration® Intervention for Autistic Children.",
-      "journal": "The American journal of occupational therapy : official publication of the American Occupational Therapy Association",
-      "authors": "Schiano NR, Sivori TT, Dumont RL et al.",
-      "published": "2026-05-01",
-      "preview": "Families of autistic children with sensory needs who live in rural areas and places where in-person visits are not possible may benefit from additional therapy delivery options. To assess parents' and therapists' acceptability of a telehealth delivery of occupational therapy using Ayres Sensory Integration® (OT-ASI)...",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41910582/"
-    },
-    {
-      "pmid": "42063232",
-      "title": "Cerebral Cortex Morphometry and Relaxometry in Male Children With Fragile X Syndrome and Autism.",
-      "journal": "Brain and behavior",
-      "authors": "Guerrero-Gonzalez JM, Lowe AK, Kecskemeti SR et al.",
-      "published": "2026-05-01",
-      "preview": "An estimated 30%-50% of male individuals with fragile X syndrome (FXS) meet criteria for autism spectrum disorder (ASD), indicating phenotypic overlap but potentially distinct neurobiology. Here, we aimed to characterize shared and divergent cortical features between FXS and ASD.",
-      "tags": [
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42063232/"
-    },
-    {
-      "pmid": "41928551",
-      "title": "Predictors of Parent Engagement in Part C Early Intervention for Autism: The Role of Single Parenthood and Initial Motivation.",
+      "pmid": "42478670",
+      "title": "Understanding Autistic Adults' Psychological Experiences of Anxiety Problems: A Qualitative Interview Study.",
       "journal": "Autism : the international journal of research and practice",
-      "authors": "Tokish H, Ingersoll B, RISE Research Network",
-      "published": "2026-05-01",
-      "preview": "Parent engagement in early intervention supports child progress but is variable in community settings and understudied in autism populations. Prior studies have examined attendance and homework completion rather than parent participation engagement-active, independent, and responsive contribution to treatment-and it...",
+      "authors": "Roberts-Davis RJ, Happé FG, Lau-Zhu A",
+      "published": "2026-08-01",
+      "preview": "Our understanding of psychological experiences of anxiety in autism could be improved if it were shaped by autistic individuals. However, anxiety research in autism often begins with cognitive conceptualisations drawn from neurotypical or non-autistic individuals.",
       "tags": [
-        "identity"
+        "autistic adults",
+        "lived experience",
+        "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41928551/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42478670/"
     },
     {
-      "pmid": "41980792",
-      "title": "Delayed diagnosis of congenital duodenal obstruction in early adolescence in a patient with Down syndrome and autism spectrum disorder.",
-      "journal": "BMJ case reports",
-      "authors": "Sako I, Maekawa T, Iijima H et al.",
-      "published": "2026-04-14",
-      "preview": "Congenital duodenal obstruction (CDO) is a recognised anomaly frequently associated with Down syndrome (DS). While complete obstruction is typically diagnosed in the neonatal period, incomplete obstruction may present with milder, non-specific symptoms, often delaying diagnosis.We report a boy in early adolescence w...",
+      "pmid": "42485738",
+      "title": "South Korean immigrant parent and sibling perspectives on physical activity participation among adults with autism spectrum disorder.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Lee SH, Park SY",
+      "published": "2026-08-01",
+      "preview": "Although physical activity (PA) participation can promote physical health, social interaction, behavioral regulation, and overall quality of life among adults with autism spectrum disorder (ASD), South Korean immigrant parents and siblings may face distinctive challenges in supporting PA participation due to caregiv...",
+      "tags": [
+        "quality of life"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42485738/"
+    },
+    {
+      "pmid": "42468411",
+      "title": "Effects of group-based music therapy combined with speech therapy on language and social skills in preschool children with autism spectrum disorder: An exploratory randomized controlled trial.",
+      "journal": "Research in developmental disabilities",
+      "authors": "Liu CE, Chen PY, Lai TJ et al.",
+      "published": "2026-08-01",
+      "preview": "Autism spectrum disorder (ASD) is characterized by early difficulties in language and social communication. While speech therapy is a core early intervention, music therapy has been increasingly applied to support social-emotional development.",
       "tags": [
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41980792/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42468411/"
     }
   ]
 }
