@@ -2,7 +2,7 @@
 
 ## 1. Doel
 
-JourHelp is een rustige, persoonlijke informatiesite over OCD, autisme en neurodivergente ervaringen. De site helpt bezoekers woorden, herkenning en praktische steun te vinden zonder professionele zorg te vervangen.
+JourHelp is een rustige, persoonlijke informatiesite over OCD, autisme, DID/DIS en neurodivergente of mentale gezondheidservaringen. De site helpt bezoekers woorden, herkenning en praktische steun te vinden zonder professionele zorg te vervangen.
 
 Het ontwerp richt zich op:
 
@@ -16,7 +16,7 @@ Het ontwerp richt zich op:
 
 Primaire gebruikers:
 
-- neurodivergente bezoekers die informatie zoeken over autisme, OCD, masking, burn-out, prikkelverwerking en zelfbegrip;
+- neurodivergente bezoekers die informatie zoeken over autisme, OCD, DID/DIS, masking, burn-out, prikkelverwerking en zelfbegrip;
 - laat-herkende of zelfonderzoekende bezoekers;
 - supporters zoals vrienden, partners, familieleden en begeleiders;
 - bezoekers die snel een rustige uitleg, tool of woordenlijst nodig hebben.
@@ -60,6 +60,7 @@ Hoofdgebieden:
 - Calm plan: lokaal bewaarbaar plan voor signalen, hulp, woorden, dingen om te vermijden en contactpersonen.
 - Glossary: doorzoekbare begrippenlijst.
 - Supporter view: gids voor mensen die iemand willen steunen.
+- DID home: rustige gids over dissociatieve identiteitsstoornis met uitleg over dissociatie, delen/systemen, mythes, grounding, support en professionele hulp.
 - Overlap guide: uitleg over overlap tussen OCD, autisme en verwante ervaringen.
 - Disclaimer en about/contact.
 
