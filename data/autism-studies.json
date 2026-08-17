@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-08-10T08:42:13Z",
+  "updatedAt": "2026-08-17T07:54:55Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42599540",
+      "title": "Eating Disorder Focused Family Therapy with Autistic Children and Young People: A Narrative Review of Recent Developments.",
+      "journal": "Current psychiatry reports",
+      "authors": "Austin A, Loomes R, Duffy F",
+      "published": "2026-08-14",
+      "preview": "This review aims to report the recent advances for eating disorder focused family therapy (FT-ED) for Autistic children and young people, including outcomes, experiences, and suggested adaptations. Quantitative studies suggest that Autistic children and young people (and those with high autistic traits) receiving ou...",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42599540/"
+    },
     {
       "pmid": "42567865",
       "title": "Autism in adolescence and adulthood.",
@@ -81,28 +93,16 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42478670/"
     },
     {
-      "pmid": "42485738",
-      "title": "South Korean immigrant parent and sibling perspectives on physical activity participation among adults with autism spectrum disorder.",
-      "journal": "Research in developmental disabilities",
-      "authors": "Lee SH, Park SY",
+      "pmid": "42584043",
+      "title": "Pain Expectation in Individuals With High Autistic Traits: Decision-Evaluation Processes and Oxytocin Modulation.",
+      "journal": "Annals of the New York Academy of Sciences",
+      "authors": "Zhu J, Chen S, Zhang W et al.",
       "published": "2026-08-01",
-      "preview": "Although physical activity (PA) participation can promote physical health, social interaction, behavioral regulation, and overall quality of life among adults with autism spectrum disorder (ASD), South Korean immigrant parents and siblings may face distinctive challenges in supporting PA participation due to caregiv...",
-      "tags": [
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42485738/"
-    },
-    {
-      "pmid": "42468411",
-      "title": "Effects of group-based music therapy combined with speech therapy on language and social skills in preschool children with autism spectrum disorder: An exploratory randomized controlled trial.",
-      "journal": "Research in developmental disabilities",
-      "authors": "Liu CE, Chen PY, Lai TJ et al.",
-      "published": "2026-08-01",
-      "preview": "Autism spectrum disorder (ASD) is characterized by early difficulties in language and social communication. While speech therapy is a core early intervention, music therapy has been increasingly applied to support social-emotional development.",
+      "preview": "Pain reflects both sensory input and predictive processes shaped by expectations. Individuals with high autistic traits (HATs) often exhibit atypical pain responses, potentially due to alterations in anticipatory processing.",
       "tags": [
         "sensory needs"
       ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42468411/"
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42584043/"
     }
   ]
 }
