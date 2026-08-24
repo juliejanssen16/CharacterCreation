@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-08-17T07:54:55Z",
+  "updatedAt": "2026-08-24T07:59:13Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42616898",
+      "title": "Perceptual meta-uncertainty reveals enhanced calibration of sensory confidence in autism.",
+      "journal": "Science advances",
+      "authors": "Fazioli L, Hadad BS, Denison RN et al.",
+      "published": "2026-08-21",
+      "preview": "Atypical metacognition has been suggested to underlie autistic phenotypes, given its role in social cognition and behavioral flexibility. However, no study has quantitatively assessed metacognitive abilities in autism.",
+      "tags": [
+        "sensory needs"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42616898/"
+    },
     {
       "pmid": "42599540",
       "title": "Eating Disorder Focused Family Therapy with Autistic Children and Young People: A Narrative Review of Recent Developments.",
@@ -28,18 +40,6 @@
         "neurodiversity"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42567865/"
-    },
-    {
-      "pmid": "42473985",
-      "title": "Emerging Promise of Sulforaphane in Autism: A Comprehensive Review of Its Therapeutic Potential and Mechanisms.",
-      "journal": "ACS chemical neuroscience",
-      "authors": "Zhang X, He Q, Zhu YY et al.",
-      "published": "2026-08-05",
-      "preview": "Autism spectrum disorder (ASD) is a complex neurodevelopmental disorder that emerges in early childhood and significantly impacts the quality of life for individuals and families. Currently, there are no specific medications available for ASD.",
-      "tags": [
-        "quality of life"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42473985/"
     },
     {
       "pmid": "42548172",
@@ -79,20 +79,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/42548071/"
     },
     {
-      "pmid": "42478670",
-      "title": "Understanding Autistic Adults' Psychological Experiences of Anxiety Problems: A Qualitative Interview Study.",
-      "journal": "Autism : the international journal of research and practice",
-      "authors": "Roberts-Davis RJ, Happé FG, Lau-Zhu A",
-      "published": "2026-08-01",
-      "preview": "Our understanding of psychological experiences of anxiety in autism could be improved if it were shaped by autistic individuals. However, anxiety research in autism often begins with cognitive conceptualisations drawn from neurotypical or non-autistic individuals.",
-      "tags": [
-        "autistic adults",
-        "lived experience",
-        "sensory needs"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42478670/"
-    },
-    {
       "pmid": "42584043",
       "title": "Pain Expectation in Individuals With High Autistic Traits: Decision-Evaluation Processes and Oxytocin Modulation.",
       "journal": "Annals of the New York Academy of Sciences",
@@ -103,6 +89,18 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42584043/"
+    },
+    {
+      "pmid": "42522203",
+      "title": "A Systematic Review of the Risk and Protective Factors for Suicide in Autism Spectrum Disorder.",
+      "journal": "The Spanish journal of psychology",
+      "authors": "Tubío-Fungueiriño M, Cruz S, Conde-Pumpido-Zubizarreta S et al.",
+      "published": "2026-07-29",
+      "preview": "The shorter lifespan and increased prevalence of physical and psychiatric comorbidities in autistic people is a challenge for mental health. There is a high risk of suicide-related behaviors in autism, which are related to mental health issues, social isolation, and other factors.",
+      "tags": [
+        "mental health"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42522203/"
     }
   ]
 }
