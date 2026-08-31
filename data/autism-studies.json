@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-08-24T07:59:13Z",
+  "updatedAt": "2026-08-31T14:57:18Z",
   "source": "PubMed / NCBI",
   "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/",
   "method": "Weekly PubMed search for recent peer-reviewed autism research aligned with JourHelp's support, accommodation, sensory, masking, burnout, communication, diagnosis, and quality-of-life goals.",
   "studies": [
+    {
+      "pmid": "42667457",
+      "title": "Off-Time Puberty in Autism Spectrum Disorder and ADHD: A Scoping Review of Pubertal Timing, Social Cognition, and Psychopathological Risk.",
+      "journal": "Research on child and adolescent psychopathology",
+      "authors": "Sahin B",
+      "published": "2026-08-29",
+      "preview": "Off-time pubertal development defined as pubertal onset or progression deviating meaningfully from age- and sex-matched normative expectations confers heightened risk for internalizing and externalizing psychopathology during adolescence. Children and adolescents with neurodevelopmental disorders (NDDs), including a...",
+      "tags": [
+        "masking"
+      ],
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42667457/"
+    },
     {
       "pmid": "42616898",
       "title": "Perceptual meta-uncertainty reveals enhanced calibration of sensory confidence in autism.",
@@ -89,18 +101,6 @@
         "sensory needs"
       ],
       "url": "https://pubmed.ncbi.nlm.nih.gov/42584043/"
-    },
-    {
-      "pmid": "42522203",
-      "title": "A Systematic Review of the Risk and Protective Factors for Suicide in Autism Spectrum Disorder.",
-      "journal": "The Spanish journal of psychology",
-      "authors": "Tubío-Fungueiriño M, Cruz S, Conde-Pumpido-Zubizarreta S et al.",
-      "published": "2026-07-29",
-      "preview": "The shorter lifespan and increased prevalence of physical and psychiatric comorbidities in autistic people is a challenge for mental health. There is a high risk of suicide-related behaviors in autism, which are related to mental health issues, social isolation, and other factors.",
-      "tags": [
-        "mental health"
-      ],
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42522203/"
     }
   ]
 }
